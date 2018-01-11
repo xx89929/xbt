@@ -42,6 +42,8 @@
     $("img.lazy").lazyload({
         effect : "fadeIn",
         skip_invisible : false,
+        event: 'scroll',
+        threshold:500
     });
 </script>
 </body>
