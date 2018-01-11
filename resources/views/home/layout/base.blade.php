@@ -35,10 +35,10 @@
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script>
-    lazyload();
-</script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script>
+    $('img.lazyload').lazyload();
+</script>
 </body>
 </html>
