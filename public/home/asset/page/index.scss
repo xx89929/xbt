@@ -1,0 +1,266 @@
+.i-banner{
+  position: relative;
+}
+
+.carousel-control.left{
+  margin-left: 244px;
+}
+
+.in-banner{
+  img{
+    width: 1241px;
+    height: 530px !important;
+  }
+}
+.classify_nav_b{
+  height: 100%;
+  width: 244px;
+  position: absolute;
+  top: 0px;
+  background-color: rgba(0,0,0,.6);
+}
+
+.classify_nav_ul{
+  & > ul{
+    margin-top: 20px;
+    & > li{
+      cursor: pointer;
+      padding:10px 30px;
+      & > a{
+        color: white;
+      }
+      & > i{
+        color: white;
+        font-size: 22px;
+      }
+      &:hover{
+        background-color: $active-color;
+      }
+    }
+
+  }
+}
+
+.cla_item_dis{
+  display: none;
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  left: 244px;
+  min-width: 470px;
+  border:1px solid #dddd;
+  border-left: 0px;
+  height: 100%;
+  & > ul {
+    display: inline-block;
+    margin-left: 0px;
+    li {
+      padding:20px;
+      a{
+        display: inline-block;
+        color: $b-font-color;
+        &:hover{
+          color: $href-color;
+        }
+      }
+    }
+  }
+}
+
+
+.hot-product_box{
+  width: 100%;
+  & > ul {
+    & > li{
+      position: relative;
+      top:0px;
+      transition: all 0.5s;
+      &:last-child{
+        padding-right: 0px;
+      }
+      &:hover{
+        top: -10px;
+      }
+    }
+  }
+}
+.product-tit{
+  padding:30px 0px 10px;
+  h3{
+    margin: 0px;
+  }
+}
+
+
+.hot-pro-item{
+  padding:20px 10px;
+  background-color: #f5f5f5;
+  img{
+    width: 217px;
+    height: 217px;
+  }
+  h5{
+    font-size: 16px;
+  }
+  p{
+    padding: 5px 0px;
+    margin: 0px;
+  }
+  span{
+    width: 100%;
+    color: #999;
+  }
+  &:hover{
+    box-shadow: 0 2px 7px #ddd;
+  }
+}
+
+.product-price{
+  color: $href-color;
+  i{
+    font-size: 20px;
+  }
+}
+
+.product-z1{
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  padding-bottom: 20px;
+
+}
+
+.product-l-f1{
+  & > ul > li {
+    margin-bottom: 15px;
+    &:last-child{
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.product-r-f1{
+  width: 1004px;
+  padding-left:10px;
+
+  &>ul {
+    display: inline-block;
+    width: 100%;
+    margin: 0px;
+    & > li{
+      padding:0px;
+      margin-bottom: 15px;
+      height: 335px;
+      width: 245px;
+      float: left;
+      margin-left: 3px;
+      a{
+        height: 100%;
+        width: 235px;
+        display: inline-block;
+        background-color: white;
+        color: $b-font-color;
+        transition: all 0.5s;
+        position: relative;
+        top:0px;
+        &:hover{
+          top:-10px;
+          box-shadow: 0 2px 10px #ddd;
+        }
+        & > img{
+          width: 217px;
+          height: 217px;
+        }
+        & > p{
+          span{
+            color: #999;
+          }
+          margin-bottom: 10px;
+        }
+        .price{
+          color: $active-color;
+          i{
+            font-size: 20px;
+          }
+        }
+      }
+      &:last-child{
+        a{
+          padding:35px 18px 0px;
+          margin-bottom: 1px;
+          height: 49%;
+          &:last-child{
+            margin-bottom: 0px;
+            padding:50px  18px;
+            .last-pro-icon{
+              margin-left: 48px;
+              i{
+                color: $href-color;
+                font-size: 65px;
+              }
+            }
+          }
+        }
+        img{
+          width: 100px;
+          height: 100px;
+        }
+        .pro-in-l{
+          width: 98px;
+        }
+        span{
+          color: #999;
+        }
+      }
+    }
+  }
+}
+
+.p-img-tit{
+  a{
+    img{
+      width: 237px;
+      height: 335px;
+    }
+  }
+}
+
+
+.news-f1-mes-con{
+  width: 100%;
+  & > ul {
+    margin: 0px;
+    li {
+      width: 24%;
+      padding:0px;
+      margin-left: 10px;
+      &:first-child{
+        margin-left: 0px;
+      }
+      a{
+        display: inline-block;
+        background-color: white;
+        color: inherit;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.news-f1-des{
+  padding:20px;
+  p{
+    margin-bottom: 20px;
+  }
+  span{
+    color: #999;
+    i{
+      color: $active-color;
+    }
+  }
+  .news-f1-tit{
+    font-size: 15px;
+    font-weight: bold;
+  }
+}

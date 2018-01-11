@@ -1,0 +1,14 @@
+@import "color";
+@import "mixin";
+@import "bootstrap";
+
+a{
+  cursor: pointer;
+  &:hover{
+    text-decoration:none;
+  }
+  &:link{
+    text-decoration:none;
+  }
+}
+

@@ -1,0 +1,55 @@
+.top-box{
+  background-color: #333;
+  ul {
+    line-height: 30px;
+    li{
+      padding:5px 10px;
+      i{
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.top-box-f1 {
+  color: #bbb;
+  p {
+    line-height: 40px;
+    margin-bottom: 0px;
+  }
+  a{
+    color: #bbb;
+    cursor: pointer;
+  }
+
+}
+
+.top-box-f2{
+  .buy_car{
+    background-color: #404040;
+  }
+  a{
+    color: #bbb;
+    text-decoration: none;
+    &:hover{
+      color: $href-color;
+    }
+  }
+}
+
+
+.top-weixin-code-li{
+  position: relative;
+  .top-weixin-code{
+    z-index: 10;
+    position: absolute;
+    left:-20px;
+    top:40px;
+    border: 1px solid #ddd;
+    display: none;
+    img{
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

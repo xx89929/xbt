@@ -1,0 +1,45 @@
+.foot-con{
+  margin-top: 20px;
+}
+.foot-con-l{
+  width: 70%;
+  & > ul{
+    border-right:1px solid #ddd;
+  }
+}
+
+.foot-con-r{
+  width: 30%;
+  h2{
+    color: $href-color;
+  }
+  & > ul > li{
+    font-size: 18px;
+    .fa-weixin{
+      color: green;
+    }
+    .fa-qq{
+      color: #2096ff;
+    }
+    .fa-weibo{
+      color: #ff5818;
+    }
+  }
+}
+.foot-item{
+  & > ul > li{
+    padding:4px 0px;
+    a{
+      span{
+        color: #868686;
+      }
+      color: inherit;
+      &:hover{
+        color: $href-color-active;
+        span{
+          color: $href-color-active;
+        }
+      }
+    }
+  }
+}

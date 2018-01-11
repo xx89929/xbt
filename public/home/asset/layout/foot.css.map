@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,SAAS;EACP,UAAU,EAAE,IAAI",
+"sources": ["foot.scss"],
+"names": [],
+"file": "foot.css"
+}
