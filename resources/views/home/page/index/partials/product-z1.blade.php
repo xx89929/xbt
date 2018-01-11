@@ -8,15 +8,15 @@
             </div>
             <div class="product-l-f1 pull-left">
                 <ul class="list-unstyled">
-                    <li class="p-img-tit"><a><img src="{{url('home/images/pro-tit-1.jpg')}}"></a></li>
-                    <li class="p-img-tit"><a><img src="{{url('home/images/pro-tit-2.jpg')}}"></a></li>
+                    <li class="p-img-tit"><a><img class="lazy" data-original="{{url('home/images/pro-tit-1.jpg')}}"></a></li>
+                    <li class="p-img-tit"><a><img class="lazy" data-original="{{url('home/images/pro-tit-2.jpg')}}"></a></li>
                 </ul>
             </div>
             <div class="product-r-f1 pull-left text-center">
                 <ul class="list-inline clearfix">
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-1.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -24,7 +24,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-1.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -32,7 +32,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-1.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -40,7 +40,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-1.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -48,7 +48,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-1.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -56,7 +56,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-1.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -64,7 +64,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-1.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -78,7 +78,7 @@
                                 <p class="price">￥<i>499</i>.00元</p>
                             </div>
                             <div class="last-pro-img pull-left">
-                                <img src="{{url('home/images/product-1.jpg')}}">
+                                <img class="lazy" data-original="{{url('home/images/product-1.jpg')}}">
                             </div>
                         </a>
                         <a href="#">
@@ -106,15 +106,15 @@
             </div>
             <div class="product-l-f1 pull-left">
                 <ul class="list-unstyled">
-                    <li class="p-img-tit"><a><img src="{{url('home/images/pro-tit-3.jpg')}}"></a></li>
-                    <li class="p-img-tit"><a><img src="{{url('home/images/pro-tit-4.jpg')}}"></a></li>
+                    <li class="p-img-tit"><a><img class="lazy" data-original="{{url('home/images/pro-tit-3.jpg')}}"></a></li>
+                    <li class="p-img-tit"><a><img class="lazy" data-original="{{url('home/images/pro-tit-4.jpg')}}"></a></li>
                 </ul>
             </div>
             <div class="product-r-f1 pull-left text-center">
                 <ul class="list-inline clearfix">
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-2.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             <p>无痕修护平滑液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -122,7 +122,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-2.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             <p>无痕修护平滑液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -130,7 +130,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-2.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -138,7 +138,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-2.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             <p>草本舒痕修护液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -146,7 +146,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-2.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -154,7 +154,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-2.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -162,7 +162,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('home/images/product-2.jpg')}}">
+                            <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             <p>植物精华清爽美肤液</p>
                             <p><span>疤痕疙瘩</span></p>
                             <p class="price">￥<i>499</i>.00元</p>
@@ -176,7 +176,7 @@
                                 <p class="price">￥<i>499</i>.00元</p>
                             </div>
                             <div class="last-pro-img pull-left">
-                                <img src="{{url('home/images/product-2.jpg')}}">
+                                <img class="lazy" data-original="{{url('home/images/product-2.jpg')}}">
                             </div>
                         </a>
                         <a href="#">
@@ -186,7 +186,7 @@
                                     <span>热门</span>
                                 </div>
                                 <div class="last-pro-icon pull-left">
-                                    <i class="fa fa-chevron-right"></i>
+                                    <i class="fa fa-fa-chevron-right "></i>
                                 </div>
                             </div>
                         </a>
@@ -206,7 +206,7 @@
                     <li>
                         <a href="#">
                             <div class="news-f1-con-img">
-                                <img src="{{url('home/images/news-img-1.jpg')}}">
+                                <img class="lazy" data-original="{{url('home/images/news-img-1.jpg')}}">
                             </div>
                             <div class="news-f1-des">
                                 <p>
@@ -221,7 +221,7 @@
                     <li>
                         <a href="#">
                             <div class="news-f1-con-img">
-                                <img src="{{url('home/images/news-img-1.jpg')}}">
+                                <img class="lazy" data-original="{{url('home/images/news-img-1.jpg')}}">
                             </div>
                             <div class="news-f1-des">
                                 <p>
@@ -236,7 +236,7 @@
                     <li>
                         <a href="#">
                             <div class="news-f1-con-img">
-                                <img src="{{url('home/images/news-img-1.jpg')}}">
+                                <img class="lazy" data-original="{{url('home/images/news-img-1.jpg')}}">
                             </div>
                             <div class="news-f1-des">
                                 <p>
@@ -251,7 +251,7 @@
                     <li>
                         <a href="#">
                             <div class="news-f1-con-img">
-                                <img src="{{url('home/images/news-img-1.jpg')}}">
+                                <img class="lazy" data-original="{{url('home/images/news-img-1.jpg')}}">
                             </div>
                             <div class="news-f1-des">
                                 <p>
