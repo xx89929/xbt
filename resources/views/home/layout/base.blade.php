@@ -42,7 +42,7 @@
         effect : "fadeIn",
         skip_invisible : false,
         event: 'scroll',
-        threshold:200
+        threshold:500
     });
 </script>
 </body>
