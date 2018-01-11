@@ -40,7 +40,8 @@
 <script>
     $("img.lazy").lazyload({
         effect : "fadeIn",
-        skip_invisible : false
+        skip_invisible : false,
+        event: 'scrollstop'
     });
 </script>
 </body>
