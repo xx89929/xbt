@@ -1,7 +1,7 @@
 <div class="container">
     <div class="nav-warp clearfix">
         <div class="logo pull-left">
-            <a><img src="{{url('home/images/logo/logo_icon.png')}}"></a>
+            <a><img class="lazy" data-original="{{url('home/images/logo/logo_icon.png')}}"></a>
         </div>
 
         <div class="nav-ul pull-right">

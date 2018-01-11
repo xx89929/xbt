@@ -12,16 +12,16 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner in-banner" role="listbox">
                 <div class="item active">
-                    <img class="lazy" data-original="{{url('home/images/banner/1.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/1.jpg')}}" src="{{url('home/images/icon/loading.jpg')}}" alt="...">
                 </div>
                 <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/2.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/2.jpg')}}" src="{{url('home/images/icon/loading.jpg')}}" alt="...">
                 </div>
                 <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/3.jpg')}}"  alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/3.jpg')}}" src="{{url('home/images/icon/loading.jpg')}}"  alt="...">
                 </div>
                 <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/4.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/4.jpg')}}" src="{{url('home/images/icon/loading.jpg')}}" alt="...">
                 </div>
             </div>
 
