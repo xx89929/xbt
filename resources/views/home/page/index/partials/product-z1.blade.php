@@ -186,7 +186,7 @@
                                     <span>热门</span>
                                 </div>
                                 <div class="last-pro-icon pull-left">
-                                    <i class="fa fa-fa-chevron-right "></i>
+                                    <i class="fa fa-chevron-right "></i>
                                 </div>
                             </div>
                         </a>
