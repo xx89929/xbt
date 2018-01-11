@@ -38,7 +38,10 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script>
-    $('img.lazyload').lazyload();
+    $("img.lazy").lazyload({
+        effect : "fadeIn",
+        skip_invisible : false
+    });
 </script>
 </body>
 </html>
