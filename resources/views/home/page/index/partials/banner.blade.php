@@ -12,16 +12,16 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner in-banner" role="listbox">
                 <div class="item active">
-                    <img class="lazy" data-original="{{url('home/images/banner/1.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/1.jpg')}}" src="{{url('home/images/icon/loading.gif')}}" alt="...">
                 </div>
                 <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/2.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/2.jpg')}}" src="{{url('home/images/icon/loading.gif')}}" alt="...">
                 </div>
                 <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/3.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/3.jpg')}}" src="{{url('home/images/icon/loading.gif')}}" alt="...">
                 </div>
                 <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/4.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{url('home/images/banner/4.jpg')}}" src="{{url('home/images/icon/loading.gif')}}"alt="...">
                 </div>
             </div>
 
@@ -43,14 +43,14 @@
                         <a class="pull-left">新伤防疤</a><i class="fa fa-angle-right pull-right"></i>
                         <div class="cla_item_dis">
                             <ul class="list-inline">
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/1.jpg')}}" src="{{url('home/images/icon/1.jpg')}}">无痕修护菁华液</a></li>
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/2.jpg')}}" src="{{url('home/images/icon/2.jpg')}}">日夜无痕早护液</a></li>
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/3.jpg')}}" src="{{url('home/images/icon/3.jpg')}}">日夜无痕早护液</a></li>
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/4.jpg')}}" src="{{url('home/images/icon/4.jpg')}}">日夜无痕早护液</a></li>
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/1.jpg')}}" src="{{url('home/images/icon/1.jpg')}}">无痕修护菁华液</a></li>
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/2.jpg')}}" src="{{url('home/images/icon/2.jpg')}}">日夜无痕早护液</a></li>
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/3.jpg')}}" src="{{url('home/images/icon/3.jpg')}}">日夜无痕早护液</a></li>
-                                <li class="col-xs-6"><a href="#"><img data-original="{{url('home/images/icon/4.jpg')}}" src="{{url('home/images/icon/4.jpg')}}">日夜无痕早护液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/1.jpg')}}">无痕修护菁华液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/2.jpg')}}">日夜无痕早护液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/3.jpg')}}">日夜无痕早护液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/4.jpg')}}">日夜无痕早护液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/1.jpg')}}">无痕修护菁华液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/2.jpg')}}">日夜无痕早护液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/3.jpg')}}">日夜无痕早护液</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{url('home/images/icon/4.jpg')}}">日夜无痕早护液</a></li>
                             </ul>
                         </div>
                     </li>
