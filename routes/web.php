@@ -17,5 +17,5 @@
 
 
 Route::group(['namespace' => 'Home'],function (){
-    Route::get('/','indexController@index')->name('index');
+    Route::get('/','IndexController@index')->name('index');
 });
