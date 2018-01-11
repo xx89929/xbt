@@ -45,6 +45,7 @@
         event: 'scroll',
         threshold:500,
         placeholder:'/home/images/icon/loading.gif',
+        failure_limit : 10
     });
 </script>
 </body>
