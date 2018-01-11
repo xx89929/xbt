@@ -20,6 +20,7 @@
     <![endif]-->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{url('bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{url('js/lazyload.min.js')}}"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -34,9 +35,10 @@
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
+<script>
+    lazyload();
+</script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-
 
 </body>
 </html>
