@@ -43,10 +43,10 @@
         $("img.lazy").lazyload({
             effect : "fadeIn",
             skip_invisible : false,
-//            event: 'scroll',
-//            threshold:500,
-//        placeholder:'/home/images/icon/loading.gif',
-//            failure_limit : 10,
+            event: 'scroll',
+            threshold:500,
+            placeholder:'/home/images/icon/zhanwei.png',
+            failure_limit : 10,
         });
     })
 

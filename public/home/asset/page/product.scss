@@ -1,0 +1,136 @@
+
+.product-nav{
+  padding-bottom: 20px;
+  & > ul {
+    li {
+      border-right: 1px solid #ddd;
+      a{
+        display: inline-block;
+        color: inherit;
+
+        h4{
+          font-size: 16px;
+          margin: 0px;
+        }
+      }
+      &:last-child{
+        border-right: 0px;
+      }
+      &:hover{
+        color: $href-color;
+      }
+    }
+
+    .active{
+      a{
+        color: $href-color;
+      }
+    }
+  }
+}
+
+.product-f1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.product-box{
+  width: 75%;
+  & > ul > li {
+    margin-bottom: 20px;
+  }
+}
+.pro-item{
+  padding:20px 30px;
+  background-color: white;
+}
+.pro-item-img{
+  width: 20%;
+  img{
+    width: 100%;
+    height: 178px;
+  }
+}
+
+.pro-item-cont{
+  margin-left: 2%;
+  width: 50%;
+  max-height: 178px;
+  h4{
+    margin-bottom: 40px;
+  }
+  p{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #999;
+  }
+}
+
+.pro-item-r{
+  width: 28%;
+  h3{
+    color: $href-color;
+    margin-bottom: 30px;
+  }
+  & > ul > li {
+    margin-bottom: 10px;
+    a{
+      display: inline-block;
+      padding:5px 10px;
+      width: 100px;
+      text-align: center;
+    }
+    .check-pro{
+      @include button;
+    }
+    .jion-buy{
+      border: 0px;
+      background-color: $blue-color;
+      color: white;
+      transition: all 0.2s;
+      &:hover{
+        background-color: #0080C7;
+      }
+    }
+  }
+}
+
+
+.hot-product-box{
+  background-color: white;
+  width: 24%;
+  margin-left: 1%;
+  padding:20px;
+}
+
+.hot-product-box-tit{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  h4{
+    margin: 0px;
+  }
+}
+
+.hot-product-box-b{
+  & > ul > li {
+    margin-bottom: 20px;
+  }
+}
+
+.hot-pro-b-item{
+  display: inline-block;
+  img{
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.hot-pro-b-con{
+  p{
+    color: #333;
+    span{
+      color: $href-color;
+      font-size: 16px;
+    }
+  }
+}

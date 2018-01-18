@@ -17,5 +17,10 @@
 
 
 Route::group(['namespace' => 'Home'],function (){
-    Route::get('/','IndexController@index')->name('index');
+    Route::get('/','IndexController@index')->name('/');
+    Route::get('news','NewsController@index')->name('news');
+    Route::get('case','CaseController@index')->name('case');
+    Route::get('partner','PartnerController@index')->name('partner');
+    Route::get('contact','ContactController@index')->name('contact');
+    Route::get('product','ProductController@index')->name('product');
 });

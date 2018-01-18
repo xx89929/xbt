@@ -1,0 +1,52 @@
+.partner-box{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.pn-question{
+  width: 76%;
+  background-color: white;
+  padding: 20px 30px;
+}
+.pn-qt{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.pn-qt-tit{
+  span{
+    line-height: 35px;
+    color: #a3afb7;
+  }
+}
+
+.pn-qt-des{
+  p{
+    margin-bottom: 0px;
+  }
+  margin-top: 10px;
+  background-color: #f3f7f9;
+  padding:20px;
+  border: 1px solid #e4eaec;
+}
+
+.par_input{
+  margin-left: 1%;
+  width: 23%;
+  background-color: white;
+  padding: 30px;
+  & > ul > li {
+    margin-bottom: 20px;
+    input{
+      width: 100%;
+      padding:5px 10px;
+      border: 1px solid #ddd;
+    }
+    textarea{
+      width: 100%;
+    }
+    button{
+      @include button;
+      width: 100%;
+      padding:8px ;
+    }
+  }
+}
