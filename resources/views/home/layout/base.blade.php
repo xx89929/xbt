@@ -44,9 +44,9 @@
             effect : "fadeIn",
             skip_invisible : false,
             event: 'scroll',
-            threshold:500,
+//            threshold:500,
 //        placeholder:'/home/images/icon/loading.gif',
-            failure_limit : 10,
+//            failure_limit : 10,
         });
     })
 
