@@ -21,7 +21,7 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{url('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{url('lazyload/lazyload.min.js')}}"></script>
-    <script src="{{url('lazyload/scrollstop.min.js')}}"></script>
+    {{--<script src="{{url('lazyload/scrollstop.min.js')}}"></script>--}}
 </head>
 <body>
 <div class="container-fluid">
@@ -43,7 +43,7 @@
         $("img.lazy").lazyload({
             effect : "fadeIn",
             skip_invisible : false,
-            event: 'scroll',
+//            event: 'scroll',
 //            threshold:500,
 //        placeholder:'/home/images/icon/loading.gif',
 //            failure_limit : 10,
