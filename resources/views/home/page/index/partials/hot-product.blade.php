@@ -1,6 +1,6 @@
 <div class="container">
     <div class="hot-product">
-        <div class="product-tit">
+        <div class="ind-tit">
             <h3>热卖产品</h3>
         </div>
         <div class="hot-product_box">
