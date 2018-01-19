@@ -1,11 +1,12 @@
 <div class="ind-case">
-    <div class="ind-tit">
+    <div class="ind-tit clearfix">
         <h3>真实案例</h3>
+        <a href="#">更多>></a>
     </div>
     <div class="ind-case-box">
         <ul class="list-inline clearfix">
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -14,10 +15,10 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -26,10 +27,10 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -38,10 +39,10 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -50,10 +51,10 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -62,10 +63,10 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -74,10 +75,10 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -86,10 +87,10 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="col-xs-3">
-                <div class="ind-case-item">
+                <a href="#" class="ind-case-item">
                     <div class="ind-case-img">
                         <img class='lazy'data-original="{{url('home/images/anli-1.jpg')}}">
                     </div>
@@ -98,7 +99,7 @@
                         <span>疤痕位置：腋下</span>
                         <span> 年龄：<i>30岁</i></span>
                     </div>
-                </div>
+                </a>
             </li>
         </ul>
     </div>

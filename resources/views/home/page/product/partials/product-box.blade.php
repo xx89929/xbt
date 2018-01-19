@@ -15,7 +15,7 @@
                 <div class="pro-item-r pull-left text-right">
                     <h3>￥1200元</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="check-pro">查看详情</a></li>
+                        <li><a href="{{route('pro-info')}}" class="check-pro">查看详情</a></li>
                         <li><a href="#" class="jion-buy">加入收藏</a></li>
                     </ul>
                 </div>

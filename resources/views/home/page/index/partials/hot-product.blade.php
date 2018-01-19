@@ -1,7 +1,8 @@
 <div class="container">
     <div class="hot-product">
-        <div class="ind-tit">
+        <div class="ind-tit clearfix">
             <h3>热卖产品</h3>
+            <a href="#">更多>></a>
         </div>
         <div class="hot-product_box">
             <ul class="list-inline">

@@ -219,7 +219,11 @@ a {
 .ind-tit {
   padding: 30px 0px 10px; }
   .ind-tit h3 {
+    display: inline-block;
     margin: 0px; }
+  .ind-tit a {
+    float: right;
+    color: #999; }
 
 .hot-pro-item {
   padding: 20px 10px;
@@ -310,14 +314,20 @@ a {
     margin-bottom: 10px; }
 
 .ind-case-item {
+  display: inline-block;
   padding: 10px;
-  background-color: white; }
+  background-color: white;
+  border: 1px solid transparent;
+  transition: all 0.2s; }
+  .ind-case-item:hover {
+    border: 1px solid #ff0042; }
 
 .ind-case-img img {
   width: 100%;
   height: 167px; }
 
 .ind-case-des p {
+  color: #333;
   margin-top: 10px;
   font-size: 16px; }
 .ind-case-des span {
@@ -797,6 +807,212 @@ a {
   .hot-pro-b-con p span {
     color: #ff0042;
     font-size: 16px; }
+
+.nav-crumb {
+  padding: 10px 0px; }
+  .nav-crumb a {
+    color: inherit;
+    display: inline-block;
+    font-size: 16px; }
+
+.pro_info {
+  background-color: white; }
+
+.pro_info-i {
+  height: 540px;
+  margin: 10px 0px; }
+
+.pro-i-lunbo {
+  position: relative;
+  width: 50%; }
+
+#pro-i-lunbo {
+  padding: 20px 50px; }
+
+.pro-i-tag > li {
+  width: 100px;
+  height: 100px; }
+  .pro-i-tag > li img {
+    width: 100%;
+    height: 100%; }
+
+.pro-i-tag {
+  margin: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  bottom: -100px; }
+  .pro-i-tag li {
+    width: 100px;
+    height: 100px;
+    text-indent: 0px;
+    border-radius: 0px;
+    border: 1px solid transparent;
+    background-color: inherit;
+    margin: 0px; }
+    .pro-i-tag li img {
+      width: 100%;
+      height: 100%; }
+  .pro-i-tag .active {
+    margin: 0px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ff0042; }
+
+.pro-i-lunbo-contr {
+  position: absolute;
+  color: #ddd;
+  z-index: 10;
+  top: 200px;
+  cursor: pointer; }
+  .pro-i-lunbo-contr i {
+    font-size: 60px; }
+  .pro-i-lunbo-contr:hover {
+    color: #ff0042; }
+
+.pro-i-lunbo-contr-left {
+  left: 0px; }
+
+.pro-i-lunbo-contr-right {
+  right: 0px; }
+
+.pro-i-lunbo-img {
+  height: 400px; }
+  .pro-i-lunbo-img img {
+    width: 100%;
+    height: 100% !important; }
+
+.pro-i-con {
+  width: 49%;
+  margin-left: 1%; }
+
+.pro-i-con-pri {
+  width: 100%;
+  margin: 20px 0px;
+  background-color: #fafafa;
+  padding: 20px; }
+  .pro-i-con-pri span {
+    font-size: 20px;
+    color: #ff0042; }
+
+.pro-i-con-check {
+  margin: 30px 0px; }
+
+.pro-select {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 5px 10px; }
+
+.pro-nub-contr {
+  width: 40px;
+  font-size: 16px;
+  background-color: #ccd1d6;
+  padding: 5px 15px;
+  height: 34px;
+  line-height: 22px;
+  cursor: pointer; }
+  .pro-nub-contr:hover {
+    background-color: #ff0042;
+    color: white; }
+
+.pro-i-con-nub {
+  margin: 40px 0px; }
+
+.pro-nub-val {
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #ccd1d6;
+  width: 50px;
+  text-align: center; }
+
+.pro-i-con-sub button {
+  padding: 10px 60px; }
+
+.pro-i-con-sub-buy {
+  border: 0px;
+  background-color: #ff0042;
+  color: white;
+  transition: all 0.2s; }
+  .pro-i-con-sub-buy:hover {
+    background-color: rgba(187, 5, 5, 0.86); }
+
+.pro-i-con-sub-join-shop {
+  margin-left: 40px;
+  background-color: #999;
+  color: white;
+  border: 0px;
+  transition: all 0.2s; }
+  .pro-i-con-sub-join-shop:hover {
+    background-color: #757575; }
+
+.pro-i-b {
+  margin: 20px 0px; }
+
+.pro-i-param {
+  padding: 20px;
+  width: 75%;
+  background-color: white; }
+
+.pro-i-param-tit {
+  border-bottom: 1px solid #ddd; }
+  .pro-i-param-tit a {
+    font-size: 16px;
+    display: inline-block;
+    color: #ff0042;
+    padding: 10px;
+    border-bottom: 2px solid #ff0042; }
+
+.pro-i-param-con {
+  min-height: 500px; }
+
+.facade-map-box {
+  position: relative;
+  width: 100%; }
+
+#facade-map {
+  height: 700px; }
+
+.facade-map-search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 420px;
+  background-color: white;
+  padding: 10px; }
+
+.facade-map-select {
+  padding: 4px;
+  width: 100%;
+  border: 1px solid #ddd; }
+
+.facade-map-sear-input {
+  padding: 4px 5px;
+  width: 75%;
+  border: 1px solid #ddd;
+  border-right: 0px; }
+
+.facade-map-sear-button {
+  border: 0px;
+  background-color: #ff0042;
+  color: white;
+  transition: all 0.2s;
+  padding: 5px 10px; }
+  .facade-map-sear-button:hover {
+    background-color: rgba(187, 5, 5, 0.86); }
+
+.hot-facade-tit {
+  border-bottom: 1px solid #ddd; }
+  .hot-facade-tit h4 {
+    margin: 0px;
+    padding-top: 30px;
+    padding-bottom: 20px; }
+
+.hot-facade-list {
+  margin: 20px 0px; }
+
+.hot-facade-item-img img {
+  width: 100%;
+  height: 133px; }
 
 body {
   font: 14px/1.5 "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",Roboto,Arial,sans-serif; }

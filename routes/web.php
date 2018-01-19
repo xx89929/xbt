@@ -23,4 +23,6 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('partner','PartnerController@index')->name('partner');
     Route::get('contact','ContactController@index')->name('contact');
     Route::get('product','ProductController@index')->name('product');
+    Route::get('pro/info','ProInfoController@index')->name('pro-info');
+    Route::get('facade','FacadeController@index')->name('facade');
 });

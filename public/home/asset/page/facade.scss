@@ -1,0 +1,54 @@
+.facade-map-box{
+  position: relative;
+  width: 100%;
+}
+#facade-map{
+  height: 700px;
+}
+
+.facade-map-search{
+  position: absolute;
+  top:20px;
+  left: 20px;
+  width: 420px;
+  background-color: white;
+  padding:10px;
+}
+
+.facade-map-select{
+  padding:4px;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.facade-map-sear-input{
+  padding:4px 5px;
+  width: 75%;
+  border: 1px solid #ddd;
+  border-right: 0px;
+}
+
+.facade-map-sear-button{
+  @include button;
+  padding:5px 10px;
+}
+
+.hot-facade-tit{
+  border-bottom: 1px solid #ddd;
+  h4{
+    margin: 0px;
+    padding-top:30px;
+    padding-bottom: 20px;
+  }
+}
+
+.hot-facade-list{
+  margin: 20px 0px;
+}
+
+.hot-facade-item-img{
+  img{
+    width: 100%;
+    height: 133px;
+  }
+}

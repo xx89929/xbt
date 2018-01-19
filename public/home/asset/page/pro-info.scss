@@ -1,0 +1,188 @@
+.nav-crumb{
+  padding:10px 0px;
+  a{
+    color: inherit;
+    display: inline-block;
+    font-size: 16px;
+  }
+}
+
+.pro_info{
+  background-color: white;
+}
+
+.pro_info-i{
+  height: 540px;
+  margin: 10px 0px;
+}
+
+.pro-i-lunbo{
+  position: relative;
+  width: 50%;
+}
+#pro-i-lunbo{
+  padding:20px 50px;
+}
+
+
+.pro-i-tag{
+  & > li {
+    width: 100px;
+    height: 100px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.pro-i-tag{
+  margin: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  bottom: -100px ;
+  li{
+    width: 100px;
+    height: 100px;
+    text-indent: 0px;
+    border-radius: 0px;
+    border: 1px solid transparent;
+    background-color: inherit;
+    margin: 0px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .active{
+    margin: 0px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid $href-color;
+  }
+}
+
+.pro-i-lunbo-contr{
+  position: absolute;
+  color: #ddd;
+  z-index: 10;
+  top:200px;
+  cursor: pointer;
+  i{
+    font-size: 60px;
+  }
+  &:hover{
+    color: $href-color;
+  }
+}
+.pro-i-lunbo-contr-left{
+  left: 0px;
+}
+.pro-i-lunbo-contr-right{
+  right: 0px;
+}
+
+
+.pro-i-lunbo-img{
+  height: 400px;
+  img{
+    width: 100%;
+    height: 100% !important;
+  }
+
+}
+.pro-i-con{
+  width: 49%;
+  margin-left: 1%;
+}
+
+.pro-i-con-pri{
+  width: 100%;
+  margin:20px 0px;
+  background-color: #fafafa;
+  padding:20px;
+  span{
+    font-size: 20px;
+    color: $href-color;
+  }
+}
+
+.pro-i-con-check{
+  margin: 30px 0px;
+}
+
+.pro-select{
+  width: 100%;
+  border: 1px solid #ddd;
+  padding:5px 10px;
+}
+
+.pro-nub-contr{
+  width: 40px;
+  font-size: 16px;
+  background-color: #ccd1d6;
+  padding:5px 15px;
+  height: 34px;
+  line-height: 22px;
+  cursor: pointer;
+  &:hover{
+    background-color: $href-color;
+    color: white;
+  }
+}
+.pro-i-con-nub{
+  margin: 40px 0px;
+}
+.pro-nub-val{
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #ccd1d6;
+  width: 50px;
+  text-align: center;
+}
+
+.pro-i-con-sub{
+  button{
+    padding:10px 60px;
+  }
+}
+
+.pro-i-con-sub-buy {
+  @include button
+}
+
+
+
+.pro-i-con-sub-join-shop{
+  margin-left: 40px;
+  background-color: #999;
+  color: white;
+  border: 0px;
+  transition: all 0.2s;
+  &:hover{
+    background-color: #757575;
+  }
+}
+.pro-i-b{
+  margin: 20px 0px;
+}
+.pro-i-param{
+  padding:20px;
+  width: 75%;
+  background-color: white;
+}
+.pro-i-param-tit{
+  border-bottom: 1px solid #ddd;
+  a{
+    font-size: 16px;
+    display: inline-block;
+    color: $href-color;
+    padding:10px;
+    border-bottom: 2px solid $href-color;
+  }
+}
+
+.pro-i-param-con{
+  min-height:500px;
+}

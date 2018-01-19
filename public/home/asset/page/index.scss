@@ -90,7 +90,12 @@
 .ind-tit{
   padding:30px 0px 10px;
   h3{
+    display: inline-block;
     margin: 0px;
+  }
+  a{
+    float: right;
+    color: #999;
   }
 }
 
@@ -203,8 +208,14 @@
 }
 
 .ind-case-item{
+  display: inline-block;
   padding:10px;
   background-color: white;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  &:hover{
+    border: 1px solid $href-color;
+  }
 }
 
 .ind-case-img{
@@ -216,6 +227,7 @@
 
 .ind-case-des{
   p{
+    color: #333;
     margin-top: 10px;
     font-size: 16px;
   }
