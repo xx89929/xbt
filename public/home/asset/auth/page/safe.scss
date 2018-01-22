@@ -1,0 +1,44 @@
+
+
+.member-safe{
+  & > ul > li {
+    padding:10px 0px;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+.member-safe-item{
+  height: 65px;
+}
+
+.member-safe-i-tag{
+  margin-right: 1%;
+  i{
+    width: 65px;
+    font-size: 65px;
+    color: $blue-color;
+  }
+}
+
+.member-safe-i-tit{
+  h4{
+    span{
+      font-size: 14px;
+      color: #999;
+    }
+  }
+  p{
+    color: #999;
+    margin-bottom: 0px;
+  }
+}
+
+.member-safe-i-active{
+  button{
+    padding:0px 20px;
+    height: 60px;
+    line-height: 30px;
+    @include blue-button;
+    border: 1px solid #ddd;
+  }
+}

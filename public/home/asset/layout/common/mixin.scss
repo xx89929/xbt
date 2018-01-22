@@ -7,3 +7,13 @@
     background-color:$button-color-active;
   }
 }
+
+@mixin blue-button{
+  border: 0px;
+  background-color: $blue-color;
+  color: white;
+  transition: all 0.2s;
+  &:hover{
+    background-color:#007EC3;
+  }
+}

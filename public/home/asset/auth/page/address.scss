@@ -1,0 +1,26 @@
+.member-addr-addbtn{
+  button{
+    padding:5px 20px;
+    @include blue-button;
+  }
+}
+
+.member-addr-list{
+  margin-top: 20px;
+  & > ul {
+    li {
+      margin-bottom: 10px;
+      a{
+        display: inline-block;
+        border: 1px solid #e4eaec;
+        padding:10px 20px;
+        color: inherit;
+        p{
+          margin-bottom: 0px;
+          margin-top: 10px;
+          color: #76838f;
+        }
+      }
+    }
+  }
+}

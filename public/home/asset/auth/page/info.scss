@@ -1,0 +1,40 @@
+.member-i-info-l{
+  & > ul > li {
+    padding:20px 0px;
+    border-bottom: 1px  solid #ddd;
+  }
+}
+.member-i-info-l{
+  width: 50%;
+}
+
+.member-i-info-tit{
+  width: 20%;
+}
+.member-i-info-des{
+  width: 80%;
+}
+
+
+.member-i-info-item{
+  padding:0px 20px;
+  font-size: 15px;
+}
+
+.member-i-info-r{
+  width: 50%;
+  padding:20px 122px;
+}
+.member-i-info-r-img{
+  img{
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.member-i-info-r-upheadpic{
+  margin-top: 10px;
+  input[type=file]{
+    width: 100%;
+  }
+}

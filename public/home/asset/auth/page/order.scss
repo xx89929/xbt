@@ -1,0 +1,44 @@
+.member-order-tag{
+
+  border-bottom: 1px solid #ddd;
+  & > ul {
+    .active{
+      & > a{
+        border-bottom: 2px solid $blue-color;
+      }
+    }
+    li {
+      a{
+        display: inline-block;
+        color: #333;
+        padding:10px;
+      }
+    }
+  }
+}
+
+.member-order-search{
+  margin-top: 20px;
+
+}
+
+.member-order-search-input{
+  position: relative;
+  input{
+    border: 1px solid #ddd;
+    border-radius: 6px ;
+    padding:5px 20px;
+    width: 100%;
+  }
+  i{
+    position: absolute;
+    right: 20px;
+    top:5px;
+    font-size: 21px;
+    color: #999;
+    cursor: pointer;
+    &:hover{
+      color: $blue-color;
+    }
+  }
+}

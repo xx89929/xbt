@@ -25,4 +25,26 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('product','ProductController@index')->name('product');
     Route::get('pro/info','ProInfoController@index')->name('pro-info');
     Route::get('facade','FacadeController@index')->name('facade');
+
 });
+
+Route::group(['namespace' => 'Auth'],function (){
+    Route::get('register', 'RegisterController@index')->name('reg.show');
+    Route::post('register', 'RegisterController@register')->name('register');
+    Route::get('login', 'LoginController@index')->name('login.show');
+    Route::post('login', 'LoginController@login')->name('login');
+
+    Route::group(['middleware' => 'auth','prefix' => 'member'],function (){
+        Route::post('logout', 'LoginController@logout')->name('logout');
+        Route::get('info','InfoController@index')->name('member.info');
+        Route::get('safe','SafeController@index')->name('member.safe');
+        Route::get('order','OrderController@index')->name('member.order');
+        Route::get('finace','FinaceController@index')->name('member.finace');
+        Route::get('address','AddrController@index')->name('member.address');
+    });
+//    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
+});
+
+//Auth::routes();
+
+//Route::get('test', 'HomeController@index')->name('home');

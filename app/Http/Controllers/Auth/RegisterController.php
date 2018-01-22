@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/news';
 
     /**
      * Create a new controller instance.
@@ -47,12 +47,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'required' => ':attribute 必须填写',
+            'max' => ':attribute限制最大:max',
+            'min' => ':attribute限制最小:min',
+            'confirmed' => '确认:attribute不一致',
+            'unique' => '此:attribute已经被占用',
+        ];
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+            'username' => 'required|string|max:30|min:6|unique:users',
+            'password' => 'required|string|min:6|max:30|confirmed',
+        ],$messages);
+
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -63,9 +71,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function index()
+    {
+        return view('home.common.reg-view');
     }
 }

@@ -1,0 +1,57 @@
+.v-member{
+  width: 100%;
+  height: 500px;
+}
+.v-member-box{
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  background-color: white;
+  padding:30px;
+  width: 30%;
+  border-radius: 5px;
+  overflow: hidden;
+  .form-group{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.v-member-tit{
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  a{
+    color: #333;
+  }
+  .active{
+    a > h4{
+      border-bottom: 2px solid $blue-color;
+    }
+  }
+  h4{
+    display: inline-block;
+    padding:10px;
+    margin: 0px;
+  }
+
+}
+
+.v-member-label{
+  width: 41px;
+}
+
+.v-member-input{
+  width: 100%;
+}
+
+
+.v-member-log{
+  display: none;
+}
+
+.v-mem-weixin-login{
+  img{
+    width: 100%;
+  }
+
+}

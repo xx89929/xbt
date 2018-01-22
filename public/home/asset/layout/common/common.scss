@@ -1,6 +1,7 @@
 @import "color";
 @import "mixin";
 @import "bootstrap";
+@import "user_show";
 
 a{
   cursor: pointer;
@@ -9,6 +10,18 @@ a{
   }
   &:link{
     text-decoration:none;
+  }
+}
+
+button{
+  &:focus{
+    outline: none;
+  }
+}
+
+input{
+  &:focus{
+    outline: none;
   }
 }
 

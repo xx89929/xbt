@@ -1,0 +1,35 @@
+@import "layout/member-nav";
+@import "page/info";
+@import "page/safe";
+@import "page/order";
+@import "page/finace";
+@import "page/address";
+
+.member-warp{
+  background-color: #f2f2f2;
+}
+.member-box{
+  margin:20px 0px;
+}
+
+.member-con{
+  width: 78%;
+  margin-left: 2%;
+  padding:20px 40px;
+  background-color: white;
+  box-shadow: 0 0 5px #ddd;
+  min-height: 500px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.member-c-tit{
+  width: 100%;
+  margin-bottom: 20px;
+  h4{
+    margin: 0px;
+    padding:10px 0px;
+    border-bottom: 2px solid $blue-color;
+    display: inline-block;
+  }
+}

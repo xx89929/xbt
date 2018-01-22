@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -25,7 +27,12 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
+
+    public function username()
+    {
+        return 'username';
+    }
 
     /**
      * Create a new controller instance.
@@ -36,4 +43,35 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function index()
+    {
+        return view('home.common.login-view');
+    }
+
+//    public function userLogin(Request $request){
+//        $this->validateLogin($request);
+//
+//        if ($this->hasTooManyLoginAttempts($request)) {
+//            $this->fireLockoutEvent($request);
+//
+//            return $this->sendLockoutResponse($request);
+//        }
+//
+//        if ($this->attemptLogin($request)) {
+//            return $this->sendLoginResponse($request);
+//        }
+//
+//        $this->incrementLoginAttempts($request);
+//
+//        return $this->sendUserFailedError($request);
+//    }
+//
+//    public function sendUserFailedError(){
+//
+//        throw ValidationException::withMessages([
+//            $this->username() => [trans('auth.failed')],
+//        ]);
+//
+//    }
 }

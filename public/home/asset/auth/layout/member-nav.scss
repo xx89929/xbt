@@ -1,0 +1,36 @@
+.member-nav{
+  background-color: white;
+  padding:20px;
+  width: 20%;
+  box-shadow: 0 0  5px #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.member-nav-tit{
+  h4{
+    font-weight: 500;
+  }
+}
+
+.member-nav-box{
+  margin: 20px 0px;
+  padding:0px 10px;
+  & > ul {
+    .active{
+      color: $blue-color;
+    }
+    li {
+      padding:10px 0px;
+      cursor: pointer;
+      & > a{
+        color: inherit;
+        font-size: 15px;
+        &:hover{
+          color: $blue-color;
+        }
+      }
+
+    }
+  }
+}

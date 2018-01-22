@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>修巴堂</title>
 
     <!-- Bootstrap -->
     <link href="{{url('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('home/asset/base.css')}}" rel="stylesheet">
     <link href="{{url('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{url('bv/bootstrapValidator.min.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,7 +23,7 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{url('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{url('lazyload/lazyload.min.js')}}"></script>
-    {{--<script src="{{url('lazyload/scrollstop.min.js')}}"></script>--}}
+    <script src="{{url('bv/bootstrapValidator.min.js')}}"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -34,10 +36,7 @@
 </div>
 
 
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{url('home/js/xbt.js')}}"></script>
 <script>
     $(function () {
         $("img.lazy").lazyload({

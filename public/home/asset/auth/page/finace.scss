@@ -1,0 +1,31 @@
+.member-finace-h{
+  background-color: $blue-color;
+  margin:-20px -40px ;
+  padding:20px 40px;
+  img{
+    width: 200px;
+    height: 200px;
+  }
+  h4{
+    margin-top: 10px;
+    color: white;
+  }
+  p{
+    margin-top: 10px;
+  }
+}
+
+.member-finace-c{
+  margin-top: 60px;
+  h4{
+    color: $blue-color;
+  }
+  p{
+    font-size: 15px;
+  }
+}
+
+.member-finace-detail-tit{
+  padding:10px 0px;
+  border-bottom: 1px solid #ddd;
+}
