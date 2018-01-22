@@ -27,14 +27,15 @@
                             </div>
                         </div>
                         @if ($errors->has('username'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
+                            <div class="help-block alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>{{ $errors->first('username') }}</strong>
+                            </div>
                         @endif
                         @if ($errors->has('password'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                            <span class="help-block bg-danger">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                            </span>
                         @endif
                         <button type="submit" class="btn btn-primary">登陆</button>
                     </form>
