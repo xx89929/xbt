@@ -25,8 +25,8 @@ class CaseCategoryController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('案例分类');
+            $content->description('分类导航');
 
             $content->body(CaseCategory::tree(function ($tree) {
                 $tree->branch(function ($branch) {
@@ -51,8 +51,8 @@ class CaseCategoryController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('案例分类');
+            $content->description('编辑');
 
             $content->body($this->form()->edit($id));
         });
@@ -67,8 +67,8 @@ class CaseCategoryController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('案例分类');
+            $content->description('录入');
 
             $content->body($this->form());
         });
@@ -103,9 +103,6 @@ class CaseCategoryController extends Controller
             $form->text('title', '分类名称');
             $form->select('parent_id', '归属分类')->options(CaseCategory::selectOptions());
             $form->color('color', '字体颜色')->default('#ccc');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
         });
     }
 }

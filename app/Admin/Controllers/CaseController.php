@@ -98,10 +98,7 @@ class CaseController extends Controller
             $form->text('describe','案例描述');
             $form->image('image','上传图片');
             $form->select('category','案例分类')->options(CaseCategory::selectOptions());
-            $form->editor('content');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->editor('content','案例内容');
         });
     }
 }
