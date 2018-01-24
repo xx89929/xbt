@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\CaseCategory;
 use App\Models\CaseXb;
 
 use Encore\Admin\Form;
@@ -74,9 +75,12 @@ class CaseController extends Controller
         return Admin::grid(CaseXb::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->name('案例名称');
+            $grid->describe('案例描述');
+            $grid->CaseCateOne()->title('案例分类');
+            $grid->image('案例图片')->image();
+            $grid->created_at('创建时间');
+            $grid->updated_at('更新时间');
         });
     }
 
@@ -93,7 +97,8 @@ class CaseController extends Controller
             $form->text('name','案例名称');
             $form->text('describe','案例描述');
             $form->image('image','上传图片');
-            $form->select('category','案例分类')->options();
+            $form->select('category','案例分类')->options(CaseCategory::selectOptions());
+            $form->editor('content');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');

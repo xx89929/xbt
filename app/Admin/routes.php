@@ -11,5 +11,6 @@ Route::group([
 ], function (Router $router) {
     $router->get('/', 'HomeController@index');
     $router->resource('member/manage','MemberController');
-    $router->resource('case','CaseController');
+    $router->resource('case/list','CaseController');
+    $router->resource('case/category','CaseCategoryController');
 });

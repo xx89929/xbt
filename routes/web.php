@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('product','ProductController@index')->name('product');
     Route::get('pro/info','ProInfoController@index')->name('pro-info');
     Route::get('facade','FacadeController@index')->name('facade');
-
+    Route::post('WangImgUp','WangEditController@imgUp');
 });
 
 Route::group(['namespace' => 'Auth'],function (){
@@ -44,6 +44,8 @@ Route::group(['namespace' => 'Auth'],function (){
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });
+
+
 
 //Auth::routes();
 
