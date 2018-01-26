@@ -2,7 +2,8 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Area;
+use App\Models\ProCategory;
+use App\Models\Product;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +12,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class AreaController extends Controller
+class ProductController extends Controller
 {
     use ModelForm;
 
@@ -24,14 +25,10 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('地区管理');
+            $content->header('产品管理');
             $content->description('列表');
 
-            $content->body(Area::tree(function ($tree) {
-                $tree->branch(function ($branch) {
-                    return "{$branch['area_name']}";
-                });
-            }));
+            $content->body($this->grid());
         });
     }
 
@@ -45,7 +42,7 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('地区管理');
+            $content->header('产品管理');
             $content->description('编辑');
 
             $content->body($this->form()->edit($id));
@@ -61,7 +58,7 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('地区管理');
+            $content->header('产品管理');
             $content->description('录入');
 
             $content->body($this->form());
@@ -75,12 +72,17 @@ class AreaController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Area::class, function (Grid $grid) {
+        return Admin::grid(Product::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
+            $grid->name('产品名称');
+            $grid->price('产品价格');
+            $grid->description('产品描述');
+            $grid->inventory('库存');
+            $grid->pro_category_one()->title('产品分类');
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->created_at('创建时间');
+            $grid->updated_at('更新时间');
         });
     }
 
@@ -91,25 +93,22 @@ class AreaController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Area::class, function (Form $form) {
+        return Admin::form(Product::class, function (Form $form) {
 
             $form->display('id', 'ID');
+            $form->text('name', '产品名称');
+            $form->text('description', '产品描述');
+            $form->currency('price', '产品价格')->symbol('￥');
 
-            $area_type = [
-                '0' => '国家',
-                '1' => '省',
-                '2' => '市',
-                '3' => '区',
-                '4' => '县/乡/镇',
-            ];
-            $form->select('area_type', '地区类型')->options($area_type);
-            $form->text('area_name','地区名称');
+            $form->select('category_id', '产品分类')->options(function(){
+                return ProCategory::all()->pluck('title','id');
+            });
+            $form->number('inventory', '库存');
+            $form->multipleImage('pics', '产品图片')->removable();
+            $form->editor('pro_info', '详细信息');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
-
-
-
 }

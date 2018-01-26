@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCaseCategoryTable extends Migration
+class CreateNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateCaseCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('case_category', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('pic');
             $table->string('title');
-            $table->integer('parent_id')->default(0);
-            $table->integer('order')->default(1);
-            $table->string('color')->nullable();
+            $table->integer('tag');
+            $table->text('content');
+            $table->tinyInteger('is_push');
+            $table->integer('read_num')->default(0);
+            $table->string('push_tagger');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateCaseCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('case_category');
+        Schema::dropIfExists('news');
     }
 }

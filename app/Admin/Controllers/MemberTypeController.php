@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Area;
+use App\Models\MemberType;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -10,8 +10,9 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use function foo\func;
 
-class AreaController extends Controller
+class MemberTypeController extends Controller
 {
     use ModelForm;
 
@@ -24,14 +25,10 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('地区管理');
+            $content->header('会员分类');
             $content->description('列表');
 
-            $content->body(Area::tree(function ($tree) {
-                $tree->branch(function ($branch) {
-                    return "{$branch['area_name']}";
-                });
-            }));
+            $content->body($this->grid());
         });
     }
 
@@ -45,7 +42,7 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('地区管理');
+            $content->header('会员分类');
             $content->description('编辑');
 
             $content->body($this->form()->edit($id));
@@ -61,7 +58,7 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('地区管理');
+            $content->header('会员分类');
             $content->description('录入');
 
             $content->body($this->form());
@@ -75,12 +72,14 @@ class AreaController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Area::class, function (Grid $grid) {
+        return Admin::grid(MemberType::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
+            $grid->title('类型名称');
+            $grid->color('颜色')->display(function ($color){
+                return "<span style='color:$color'>颜色</span>";
+            });
 
-            $grid->created_at();
-            $grid->updated_at();
         });
     }
 
@@ -91,25 +90,11 @@ class AreaController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Area::class, function (Form $form) {
+        return Admin::form(MemberType::class, function (Form $form) {
 
             $form->display('id', 'ID');
-
-            $area_type = [
-                '0' => '国家',
-                '1' => '省',
-                '2' => '市',
-                '3' => '区',
-                '4' => '县/乡/镇',
-            ];
-            $form->select('area_type', '地区类型')->options($area_type);
-            $form->text('area_name','地区名称');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('title', '类型名称');
+            $form->color('color', '类型颜色');
         });
     }
-
-
-
 }

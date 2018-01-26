@@ -15,10 +15,10 @@ class CreateAreaTable extends Migration
     {
         Schema::create('area', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('parent_id')->nullable();
-            $table->integer('area_order')->nullable();
+            $table->integer('parent_id')->nullable()->default(0);
+            $table->integer('area_order')->nullable()->default(1);
             $table->string('area_name')->nullable();
-            $table->tinyInteger('area_type')->nullable();
+            $table->tinyInteger('area_type')->nullable()->default(0);
             $table->timestamps();
         });
     }

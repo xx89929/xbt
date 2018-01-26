@@ -26,6 +26,9 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('pro/info','ProInfoController@index')->name('pro-info');
     Route::get('facade','FacadeController@index')->name('facade');
     Route::post('WangImgUp','WangEditController@imgUp');
+
+    Route::get('getCity','AreaController@city');
+    Route::get('getDistrict','AreaController@district');
 });
 
 Route::group(['namespace' => 'Auth'],function (){

@@ -11,6 +11,5 @@ class CaseCategory extends Model
     use ModelTree, AdminBuilder;
 
     protected $table = 'case_category';
-
-
+    public $timestamps = false;
 }

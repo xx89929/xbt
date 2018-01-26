@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Area;
+use App\Models\NewsTage;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class AreaController extends Controller
+class NewsTageController extends Controller
 {
     use ModelForm;
 
@@ -24,14 +24,10 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('地区管理');
+            $content->header('新闻标签');
             $content->description('列表');
 
-            $content->body(Area::tree(function ($tree) {
-                $tree->branch(function ($branch) {
-                    return "{$branch['area_name']}";
-                });
-            }));
+            $content->body($this->grid());
         });
     }
 
@@ -45,7 +41,7 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('地区管理');
+            $content->header('新闻标签');
             $content->description('编辑');
 
             $content->body($this->form()->edit($id));
@@ -61,7 +57,7 @@ class AreaController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('地区管理');
+            $content->header('新闻标签');
             $content->description('录入');
 
             $content->body($this->form());
@@ -75,12 +71,13 @@ class AreaController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Area::class, function (Grid $grid) {
+        return Admin::grid(NewsTage::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->name('标签名称');
+            $grid->color('标签颜色')->display(function ($color){
+                return "<span class='label' style='background-color: $color;color:white'>颜色</span>";
+            });
         });
     }
 
@@ -91,25 +88,11 @@ class AreaController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Area::class, function (Form $form) {
+        return Admin::form(NewsTage::class, function (Form $form) {
 
             $form->display('id', 'ID');
-
-            $area_type = [
-                '0' => '国家',
-                '1' => '省',
-                '2' => '市',
-                '3' => '区',
-                '4' => '县/乡/镇',
-            ];
-            $form->select('area_type', '地区类型')->options($area_type);
-            $form->text('area_name','地区名称');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('name', '标签名称');
+            $form->color('color', '标签颜色');
         });
     }
-
-
-
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCaseTable extends Migration
+class CreateXbtStoreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateCaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('case', function (Blueprint $table) {
+        Schema::create('xbt_store', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('describe');
-            $table->string('image');
-            $table->text('content')->nullable();
-            $table->tinyInteger('category')->nullable();
+            $table->string('store_pic')->nullable();
+            $table->string('doctor')->nullable();
+            $table->tinyInteger('province')->nullable();
+            $table->tinyInteger('city')->nullable();
+            $table->tinyInteger('district')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateCaseTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('case');
+        Schema::dropIfExists('xbt_store');
     }
 }
