@@ -81,7 +81,6 @@ class MemberController extends Controller
             $grid->member_info_one()->nickname('昵称');
             $grid->member_info_one()->head_pic('头像')->image('',50,50);
             $grid->column('member_info_one.type','会员类型')->display(function ($type){
-                dd($type);
                 $memberTye = MemberType::where('id',$type)->select('title','color')->first();
                 return "<span class='label' style='background-color:$memberTye->color;color:white'>$memberTye->title</span>";
             });
