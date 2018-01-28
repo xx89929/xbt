@@ -5,6 +5,7 @@ namespace App;
 use App\Models\MemberInfo;
 use App\Models\MemberOrAddr;
 use App\Models\MemberType;
+use App\Models\PayLog;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -41,5 +42,19 @@ class User extends Authenticatable
 
     public function order_address(){
         return $this->hasOne(MemberOrAddr::class,'member_id','id');
+    }
+
+    public function user_pay_log(){
+        return $this->hasMany(PayLog::class,'member_id','id');
+    }
+
+    public function scopeType($query,$type){
+        if (!$type) {
+            return $query;
+        }
+
+        return $query->whereHas('member_info_one', function ($query) use ($type) {
+            $query->where('type',  $type);
+        });
     }
 }

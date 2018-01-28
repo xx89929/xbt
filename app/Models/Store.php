@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
@@ -27,7 +26,7 @@ class Store extends Model
     }
 
 
-    public function doctor_many(){
-        return $this->hasMany(User::class,'id','doctor');
+    public function store_doctor(){
+        return $this->hasMany(Doctor::class,'be_store','id');
     }
 }

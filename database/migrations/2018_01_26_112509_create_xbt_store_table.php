@@ -17,7 +17,6 @@ class CreateXbtStoreTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('store_pic')->nullable();
-            $table->string('doctor')->nullable();
             $table->tinyInteger('province')->nullable();
             $table->tinyInteger('city')->nullable();
             $table->tinyInteger('district')->nullable();

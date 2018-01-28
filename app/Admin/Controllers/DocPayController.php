@@ -2,9 +2,10 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\ProCategory;
-use App\Models\Product;
+use App\Models\DocPay;
 
+use App\Models\Doctor;
+use App\Models\PayLogOptions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -12,7 +13,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ProductController extends Controller
+class DocPayController extends Controller
 {
     use ModelForm;
 
@@ -25,7 +26,7 @@ class ProductController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('产品管理');
+            $content->header('医生账户明细');
             $content->description('列表');
 
             $content->body($this->grid());
@@ -42,7 +43,7 @@ class ProductController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('产品管理');
+            $content->header('医生账户明细');
             $content->description('编辑');
 
             $content->body($this->form()->edit($id));
@@ -58,7 +59,7 @@ class ProductController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('产品管理');
+            $content->header('医生账户明细');
             $content->description('录入');
 
             $content->body($this->form());
@@ -72,18 +73,18 @@ class ProductController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Product::class, function (Grid $grid) {
+        return Admin::grid(DocPay::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->pics('产品图片')->image('', 100, 100);
-            $grid->name('产品名称');
-            $grid->price('产品价格');
-            $grid->description('产品描述');
-            $grid->inventory('库存');
-            $grid->pro_category_one()->title('产品分类');
+            $grid->to_doctor()->realname('医生姓名');
+            $grid->goods('交易金额');
+            $grid->operation('收入/消费')->display(function ($id){
+                $oper = PayLogOptions::where('id',$id)->first();
+                return "<span style='color:$oper->color'>$oper->title</span>";
+            });
+            $grid->remark('交易说明/备注');
 
-            $grid->created_at('创建时间');
-            $grid->updated_at('更新时间');
+            $grid->created_at('交易日期');
         });
     }
 
@@ -94,22 +95,17 @@ class ProductController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Product::class, function (Form $form) {
+        return Admin::form(DocPay::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('name', '产品名称');
-            $form->text('description', '产品描述');
-            $form->currency('price', '产品价格')->symbol('￥');
-
-            $form->select('category_id', '产品分类')->options(function(){
-                return ProCategory::all()->pluck('title','id');
+            $form->select('doctor_id', '医生')->options(function(){
+                return Doctor::all()->pluck('realname','id');
             });
-            $form->number('inventory', '库存');
-            $form->multipleImage('pics', '产品图片')->removable();
-            $form->editor('pro_info', '详细信息');
+            $form->currency('goods','账户余额')->symbol('￥');
+            $form->radio('operation','收入/消费')->options(PayLogOptions::all()->pluck('title','id'))->default(1);
+            $form->text('remark', '交易备注');
 
-            $form->display('created_at', '创建时间');
-            $form->display('updated_at', '更新时间');
+            $form->display('created_at', '交易日期');
         });
     }
 }

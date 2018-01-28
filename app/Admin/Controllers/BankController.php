@@ -2,8 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\ProCategory;
-use App\Models\Product;
+use App\Models\Bank;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -12,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ProductController extends Controller
+class BankController extends Controller
 {
     use ModelForm;
 
@@ -25,7 +24,7 @@ class ProductController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('产品管理');
+            $content->header('银行');
             $content->description('列表');
 
             $content->body($this->grid());
@@ -42,7 +41,7 @@ class ProductController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('产品管理');
+            $content->header('银行');
             $content->description('编辑');
 
             $content->body($this->form()->edit($id));
@@ -58,7 +57,7 @@ class ProductController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('产品管理');
+            $content->header('银行');
             $content->description('录入');
 
             $content->body($this->form());
@@ -72,18 +71,11 @@ class ProductController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Product::class, function (Grid $grid) {
+        return Admin::grid(Bank::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->pics('产品图片')->image('', 100, 100);
-            $grid->name('产品名称');
-            $grid->price('产品价格');
-            $grid->description('产品描述');
-            $grid->inventory('库存');
-            $grid->pro_category_one()->title('产品分类');
-
-            $grid->created_at('创建时间');
-            $grid->updated_at('更新时间');
+            $grid->bank_id('银行ID');
+            $grid->bank_name('银行名称');
         });
     }
 
@@ -94,22 +86,12 @@ class ProductController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Product::class, function (Form $form) {
+        return Admin::form(Bank::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('name', '产品名称');
-            $form->text('description', '产品描述');
-            $form->currency('price', '产品价格')->symbol('￥');
+            $form->number('bank_id', '银行ID');
+            $form->text('bank_name', '银行名称');
 
-            $form->select('category_id', '产品分类')->options(function(){
-                return ProCategory::all()->pluck('title','id');
-            });
-            $form->number('inventory', '库存');
-            $form->multipleImage('pics', '产品图片')->removable();
-            $form->editor('pro_info', '详细信息');
-
-            $form->display('created_at', '创建时间');
-            $form->display('updated_at', '更新时间');
         });
     }
 }

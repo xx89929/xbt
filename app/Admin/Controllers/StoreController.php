@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Area;
-use App\Models\MemberInfo;
+use App\Models\Doctor;
 use App\Models\Store;
 
 use Encore\Admin\Form;
@@ -12,7 +12,6 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
-use Tests\Models\User;
 
 class StoreController extends Controller
 {
@@ -79,7 +78,9 @@ class StoreController extends Controller
             $grid->id('ID')->sortable();
             $grid->name('店铺名称');
             $grid->store_pic('店铺图片')->image('',50,50);
-
+            $grid->store_doctor('拥有医生')->pluck('realname')->map(function($name){
+                return "<span class='label label-success'>$name</span>";
+            })->implode(' ');
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
         });
@@ -97,9 +98,6 @@ class StoreController extends Controller
             $form->display('id', 'ID');
             $form->image('store_pic','店铺图片');
             $form->text('name','店铺名称');
-            $form->multipleSelect('doctor','医师')->options(function(){
-                return MemberInfo::all()->where('type',2)->pluck('nickname','member_id');
-            });
 
             $form->select('province','省')->options(
                 Area::province()->pluck('area_name', 'id')

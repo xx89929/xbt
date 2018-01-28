@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 
+use App\Admin\Extensions\Tools\UserType;
 use App\Models\Area;
 use App\Models\MemberType;
 use App\User;
@@ -12,6 +13,8 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 class MemberController extends Controller
 {
@@ -76,22 +79,23 @@ class MemberController extends Controller
     {
         return Admin::grid(User::class, function (Grid $grid) {
             $grid->model()->orderBy('id','desc');
+//            $grid->tools(function ($tools) {
+//                $tools->append(new UserType());
+//            });
+//
+//
+//            $grid->model()->type(Request::get('type'));
+
             $grid->id('ID')->sortable();
             $grid->username('账号');
             $grid->member_info_one()->nickname('昵称');
             $grid->member_info_one()->head_pic('头像')->image('',50,50);
-            $grid->column('member_info_one.type','会员类型')->display(function ($type){
-                if($type){
-                    $memberTye = MemberType::where('id',$type)->select('title','color')->first();
-                    return "<span class='label' style='background-color:$memberTye->color;color:white'>$memberTye->title</span>";
-                }
-            });
             $grid->member_info_one()->phone('手机号');
             $grid->member_info_one()->goods('金额');
 
 
-            $grid->created_at('创建时间')->sortable();
-            $grid->updated_at('更新时间')->sortable();
+            $grid->created_at('注册时间')->sortable();
+            $grid->updated_at('修改时间')->sortable();
 
             $grid->filter(function($filter){
                 $filter->equal('username', '账号');
@@ -120,9 +124,6 @@ class MemberController extends Controller
                 $form->image('member_info_one.head_pic','头像');
                 $form->text('username', '账号');
                 $form->text('member_info_one.nickname', '昵称');
-                $form->select('member_info_one.type', '会员类型')->options(function(){
-                    return MemberType::all()->pluck('title','id');
-                });
                 $form->mobile('member_info_one.phone', '手机号');
                 $form->display('created_at', '创建时间');
                 $form->display('updated_at', '更新时间');

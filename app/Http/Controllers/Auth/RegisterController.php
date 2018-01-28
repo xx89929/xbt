@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\MemberInfo;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use phpDocumentor\Reflection\Types\Integer;
 
 class RegisterController extends Controller
 {
@@ -70,10 +72,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+//        return User::create([
+//            'username' => $data['username'],
+//            'password' => bcrypt($data['password']),
+//        ]);
+
+        $user = User::create([
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
+
+        MemberInfo::create([
+            'member_id' => intval($user->id),
+            'type' => $data['member_type'],
+        ]);
+        return  $user;
     }
 
     public function index()
