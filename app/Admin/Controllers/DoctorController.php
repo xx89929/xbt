@@ -134,7 +134,7 @@ class DoctorController extends Controller
                 $form->display('updated_at', '更新时间');
             })->tab('银行信息',function(Form $form){
                 $form->select('bank_type','银行类型')->options(function(){
-                    return Bank::all()->pluck('bank_name','bank_name');
+                    return Bank::all()->pluck('bank_name','bank_id');
                 });
                 $form->text('bank_branch','开户支行');
                 $form->text('bank_code','银行卡号');
