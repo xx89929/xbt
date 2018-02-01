@@ -107,7 +107,7 @@ class ProductController extends Controller
             });
             $form->text('specification','产品规格');
             $form->number('inventory', '库存');
-            $form->multipleImage('pics', '产品图片')->removable();
+            $form->multipleImage('pics', '产品图片')->removable()->uniqueName();
             $form->editor('pro_info', '详细信息');
 
             $form->display('created_at', '创建时间');

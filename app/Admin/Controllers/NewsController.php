@@ -102,7 +102,7 @@ class NewsController extends Controller
         return Admin::form(News::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->image('pic', '新闻图片')->uniqueName();;
+            $form->image('pic', '新闻图片')->uniqueName();
             $form->text('title', '新闻标题');
             $form->text('push_tagger', '发布者')->default('修巴堂官方');
             $form->select('tag', '新闻标签')->options(function(){

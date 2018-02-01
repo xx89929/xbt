@@ -96,7 +96,7 @@ class StoreController extends Controller
         return Admin::form(Store::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->image('store_pic','店铺图片');
+            $form->image('store_pic','店铺图片')->uniqueName();
             $form->text('name','店铺名称');
 
             $form->select('province','省')->options(

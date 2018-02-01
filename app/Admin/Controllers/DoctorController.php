@@ -106,7 +106,7 @@ class DoctorController extends Controller
             $form->tab('基本信息',function (Form $form){
                 $form->display('id', 'ID');
                 $form->text('account', '账号');
-                $form->image('avatar', '头像');
+                $form->image('avatar', '头像')->uniqueName();
                 $form->text('realname', '真实姓名');
                 $form->currency('goods', '账户余额')->symbol('￥');
                 $form->select('doc_group','医生分组')->options(function(){
