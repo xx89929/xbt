@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\BannerSet;
 use App\Models\CaseXb;
 use App\Models\Doctor;
 use App\Models\News;
@@ -40,7 +41,9 @@ class IndexController extends Controller
 
         $serviceEnv = ServiceEnv::select('id','title','pic')->take(6)->get();
 
+        $banner = BannerSet::select('order','pic')->orderBy('order')->get();
 
-        return view('home.page.index.index',['product' => $product,'PicPath' => $this->adminPicPath,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv]);
+
+        return view('home.page.index.index',['product' => $product,'PicPath' => $this->adminPicPath,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'banner' => $banner]);
     }
 }

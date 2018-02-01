@@ -43,4 +43,9 @@ Route::group([
     $router->resource('service/env','ServiceEnvController');
 
 
+
+    $router->resource('banner/set','BannerSetController');
+
+
+
 });

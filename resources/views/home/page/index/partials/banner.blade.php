@@ -3,26 +3,28 @@
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                @foreach($banner as $ids)
+                    @if($loop->first)
+                        <li data-target="#carousel-example-generic" data-slide-to="{{$ids->order}}" class="active"></li>
+                    @elseif($loop->iteration)
+                        <li data-target="#carousel-example-generic" data-slide-to="{{$ids->order}}"></li>
+                    @endif
+                @endforeach
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner in-banner" role="listbox">
+                @foreach($banner as $ba)
+                    @if($loop->first)
                 <div class="item active">
-                    <img class="lazy" data-original="{{url('home/images/banner/1.jpg')}}" alt="...">
+                    <img class="lazy" data-original="{{$PicPath.$ba->pic}}" alt="...">
                 </div>
-                <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/2.jpg')}}" alt="...">
-                </div>
-                <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/3.jpg')}}" alt="...">
-                </div>
-                <div class="item">
-                    <img class="lazy" data-original="{{url('home/images/banner/4.jpg')}}" alt="...">
-                </div>
+                    @elseif($loop->iteration)
+                        <div class="item">
+                            <img class="lazy" data-original="{{$PicPath.$ba->pic}}" alt="...">
+                        </div>
+                    @endif
+                @endforeach
             </div>
 
             <!-- Controls -->
