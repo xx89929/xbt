@@ -11,10 +11,11 @@
                         <div class="ind-case-img">
                             <img class='lazy' data-original="{{$PicPath.$ca->image}}">
                         </div>
-                        <div class="ind-case-des text-center">
-                            <p>{{strlen($ca->name) > 10 ? mb_substr($ca->name,0,10) : $ca->name }}</p>
-                            <span>{{$ca->describe}}</span>
-                            <span><i>类型：{{$ca->CaseCateOne->title}}</i></span>
+                        <div class="ind-case-des">
+                            <p class="clearfix"><e class="pull-left">{{strlen($ca->name) > 17? mb_substr($ca->name,0,17).'...' : $ca->name }}</e><i class="pull-right">{{$ca->CaseCateOne->title}}</i></p>
+
+                            <p><span>{{strlen($ca->describe) > 35 ? mb_substr($ca->describe,0,35).'...' : $ca->describe}}</span></p>
+
                         </div>
                     </a>
                 </li>
