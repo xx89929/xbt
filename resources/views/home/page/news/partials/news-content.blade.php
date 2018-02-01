@@ -7,9 +7,9 @@
                     <img class="lazy" data-original="{{$PicPath.$n->pic}}">
                 </div>
                 <div class="news-des">
-                    <p>{{mb_substr($n->describes,0,67)."..."}}</p>
+                    <p>{{str_limit($n->describes,100)}}</p>
                     <span>发布时间 | <i>{{$n->updated_at}}</i></span>
-                    <h5>{{mb_substr($n->title,0,16)."..."}}</h5>
+                    <h5>{{str_limit($n->title,30)}}</h5>
                 </div>
             </a>
         </li>

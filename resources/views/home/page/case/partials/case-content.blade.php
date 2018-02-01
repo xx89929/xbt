@@ -7,8 +7,8 @@
                     <img class="lazy" data-original="{{$PicPath.$ca->image}}">
                 </div>
                 <div class="case-con-des text-center">
-                    <h5>{{$ca->name}}</h5>
-                    <span>{{$ca->describe}}</span>
+                    <h5>{{str_limit($ca->name,20)}}</h5>
+                    <span>{{str_limit($ca->describe,52)}}</span>
                 </div>
             </a>
         </li>

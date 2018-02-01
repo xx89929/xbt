@@ -757,6 +757,7 @@ input:focus {
   .case-content > ul > li {
     margin-bottom: 10px; }
     .case-content > ul > li a {
+      height: 222px;
       width: 100%;
       padding: 10px;
       color: inherit;
