@@ -16,24 +16,24 @@
                         <a href="#" class="ind-news-l1 item active">
                             <img class="lazy" data-original="{{$PicPath.$new->pic}}">
                             <div class="ind-news-l1-des">
-                                <h4>{{$new->title}}</h4>
+                                <h4>{{ str_limit($new->title,50)}}</h4>
                                 <span class="ind-news-l1-tag">
                                     {{$new->news_tag_one->name}}
                                 </span>
                                 <p><span>发布时间：{{$new->updated_at}}</span></p>
-                                <p>{!! mb_substr($new->describes,0,120)."..." !!}</p>
+                                <p>{{ $new->describes }}</p>
                             </div>
                         </a>
                     @elseif($loop->remaining)
                             <a href="#" class="ind-news-l1 item">
                                 <img class="lazy" data-original="{{$PicPath.$new->pic}}">
                                 <div class="ind-news-l1-des">
-                                    <h4>{{$new->title}}</h4>
+                                    <h4>{{ str_limit($new->title,50)}}</h4>
                                     <span class="ind-news-l1-tag">
                                         {{$new->news_tag_one->name}}
                                     </span>
                                     <p><span>发布时间：{{$new->updated_at}}</span></p>
-                                    <p>{!! mb_substr($new->describes,0,120)."..." !!}</p>
+                                    <p>{{ $new->describes }}</p>
                                 </div>
                             </a>
                     @endif
@@ -47,11 +47,11 @@
                     <a href="#" class="ind-news-acd-f1 col-xs-6">
                         <img class="lazy" data-original="{{$PicPath.$sa->pic}}">
                         <div class="ind-news-acd-des">
-                            <h4>{{ strlen($sa->title) > 5 ? mb_substr($sa->title,0,5).'...' : $sa->title }}</h4>
+                            <h4>{{ str_limit($sa->title,15) }}</h4>
                             <span class="ind-news-acd-tag">
                             {{$sa->news_tag_one->name}}
                         </span>
-                            <p>{{ mb_substr($sa->describes,0,60)."..." }}</p>
+                            <p>{{ str_limit($sa->describes,120) }}</p>
                         </div>
                     </a>
                 @endforeach
@@ -74,8 +74,8 @@
                                         <a href="#" class="ind-news-r2-con">
                                             <img class="lazy" data-original="{{$PicPath.$dy->pic}}">
                                             <div class="ind-news-r2-des">
-                                                <h4>{{$dy->title}}</h4>
-                                                <p>{{ mb_substr($dy->describes,0,60)."..." }}</p>
+                                                <h4>{{ str_limit($dy->title,10)}}</h4>
+                                                <p>{{  str_limit($dy->describes,50) }}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -91,8 +91,8 @@
                                             <a href="#" class="ind-news-r2-con">
                                                 <img class="lazy" data-original="{{$PicPath.$dy->pic}}">
                                                 <div class="ind-news-r2-des">
-                                                    <h4>{{$dy->title}}</h4>
-                                                    <p>{{ mb_substr($dy->describes,0,60)."..." }}</p>
+                                                    <h4>{{ str_limit($dy->title,10)}}</h4>
+                                                    <p>{{  str_limit($dy->describes,50) }}</p>
                                                 </div>
                                             </a>
                                         </li>
