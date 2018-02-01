@@ -366,6 +366,10 @@ input:focus {
 .consult-adt {
   margin-bottom: 20px; }
 
+.ind-consult {
+  width: 683px;
+  height: 234px; }
+
 .ind-consult-f1 {
   height: 234px;
   padding: 10px;
