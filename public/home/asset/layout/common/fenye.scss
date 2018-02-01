@@ -1,0 +1,27 @@
+.lara_fenye{
+  width: 100%;
+}
+
+
+.pagination{
+  & > li {
+    a{
+      color: $href-color;
+      transition: all 0.15s;
+      &:hover{
+        color: $href-color;
+      }
+    }
+  }
+  .active{
+    span{
+      background-color: $href-color;
+      border-color:$href-color;
+      &:hover{
+        background-color: $href-color;
+        border-color:$href-color;
+      }
+    }
+
+  }
+}

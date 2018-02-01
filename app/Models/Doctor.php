@@ -3,10 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Doctor extends Model
+class Doctor extends Authenticatable
 {
     protected $table = 'doctors';
+
+    protected $fillable = [
+        'account','password','realname'
+    ];
+
+    protected $hidden = [
+        'password','remember_token'
+    ];
+
 
     public function doc_to_doc_group(){
         return $this->belongsTo(DocGroup::class,'doc_group');

@@ -27,4 +27,8 @@ class Product extends Model
     public function pro_category_one(){
         return $this->hasOne(ProCategory::class,'id','category_id');
     }
+
+    public function scopeProId($query,$id){
+        return $query->where('id',$id);
+    }
 }

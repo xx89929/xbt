@@ -14,4 +14,8 @@ class CaseXb extends Model
     {
         return $this->hasOne(CaseCategory::class,'id','category');
     }
+
+    public function scopeCaseCategory($query,$Category){
+        return $query->where('category',$Category);
+    }
 }

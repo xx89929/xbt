@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:doctor');
     }
 
     /**
@@ -84,7 +84,6 @@ class RegisterController extends Controller
 
         MemberInfo::create([
             'member_id' => intval($user->id),
-            'type' => $data['member_type'],
         ]);
         return  $user;
     }

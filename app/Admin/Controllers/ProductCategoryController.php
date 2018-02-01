@@ -27,7 +27,11 @@ class ProductCategoryController extends Controller
             $content->header('产品分类');
             $content->description('列表');
 
-            $content->body($this->grid());
+            $content->body(ProCategory::tree(function ($tree) {
+                $tree->branch(function ($branch) {
+                    return "{$branch['title']}";
+                });
+            }));
         });
     }
 

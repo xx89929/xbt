@@ -54,6 +54,21 @@ ul {
 .v-mem-weixin-login img {
   width: 100%; }
 
+.lara_fenye {
+  width: 100%; }
+
+.pagination > li a {
+  color: #ff0042;
+  transition: all 0.15s; }
+  .pagination > li a:hover {
+    color: #ff0042; }
+.pagination .active span {
+  background-color: #ff0042;
+  border-color: #ff0042; }
+  .pagination .active span:hover {
+    background-color: #ff0042;
+    border-color: #ff0042; }
+
 a {
   cursor: pointer; }
   a:hover {
@@ -121,16 +136,14 @@ input:focus {
       height: 100px; }
 
 .user-set-f1-list {
-  line-height: 40px;
-  height: 40px;
   width: 100px;
-  position: relative; }
+  position: relative;
+  z-index: 11; }
   .user-set-f1-list > a {
     color: #bbb;
     transition: all 0.2s; }
     .user-set-f1-list > a i {
-      padding: 0px 10px;
-      line-height: 40px; }
+      padding: 0px 10px; }
     .user-set-f1-list > a:hover {
       color: #ff0042; }
 
@@ -144,7 +157,7 @@ input:focus {
   z-index: 10;
   background-color: white;
   right: 0px;
-  top: 40px;
+  top: 35px;
   border: 1px solid #ddd;
   color: #333; }
   .user-set-l-list > ul li {
@@ -287,15 +300,19 @@ input:focus {
   border-left: 0px;
   height: 100%; }
   .cla_item_dis > ul {
+    width: 100%;
     display: inline-block;
     margin-left: 0px; }
-    .cla_item_dis > ul li {
+    .cla_item_dis > ul > li {
       padding: 20px; }
-      .cla_item_dis > ul li a {
+      .cla_item_dis > ul > li > a {
         display: inline-block;
         color: #333; }
-        .cla_item_dis > ul li a:hover {
+        .cla_item_dis > ul > li > a:hover {
           color: #ff0042; }
+        .cla_item_dis > ul > li > a > img {
+          width: 40px;
+          height: 40px; }
 
 .hot-product {
   margin-bottom: 20px; }
@@ -310,6 +327,10 @@ input:focus {
       padding-right: 0px; }
     .hot-product_box > ul > li:hover {
       top: -10px; }
+
+.xbt-li-pro > a {
+  color: inherit;
+  display: inline-block; }
 
 .ind-tit {
   padding: 30px 0px 10px; }
@@ -346,6 +367,7 @@ input:focus {
   margin-bottom: 20px; }
 
 .ind-consult-f1 {
+  height: 234px;
   padding: 10px;
   background-color: white; }
 
@@ -355,13 +377,13 @@ input:focus {
 
 .consult-des p {
   margin-top: 10px; }
-.consult-des button {
+.consult-des a {
   padding: 5px 10px;
   border: 0px;
   background-color: #ff0042;
   color: white;
   transition: all 0.2s; }
-  .consult-des button:hover {
+  .consult-des a:hover {
     background-color: rgba(187, 5, 5, 0.86); }
 
 .ind-acd {
@@ -409,6 +431,7 @@ input:focus {
     margin-bottom: 10px; }
 
 .ind-case-item {
+  width: 100%;
   display: inline-block;
   padding: 10px;
   background-color: white;
@@ -549,6 +572,7 @@ input:focus {
   position: relative; }
 
 .ind-news-r2-des {
+  width: 100%;
   position: absolute;
   top: 162px;
   padding: 30px;
@@ -668,16 +692,19 @@ input:focus {
   .news-cont > ul li {
     margin-bottom: 15px; }
     .news-cont > ul li a {
+      width: 100%;
       display: inline-block;
       color: inherit;
       background-color: white; }
       .news-cont > ul li a img {
-        width: 100%; }
+        width: 100%;
+        height: 188px; }
 
 .news-des {
   padding: 10px 20px; }
   .news-des p {
-    font-size: 14px; }
+    font-size: 14px;
+    height: 63px; }
   .news-des span {
     color: #999; }
     .news-des span i {
@@ -693,7 +720,8 @@ input:focus {
   background-color: white;
   width: 23%;
   padding: 10px 20px;
-  min-height: 500px; }
+  min-height: 500px;
+  margin-bottom: 20px; }
 
 .case-nav-con {
   color: #999; }
@@ -722,6 +750,7 @@ input:focus {
   .case-content > ul > li {
     margin-bottom: 10px; }
     .case-content > ul > li a {
+      width: 100%;
       padding: 10px;
       color: inherit;
       display: inline-block;
@@ -823,7 +852,8 @@ input:focus {
   margin-bottom: 20px; }
 
 .product-box {
-  width: 75%; }
+  width: 75%;
+  min-height: 100px; }
   .product-box > ul > li {
     margin-bottom: 20px; }
 
@@ -992,6 +1022,8 @@ input:focus {
 
 .pro-i-con-check {
   margin: 30px 0px; }
+  .pro-i-con-check > ul > li {
+    margin-top: 10px; }
 
 .pro-select {
   width: 100%;

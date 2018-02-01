@@ -4,66 +4,18 @@
     </div>
     <div class="hot-facade-list">
         <ul class="list-inline clearfix">
+            @foreach($hotStore as $hs)
             <li class="col-xs-2">
                 <div class="hot-facade-item ">
                     <div class="hot-facade-item-img">
-                        <img class="lazy" data-original="{{url('home/images/hot-fa.jpg')}}">
+                        <img class="lazy" data-original="{{ $PicPath.$hs->store_pic }}">
                     </div>
                     <div class="hot-facade-item-des text-center">
-                        <h5>XXX加盟店</h5>
+                        <h5>{{$hs->name}}</h5>
                     </div>
                 </div>
             </li>
-            <li class="col-xs-2">
-                <div class="hot-facade-item ">
-                    <div class="hot-facade-item-img">
-                        <img class="lazy" data-original="{{url('home/images/hot-fa.jpg')}}">
-                    </div>
-                    <div class="hot-facade-item-des text-center">
-                        <h5>XXX加盟店</h5>
-                    </div>
-                </div>
-            </li>
-            <li class="col-xs-2">
-                <div class="hot-facade-item ">
-                    <div class="hot-facade-item-img">
-                        <img class="lazy" data-original="{{url('home/images/hot-fa.jpg')}}">
-                    </div>
-                    <div class="hot-facade-item-des text-center">
-                        <h5>XXX加盟店</h5>
-                    </div>
-                </div>
-            </li>
-            <li class="col-xs-2">
-                <div class="hot-facade-item ">
-                    <div class="hot-facade-item-img">
-                        <img class="lazy" data-original="{{url('home/images/hot-fa.jpg')}}">
-                    </div>
-                    <div class="hot-facade-item-des text-center">
-                        <h5>XXX加盟店</h5>
-                    </div>
-                </div>
-            </li>
-            <li class="col-xs-2">
-                <div class="hot-facade-item ">
-                    <div class="hot-facade-item-img">
-                        <img class="lazy" data-original="{{url('home/images/hot-fa.jpg')}}">
-                    </div>
-                    <div class="hot-facade-item-des text-center">
-                        <h5>XXX加盟店</h5>
-                    </div>
-                </div>
-            </li>
-            <li class="col-xs-2">
-                <div class="hot-facade-item ">
-                    <div class="hot-facade-item-img">
-                        <img class="lazy" data-original="{{url('home/images/hot-fa.jpg')}}">
-                    </div>
-                    <div class="hot-facade-item-des text-center">
-                        <h5>XXX加盟店</h5>
-                    </div>
-                </div>
-            </li>
+            @endforeach
         </ul>
     </div>
 

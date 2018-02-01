@@ -12,4 +12,24 @@ class News extends Model
     public function news_tag_one(){
         return $this->hasOne(NewsTage::class,'id','tag');
     }
+
+    public function scopeIsPush($query){
+        return $query->where('is_push',1);
+    }
+
+    public function scopeIsSalon($query){
+        return $query->where('tag',3);
+    }
+
+    public function scopeIsDynamic($query){
+        return $query->where('tag',1);
+    }
+
+    public function scopeIsNews($query){
+        return $query->where('tag',2);
+    }
+
+    public function scopeNewsTag($query,$tagId){
+        return $query->where('tag',$tagId);
+    }
 }

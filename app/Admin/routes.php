@@ -40,5 +40,7 @@ Route::group([
 
     $router->resource('bank','BankController');
 
+    $router->resource('service/env','ServiceEnvController');
+
 
 });

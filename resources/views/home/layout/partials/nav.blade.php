@@ -7,7 +7,7 @@
         <div class="nav-ul pull-right">
             <ul class="list-inline">
                 <li><a href="{{route('/').'/'}}">修巴堂首页</a></li>
-                <li><a href="{{route('facade')}}">线下门店</a></li>
+                <li><a href="{{route('store')}}">线下门店</a></li>
                 <li><a href="{{route('case')}}">真实案例</a></li>
                 <li><a href="{{route('product')}}">产品中心</a></li>
                 <li><a href="{{route('news')}}">热点新闻</a></li>

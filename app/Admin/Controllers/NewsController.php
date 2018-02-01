@@ -102,12 +102,13 @@ class NewsController extends Controller
         return Admin::form(News::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->image('pic', '新闻图片');
+            $form->image('pic', '新闻图片')->uniqueName();;
             $form->text('title', '新闻标题');
             $form->text('push_tagger', '发布者')->default('修巴堂官方');
             $form->select('tag', '新闻标签')->options(function(){
                 return NewsTage::all()->pluck('name','id');
             });
+            $form->text('describes','新闻描述');
             $form->switch('is_push', '是否发布')->states([
                 'on'  => ['value' => 1, 'text' => '已发布', 'color' => 'success'],
                 'off' => ['value' => 0, 'text' => '未发布', 'color' => 'danger'],

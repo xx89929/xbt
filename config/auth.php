@@ -36,6 +36,10 @@ return [
     */
 
     'guards' => [
+        'doctor' => [
+            'driver' => 'session',
+            'provider' => 'doctors',
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -68,6 +72,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'doctors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Doctor::class,
         ],
 
         // 'users' => [

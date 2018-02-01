@@ -5,30 +5,12 @@
 
     <div class="ind-circum-box text-center">
         <ul class="list-inline clearfix">
+            @foreach($serviceEnv as $se)
             <li class="col-xs-2">
-                <img class='lazy' data-original="{{url('home/images/huanjing.jpg')}}">
-                <h5>XXX店铺</h5>
+                <img class='lazy' data-original="{{$PicPath.$se->pic}}">
+                <h5>{{$se->title}}</h5>
             </li>
-            <li class="col-xs-2">
-                <img class='lazy' data-original="{{url('home/images/huanjing.jpg')}}">
-                <h5>XXX店铺</h5>
-            </li>
-            <li class="col-xs-2">
-                <img class='lazy' data-original="{{url('home/images/huanjing.jpg')}}">
-                <h5>XXX店铺</h5>
-            </li>
-            <li class="col-xs-2">
-                <img class='lazy' data-original="{{url('home/images/huanjing.jpg')}}">
-                <h5>XXX店铺</h5>
-            </li>
-            <li class="col-xs-2">
-                <img class='lazy' data-original="{{url('home/images/huanjing.jpg')}}">
-                <h5>XXX店铺</h5>
-            </li>
-            <li class="col-xs-2">
-                <img class='lazy' data-original="{{url('home/images/huanjing.jpg')}}">
-                <h5>XXX店铺</h5>
-            </li>
+            @endforeach
         </ul>
     </div>
 </div>

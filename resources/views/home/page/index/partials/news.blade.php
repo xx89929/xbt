@@ -7,65 +7,54 @@
             <div class="carousel-inner">
                 <span class="ind-news-l1-prev ind-news-l1-botton">
                         <i class="fa fa-chevron-left" data-slide="prev"></i>
-                    </span>
+                </span>
                 <span class="ind-news-l1-next ind-news-l1-botton"  data-slide="next">
                         <i class="fa fa-chevron-right"></i>
-                    </span>
-                <a href="#" class="ind-news-l1 item active">
-                    <img class="lazy" data-original="{{url('home/images/news-img-1.jpg')}}">
-                    <div class="ind-news-l1-des">
-                        <h4>新闻标题</h4>
-                        <span class="ind-news-l1-tag">
-                            公司动态
-                        </span>
-                        <p><span>发布时间：2017.1.13</span></p>
-                        <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容.......</p>
-                    </div>
-                </a>
-                <a href="#" class="ind-news-l1 item">
-                    <span class="ind-news-l1-prev ind-news-l1-botton">
-                        <i class="fa fa-chevron-left" data-slide="prev"></i>
-                    </span>
-                    <span class="ind-news-l1-next ind-news-l1-botton"  data-slide="next">
-                        <i class="fa fa-chevron-right"></i>
-                    </span>
-                    <img class="lazy" data-original="{{url('home/images/news-img-1.jpg')}}">
-                    <div class="ind-news-l1-des">
-                        <h4>新闻标题</h4>
-                        <span class="ind-news-l1-tag">
-                            公司动态
-                        </span>
-                        <p><span>发布时间：2017.1.13</span></p>
-                        <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容.......</p>
-                    </div>
-                </a>
+                </span>
+                @foreach($news as $new)
+                    @if($loop->first)
+                        <a href="#" class="ind-news-l1 item active">
+                            <img class="lazy" data-original="{{$PicPath.$new->pic}}">
+                            <div class="ind-news-l1-des">
+                                <h4>{{$new->title}}</h4>
+                                <span class="ind-news-l1-tag">
+                                    {{$new->news_tag_one->name}}
+                                </span>
+                                <p><span>发布时间：{{$new->updated_at}}</span></p>
+                                <p>{!! mb_substr($new->describes,0,120)."..." !!}</p>
+                            </div>
+                        </a>
+                    @elseif($loop->remaining)
+                            <a href="#" class="ind-news-l1 item">
+                                <img class="lazy" data-original="{{$PicPath.$new->pic}}">
+                                <div class="ind-news-l1-des">
+                                    <h4>{{$new->title}}</h4>
+                                    <span class="ind-news-l1-tag">
+                                        {{$new->news_tag_one->name}}
+                                    </span>
+                                    <p><span>发布时间：{{$new->updated_at}}</span></p>
+                                    <p>{!! mb_substr($new->describes,0,120)."..." !!}</p>
+                                </div>
+                            </a>
+                    @endif
+                @endforeach
             </div>
         </div>
 
         <div class="ind-news-r1 pull-left">
             <div class="ind-news-acd">
-                <a href="#" class="ind-news-acd-f1 col-xs-6">
-                    <img class="lazy" data-original="{{url('home/images/news-img-4.jpg')}}">
-                    <div class="ind-news-acd-des">
-                        <h4>活动标题一</h4>
-                        <span class="ind-news-acd-tag">
-                        标签
-                    </span>
-                        <p>活动内容活动内容活动内容
-                            活动内容活动内容活动内容</p>
-                    </div>
-                </a>
-                <a href="#" class="ind-news-acd-f1 col-xs-6">
-                    <img class="lazy" data-original="{{url('home/images/news-img-4.jpg')}}">
-                    <div class="ind-news-acd-des">
-                        <h4>活动标题一</h4>
-                        <span class="ind-news-acd-tag">
-                        标签
-                    </span>
-                        <p>活动内容活动内容活动内容
-                            活动内容活动内容活动内容</p>
-                    </div>
-                </a>
+                @foreach($salon as $sa)
+                    <a href="#" class="ind-news-acd-f1 col-xs-6">
+                        <img class="lazy" data-original="{{$PicPath.$sa->pic}}">
+                        <div class="ind-news-acd-des">
+                            <h4>{{ strlen($sa->title) > 5 ? mb_substr($sa->title,0,5).'...' : $sa->title }}</h4>
+                            <span class="ind-news-acd-tag">
+                            {{$sa->news_tag_one->name}}
+                        </span>
+                            <p>{{ mb_substr($sa->describes,0,60)."..." }}</p>
+                        </div>
+                    </a>
+                @endforeach
             </div>
             <div class="ind-news-r2">
                 <div id="ind-news-r2" class="ind-news-r2-box carousel slide" data-ride="carousel">
@@ -79,63 +68,36 @@
                     <div class="ind-news-r2-lunbo">
                         <div class="carousel-inner">
                             <ul class="list-inline clearfix item active">
-                                <li>
-                                    <a href="#" class="ind-news-r2-con">
-                                        <img class="lazy" data-original="{{url('home/images/news-img-3.jpg')}}">
-                                        <div class="ind-news-r2-des">
-                                            <h4>业界新闻一</h4>
-                                            <p>业界新闻内容业界新闻内容业界新闻内容业界新闻内容</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="ind-news-r2-con">
-                                        <img class="lazy" data-original="{{url('home/images/1507478249660021.jpg')}}">
-                                        <div class="ind-news-r2-des">
-                                            <h4>业界新闻一</h4>
-                                            <p>业界新闻内容业界新闻内容业界新闻内容业界新闻内容</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="ind-news-r2-con">
-                                        <img class="lazy" data-original="{{url('home/images/1507478249660021.jpg')}}">
-                                        <div class="ind-news-r2-des">
-                                            <h4>业界新闻一</h4>
-                                            <p>业界新闻内容业界新闻内容业界新闻内容业界新闻内容</p>
-                                        </div>
-                                    </a>
-                                </li>
+                                @foreach($dynamic as $dy)
+                                    @if($loop->index < 3)
+                                    <li>
+                                        <a href="#" class="ind-news-r2-con">
+                                            <img class="lazy" data-original="{{$PicPath.$dy->pic}}">
+                                            <div class="ind-news-r2-des">
+                                                <h4>{{$dy->title}}</h4>
+                                                <p>{{ mb_substr($dy->describes,0,60)."..." }}</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    @endif
+                                @endforeach
+
                             </ul>
 
                             <ul class="list-inline clearfix item">
-                                <li>
-                                    <a href="#" class="ind-news-r2-con">
-                                        <img class="lazy" data-original="{{url('home/images/1507478249660021.jpg')}}">
-                                        <div class="ind-news-r2-des">
-                                            <h4>业界新闻一</h4>
-                                            <p>业界新闻内容业界新闻内容业界新闻内容业界新闻内容</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="ind-news-r2-con">
-                                        <img class="lazy" data-original="{{url('home/images/1507478249660021.jpg')}}">
-                                        <div class="ind-news-r2-des">
-                                            <h4>业界新闻一</h4>
-                                            <p>业界新闻内容业界新闻内容业界新闻内容业界新闻内容</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="ind-news-r2-con">
-                                        <img class="lazy" data-original="{{url('home/images/1507478249660021.jpg')}}">
-                                        <div class="ind-news-r2-des">
-                                            <h4>业界新闻一</h4>
-                                            <p>业界新闻内容业界新闻内容业界新闻内容业界新闻内容</p>
-                                        </div>
-                                    </a>
-                                </li>
+                                @foreach($dynamic as $dy)
+                                    @if($loop->index < 6 && $loop->index >2 )
+                                        <li>
+                                            <a href="#" class="ind-news-r2-con">
+                                                <img class="lazy" data-original="{{$PicPath.$dy->pic}}">
+                                                <div class="ind-news-r2-des">
+                                                    <h4>{{$dy->title}}</h4>
+                                                    <p>{{ mb_substr($dy->describes,0,60)."..." }}</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>

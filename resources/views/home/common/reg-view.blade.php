@@ -26,15 +26,6 @@
                         <input name="password_confirmation" type="password" class="form-control" placeholder="再次输入密码"  required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="radio-inline">
-                        <input type="radio" name="member_type" value="1" checked> 普通会员
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="member_type" value="2"> 医生医师
-                    </label>
-                </div>
-
                 @if ($errors->any())
                     <div id="user_errors" class="alert alert-danger">
                         <ul class="list-unstyled">

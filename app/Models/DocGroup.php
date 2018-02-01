@@ -8,6 +8,7 @@ class DocGroup extends Model
 {
     protected $table = 'doc_group';
 
+
     public $timestamps = false;
 
     public function doc_group_doc(){

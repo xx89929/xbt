@@ -4,140 +4,41 @@
     </div>
     <div class="case-nav-con">
         <ul class="list-unstyled">
+            @foreach($caseNav as $cn)
+            @if($cn->parent_id == 0)
             <li>
                 <a>
                     <div class="case-nav-row clearfix">
-                        <span class="pull-left">疤痕专科</span>
+                        <span class="pull-left">{{$cn->title}}</span>
                         <i class="fa fa-chevron-right pull-right"></i>
                     </div>
                     <div class="case-nav-child">
                         <ul class="list-unstyled">
-                            <li class="active">
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">创面修复</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
+                            @foreach($caseNav as $p)
+                            @if($p->parent_id != 0 && $p->parent_id == $cn->id)
                             <li>
-                                <a>
+                                <a href="{{route('case',['id' => $p->id])}}">
                                     <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">儿童疤痕</span>
+                                        <span class="pull-left">{{$p->title}}</span>
                                         <i class="fa fa-chevron-right pull-right"></i>
                                     </div>
                                 </a>
                             </li>
-
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">凹陷疤痕</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">腋下瘢痕</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">创面修复</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
+                            @endif
+                            @endforeach
                         </ul>
                     </div>
                 </a>
             </li>
-            <li>
-                <a>
-                    <div class="case-nav-row clearfix">
-                        <span class="pull-left">美容专科</span>
-                        <i class="fa fa-chevron-right pull-right"></i>
-                    </div>
-                    <div class="case-nav-child">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">创面修复</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">儿童疤痕</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <div class="case-nav-row clearfix">
-                        <span class="pull-left">疤痕预防</span>
-                        <i class="fa fa-chevron-right pull-right"></i>
-                    </div>
-                    <div class="case-nav-child">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">凹陷疤痕</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">腋下瘢痕</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a>
-                                    <div class="case-nav-row case-nav-child-f1 clearfix">
-                                        <span class="pull-left">创面修复</span>
-                                        <i class="fa fa-chevron-right pull-right"></i>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <div class="case-nav-row clearfix">
-                        <span class="pull-left">特殊疤痕</span>
-                        <i class="fa fa-chevron-right pull-right"></i>
-                    </div>
-                </a>
-            </li>
+            @endif
+            @endforeach
         </ul>
     </div>
 </div>
 
 <script>
-    $('.case-nav-con > ul > li').click(function () {
-        var li_child = $(this).find("div.case-nav-child");
+    $('.case-nav-con > ul > li > a').click(function () {
+        var li_child = $(this).parent().find("div.case-nav-child");
         if(li_child.css('display') == 'none'){
             li_child.slideDown();
         }

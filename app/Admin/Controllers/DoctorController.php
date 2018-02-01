@@ -121,15 +121,13 @@ class DoctorController extends Controller
                     'on'  => ['value' => 1, 'text' => '已通过', 'color' => 'success'],
                     'off' => ['value' => 0, 'text' => '未通过', 'color' => 'danger'],
                 ]);
-                $form->password('doc_password','密码')->rules('confirmed',[
+                $form->password('password','密码')->rules('confirmed',[
                     'confirmed' => '必须与确认密码一直',
                 ]);
-                $form->password('doc_password_confirmation','确认密码')->default(function (Form $form){
-                    return $form->model()->doc_password;
-                });
+                $form->password('password_confirmation','确认密码');
 
 
-                $form->ignore(['doc_password_confirmation']);
+                $form->ignore(['password_confirmation']);
                 $form->display('created_at', '注册时间');
                 $form->display('updated_at', '更新时间');
             })->tab('银行信息',function(Form $form){
@@ -143,8 +141,8 @@ class DoctorController extends Controller
 
 
             $form->saving(function (Form $form) {
-                if ($form->doc_password != $form->model()->doc_password) {
-                    $form->doc_password = bcrypt($form->doc_password);
+                if ($form->password != $form->model()->password) {
+                    $form->password = bcrypt($form->password);
                 }
             });
         });

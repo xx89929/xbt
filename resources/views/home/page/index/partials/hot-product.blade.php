@@ -2,50 +2,21 @@
     <div class="hot-product">
         <div class="ind-tit clearfix">
             <h3>热卖产品</h3>
-            <a href="#">更多>></a>
+            <a href="{{route('product')}}">更多>></a>
         </div>
         <div class="hot-product_box">
             <ul class="list-inline">
-                <li>
-                    <div class="hot-pro-item text-center">
-                        <img class="lazy" data-original="{{url('home/images/hot-1.jpg')}}">
-                        <h5>无痕修护菁华液</h5>
-                        <span>新疤痕</span>
-                        <p class="product-price">￥<i>125.00</i>元</p>
-                    </div>
-                </li>
-                <li class="xbt-li-pro">
-                    <div class="hot-pro-item text-center">
-                        <img class="lazy" data-original="{{url('home/images/hot-2.jpg')}}">
-                        <h5>无痕修护菁华液</h5>
-                        <span>新疤痕</span>
-                        <p class="product-price">￥<i>125.00</i>元</p>
-                    </div>
-                </li>
-                <li class="xbt-li-pro">
-                    <div class="hot-pro-item text-center">
-                        <img class="lazy" data-original="{{url('home/images/hot-3.jpg')}}">
-                        <h5>无痕修护菁华液</h5>
-                        <span>新疤痕</span>
-                        <p class="product-price">￥<i>125.00</i>元</p>
-                    </div>
-                </li>
-                <li class="xbt-li-pro">
-                    <div class="hot-pro-item text-center">
-                        <img class="lazy" data-original="{{url('home/images/hot-4.jpg')}}">
-                        <h5>无痕修护菁华液</h5>
-                        <span>新疤痕</span>
-                        <p class="product-price">￥<i>125.00</i>元</p>
-                    </div>
-                </li>
-                <li class="xbt-li-pro">
-                    <div class="hot-pro-item text-center">
-                        <img class="lazy" data-original="{{url('home/images/hot-5.jpg')}}">
-                        <h5>无痕修护菁华液</h5>
-                        <span>新疤痕</span>
-                        <p class="product-price">￥<i>125.00</i>元</p>
-                    </div>
-                </li>
+
+                @foreach ($product as $pro)
+                    <li class="xbt-li-pro">
+                        <a href="{{route('pro-info',['id' => $pro->id])}}" class="hot-pro-item text-center">
+                            <img class="lazy" data-original="{{$PicPath.$pro->pics[0]}}">
+                            <h5>{{$pro->name}}</h5>
+                            <span>{{$pro->description}}</span>
+                            <p class="product-price">￥<i>{{$pro->price}}.00</i>元</p>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>

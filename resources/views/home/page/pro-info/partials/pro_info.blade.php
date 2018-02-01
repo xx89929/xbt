@@ -5,87 +5,105 @@
         <div id="pro-i-lunbo" class="carousel slide" data-ride="carousel">
             <!-- 轮播（Carousel）指标 -->
             <ol class="carousel-indicators pro-i-tag">
-                <li data-target="#pro-i-lunbo" data-slide-to="0" class="active">
-                    <img src="{{url('home/images/1507572088.jpg')}}">
+                @for($i = 0 ; $i < count($proin->pics) ; $i++)
+                    @if($i == 0)
+                <li data-target="#pro-i-lunbo" data-slide-to="{{$i}}" class="active">
+                    <img src="{{$PicPath.$proin->pics[$i]}}">
                 </li>
-                <li data-target="#pro-i-lunbo" data-slide-to="1">
-                    <img src="{{url('home/images/1507572088.jpg')}}">
-                </li>
-                <li data-target="#pro-i-lunbo" data-slide-to="2">
-                    <img src="{{url('home/images/1507572088.jpg')}}">
-                </li>
+                    @else
+                        <li data-target="#pro-i-lunbo" data-slide-to="{{$i}}">
+                            <img src="{{$PicPath.$proin->pics[$i]}}">
+                        </li>
+                    @endif
+                @endfor
             </ol>
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner">
-                <div class="pro-i-lunbo-img item active">
-                    <img src="{{url('home/images/1507572088.jpg')}}">
-                </div>
-                <div class="pro-i-lunbo-img item">
-                    <img src="{{url('home/images/1507572088.jpg')}}">
-                </div>
-                <div class="pro-i-lunbo-img item">
-                    <img src="{{url('home/images/1507572088.jpg')}}">
-                </div>
+                @for($i = 0 ; $i < count($proin->pics) ; $i++)
+                    @if($i  == 0)
+                        <div class="pro-i-lunbo-img item active">
+                            <img src="{{$PicPath.$proin->pics[$i]}}">
+                        </div>
+                    @else
+                        <div class="pro-i-lunbo-img item">
+                            <img src="{{$PicPath.$proin->pics[$i]}}">
+                        </div>
+                    @endif
+                @endfor
             </div>
         </div>
     </div>
 
-    <div class="pro-i-con pull-left">
-        <div class="pro-i-con-tit">
-            <h3>无痕修护菁华液</h3>
-        </div>
-        <div class="pro-i-con-pri">
-            <span>￥159.00元</span>
-        </div>
-        <div class="pro-i-con-check">
-            <h5>选择店铺</h5>
-            <ul class="list-inline clearfix">
-                <li class="col-xs-2">
-                    <select class="pro-select">
-                        <option>省</option>
-                        <option>海南</option>
-                        <option>广州</option>
-                    </select>
-                </li>
-                <li class=" col-xs-2">
-                    <select class="pro-select">
-                        <option>市</option>
-                        <option>海口</option>
-                        <option>三亚</option>
-                    </select>
-                </li>
-                <li class=" col-xs-2">
-                    <select class="pro-select">
-                        <option>区</option>
-                        <option>龙华</option>
-                        <option>秀英</option>
-                    </select>
-                </li>
-                <li class="col-xs-6">
-                    <select class="pro-select">
-                        <option>选择要挑选的店铺</option>
-                        <option>XXXX店铺</option>
-                        <option>XXXXXXXX店铺</option>
-                    </select>
-                </li>
-            </ul>
-        </div>
-        <div class="pro-i-con-nub">
-            <h5>数量</h5>
-            <div class="pro-i-con-nub-item clearfix text-center">
-                <span id="pro-nub-dec" class="pro-nub-contr pull-left">-</span>
-                <input type="text" class="pro-nub-val pull-left" value="1">
-                <span id="pro-nub-ins" class="pro-nub-contr pull-left">+</span>
-            </div>
-            <p>库存9999件</p>
-        </div>
 
-        <div class="pro-i-con-sub clearfix text-center">
-            <button class="pro-i-con-sub-buy pull-left"><i class="fa fa-shopping-bag"></i>&nbsp;立即购买</button>
-            <button class="pro-i-con-sub-join-shop pull-left"><i class="fa fa-shopping-cart"></i>&nbsp;加入购物车</button>
+    <form action="{{route('order.create')}}" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="pro_id" value="{{$proin->id}}">
+
+
+        <div class="pro-i-con pull-left">
+            <div class="pro-i-con-tit">
+                <h3>{{$proin->name}}</h3>
+            </div>
+            <div class="pro-i-con-pri">
+                <span>￥{{$proin->price}}元</span>
+            </div>
+            <div class="pro-i-con-check">
+                <h5>选择店铺</h5>
+                <ul class="list-inline clearfix">
+                    <li class="col-xs-2">
+                        <select name="province" class="pro-select" data-url="{{route('api.getCity')}}" data-next="#getCity">
+                            <option value="">省</option>
+                            @foreach($province as $province)
+                            <option value="{{$province->id}}">{{$province->area_name}}</option>
+                            @endforeach
+                        </select>
+                    </li>
+                    <li class=" col-xs-2">
+                        <select name="city" class="pro-select" data-url="{{route('api.getDistrict')}}"  id="getCity" data-next="#getDistrict">
+                            <option value="">市</option>
+                        </select>
+                    </li>
+                    <li class=" col-xs-2">
+                        <select name="district" class="pro-select" id="getDistrict" data-url="{{route('api.getAreaStore')}}" data-next="#getStore">
+                            <option value="">区</option>
+                        </select>
+                    </li>
+                    <li class="col-xs-6">
+                        <select name="store_id" class="pro-select" id="getStore" data-url="{{route('api.getAreaDoc')}}" data-next="#getAreaDoc">
+                            <option value="">选择要挑选的店铺</option>
+                        </select>
+                    </li>
+                    <li class="col-xs-12">
+                        <select name="doctor_id" class="pro-select" id="getAreaDoc" >
+                            <option value="">选择医生</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="pro-i-con-nub">
+                <h5>数量</h5>
+                <div class="pro-i-con-nub-item clearfix text-center">
+                    <span id="pro-nub-dec" class="pro-nub-contr pull-left">-</span>
+                    <input name="pro_num" type="text" class="pro-nub-val pull-left" value="1">
+                    <span id="pro-nub-ins" class="pro-nub-contr pull-left">+</span>
+                </div>
+                <p id="pro_inventory">库存<i>{{$proin->inventory}}</i>件</p>
+            </div>
+
+            <div class="pro-i-con-sub clearfix text-center">
+                <button type="submit" class="pro-i-con-sub-buy pull-left"><i class="fa fa-shopping-bag"></i>&nbsp;立即购买</button>
+                <button class="pro-i-con-sub-join-shop pull-left"><i class="fa fa-shopping-cart"></i>&nbsp;加入购物车</button>
+            </div>
+
+            @if($errors->all())
+                <span class="help-block bg-danger">
+                    <strong style="padding:5px 10px;color:white;">{{ $errors->first() }}</strong>
+                </span>
+            @endif
         </div>
-    </div>
+    </form>
 </div>
+
 
 
 <script>
@@ -95,14 +113,20 @@
             val = nubval.val();
         val = parseInt(val,10);
         val -= 1
+        val < 1 ? val = 1 : val;
         nubval.val(val);
     })
 
     $('#pro-nub-ins').click(function () {
         var nubval = $('.pro-nub-val'),
             val = nubval.val();
+        var max_nub;
+        Number($('#pro_inventory > i').text()) ? max_nub = Number($('#pro_inventory > i').text()) : max_nub=val;
+        console.log(max_nub);
+
         val = parseInt(val,10);
         val += 1
+        val > max_nub ? val = max_nub : val;
         nubval.val(val);
     })
 
@@ -115,4 +139,20 @@
     $(".pro-i-lunbo-contr-right").click(function(){
         $("#pro-i-lunbo").carousel('next');
     });
+</script>
+
+<script>
+    $('.pro-select').on('change select',function () {
+        areaPost(this);
+    });
+
+    function areaPost(that) {
+        var next_par = $(that).data('next'),
+            url = $(that).data('url'),
+            parent_id = $(that).val(),
+            param = {
+                'q' : parent_id,
+            };
+            areaJajx(url,param,next_par,that);
+    }
 </script>

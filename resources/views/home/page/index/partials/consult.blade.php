@@ -4,39 +4,19 @@
     </div>
     <div class="ind-consult pull-left">
         <ul class="list-inline">
-            <li>
-                <div class="ind-consult-f1">
-                    <div class="consult-header">
-                        <img class="lazy" data-original="{{url('home/images/yisheng.jpg')}}">
+            @foreach($Doctor as $doc)
+                <li>
+                    <div class="ind-consult-f1">
+                        <div class="consult-header">
+                            <img class="lazy" data-original="{{$PicPath.$doc->avatar}}">
+                        </div>
+                        <div class="consult-des text-center">
+                            <p>{{$doc->doc_to_doc_group->title}}：{{$doc->realname}}</p>
+                            <a href="#">申请交流</a>
+                        </div>
                     </div>
-                    <div class="consult-des text-center">
-                        <p>专家：XXX</p>
-                        <button>申请交流</button>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="ind-consult-f1">
-                    <div class="consult-header">
-                        <img class="lazy" data-original="{{url('home/images/yisheng.jpg')}}">
-                    </div>
-                    <div class="consult-des text-center">
-                        <p>专家：XXX</p>
-                        <button>申请交流</button>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="ind-consult-f1">
-                    <div class="consult-header">
-                        <img class="lazy" data-original="{{url('home/images/yisheng.jpg')}}">
-                    </div>
-                    <div class="consult-des text-center">
-                        <p>专家：XXX</p>
-                        <button>申请交流</button>
-                    </div>
-                </div>
-            </li>
+                </li>
+            @endforeach
         </ul>
     </div>
 
@@ -46,8 +26,12 @@
         </div>
         <div class="ind-acd-div-f1 text-center">
             <div class="ind-acd-des">
-                <h5>活动标题</h5>
-                <p>活动内容活动内容活动内容活动内容活动内容活动内容</p>
+                @foreach($salon as $sa)
+                    @if($loop->first)
+                    <h5>{{ mb_substr($sa->title,0,10)}}</h5>
+                    <p>{{ mb_substr($sa->describes,0,30)."..." }}</p>
+                    @endif
+                @endforeach
             </div>
             <button>申请加入</button>
 

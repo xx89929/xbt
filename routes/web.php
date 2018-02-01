@@ -24,11 +24,13 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('contact','ContactController@index')->name('contact');
     Route::get('product','ProductController@index')->name('product');
     Route::get('pro/info','ProInfoController@index')->name('pro-info');
-    Route::get('facade','FacadeController@index')->name('facade');
+    Route::get('store','StoreController@index')->name('store');
     Route::post('WangImgUp','WangEditController@imgUp');
 
-    Route::get('getCity','AreaController@city');
-    Route::get('getDistrict','AreaController@district');
+    Route::get('getCity','AreaController@city')->name('api.getCity');
+    Route::get('getDistrict','AreaController@district')->name('api.getDistrict');
+    Route::get('getAreaStore','AreaController@areaStore')->name('api.getAreaStore');
+    Route::get('getAreaDoc','AreaController@getAreaDoc')->name('api.getAreaDoc');
 });
 
 Route::group(['namespace' => 'Auth'],function (){
@@ -44,10 +46,24 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('order','OrderController@index')->name('member.order');
         Route::get('finace','FinaceController@index')->name('member.finace');
         Route::get('address','AddrController@index')->name('member.address');
+        Route::post('order/create','OrderController@PostOrder')->name('order.create');
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });
 
+Route::group(['namespace' => 'Doctor'],function (){
+    Route::get('docreg','DocRegController@index')->name('docreg.show');
+    Route::get('doclog','DocLogController@index')->name('doclog.show');
+    Route::post('docreg','DocRegController@register')->name('docreg');
+    Route::post('doclog','DocLogController@login')->name('doclog');
+
+    Route::group(['middleware' => 'auth:doctor','prefix' => 'doctor'],function (){
+        Route::post('doc-login', 'DocLogController@logout')->name('doc.logout');
+        Route::get('home', 'HomeController@index')->name('doc.home');
+
+
+    });
+});
 
 
 //Auth::routes();

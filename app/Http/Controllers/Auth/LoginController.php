@@ -29,6 +29,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
+
     public function username()
     {
         return 'username';
@@ -46,6 +47,7 @@ class LoginController extends Controller
 
     public function index()
     {
+
         return view('home.common.login-view');
     }
 

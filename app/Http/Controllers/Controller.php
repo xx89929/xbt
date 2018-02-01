@@ -10,4 +10,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $adminPicPath;
+
+    public function __construct()
+    {
+        $this->adminPicPath = config('filesystems.disks.admin.url').'/';
+    }
 }

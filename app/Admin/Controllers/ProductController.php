@@ -79,6 +79,7 @@ class ProductController extends Controller
             $grid->name('产品名称');
             $grid->price('产品价格');
             $grid->description('产品描述');
+            $grid->specification('规格');
             $grid->inventory('库存');
             $grid->pro_category_one()->title('产品分类');
 
@@ -104,6 +105,7 @@ class ProductController extends Controller
             $form->select('category_id', '产品分类')->options(function(){
                 return ProCategory::all()->pluck('title','id');
             });
+            $form->text('specification','产品规格');
             $form->number('inventory', '库存');
             $form->multipleImage('pics', '产品图片')->removable();
             $form->editor('pro_info', '详细信息');

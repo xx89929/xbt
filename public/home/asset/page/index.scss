@@ -52,16 +52,21 @@
   border-left: 0px;
   height: 100%;
   & > ul {
+    width: 100%;
     display: inline-block;
     margin-left: 0px;
-    li {
+    & > li {
       padding:20px;
-      a{
+      & > a{
         display: inline-block;
         color: $b-font-color;
         &:hover{
           color: $href-color;
         }
+      & > img{
+        width: 40px;
+        height: 40px;
+      }
       }
     }
   }
@@ -85,6 +90,13 @@
         top: -10px;
       }
     }
+  }
+}
+
+.xbt-li-pro{
+  &> a{
+    color:inherit;
+    display: inline-block;
   }
 }
 .ind-tit{
@@ -136,6 +148,7 @@
 }
 
 .ind-consult-f1{
+  height: 234px;
   padding:10px;
   background-color: white;
 }
@@ -150,7 +163,7 @@
   p{
     margin-top: 10px;
   }
-  button{
+  a{
     padding:5px 10px;
     @include button;
   }
@@ -208,6 +221,7 @@
 }
 
 .ind-case-item{
+  width: 100%;
   display: inline-block;
   padding:10px;
   background-color: white;
@@ -383,6 +397,7 @@
   position: relative;
 }
 .ind-news-r2-des{
+  width: 100%;
   position: absolute;
   top:162px;
   padding:30px;

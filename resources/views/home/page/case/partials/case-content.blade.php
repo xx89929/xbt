@@ -1,87 +1,20 @@
 <div class="case-content pull-left">
     <ul class="list-inline">
+        @foreach($case as $ca)
         <li class="col-xs-3">
             <a href="#">
                 <div class="case-con-img">
-                    <img class="lazy" data-original="{{url('home/images/anli-1.jpg')}}">
+                    <img class="lazy" data-original="{{$PicPath.$ca->image}}">
                 </div>
                 <div class="case-con-des text-center">
-                    <h5>手上色素</h5>
-                    <span>用修巴堂本草精华原液修复记录</span>
+                    <h5>{{$ca->name}}</h5>
+                    <span>{{$ca->describe}}</span>
                 </div>
             </a>
         </li>
-
-        <li class="col-xs-3">
-            <a href="#">
-                <div class="case-con-img">
-                    <img class="lazy" data-original="{{url('home/images/anli-1.jpg')}}">
-                </div>
-                <div class="case-con-des text-center">
-                    <h5>手上色素</h5>
-                    <span>用修巴堂本草精华原液修复记录</span>
-                </div>
-            </a>
-        </li>
-
-        <li class="col-xs-3">
-            <a href="#">
-                <div class="case-con-img">
-                    <img class="lazy" data-original="{{url('home/images/anli-1.jpg')}}">
-                </div>
-                <div class="case-con-des text-center">
-                    <h5>手上色素</h5>
-                    <span>用修巴堂本草精华原液修复记录</span>
-                </div>
-            </a>
-        </li>
-
-        <li class="col-xs-3">
-            <a href="#">
-                <div class="case-con-img">
-                    <img class="lazy" data-original="{{url('home/images/anli-1.jpg')}}">
-                </div>
-                <div class="case-con-des text-center">
-                    <h5>手上色素</h5>
-                    <span>用修巴堂本草精华原液修复记录</span>
-                </div>
-            </a>
-        </li>
-
-        <li class="col-xs-3">
-            <a href="#">
-                <div class="case-con-img">
-                    <img class="lazy" data-original="{{url('home/images/anli-1.jpg')}}">
-                </div>
-                <div class="case-con-des text-center">
-                    <h5>手上色素</h5>
-                    <span>用修巴堂本草精华原液修复记录</span>
-                </div>
-            </a>
-        </li>
-
-        <li class="col-xs-3">
-            <a href="#">
-                <div class="case-con-img">
-                    <img class="lazy" data-original="{{url('home/images/anli-1.jpg')}}">
-                </div>
-                <div class="case-con-des text-center">
-                    <h5>手上色素</h5>
-                    <span>用修巴堂本草精华原液修复记录</span>
-                </div>
-            </a>
-        </li>
-
-        <li class="col-xs-3">
-            <a href="#">
-                <div class="case-con-img">
-                    <img class="lazy" data-original="{{url('home/images/anli-1.jpg')}}">
-                </div>
-                <div class="case-con-des text-center">
-                    <h5>手上色素</h5>
-                    <span>用修巴堂本草精华原液修复记录</span>
-                </div>
-            </a>
-        </li>
+        @endforeach
     </ul>
+    <div class="lara_fenye text-center">
+        {{ $case->links()}}
+    </div>
 </div>

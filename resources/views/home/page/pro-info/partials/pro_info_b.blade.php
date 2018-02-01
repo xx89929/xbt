@@ -4,7 +4,7 @@
             <a>详细信息</a>
         </div>
         <div class="pro-i-param-con">
-
+            {!!  $proin->pro_info !!}
         </div>
     </div>
     @include('home.page.product.partials.hot-product-box')
