@@ -28,8 +28,8 @@
             <div class="ind-acd-des">
                 @foreach($salon as $sa)
                     @if($loop->first)
-                    <h5>{{ mb_substr($sa->title,0,10)}}</h5>
-                    <p>{{ mb_substr($sa->describes,0,30)."..." }}</p>
+                    <h5>{{ str_limit($sa->title,15)}}</h5>
+                    <p>{{ str_limit($sa->describes,40) }}</p>
                     @endif
                 @endforeach
             </div>
