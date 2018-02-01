@@ -227,7 +227,7 @@
 
 .ind-case-item{
   width: 100%;
-  height: 279px;
+  height: 300px;
   display: inline-block;
   padding:10px;
   background-color: white;
@@ -248,13 +248,15 @@
 .ind-case-des{
   p{
     color: #333;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 0px;
     font-size: 16px;
     span{
       color: #999;
       font-size: 14px;
     }
     i{
+      font-size: 14px;
       color: $href-color;
     }
   }

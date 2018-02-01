@@ -12,7 +12,8 @@
                             <img class='lazy' data-original="{{$PicPath.$ca->image}}">
                         </div>
                         <div class="ind-case-des">
-                            <p class="clearfix"><e class="pull-left">{{strlen($ca->name) > 17? mb_substr($ca->name,0,17).'...' : $ca->name }}</e><i class="pull-right">{{$ca->CaseCateOne->title}}</i></p>
+                            <p >{{strlen($ca->name) > 17? mb_substr($ca->name,0,17).'...' : $ca->name }}</p>
+                            <p><i>{{$ca->CaseCateOne->title}}</i></p>
 
                             <p><span>{{strlen($ca->describe) > 35 ? mb_substr($ca->describe,0,35).'...' : $ca->describe}}</span></p>
 
