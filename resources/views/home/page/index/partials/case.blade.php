@@ -12,10 +12,10 @@
                             <img class='lazy' data-original="{{$PicPath.$ca->image}}">
                         </div>
                         <div class="ind-case-des">
-                            <p >{{mb_strlen($ca->name,'utf-8') > 17 ? mb_substr($ca->name,0,17).'...' : $ca->name }}</p>
+                            <p >{{ str_limit($ca->name,30)}}</p>
                             <p><i>{{$ca->CaseCateOne->title}}</i></p>
 
-                            <p><span>{{strlen($ca->describe) > 35 ? mb_substr($ca->describe,0,35).'...' : $ca->describe}}</span></p>
+                            <p><span>{{str_limit( $ca->describe,66) }}</span></p>
 
                         </div>
                     </a>
