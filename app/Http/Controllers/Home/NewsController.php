@@ -17,6 +17,6 @@ class NewsController extends Controller
             $news = News::select('pic','title','updated_at','describes')->isPush()->paginate(8);
         }
 
-        return view('home.page.news.index',['newTag' => $newTages,'news' => $news,'PicPath' => $this->adminPicPath,]);
+        return view('home.page.news.index',['newTag' => $newTages,'news' => $news]);
     }
 }

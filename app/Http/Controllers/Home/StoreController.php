@@ -11,6 +11,6 @@ class StoreController extends Controller
     public function index(Request $request){
 
         $hotStore = Store::select('name','store_pic')->take(6)->get();
-        return view('home.page.facade.index',['hotStore' => $hotStore,'PicPath' => $this->adminPicPath]);
+        return view('home.page.facade.index',['hotStore' => $hotStore]);
     }
 }

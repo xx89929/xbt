@@ -9,7 +9,7 @@
                 <li class="col-xs-3">
                     <a href="#" class="ind-case-item">
                         <div class="ind-case-img">
-                            <img class='lazy' data-original="{{$PicPath.$ca->image}}">
+                            <img class='lazy' data-original="{{asset('storage/'.$ca->image)}}">
                         </div>
                         <div class="ind-case-des">
                             <p >{{ str_limit($ca->name,30)}}</p>

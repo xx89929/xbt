@@ -12,7 +12,16 @@ use Illuminate\Support\Facades\Validator;
 class OrderController extends Controller
 {
     public function index(){
-        return view('auth.page.order');
+        $order = Order::where('member_id',Auth::id())->with(['relevancy_order_pro' => function($query){
+            $query->select('id','name');
+        },'relevancy_order_user' => function($query){
+            $query->select('id','username');
+        },'rele_order_doctor' => function($query){
+            $query->select('id','realname');
+        },'rele_order_store' => function($query){
+            $query->select('id','name');
+        }])->get();
+        return view('auth.page.order',['order' => $order]);
     }
 
     public function PostOrder(Request $request){

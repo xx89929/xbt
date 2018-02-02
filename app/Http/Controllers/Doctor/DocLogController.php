@@ -6,22 +6,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class DocLogController extends Controller
 {
     use AuthenticatesUsers;
 
+    protected $redirectTo = '/';
+
     public function index(){
         return view('home.common.doclog');
     }
-
-    protected $redirectTo = '/';
 
 
     public function username()
     {
         return 'account';
     }
+
 
 
     public function __construct()
@@ -55,6 +57,26 @@ class DocLogController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
+    protected function attemptLogin(Request $request)
+    {
+        return $this->guard()->attempt([$this->username() => $request->post($this->username()),
+            'password' =>$request->post('password'),'is_check' => 1], $request->filled('remember'));
+    }
+
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.failed')],
+            'is_check' => [trans('auth.is_check')]
+        ]);
+    }
+
+
+    /**
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
     protected function guard()
     {
         return Auth::guard('doctor');
@@ -68,5 +90,6 @@ class DocLogController extends Controller
             'password' => 'required|string',
         ]);
     }
+
 
 }

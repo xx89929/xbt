@@ -13,6 +13,10 @@
 }
 .member-i-info-des{
   width: 80%;
+  input{
+    border: 0px;
+    width: 100%;
+  }
 }
 
 
@@ -37,4 +41,9 @@
   input[type=file]{
     width: 100%;
   }
+}
+
+.auth_save{
+  padding:10px 40px;
+  @include blue-button;
 }

@@ -12,7 +12,7 @@
                         <p>用于保护帐号信息和登录安全</p>
                     </div>
                     <div class="member-safe-i-active pull-right">
-                        <button>修改</button>
+                        <a href="{{route('password.request')}}">修改</a>
                     </div>
                 </div>
             </li>
@@ -27,7 +27,7 @@
                         <p>邮箱绑定可以用于登录帐号，重置密码或其他安全验证</p>
                     </div>
                     <div class="member-safe-i-active pull-right">
-                        <button>绑定</button>
+                        <a href="#">绑定</a>
                     </div>
                 </div>
             </li>

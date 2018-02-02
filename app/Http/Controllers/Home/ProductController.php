@@ -20,6 +20,6 @@ class ProductController extends Controller
         }else{
             $product = Product::select('name','price','pics','id','specification','description')->paginate(6);
         }
-        return view('home.page.product.index',['product' => $product,'proNav' => $proNav,'PicPath' => $this->adminPicPath]);
+        return view('home.page.product.index',['product' => $product,'proNav' => $proNav]);
     }
 }

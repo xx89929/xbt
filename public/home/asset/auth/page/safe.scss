@@ -34,10 +34,10 @@
 }
 
 .member-safe-i-active{
-  button{
-    padding:0px 20px;
+  a{
+    padding:10px 20px;
     height: 60px;
-    line-height: 30px;
+    line-height: 60px;
     @include blue-button;
     border: 1px solid #ddd;
   }

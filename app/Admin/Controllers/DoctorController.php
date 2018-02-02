@@ -127,7 +127,7 @@ class DoctorController extends Controller
                 $form->password('password_confirmation','确认密码');
 
 
-                $form->ignore(['password_confirmation']);
+
                 $form->display('created_at', '注册时间');
                 $form->display('updated_at', '更新时间');
             })->tab('银行信息',function(Form $form){
@@ -139,10 +139,12 @@ class DoctorController extends Controller
             });
 
 
-
+            $form->ignore(['password_confirmation']);
             $form->saving(function (Form $form) {
-                if ($form->password != $form->model()->password) {
+                if (bcrypt($form->password) != $form->model()->password && $form->password != null) {
                     $form->password = bcrypt($form->password);
+                }else{
+                    $form->password = $form->model()->password;
                 }
             });
         });

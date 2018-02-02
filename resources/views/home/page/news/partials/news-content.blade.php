@@ -4,7 +4,7 @@
         <li class="col-xs-3">
             <a href="#">
                 <div class="news-img">
-                    <img class="lazy" data-original="{{$PicPath.$n->pic}}">
+                    <img class="lazy" data-original="{{asset('storage/'.$n->pic)}}">
                 </div>
                 <div class="news-des">
                     <p>{{str_limit($n->describes,100)}}</p>

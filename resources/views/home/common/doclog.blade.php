@@ -31,11 +31,6 @@
                                     <strong>{{ $errors->first('account') }}</strong>
                                 </div>
                             @endif
-                            @if ($errors->has('password'))
-                                <span class="help-block bg-danger">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                            @endif
                             <button type="submit" class="btn btn-primary">登陆</button>
                         </form>
                     </div>

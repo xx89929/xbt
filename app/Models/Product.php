@@ -28,6 +28,10 @@ class Product extends Model
         return $this->hasOne(ProCategory::class,'id','category_id');
     }
 
+    public function rele_pro_order(){
+        return $this->hasMany(Order::class,'pro_id','id');
+    }
+
     public function scopeProId($query,$id){
         return $query->where('id',$id);
     }

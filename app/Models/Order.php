@@ -18,11 +18,27 @@ class Order extends Model
 
 
     public function relevancy_order_pro(){
-        return $this->hasOne(Product::class,'id','pro_id');
+        return $this->belongsTo(Product::class,'pro_id');
     }
 
 
     public function relevancy_order_user(){
-        return $this->hasOne(User::class,'id','member_id');
+        return $this->belongsTo(User::class,'member_id');
+    }
+
+    public function rele_order_doctor(){
+        return $this->belongsTo(Doctor::class,'doctor_id');
+    }
+    public function rele_order_store(){
+        return $this->belongsTo(Store::class,'store_id');
+    }
+
+
+    public function scopeNonPay($query){
+        return $query->where('pay_status',0);
+    }
+
+    public function scopeNonOrder($query){
+        return $query->where('order_status',0);
     }
 }

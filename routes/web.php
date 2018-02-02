@@ -47,6 +47,10 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('finace','FinaceController@index')->name('member.finace');
         Route::get('address','AddrController@index')->name('member.address');
         Route::post('order/create','OrderController@PostOrder')->name('order.create');
+        Route::post('info/save','InfoController@save')->name('memberInfo.save');
+        Route::post('addr/save','AddrController@save')->name('memberAddr.save');
+        Route::get('password/reset', 'SafeController@showRePass')->name('password.request');
+        Route::post('password/reset', 'SafeController@reset');
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });
@@ -60,8 +64,6 @@ Route::group(['namespace' => 'Doctor'],function (){
     Route::group(['middleware' => 'auth:doctor','prefix' => 'doctor'],function (){
         Route::post('doc-login', 'DocLogController@logout')->name('doc.logout');
         Route::get('home', 'HomeController@index')->name('doc.home');
-
-
     });
 });
 

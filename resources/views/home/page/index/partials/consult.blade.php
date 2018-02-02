@@ -8,7 +8,7 @@
                 <li>
                     <div class="ind-consult-f1">
                         <div class="consult-header">
-                            <img class="lazy" data-original="{{$PicPath.$doc->avatar}}">
+                            <img class="lazy" data-original="{{asset('storage/'.$doc->avatar)}}">
                         </div>
                         <div class="consult-des text-center">
                             <p>{{$doc->doc_to_doc_group->title}}：{{$doc->realname}}</p>

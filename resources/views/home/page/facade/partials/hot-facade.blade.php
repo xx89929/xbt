@@ -8,7 +8,7 @@
             <li class="col-xs-2">
                 <div class="hot-facade-item ">
                     <div class="hot-facade-item-img">
-                        <img class="lazy" data-original="{{ $PicPath.$hs->store_pic }}">
+                        <img class="lazy" data-original="{{ asset('storage/'.$hs->store_pic) }}">
                     </div>
                     <div class="hot-facade-item-des text-center">
                         <h5>{{$hs->name}}</h5>

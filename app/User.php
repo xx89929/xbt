@@ -5,6 +5,7 @@ namespace App;
 use App\Models\MemberInfo;
 use App\Models\MemberOrAddr;
 use App\Models\MemberType;
+use App\Models\Order;
 use App\Models\PayLog;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'email', 'password'
     ];
 
     /**
@@ -56,5 +57,9 @@ class User extends Authenticatable
         return $query->whereHas('member_info_one', function ($query) use ($type) {
             $query->where('type',  $type);
         });
+    }
+
+    public function rele_member_order(){
+        return $this->hasMany(Order::class,'member_id','id');
     }
 }

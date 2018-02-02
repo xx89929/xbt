@@ -8,11 +8,11 @@
                 @for($i = 0 ; $i < count($proin->pics) ; $i++)
                     @if($i == 0)
                 <li data-target="#pro-i-lunbo" data-slide-to="{{$i}}" class="active">
-                    <img src="{{$PicPath.$proin->pics[$i]}}">
+                    <img src="{{asset('storage/'.($proin->pics[$i])}}">
                 </li>
                     @else
                         <li data-target="#pro-i-lunbo" data-slide-to="{{$i}}">
-                            <img src="{{$PicPath.$proin->pics[$i]}}">
+                            <img src="{{asset('storage/'.$proin->pics[$i])}}">
                         </li>
                     @endif
                 @endfor
@@ -22,11 +22,11 @@
                 @for($i = 0 ; $i < count($proin->pics) ; $i++)
                     @if($i  == 0)
                         <div class="pro-i-lunbo-img item active">
-                            <img src="{{$PicPath.$proin->pics[$i]}}">
+                            <img src="{{asset('storage/'.$proin->pics[$i])}}">
                         </div>
                     @else
                         <div class="pro-i-lunbo-img item">
-                            <img src="{{$PicPath.$proin->pics[$i]}}">
+                            <img src="{{asset('storage/'.$proin->pics[$i])}}">
                         </div>
                     @endif
                 @endfor

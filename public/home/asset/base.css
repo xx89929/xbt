@@ -1186,6 +1186,9 @@ input:focus {
 
 .member-i-info-des {
   width: 80%; }
+  .member-i-info-des input {
+    border: 0px;
+    width: 100%; }
 
 .member-i-info-item {
   padding: 0px 20px;
@@ -1203,6 +1206,15 @@ input:focus {
   margin-top: 10px; }
   .member-i-info-r-upheadpic input[type=file] {
     width: 100%; }
+
+.auth_save {
+  padding: 10px 40px;
+  border: 0px;
+  background-color: #00a0e9;
+  color: white;
+  transition: all 0.2s; }
+  .auth_save:hover {
+    background-color: #007EC3; }
 
 .member-safe > ul > li {
   padding: 10px 0px;
@@ -1225,16 +1237,16 @@ input:focus {
   color: #999;
   margin-bottom: 0px; }
 
-.member-safe-i-active button {
-  padding: 0px 20px;
+.member-safe-i-active a {
+  padding: 10px 20px;
   height: 60px;
-  line-height: 30px;
+  line-height: 60px;
   border: 0px;
   background-color: #00a0e9;
   color: white;
   transition: all 0.2s;
   border: 1px solid #ddd; }
-  .member-safe-i-active button:hover {
+  .member-safe-i-active a:hover {
     background-color: #007EC3; }
 
 .member-order-tag {
@@ -1265,6 +1277,9 @@ input:focus {
     cursor: pointer; }
     .member-order-search-input i:hover {
       color: #00a0e9; }
+
+.member_my_order {
+  margin-top: 40px; }
 
 .member-finace-h {
   background-color: #00a0e9;
@@ -1301,17 +1316,17 @@ input:focus {
 
 .member-addr-list {
   margin-top: 20px; }
-  .member-addr-list > ul li {
-    margin-bottom: 10px; }
-    .member-addr-list > ul li a {
-      display: inline-block;
-      border: 1px solid #e4eaec;
-      padding: 10px 20px;
-      color: inherit; }
-      .member-addr-list > ul li a p {
-        margin-bottom: 0px;
-        margin-top: 10px;
-        color: #76838f; }
+  .member-addr-list > form > .form-group {
+    width: 20%; }
+    .member-addr-list > form > .form-group select {
+      width: 100%; }
+
+.address_btn {
+  margin-top: 10px;
+  background-color: #00a0e9 !important;
+  color: white; }
+  .address_btn:hover {
+    color: white; }
 
 .member-warp {
   background-color: #f2f2f2; }

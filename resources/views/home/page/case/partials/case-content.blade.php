@@ -4,7 +4,7 @@
         <li class="col-xs-3">
             <a href="#">
                 <div class="case-con-img">
-                    <img class="lazy" data-original="{{$PicPath.$ca->image}}">
+                    <img class="lazy" data-original="{{asset('storage/'.$ca->image)}}">
                 </div>
                 <div class="case-con-des text-center">
                     <h5>{{str_limit($ca->name,20)}}</h5>

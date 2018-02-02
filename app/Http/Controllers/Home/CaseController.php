@@ -16,6 +16,6 @@ class CaseController extends Controller
         }else{
             $case = CaseXb::select('name','id','describe','image')->paginate(12);
         }
-        return view('home.page.case.index',['caseNav' => $caseNav,'case' => $case,'PicPath' => $this->adminPicPath]);
+        return view('home.page.case.index',['caseNav' => $caseNav,'case' => $case]);
     }
 }

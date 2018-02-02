@@ -17,11 +17,11 @@
                 @foreach($banner as $ba)
                     @if($loop->first)
                 <div class="item active">
-                    <img class="lazy" data-original="{{$PicPath.$ba->pic}}" alt="...">
+                    <img class="lazy" data-original="{{ asset('storage/'.$ba->pic)}}" alt="...">
                 </div>
                     @elseif($loop->iteration)
                         <div class="item">
-                            <img class="lazy" data-original="{{$PicPath.$ba->pic}}" alt="...">
+                            <img class="lazy" data-original="{{asset('storage/'.$ba->pic)}}" alt="...">
                         </div>
                     @endif
                 @endforeach
@@ -48,7 +48,7 @@
                             <ul class="list-inline clearfix">
                                 @foreach($product as $pr)
                                     @if($pr->category_id == $pn->id)
-                                <li class="col-xs-6"><a href="#"><img src="{{$PicPath.$pr->pics[0]}}">{{$pr->name}}</a></li>
+                                <li class="col-xs-6"><a href="#"><img src="{{asset('storage/'.$pr->pics[0])}}">{{$pr->name}}</a></li>
                                     @endif
                                 @endforeach
                             </ul>

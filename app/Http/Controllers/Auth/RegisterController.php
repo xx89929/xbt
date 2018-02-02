@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\MemberInfo;
+use App\Models\MemberOrAddr;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -83,6 +84,10 @@ class RegisterController extends Controller
         ]);
 
         MemberInfo::create([
+            'member_id' => intval($user->id),
+        ]);
+
+        MemberOrAddr::create([
             'member_id' => intval($user->id),
         ]);
         return  $user;

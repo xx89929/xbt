@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+    protected $adminPicPath;
     /**
      * Bootstrap any application services.
      *

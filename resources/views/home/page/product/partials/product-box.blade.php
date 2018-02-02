@@ -4,7 +4,7 @@
         <li>
             <div class="pro-item clearfix">
                 <div class="pro-item-img pull-left">
-                    <img class="lazy" data-original="{{$PicPath.$pro->pics[0]}}">
+                    <img class="lazy" data-original="{{asset('storage/'.$pro->pics[0])}}">
                 </div>
                 <div class="pro-item-cont pull-left">
                     <h4>{{$pro->name}}</h4>

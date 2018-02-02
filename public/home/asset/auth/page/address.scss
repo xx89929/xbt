@@ -7,20 +7,19 @@
 
 .member-addr-list{
   margin-top: 20px;
-  & > ul {
-    li {
-      margin-bottom: 10px;
-      a{
-        display: inline-block;
-        border: 1px solid #e4eaec;
-        padding:10px 20px;
-        color: inherit;
-        p{
-          margin-bottom: 0px;
-          margin-top: 10px;
-          color: #76838f;
-        }
-      }
+  & > form > .form-group{
+    width: 20%;
+    select{
+      width: 100%;
     }
+  }
+}
+
+.address_btn{
+  margin-top: 10px;
+  background-color: $blue-color !important;
+  color: white;
+  &:hover{
+    color:white;
   }
 }

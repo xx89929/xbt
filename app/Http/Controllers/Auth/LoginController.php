@@ -47,33 +47,7 @@ class LoginController extends Controller
 
     public function index()
     {
-
         return view('home.common.login-view');
     }
 
-//    public function userLogin(Request $request){
-//        $this->validateLogin($request);
-//
-//        if ($this->hasTooManyLoginAttempts($request)) {
-//            $this->fireLockoutEvent($request);
-//
-//            return $this->sendLockoutResponse($request);
-//        }
-//
-//        if ($this->attemptLogin($request)) {
-//            return $this->sendLoginResponse($request);
-//        }
-//
-//        $this->incrementLoginAttempts($request);
-//
-//        return $this->sendUserFailedError($request);
-//    }
-//
-//    public function sendUserFailedError(){
-//
-//        throw ValidationException::withMessages([
-//            $this->username() => [trans('auth.failed')],
-//        ]);
-//
-//    }
 }

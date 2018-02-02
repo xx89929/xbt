@@ -54,4 +54,8 @@ class Area extends Model
         }
         return $self->brothers()->pluck('area_name', 'id');
     }
+
+    public function rele_area_addr(){
+        return $this->hasMany(MemberOrAddr::class);
+    }
 }
