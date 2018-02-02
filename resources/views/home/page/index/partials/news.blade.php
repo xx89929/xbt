@@ -24,7 +24,7 @@
                                 <p>{{ $new->describes }}</p>
                             </div>
                         </a>
-                    @elseif($loop->remaining)
+                    @elseif($loop->iteration)
                             <a href="#" class="ind-news-l1 item">
                                 <img class="lazy" data-original="{{asset('storage/'.$new->pic)}}">
                                 <div class="ind-news-l1-des">
