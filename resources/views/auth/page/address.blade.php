@@ -79,19 +79,4 @@
         </div>
     </div>
 
-    <script>
-        $('.pro-select').on('change select',function () {
-            areaPost(this);
-        });
-
-        function areaPost(that) {
-            var next_par = $(that).data('next'),
-                url = $(that).data('url'),
-                parent_id = $(that).val(),
-                param = {
-                    'q' : parent_id,
-                };
-            areaJajx(url,param,next_par,that);
-        }
-    </script>
 @endsection

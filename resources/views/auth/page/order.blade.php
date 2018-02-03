@@ -145,13 +145,4 @@
             </table>
         </div>
     </div>
-
-
-    <script>
-        $('.member-order-tag > ul > li ').click(function () {
-            var index  = $(this).index();
-            $(this).addClass('active').siblings().removeClass('active');
-            $('.member_my_order > table').eq(index).show().siblings().hide();
-        })
-    </script>
 @endsection

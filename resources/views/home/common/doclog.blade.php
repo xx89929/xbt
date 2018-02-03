@@ -41,12 +41,4 @@
     </div>
 
 
-    <script>
-        $('.v-member-tit > ul > li').click(function () {
-            var that = $(this),
-                index = that.index();
-            that.addClass('active').siblings().removeClass('active');
-            $('.v-member-con > .v-member-log').eq(index).show().siblings().hide();
-        })
-    </script>
 @endsection

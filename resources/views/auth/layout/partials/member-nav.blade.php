@@ -11,23 +11,3 @@
     </ul>
 </div>
 
-
-<script>
-    $(function () {
-        var tDiv = $('.member-nav-box > ul'),
-            links = tDiv.find('a'),
-            index = 0,//默认第一个菜单项
-            url = window.location.href.replace(/\/$/,' ');
-
-        if(url){//如果有取到, 则进行匹配, 否则默认为首页(即index的值所指向的那个)
-            for (var i=links.length; i--;) {//遍历 menu 的中连接地址
-                if(links[i].href.indexOf(url) !== -1){
-
-                    index = i;
-                    break;
-                }
-            }
-            links[index].parentNode.className = 'active';
-        }
-    })
-</script>

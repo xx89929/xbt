@@ -25,6 +25,10 @@ class News extends Model
         return $query->where('tag',1);
     }
 
+    public function scopeNewsId($query,$id){
+        return $query->where('id',$id);
+    }
+
     public function scopeIsNews($query){
         return $query->where('tag',2);
     }

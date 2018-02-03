@@ -8,13 +8,6 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>修巴堂</title>
 
-    <script>
-        window.onload=function (){
-            $('.load-box').addClass('active');
-            //        $('#loader-wrapper .load_title').remove();
-        };
-    </script>
-
     <!-- Bootstrap -->
     <link href="{{url('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('home/asset/base.css')}}" rel="stylesheet">
