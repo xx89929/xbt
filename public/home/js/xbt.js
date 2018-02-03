@@ -1,7 +1,4 @@
-window.onload=function (){
-    $('.load-box').addClass('active');
-//        $('#loader-wrapper .load_title').remove();
-};
+
 
 $(function () {
     $('#usr-reg').bootstrapValidator({
