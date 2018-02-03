@@ -19,4 +19,9 @@ class NewsController extends Controller
 
         return view('home.page.news.index',['newTag' => $newTages,'news' => $news]);
     }
+
+
+    public function item(){
+        return view('home.page.news_item.index');
+    }
 }

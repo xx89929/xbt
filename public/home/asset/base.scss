@@ -11,11 +11,36 @@
 @import "page/pro-info";
 @import "page/facade";
 @import "auth/auth";
+@import "page/news-item";
 
 body{
   font: 14px/1.5 "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",Roboto,Arial,sans-serif;
+  min-height: 100%;
 }
 
 i{
   font-style:normal;
 }
+
+.load-box{
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom:0px;
+  left: 0px;
+  z-index: 99999;
+  visibility:visible;
+  transition: .3s;
+  text-align: center;
+  & > i{
+    margin-top: 200px;
+    font-size: 50px;
+  }
+  &.active{
+    visibility:hidden;
+  }
+}
+

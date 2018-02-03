@@ -8,7 +8,7 @@
                 @for($i = 0 ; $i < count($proin->pics) ; $i++)
                     @if($i == 0)
                 <li data-target="#pro-i-lunbo" data-slide-to="{{$i}}" class="active">
-                    <img src="{{asset('storage/'.($proin->pics[$i])}}">
+                    <img src="{{asset('storage/'.$proin->pics[$i])}}">
                 </li>
                     @else
                         <li data-target="#pro-i-lunbo" data-slide-to="{{$i}}">

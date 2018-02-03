@@ -26,6 +26,7 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('pro/info','ProInfoController@index')->name('pro-info');
     Route::get('store','StoreController@index')->name('store');
     Route::post('WangImgUp','WangEditController@imgUp');
+    Route::get('news/item','NewsController@item')->name('news.item');
 
     Route::get('getCity','AreaController@city')->name('api.getCity');
     Route::get('getDistrict','AreaController@district')->name('api.getDistrict');

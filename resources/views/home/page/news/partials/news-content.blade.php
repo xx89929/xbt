@@ -2,7 +2,7 @@
     <ul class="list-inline clearfix">
         @foreach($news as $n)
         <li class="col-xs-3">
-            <a href="#">
+            <a href="{{route('news.item',['id' => $n->id])}}">
                 <div class="news-img">
                     <img class="lazy" data-original="{{asset('storage/'.$n->pic)}}">
                 </div>

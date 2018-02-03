@@ -1,7 +1,7 @@
 <div class="ind-case">
     <div class="ind-tit clearfix">
         <h3>真实案例</h3>
-        <a href="#">更多>></a>
+        <a href="{{route('case')}}">更多>></a>
     </div>
     <div class="ind-case-box">
         <ul class="list-inline clearfix">

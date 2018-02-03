@@ -24,8 +24,15 @@
     <script src="{{url('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{url('lazyload/lazyload.min.js')}}"></script>
     <script src="{{url('bv/bootstrapValidator.min.js')}}"></script>
+    <script>
+        window.onload=function (){
+            $('.load-box').addClass('active');
+//        $('#loader-wrapper .load_title').remove();
+        };
+    </script>
 </head>
 <body>
+<div class="load-box"><i class="fa fa-spinner fa-pulse"></i></div>
 <div class="container-fluid">
     <div class="body-warp">
         @include('home.layout.partials.top-box')
@@ -43,12 +50,10 @@
             effect : "fadeIn",
             skip_invisible : false,
             event: 'scroll',
-            threshold:500,
-            placeholder:'/home/images/icon/zhanwei.png',
+            placeholder:'/home/images/icon/loading.gif',
             failure_limit : 10,
         });
     })
-
 </script>
 </body>
 </html>

@@ -1353,10 +1353,47 @@ input:focus {
     border-bottom: 2px solid #00a0e9;
     display: inline-block; }
 
+.news-item-warp {
+  margin-top: 40px; }
+
+.news-item-left-box {
+  background-color: white;
+  box-shadow: 0 0 5px #ddd; }
+
+.news-item-push-tiem {
+  margin-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f2f5;
+  margin-bottom: 40px; }
+  .news-item-push-tiem span {
+    color: #a3afb7;
+    padding-right: 20px;
+    font-size: 16px; }
+
 body {
-  font: 14px/1.5 "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",Roboto,Arial,sans-serif; }
+  font: 14px/1.5 "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",Roboto,Arial,sans-serif;
+  min-height: 100%; }
 
 i {
   font-style: normal; }
+
+.load-box {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99999;
+  visibility: visible;
+  transition: .3s;
+  text-align: center; }
+  .load-box > i {
+    margin-top: 200px;
+    font-size: 50px; }
+  .load-box.active {
+    visibility: hidden; }
 
 /*# sourceMappingURL=base.css.map */

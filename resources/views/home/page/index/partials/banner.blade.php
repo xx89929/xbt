@@ -48,7 +48,7 @@
                             <ul class="list-inline clearfix">
                                 @foreach($product as $pr)
                                     @if($pr->category_id == $pn->id)
-                                <li class="col-xs-6"><a href="#"><img src="{{asset('storage/'.$pr->pics[0])}}">{{$pr->name}}</a></li>
+                                <li class="col-xs-6"><a href="{{route('pro-info',['id' => $pr->id ])}}"><img src="{{asset('storage/'.$pr->pics[0])}}">{{$pr->name}}</a></li>
                                     @endif
                                 @endforeach
                             </ul>
