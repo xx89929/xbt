@@ -35,16 +35,3 @@
         </ul>
     </div>
 </div>
-
-<script>
-    $('.case-nav-con > ul > li > a').click(function () {
-        var li_child = $(this).parent().find("div.case-nav-child");
-        if(li_child.css('display') == 'none'){
-            li_child.slideDown();
-        }
-        else{
-            li_child.slideUp();
-        }
-
-    })
-</script>

@@ -93,20 +93,3 @@
         </div>
     </div>
 </div>
-<script>
-    $('.top-weixin-code-li').hover(function () {
-        $(this).find('div.top-weixin-code').show();
-    },function () {
-        $(this).find('div.top-weixin-code').hide();
-    })
-
-    $('.user-set-f1-list').click(function () {
-        if($('.user-set-l-list').css('display') == 'none'){
-            $('.user-set-l-list').show();
-            $('.user-set-f1-list > a > i').attr('class','fa fa-angle-up');
-        }else{
-            $('.user-set-l-list').hide();
-            $('.user-set-f1-list > a > i').attr('class','fa fa-angle-down');
-        }
-    })
-</script>

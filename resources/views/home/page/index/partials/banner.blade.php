@@ -60,20 +60,3 @@
         </div>
     </div>
 </div>
-
-
-<script>
-    $('.classify_nav_ul > ul > li').hover(function () {
-        var that = $(this)
-        that.find('div.cla_item_dis').show();
-    },function () {
-        var that = $(this)
-        that.find('div.cla_item_dis').hide();
-    });
-
-    $('#carousel-example-generic').hover(function () {
-        $('.carousel-control').show();
-    },function () {
-        $('.carousel-control').hide();
-    })
-</script>

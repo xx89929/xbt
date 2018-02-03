@@ -14,22 +14,6 @@
     <link href="{{url('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{url('bv/bootstrapValidator.min.css')}}" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{{url('bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{url('lazyload/lazyload.min.js')}}"></script>
-    <script src="{{url('bv/bootstrapValidator.min.js')}}"></script>
-    <script>
-        window.onload=function (){
-            $('.load-box').addClass('active');
-//        $('#loader-wrapper .load_title').remove();
-        };
-    </script>
 </head>
 <body>
 <div class="load-box"><i class="fa fa-spinner fa-pulse"></i></div>
@@ -42,18 +26,17 @@
     </div>
 </div>
 
-
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{url('bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{url('lazyload/lazyload.min.js')}}"></script>
+<script src="{{url('bv/bootstrapValidator.min.js')}}"></script>
 <script src="{{url('home/js/xbt.js')}}"></script>
-<script>
-    $(function () {
-        $("img.lazy").lazyload({
-            effect : "fadeIn",
-            skip_invisible : false,
-            event: 'scroll',
-            placeholder:'/home/images/icon/loading.gif',
-            failure_limit : 10,
-        });
-    })
-</script>
+
 </body>
 </html>

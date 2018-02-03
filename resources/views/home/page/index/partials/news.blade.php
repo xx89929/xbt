@@ -108,32 +108,3 @@
     </div>
 
 </div>
-
-<script>
-    $('.ind-news-acd-f1').hover(function () {
-        $(this).find('div.ind-news-acd-des').stop().addClass('active');
-    },function () {
-        $(this).find('div.ind-news-acd-des').stop().removeClass('active');
-    })
-    $('.ind-news-r2-con').hover(function () {
-        $(this).find('div.ind-news-r2-des').stop().addClass('active');
-    },function () {
-        $(this).find('div.ind-news-r2-des').stop().removeClass('active');
-    })
-</script>
-
-<script>
-    $(".ind-news-r2-prev").click(function(){
-        $("#ind-news-r2").carousel('prev');
-    });
-    $(".ind-news-r2-next").click(function(){
-        $("#ind-news-r2").carousel('next');
-    });
-
-    $('.ind-news-l1-prev').click(function () {
-        $('#ind-news-l1').carousel('prev');
-    })
-    $('.ind-news-l1-next').click(function () {
-        $('#ind-news-l1').carousel('next');
-    })
-</script>
