@@ -1317,10 +1317,8 @@ input:focus {
 
 .member-addr-list {
   margin-top: 20px; }
-  .member-addr-list > form > .form-group {
-    width: 20%; }
-    .member-addr-list > form > .form-group select {
-      width: 100%; }
+  .member-addr-list > form > .form-group select {
+    width: 100%; }
 
 .address_btn {
   margin-top: 10px;
@@ -1328,6 +1326,11 @@ input:focus {
   color: white; }
   .address_btn:hover {
     color: white; }
+
+.form-group-row-addr label {
+  margin: 0px;
+  padding: 10px 0px;
+  width: 10%; }
 
 .order_show_box {
   background-color: white;

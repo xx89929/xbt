@@ -23,11 +23,12 @@ class AddrController extends Controller
 
 
     public function save(Request $request){
-        $data['member_id'] = Auth::id();
-        $data['province'] = $request->post('province');
-        $data['city'] = $request->post('city');
-        $data['district'] = $request->post('district');
-        $data['address'] = $request->post('address');
+//        $data['member_id'] = Auth::id();
+//        $data['province'] = $request->post('province');
+//        $data['city'] = $request->post('city');
+//        $data['district'] = $request->post('district');
+//        $data['consignee'] = $request->post('consignee');
+//        $data['phone'] = $request->post('phone');
         $res = MemberOrAddr::where('member_id',Auth::id())->update($request->except('_token'));
 
         return $res ?  back()->with('status','保存成功') : back()->with('status','保存失败');
