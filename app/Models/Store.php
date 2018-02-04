@@ -25,6 +25,9 @@ class Store extends Model
         return json_decode($doctor, true);
     }
 
+    public function scopeGetId($query,$id){
+        return $query->where('id',$id);
+    }
 
     public function store_doctor(){
         return $this->hasMany(Doctor::class,'be_store','id');

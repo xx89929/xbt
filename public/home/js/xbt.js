@@ -155,10 +155,10 @@ function areaJajx(Url,param,next_par) {
 $(function () {
     $("img.lazy").lazyload({
         effect : "fadeIn",
-        skip_invisible : false,
         event: 'scroll',
-        placeholder:'/home/images/icon/loading.gif',
+        placeholder:'/home/images/icon/zhanwei.png',
         failure_limit : 10,
+        skip_invisible : false,
     });
 })
 

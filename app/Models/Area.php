@@ -20,6 +20,10 @@ class Area extends Model
         $this->setTitleColumn('area_name');
     }
 
+    public function scopeGetId($query,$id){
+        $query->where('id',$id);
+    }
+
 
     public function scopeProvince()
     {

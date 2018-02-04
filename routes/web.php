@@ -47,11 +47,13 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('order','OrderController@index')->name('member.order');
         Route::get('finace','FinaceController@index')->name('member.finace');
         Route::get('address','AddrController@index')->name('member.address');
+        Route::get('order/show/form','OrderController@OrdershowForm')->name('order.showf');
         Route::post('order/create','OrderController@PostOrder')->name('order.create');
         Route::post('info/save','InfoController@save')->name('memberInfo.save');
         Route::post('addr/save','AddrController@save')->name('memberAddr.save');
         Route::get('password/reset', 'SafeController@showRePass')->name('password.request');
         Route::post('password/reset', 'SafeController@reset');
+        Route::post('order/status', 'OrderController@orderStatus')->name('order.status');
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });

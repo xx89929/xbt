@@ -1,0 +1,21 @@
+.order_status_box{
+  background-color: white;
+  border-radius: 5px;
+  padding:20px 40px;
+  margin: 20px 0px;
+}
+
+.order_status_i{
+  i{
+    font-size: 100px;
+  }
+}
+
+.order_status_des{
+  p{
+    em{
+      font-style: normal;
+      color: $href-color;
+    }
+  }
+}

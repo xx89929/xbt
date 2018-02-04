@@ -33,6 +33,10 @@ class Order extends Model
         return $this->belongsTo(Store::class,'store_id');
     }
 
+    public function scopeGetId($query,$id){
+        return $query->where('id',$id);
+    }
+
 
     public function scopeNonPay($query){
         return $query->where('pay_status',0);

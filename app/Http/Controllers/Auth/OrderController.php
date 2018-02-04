@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Area;
+use App\Models\Doctor;
+use App\Models\MemberOrAddr;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Store;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +35,8 @@ class OrderController extends Controller
         $proPrice = Product::select('id','price')->proId($data['pro_id'])->first();
         $data['order_money'] = floatval($proPrice->price)*intval($data['pro_num']);
         $data['price'] = floatval($proPrice->price);
-        $this->CreateOrder($data);
+        $order = $this->CreateOrder($data);
+        return $order->id ? redirect()->route('order.showf',['order_id' => $order]) : back()->withErrors('status','异常!请联系官网客服');
     }
 
     protected function CreateOrder(array $data){
@@ -60,6 +66,34 @@ class OrderController extends Controller
             'pro_num' => 'required|integer',
 
         ],$messages);
+    }
 
+    public function OrdershowForm(Request $request){
+        if(!$request->get('order_id')){
+            return abort(404);
+        }
+        $orderItem = Order::getId($request->get('order_id'))->first();
+        if($data = $orderItem){
+            $res['member_addr_info'] = MemberOrAddr::userID($data['member_id'])->first();
+            $res['pro'] = Product::proId($data['pro_id'])->select('id','name','pics','price','specification','description')->first();
+            $res['province'] = Area::getId($res['member_addr_info']->province)->select('id','area_name')->first();
+            $res['city'] = Area::getId($res['member_addr_info']->city)->select('id','area_name')->first();
+            $res['district'] = Area::getId($res['member_addr_info']->district)->select('id','area_name')->first();
+            $res['store'] = Store::getId($data['store_id'])->select('id','name','store_pic')->first();
+            $res['doctor'] = Doctor::getId($data['doctor_id'])->select('id','realname')->first();
+            $res['pro_num'] = $data['pro_nub'];
+            $res['order_money'] = $data['order_money'];
+            $res['address'] = $res['member_addr_info']->address;
+            $res['id'] = $data['id'];
+            return view('auth.page.pro_order_show',['order' => $res]);
+        }else{
+            abort(404);
+        }
+    }
+
+
+    public function orderStatus(Request $request){
+        $status = 1;
+        return view('auth.page.order_status',['status' => $status]);
     }
 }
