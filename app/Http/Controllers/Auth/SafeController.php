@@ -27,9 +27,9 @@ class SafeController extends Controller
             $user = User::find(Auth::id());
             $user->password = bcrypt($request->post('password'));
             $user->save();
-            return redirect()->back()->with('status','修改成功');
+            return redirect()->back()->with('success','密码修改成功');
         }else{
-            return redirect()->back()->withErrors(['old_password' => '原密码不正确']);
+            return redirect()->back()->with(['error' => '原密码不正确']);
         }
 
     }

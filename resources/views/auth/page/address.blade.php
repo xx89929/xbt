@@ -2,14 +2,6 @@
 @section('auth-page')
     <div class="member-addr">
         <div class="member-addr-list">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{ session('status') }}
-                </div>
-            @endif
             <form class="form-horizontal" method="post" action="{{route('memberAddr.save')}}">
                 {{csrf_field()}}
                 <div class="form-group">

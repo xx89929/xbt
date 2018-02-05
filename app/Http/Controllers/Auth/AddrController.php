@@ -31,6 +31,6 @@ class AddrController extends Controller
 //        $data['phone'] = $request->post('phone');
         $res = MemberOrAddr::where('member_id',Auth::id())->update($request->except('_token'));
 
-        return $res ?  back()->with('status','保存成功') : back()->with('status','保存失败');
+        return $res ?  back()->with('success','保存成功') : back()->with('error','保存失败');
     }
 }

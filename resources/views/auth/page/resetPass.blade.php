@@ -1,13 +1,5 @@
 @extends('auth.layout.authbase')
 @section('auth-page')
-    @if(session('status'))
-        <div class="alert alert-warning">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            <strong>{{ session('status') }}</strong>
-        </div>
-    @endif
     <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
         {{ csrf_field() }}
 

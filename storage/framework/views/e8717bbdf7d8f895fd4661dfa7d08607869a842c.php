@@ -1,15 +1,6 @@
 <?php $__env->startSection('auth-page'); ?>
     <div class="member-addr">
         <div class="member-addr-list">
-            <?php if(session('status')): ?>
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <?php echo e(session('status')); ?>
-
-                </div>
-            <?php endif; ?>
             <form class="form-horizontal" method="post" action="<?php echo e(route('memberAddr.save')); ?>">
                 <?php echo e(csrf_field()); ?>
 
