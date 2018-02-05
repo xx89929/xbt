@@ -45,7 +45,7 @@
                 <h3>{{$proin->name}}</h3>
             </div>
             <div class="pro-i-con-pri">
-                <span>￥{{$proin->price}}元</span>
+                <span>￥{{number_format($proin->price,2)}}元</span>
             </div>
             <div class="pro-i-con-check">
                 <h5>选择店铺</h5>

@@ -81,10 +81,12 @@ class DocCashController extends Controller
             $grid->cash_bank()->bank_name('提现金额');
             $grid->bank_branch('开户支行');
             $grid->bank_code('银行卡号');
-            $grid->is_cash('银行卡号')->switch([
+
+            $states = [
                 'on'  => ['value' => 1, 'text' => '已打款', 'color' => 'success'],
                 'off' => ['value' => 0, 'text' => '未打款', 'color' => 'danger'],
-            ]);
+            ];
+            $grid->is_cash('是否转账')->switch($states);
 
             $grid->created_at('申请时间');
         });

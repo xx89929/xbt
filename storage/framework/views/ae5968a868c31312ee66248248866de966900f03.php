@@ -13,7 +13,7 @@
                             <img class="lazy" data-original="<?php echo e(asset('storage/'.$pro->pics[0])); ?>">
                             <h5><?php echo e($pro->name); ?></h5>
                             <span><?php echo e($pro->description); ?></span>
-                            <p class="product-price">￥<i><?php echo e($pro->price); ?>.00</i>元</p>
+                            <p class="product-price">￥<i><?php echo e(number_format($pro->price,2)); ?></i>元</p>
                         </a>
                     </li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

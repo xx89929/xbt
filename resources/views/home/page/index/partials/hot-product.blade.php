@@ -13,7 +13,7 @@
                             <img class="lazy" data-original="{{asset('storage/'.$pro->pics[0])}}">
                             <h5>{{$pro->name}}</h5>
                             <span>{{$pro->description}}</span>
-                            <p class="product-price">￥<i>{{$pro->price}}.00</i>元</p>
+                            <p class="product-price">￥<i>{{number_format($pro->price,2)}}</i>元</p>
                         </a>
                     </li>
                 @endforeach

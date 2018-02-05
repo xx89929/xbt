@@ -12,7 +12,7 @@
                     <p>{{$pro->description}}</p>
                 </div>
                 <div class="pro-item-r pull-left text-right">
-                    <h3>￥{{$pro->price}}元</h3>
+                    <h3>￥{{number_format($pro->price,2)}}元</h3>
                     <ul class="list-unstyled">
                         <li><a href="{{route('pro-info',['id' => $pro->id])}}" class="check-pro">查看详情</a></li>
                         <li><a href="#" class="jion-buy">加入收藏</a></li>

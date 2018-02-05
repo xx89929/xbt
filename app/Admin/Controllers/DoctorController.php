@@ -83,8 +83,8 @@ class DoctorController extends Controller
             $grid->goods('账户余额');
             $grid->doc_to_doc_group()->title('医生分组');
             $grid->is_check('是否审核')->switch([
-                'on'  => ['value' => 1, 'text' => '已通过', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '未通过', 'color' => 'danger'],
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
             ]);
 
             $grid->doc_to_store()->name('归属店铺');
@@ -118,8 +118,8 @@ class DoctorController extends Controller
                 });
 
                 $form->switch('is_check','是否审核')->states([
-                    'on'  => ['value' => 1, 'text' => '已通过', 'color' => 'success'],
-                    'off' => ['value' => 0, 'text' => '未通过', 'color' => 'danger'],
+                    'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                    'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
                 ]);
                 $form->password('password','密码')->rules('confirmed',[
                     'confirmed' => '必须与确认密码一直',

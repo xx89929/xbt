@@ -4,18 +4,7 @@
         <div class="member-order-tag">
             <ul class="list-inline">
                 <li class="active"><a>全部有效订单</a></li>
-                <li><a>待付款（
-                        @if( isset($order) )
-                            0
-                        @else
-                            @foreach($order as $o)
-                                @if($o->pay_status == 0)
-                                    {{count($o)}}
-                                @endif
-                            @endforeach
-                        @endif
-
-                        ）</a>
+                <li><a>待付款（{{$noPayCount}}）</a>
                 </li>
             </ul>
         </div>
@@ -33,116 +22,89 @@
         </div>
 
         <div class="member_my_order">
-            <table class="table table-condensed" style="display: block;">
-                <thead>
-                <tr>
-                    <th>订单号</th>
-                    <th>物流单号</th>
-                    <th>产品</th>
-                    <th>选择医生</th>
-                    <th>店铺</th>
-                    <th>数量</th>
-                    <th>总价格</th>
-                    <th>下单时间</th>
-                    <th>物流状态</th>
-                    <th>付款状态</th>
-                    <th>订单状态</th>
-
-                </tr>
-                </thead>
-                <tbody>
+            <ul class="list-unstyled" style="display: block">
                 @foreach($order as $or)
-                <tr>
-                    <td>{{$or->order_id}}</td>
-                    <td>{{$or->logist_id}}</td>
-                    <td>{{$or->relevancy_order_pro->name}}</td>
-                    <td>{{$or->rele_order_doctor->realname}}</td>
-                    <td>{{$or->rele_order_store->name}}</td>
-                    <td>{{$or->pro_nub}}</td>
-                    <td>{{$or->order_money}}</td>
-                    <td>{{$or->created_at}}</td>
-                    <td>
-                        @if($or->deal_status)
-                            已出货
-                            @else
-                            未出货
-                        @endif
-                    </td>
-                    <td>
-                        @if($or->pay_status)
-                            已付款
-                        @else
-                            未付款
-                        @endif
-                    </td>
-                    <td>
-                        @if($or->order_status)
-                            交易成功
-                        @else
-                            进行中
-                        @endif
-                    </td>
-                </tr>
+                <li>
+                    <div class="member_my_order_item">
+                        <div class="member_my_order_item_tit clearfix">
+                            <div class="member_my_order_item_tit_lef pull-left">
+                                @if($or->pay_status == 0)
+                                <h3>待付款</h3>
+                                @else
+                                <h3>已付款</h3>
+                                @endif
+                                <p>订单号 : {{$or->order_id}}  {{$or->created_at}}  在线支付</p>
+                            </div>
+                            <div class="member_my_order_item_tit_right pull-right">
+                                <span>订单金额：<i>￥{{number_format($or->order_money,2)}}元</i></span>
+                            </div>
+                        </div>
+                        <div class="member_my_order_item_des clearfix">
+                            <div class="member_my_order_item_des_left col-xs-7  pull-left">
+                                <div class="my_order_des_img pull-left">
+                                    <img src="{{asset('storage/'.$or->relevancy_order_pro->pics[0])}}">
+                                </div>
+                                <div class="my_order_des_body pull-left">
+                                    <h5>{{$or->relevancy_order_pro->name}}</h5>
+                                    <p>￥{{number_format($or->relevancy_order_pro->price,2)}}元 x {{$or->pro_nub}}</p>
+                                </div>
+                            </div>
+                            <div class="member_my_order_item_des_right col-xs-5 pull-right clearfix">
+                                <div class="my_order_pay_botton pull-right">
+                                    @if($or->pay_status == 0)
+                                    <button>立即付款</button>
+                                    @endif
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 @endforeach
-                </tbody>
-            </table>
+            </ul>
 
-
-            <table class="table table-condensed" style="display: none;">
-                <thead>
-                <tr>
-                    <th>订单号</th>
-                    <th>物流单号</th>
-                    <th>产品</th>
-                    <th>选择医生</th>
-                    <th>店铺</th>
-                    <th>数量</th>
-                    <th>总价格</th>
-                    <th>下单时间</th>
-                    <th>物流状态</th>
-                    <th>付款状态</th>
-                    <th>订单状态</th>
-
-                </tr>
-                </thead>
-                <tbody>
+            <ul class="list-unstyled">
                 @foreach($order as $or)
                     @if($or->pay_status == 0)
-                    <tr>
-                        <td>{{$or->order_id}}</td>
-                        <td>{{$or->logist_id}}</td>
-                        <td>{{$or->relevancy_order_pro->name}}</td>
-                        <td>{{$or->rele_order_doctor->realname}}</td>
-                        <td>{{$or->rele_order_store->name}}</td>
-                        <td>{{$or->pro_nub}}</td>
-                        <td>{{$or->order_money}}</td>
-                        <td>{{$or->created_at}}</td>
-                        <td>
-                            @if($or->deal_status)
-                                已出货
-                            @else
-                                未出货
-                            @endif
-                        </td>
-                        <td>
-                            @if($or->pay_status)
-                                已付款
-                            @else
-                                未付款
-                            @endif
-                        </td>
-                        <td>
-                            @if($or->order_status)
-                                交易成功
-                            @else
-                                进行中
-                            @endif
-                        </td>
-                    </tr>
+                    <li>
+                        <div class="member_my_order_item">
+                            <div class="member_my_order_item_tit clearfix">
+                                <div class="member_my_order_item_tit_lef pull-left">
+                                    @if($or->pay_status == 0)
+                                        <h3>待付款</h3>
+                                    @else
+                                        <h3>已付款</h3>
+                                    @endif
+                                    <p>订单号 : {{$or->order_id}}  {{$or->created_at}}  在线支付</p>
+                                </div>
+                                <div class="member_my_order_item_tit_right pull-right">
+                                    <span>订单金额：<i>￥{{number_format($or->order_money,2)}}元</i></span>
+                                </div>
+                            </div>
+                            <div class="member_my_order_item_des clearfix">
+                                <div class="member_my_order_item_des_left col-xs-7  pull-left">
+                                    <div class="my_order_des_img pull-left">
+                                        <img src="{{asset('storage/'.$or->relevancy_order_pro->pics[0])}}">
+                                    </div>
+                                    <div class="my_order_des_body pull-left">
+                                        <h5>{{$or->relevancy_order_pro->name}}</h5>
+                                        <p>￥{{number_format($or->relevancy_order_pro->price,2)}}元 x {{$or->pro_nub}}</p>
+                                    </div>
+                                </div>
+                                <div class="member_my_order_item_des_right col-xs-5 pull-right clearfix">
+                                    <div class="my_order_pay_botton pull-right">
+                                        @if($or->pay_status == 0)
+                                            <button>立即付款</button>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     @endif
                 @endforeach
-                </tbody>
-            </table>
+            </ul>
         </div>
     </div>
 @endsection

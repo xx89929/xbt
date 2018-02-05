@@ -75,8 +75,8 @@ class CaseController extends Controller
         return Admin::grid(CaseXb::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->name('案例名称');
-            $grid->describe('案例描述');
+            $grid->name('案例名称')->limit(30);
+            $grid->describe('案例描述')->limit(30);
             $grid->CaseCateOne()->title('案例分类');
             $grid->image('案例图片')->image('',50,50);
             $grid->created_at('创建时间');

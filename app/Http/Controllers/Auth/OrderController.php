@@ -18,7 +18,7 @@ class OrderController extends Controller
 {
     public function index(){
         $order = Order::where('member_id',Auth::id())->with(['relevancy_order_pro' => function($query){
-            $query->select('id','name');
+            $query->select('id','name','pics','price');
         },'relevancy_order_user' => function($query){
             $query->select('id','username');
         },'rele_order_doctor' => function($query){
@@ -26,7 +26,8 @@ class OrderController extends Controller
         },'rele_order_store' => function($query){
             $query->select('id','name');
         }])->get();
-        return view('auth.page.order',['order' => $order]);
+        $noPayCount = $order->where('pay_status',0)->count();
+        return view('auth.page.order',['order' => $order,'noPayCount' =>$noPayCount]);
     }
 
     public function PostOrder(Request $request){

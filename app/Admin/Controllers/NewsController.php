@@ -75,20 +75,28 @@ class NewsController extends Controller
         return Admin::grid(News::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->title('新闻标题');
+            $grid->title('新闻标题')->limit(60);
             $grid->push_tagger('发布者');
             $grid->news_tag_one()->name('新闻标签')->display(function($name){
                 $newsTage = NewsTage::where('name',$name)->first();
                 return "<span class='label' style='background-color: $newsTage->color;color: white'>$name</span>";
             });
             $grid->is_push('是否发布')->switch([
-                'on'  => ['value' => 1, 'text' => '已发布', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '未发布', 'color' => 'danger'],
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
             ]);
-            $grid->read_num('阅览数');
+            $grid->read_num('阅览数')->sortable();
 
-            $grid->created_at('创建时间');
+            $grid->created_at('发布时间');
             $grid->updated_at('更新时间');
+
+            $grid->filter(function ($filter){
+                $filter->like('title', '标题');
+                $filter->equal('tag', '新闻分类')->select(function(){
+                    return NewsTage::all()->pluck('name','id');
+                });
+                $filter->between('created_at', '发布时间')->datetime();
+            });
         });
     }
 
@@ -110,8 +118,8 @@ class NewsController extends Controller
             });
             $form->text('describes','新闻描述');
             $form->switch('is_push', '是否发布')->states([
-                'on'  => ['value' => 1, 'text' => '已发布', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '未发布', 'color' => 'danger'],
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
             ]);
             $form->number('read_num','阅览数');
 

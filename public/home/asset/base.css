@@ -1281,6 +1281,47 @@ input:focus {
 
 .member_my_order {
   margin-top: 40px; }
+  .member_my_order > ul {
+    display: none; }
+    .member_my_order > ul li {
+      margin-bottom: 30px; }
+
+.member_my_order_item {
+  border: 1px solid #ff0042;
+  padding: 10px 20px; }
+
+.member_my_order_item_tit {
+  padding: 10px;
+  border-bottom: 1px solid #ff0042; }
+
+.member_my_order_item_tit_lef h3 {
+  margin-top: 0px;
+  color: #f96868; }
+
+.member_my_order_item_tit_right span i {
+  font-size: 26px;
+  color: #f96868; }
+
+.my_order_des_img img {
+  width: 60px;
+  height: 60px; }
+
+.member_my_order_item_des {
+  padding: 20px 0px; }
+
+.my_order_des_body {
+  margin-left: 10px; }
+  .my_order_des_body h5 {
+    margin-top: 0px; }
+
+.my_order_pay_botton button {
+  border: 0px;
+  background-color: #ff0042;
+  color: white;
+  transition: all 0.2s;
+  padding: 5px 20px; }
+  .my_order_pay_botton button:hover {
+    background-color: rgba(187, 5, 5, 0.86); }
 
 .member-finace-h {
   background-color: #00a0e9;
