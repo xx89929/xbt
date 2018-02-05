@@ -13,6 +13,16 @@
     <link href="{{url('home/asset/base.css')}}" rel="stylesheet">
     <link href="{{url('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{url('bv/bootstrapValidator.min.css')}}" rel="stylesheet">
+    {{--百度商桥--}}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?943fb401aa09429271c41f102f12ce0e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 
 </head>
 <body>
