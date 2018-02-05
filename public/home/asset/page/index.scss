@@ -464,7 +464,7 @@
 
 .ind-center-title{
   color: white;
-  margin: 40px 0px 30px;
+  margin: 40px 0px 10px;
   p{
     color: #999;
   }
@@ -511,10 +511,16 @@
   width: 400px;
   background-color: white;
   padding:20px 76px;
+  .alert{
+    margin: 5px 0px;
+  }
 }
 
 .ind-partner-input-group{
   margin-bottom: 20px;
+  &:last-child{
+    margin-bottom: 0px;
+  }
   label{
     padding:5px 10px;
     margin-bottom: 0px;

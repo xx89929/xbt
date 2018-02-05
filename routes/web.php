@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('store','StoreController@index')->name('store');
     Route::post('WangImgUp','WangEditController@imgUp');
     Route::get('news/item','NewsController@item')->name('news.item');
+    Route::post('partner/create','PartnerController@CreateForm')->name('partner.create');
 
     Route::get('getCity','AreaController@city')->name('api.getCity');
     Route::get('getDistrict','AreaController@district')->name('api.getDistrict');
@@ -54,6 +55,7 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('password/reset', 'SafeController@showRePass')->name('password.request');
         Route::post('password/reset', 'SafeController@reset');
         Route::post('order/status', 'OrderController@orderStatus')->name('order.status');
+        Route::post('order/refund', 'OrderController@orderRefund')->name('order.refund');
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });

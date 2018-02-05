@@ -1,5 +1,6 @@
 @extends('home.layout.base')
 @section('content')
+    <div class="load-box"><i class="fa fa-spinner fa-pulse"></i></div>
     @include('home.page.index.partials.banner')
     @include('home.page.index.partials.hot-product')
     <div class="bg-gray">

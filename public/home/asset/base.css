@@ -91,6 +91,15 @@ input:focus {
     width: 100%;
     height: 358px; }
 
+.my_alert {
+  position: fixed;
+  top: 200px;
+  right: 25px;
+  color: white;
+  border: 0px;
+  padding: 10px 30px;
+  background-color: #f96868; }
+
 .top-box {
   background-color: #333; }
 
@@ -628,7 +637,7 @@ input:focus {
 
 .ind-center-title {
   color: white;
-  margin: 40px 0px 30px; }
+  margin: 40px 0px 10px; }
   .ind-center-title p {
     color: #999; }
 
@@ -662,9 +671,13 @@ input:focus {
   width: 400px;
   background-color: white;
   padding: 20px 76px; }
+  .ind-partner-input .alert {
+    margin: 5px 0px; }
 
 .ind-partner-input-group {
   margin-bottom: 20px; }
+  .ind-partner-input-group:last-child {
+    margin-bottom: 0px; }
   .ind-partner-input-group label {
     padding: 5px 10px;
     margin-bottom: 0px;
@@ -1314,14 +1327,20 @@ input:focus {
   .my_order_des_body h5 {
     margin-top: 0px; }
 
-.my_order_pay_botton button {
+.my_order_pay_botton .ra-pay {
   border: 0px;
   background-color: #ff0042;
   color: white;
   transition: all 0.2s;
   padding: 5px 20px; }
-  .my_order_pay_botton button:hover {
+  .my_order_pay_botton .ra-pay:hover {
     background-color: rgba(187, 5, 5, 0.86); }
+.my_order_pay_botton .tk {
+  color: #999;
+  background-color: white;
+  border: 1px solid rgba(169, 169, 169, 0.69);
+  padding: 5px 20px;
+  border-radius: 0px; }
 
 .member-finace-h {
   background-color: #00a0e9;

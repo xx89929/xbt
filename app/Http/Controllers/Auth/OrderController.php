@@ -97,4 +97,12 @@ class OrderController extends Controller
         $status = 1;
         return view('auth.page.order_status',['status' => $status]);
     }
+
+
+    public function orderRefund(Request $request){
+        if($request->only('order_id')){
+            $order = Order::getId($request->only('order_id'))->update(['refund' => 1]);
+            return $order ? back()->with('success','退款申请成功') : back()->with('error','退款申请失败');
+        }
+    }
 }

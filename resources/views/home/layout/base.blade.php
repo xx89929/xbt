@@ -26,9 +26,10 @@
     </script>
 </head>
 <body>
-<div class="load-box"><i class="fa fa-spinner fa-pulse"></i></div>
+
 <div class="container-fluid">
     <div class="body-warp">
+        @include('home.common.status')
         @include('home.layout.partials.top-box')
         @include('home.layout.partials.nav')
         @yield('content')

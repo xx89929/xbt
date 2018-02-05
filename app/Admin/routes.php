@@ -45,6 +45,7 @@ Route::group([
 
 
     $router->resource('banner/set','BannerSetController');
+    $router->resource('partner/list','PartnerController');
 
 
 

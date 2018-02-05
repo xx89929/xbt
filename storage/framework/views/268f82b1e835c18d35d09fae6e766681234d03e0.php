@@ -26,9 +26,10 @@
     </script>
 </head>
 <body>
-<div class="load-box"><i class="fa fa-spinner fa-pulse"></i></div>
+
 <div class="container-fluid">
     <div class="body-warp">
+        <?php echo $__env->make('home.common.status', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <?php echo $__env->make('home.layout.partials.top-box', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <?php echo $__env->make('home.layout.partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <?php echo $__env->yieldContent('content'); ?>

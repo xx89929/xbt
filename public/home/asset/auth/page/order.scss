@@ -98,8 +98,15 @@
 }
 
 .my_order_pay_botton{
-  button{
+  .ra-pay{
     @include  button;
     padding:5px 20px;
+  }
+  .tk{
+    color: #999;
+    background-color: white;
+    border: 1px solid rgba(169, 169, 169, 0.69);
+    padding:5px 20px;
+    border-radius: 0px;
   }
 }

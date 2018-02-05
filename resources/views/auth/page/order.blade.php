@@ -51,8 +51,15 @@
                             </div>
                             <div class="member_my_order_item_des_right col-xs-5 pull-right clearfix">
                                 <div class="my_order_pay_botton pull-right">
+                                    <form id="my_order_refund_form" action="{{ route('order.refund') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                        <input name="order_id" type="hidden" value="{{$or->id}}">
+                                    </form>
+                                    @if($or->pay_status == 1)
+                                    <button type="submit " onclick="event.preventDefault();document.getElementById('my_order_refund_form').submit();" id="my_order_refund" class="tk btn " @if($or->refund != 0)disabled="disabled" @endif>申请退款</button>
+                                    @endif
                                     @if($or->pay_status == 0)
-                                    <button>立即付款</button>
+                                    <button class="ra-pay">立即付款</button>
                                     @endif
 
                                 </div>
@@ -94,7 +101,7 @@
                                 <div class="member_my_order_item_des_right col-xs-5 pull-right clearfix">
                                     <div class="my_order_pay_botton pull-right">
                                         @if($or->pay_status == 0)
-                                            <button>立即付款</button>
+                                            <button class="ra-pay">立即付款</button>
                                         @endif
 
                                     </div>
