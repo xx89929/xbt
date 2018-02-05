@@ -12,7 +12,7 @@
                         </div>
                         <div class="consult-des text-center">
                             <p>{{$doc->doc_to_doc_group->title}}：{{$doc->realname}}</p>
-                            <a href="#">申请交流</a>
+                            <a href="http://p.qiao.baidu.com/cps/chat?siteId=11689720&userId=24928549">申请交流</a>
                         </div>
                     </div>
                 </li>
