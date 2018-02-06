@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\DocPay;
+use App\Models\Doctor;
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Mockery\Exception;
 use Yansongda\Pay\Pay;
 
 class AliPayController extends Controller
 {
     protected $config;
+
+    protected $data;
 
     public function __construct()
     {
@@ -16,12 +25,20 @@ class AliPayController extends Controller
     }
 
 
-    public function alipay()
+    public function alipay(Request $request)
     {
+        if(!$request->except('_token')){
+            return back()->with('error','参数错误');
+        }
+
+        $data = $request->except('_token');
+        $order = Order::getId($data['order_id'])->first();
+        $pro = Product::proId($order->pro_id)->first();
         $config_biz = [
-            'out_trade_no' => time(),
-            'total_amount' => '0.1',
-            'subject'      => 'test subject',
+            'out_trade_no' => $order->order_id,
+//            'total_amount' => $order->order_money,
+            'total_amount' => '0.01',
+            'subject'      => $pro->name,
         ];
 
         $pay = Pay::alipay($this->config)->web($config_biz);
@@ -32,8 +49,37 @@ class AliPayController extends Controller
     public function return(Request $request)
     {
         $data = Pay::alipay($this->config)->verify(); // 是的，验签就这么简单！
+        $this->data = $data;
+        if($data) {
+            try {
+                DB::transaction(function () {
+                    $this->data->total_amount = $this->data->total_amount * 100; //需要删除
+                    $order = Order::where('order_id', $this->data->out_trade_no)->first();
+                    $doctor = Doctor::with('doc_to_doc_group')->getId($order->doctor_id)->first();
+                    $pro = Product::proId($order->pro_id)->first();
+                    $doc_goods = number_format($this->data->total_amount, 2) * ($doctor->doc_to_doc_group->ratio / 100);
 
-        dd(dd($data));
+                    Order::where('order_id', $this->data->out_trade_no)->update([
+                        'trade_id' => $this->data->trade_no,
+                        'pay_at' => $this->data->timestamp,
+                        'pay_status' => 1,
+                    ]);
+
+                    DocPay::create([
+                        'doctor_id' => $order->doctor_id,
+                        'goods' => $doc_goods,
+                        'remark' => $pro->name,
+                        'operation' => 1,
+                    ]);
+                    $doctor->increment('goods', $doc_goods);
+                });
+                return view('auth.page.order_status', ['order' => $this->data, 'status' => 1]);
+            } catch (Exception $e) {
+                $e->getMessage();
+            }
+        }else{
+            return view('auth.page.order_status',['order' => $this->data,'status' => 0]);
+        }
         // 订单号：$data->out_trade_no
         // 支付宝交易号：$data->trade_no
         // 订单总金额：$data->total_amount
@@ -41,8 +87,10 @@ class AliPayController extends Controller
 
     public function notify(Request $request)
     {
+        echo 123;exit;
+        return $request->all();exit;
+        Log::info('异步：',['key' => 'value']);
         $alipay = Pay::alipay($this->config);
-
         try{
             $data = $alipay->verify(); // 是的，验签就这么简单！
 
@@ -55,10 +103,10 @@ class AliPayController extends Controller
 
             Log::debug('Alipay notify', $data->all());
         } catch (Exception $e) {
-            // $e->getMessage();
+             $e->getMessage();
         }
 
-        return $alipay->success()->send();// laravel 框架中请直接 `return $alipay->success()`
+        return $alipay->success();// laravel 框架中请直接 `return $alipay->success()`
 
         echo "success";
     }

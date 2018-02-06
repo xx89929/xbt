@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Home'],function (){
     Route::post('WangImgUp','WangEditController@imgUp');
     Route::get('news/item','NewsController@item')->name('news.item');
     Route::post('partner/create','PartnerController@CreateForm')->name('partner.create');
+    Route::get('test','TestController@test')->name('test');
 
     Route::get('getCity','AreaController@city')->name('api.getCity');
     Route::get('getDistrict','AreaController@district')->name('api.getDistrict');
@@ -42,9 +43,6 @@ Route::group(['namespace' => 'Auth'],function (){
     Route::post('register', 'RegisterController@register')->name('register');
     Route::get('login', 'LoginController@index')->name('login.show');
     Route::post('login', 'LoginController@login')->name('login');
-    Route::get('pays/alipay/post', 'AliPayController@alipay')->name('alipay.post');
-    Route::post('pays/alipay/notify', 'AliPayController@notify')->name('alipay.notify');
-    Route::get('pays/alipay/return', 'AliPayController@return')->name('alipay.return');
 
     Route::group(['middleware' => 'auth','prefix' => 'member'],function (){
         Route::post('logout', 'LoginController@logout')->name('logout');
@@ -59,8 +57,12 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::post('addr/save','AddrController@save')->name('memberAddr.save');
         Route::get('password/reset', 'SafeController@showRePass')->name('password.request');
         Route::post('password/reset', 'SafeController@reset');
-        Route::post('order/status', 'OrderController@orderStatus')->name('order.status');
+        Route::get('order/status', 'OrderController@orderStatus')->name('order.status');
         Route::post('order/refund', 'OrderController@orderRefund')->name('order.refund');
+
+        Route::post('pays/alipay/post', 'AliPayController@alipay')->name('alipay.post');
+        Route::post('pays/alipay/notify', 'AliPayController@notify')->name('alipay.notify');
+        Route::get('pays/alipay/return', 'AliPayController@return')->name('alipay.return');
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });

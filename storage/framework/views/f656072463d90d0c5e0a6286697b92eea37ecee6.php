@@ -15,7 +15,7 @@
                     <?php else: ?>
                     <h2>付款失败！</h2>
                     <?php endif; ?>
-                    <p><span>订单号：</span><em>2018020423204505616</em> <a>订单详情&nbsp;<i class="fa fa-caret-down"></i></a></p>
+                    <p><span>订单号：</span><em><?php echo e($order->out_trade_no); ?></em> <a>订单详情&nbsp;<i class="fa fa-caret-down"></i></a></p>
                 </div>
             </div>
         </div>

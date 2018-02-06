@@ -69,9 +69,9 @@
                     </div>
                 </div>
 
-                <form method="post" action="{{route('order.status')}}">
+                <form method="post" action="{{route('alipay.post')}}">
                     {{csrf_field()}}
-                    <input type="hidden" value="{{$order['id']}}">
+                    <input name="order_id" type="hidden" value="{{$order['id']}}">
 
                     <div class="order_show_submit clearfix">
                         <button class="pull-right" type="submit">立即付款</button>

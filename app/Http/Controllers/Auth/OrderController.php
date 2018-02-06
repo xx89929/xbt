@@ -25,7 +25,7 @@ class OrderController extends Controller
             $query->select('id','realname');
         },'rele_order_store' => function($query){
             $query->select('id','name');
-        }])->get();
+        }])->orderBy('created_at','desc')->get();
         $noPayCount = $order->where('pay_status',0)->count();
         return view('auth.page.order',['order' => $order,'noPayCount' =>$noPayCount]);
     }
