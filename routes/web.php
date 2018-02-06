@@ -33,6 +33,8 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('getDistrict','AreaController@district')->name('api.getDistrict');
     Route::get('getAreaStore','AreaController@areaStore')->name('api.getAreaStore');
     Route::get('getAreaDoc','AreaController@getAreaDoc')->name('api.getAreaDoc');
+
+    Route::post('baidu/getmap','StoreController@getBdMap')->name('baidu.getmap');
 });
 
 Route::group(['namespace' => 'Auth'],function (){

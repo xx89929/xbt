@@ -12,6 +12,8 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use GuzzleHttp\Client;
+use Illuminate\Support\MessageBag;
 
 class StoreController extends Controller
 {
@@ -111,8 +113,34 @@ class StoreController extends Controller
             });
             $form->text('address','详细地址');
 
+            $form->display('lng','经度');
+            $form->display('lat','维度');
+
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
+
+
+            $form->saving(function (Form $form){
+                $province = Area::getId($form->province)->first();
+                $city = Area::getId($form->city)->first();
+                $district = Area::getId($form->district)->first();
+                $address = $form->address;
+                $client = new Client();
+                $response = $client->get("http://api.map.baidu.com/geocoder/v2/?address=".$province->area_name.$city->area_name.$district->area_name.$address."&output=json&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG");
+                $body = json_decode($response->getBody(),true);
+                if($body['status'] == 0 && $body['result']['precise'] > 0){
+                    $form->lng = $body['result']['location']['lng'];
+                    $form->lat = $body['result']['location']['lat'];
+                }else{
+                    $error = new MessageBag([
+                        'title'   => '店铺地址',
+                        'message' => '请填写正确地址，并保证百度地图可以查找到！',
+                    ]);
+                    return back()->with(compact('error'));
+                }
+
+            });
         });
+
     }
 }

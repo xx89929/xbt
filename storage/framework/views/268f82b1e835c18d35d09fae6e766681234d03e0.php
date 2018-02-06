@@ -48,6 +48,7 @@
 <script src="<?php echo e(url('lazyload/lazyload.min.js')); ?>"></script>
 <script src="<?php echo e(url('bv/bootstrapValidator.min.js')); ?>"></script>
 <script src="<?php echo e(url('home/js/xbt.js')); ?>"></script>
+<?php echo $__env->yieldContent('scripts'); ?>
 
 </body>
 </html>

@@ -48,6 +48,7 @@
 <script src="{{url('lazyload/lazyload.min.js')}}"></script>
 <script src="{{url('bv/bootstrapValidator.min.js')}}"></script>
 <script src="{{url('home/js/xbt.js')}}"></script>
+@yield('scripts')
 
 </body>
 </html>

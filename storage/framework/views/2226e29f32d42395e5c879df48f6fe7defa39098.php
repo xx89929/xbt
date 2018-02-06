@@ -1,5 +1,7 @@
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=XtBZlAmRRP5ATTj0LG95AhU8vDBSNiue"></script>
 <div class="facade-map-box">
     <div id="facade-map"></div>
+    <div id="getmap_url" url="<?php echo e(route('baidu.getmap')); ?>"></div>
     <div class="facade-map-search">
         <ul class="list-inline">
             <li class="col-xs-2">
@@ -31,15 +33,8 @@
     </div>
 </div>
 
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2&ak=XtBZlAmRRP5ATTj0LG95AhU8vDBSNiue"></script>
-<script>
-    var map = new BMap.Map("facade-map");    // 创建Map实例
-    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
-    //添加地图类型控件
-    map.addControl(new BMap.MapTypeControl({
-        mapTypes:[
-            BMAP_NORMAL_MAP,
-            BMAP_HYBRID_MAP
-        ]}));
-    map.setCurrentCity("广州");          // 设置地图显示的城市 此项是必须设置的
-</script>
+<?php $__env->startSection('scripts'); ?>
+    <script src="<?php echo e(url('home/js/MarkerClusterer.js')); ?>"></script>
+    <script src="<?php echo e(url('home/js/TextIconOverlay.js')); ?>"></script>
+    <script src="<?php echo e(url('home/js/xbt_store_map.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
