@@ -94,12 +94,6 @@
                 <button type="submit" class="pro-i-con-sub-buy pull-left"><i class="fa fa-shopping-bag"></i>&nbsp;立即购买</button>
                 {{--<button class="pro-i-con-sub-join-shop pull-left"><i class="fa fa-shopping-cart"></i>&nbsp;加入购物车</button>--}}
             </div>
-
-            @if($errors->all())
-                <span class="help-block bg-danger">
-                    <strong style="padding:5px 10px;color:white;">{{ $errors->first() }}</strong>
-                </span>
-            @endif
         </div>
     </form>
 </div>

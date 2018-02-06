@@ -63,7 +63,7 @@
                                 <p>￥{{$order['pro']->price}} x {{$order['pro_num']}}</p>
                             </li>
                             <li class="col-xs-1">
-                                <p><i>￥{{$order['order_money']}}</i></p>
+                                <p><i>￥{{number_format($order['order_money'],2)}}</i></p>
                             </li>
                         </ul>
                     </div>

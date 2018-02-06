@@ -33,15 +33,7 @@
                         </div>
                     </div>
 
-                    <?php if($errors->any()): ?>
-                        <div id="user_errors" class="alert alert-danger">
-                            <ul class="list-unstyled">
-                                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><?php echo e($error); ?></li>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
+                    
 
                     <button type="submit" class="btn btn-primary">注册</button>
                 </form>

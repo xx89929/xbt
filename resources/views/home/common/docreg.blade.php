@@ -33,15 +33,7 @@
                         </div>
                     </div>
 
-                    @if ($errors->any())
-                        <div id="user_errors" class="alert alert-danger">
-                            <ul class="list-unstyled">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    
 
                     <button type="submit" class="btn btn-primary">注册</button>
                 </form>
