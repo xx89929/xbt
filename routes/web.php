@@ -35,6 +35,11 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('getAreaStore','AreaController@areaStore')->name('api.getAreaStore');
     Route::get('getAreaDoc','AreaController@getAreaDoc')->name('api.getAreaDoc');
 
+
+    Route::post('pays/alipay/post', 'AliPayController@alipay')->name('alipay.post');
+    Route::post('pays/alipay/notify', 'AliPayController@notify')->name('alipay.notify');
+    Route::get('pays/alipay/return', 'AliPayController@return')->name('alipay.return');
+
     Route::post('baidu/getmap','StoreController@getBdMap')->name('baidu.getmap');
 });
 
@@ -59,10 +64,6 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::post('password/reset', 'SafeController@reset');
         Route::get('order/status', 'OrderController@orderStatus')->name('order.status');
         Route::post('order/refund', 'OrderController@orderRefund')->name('order.refund');
-
-        Route::post('pays/alipay/post', 'AliPayController@alipay')->name('alipay.post');
-        Route::post('pays/alipay/notify', 'AliPayController@notify')->name('alipay.notify');
-        Route::get('pays/alipay/return', 'AliPayController@return')->name('alipay.return');
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });
