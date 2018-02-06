@@ -49,11 +49,10 @@ class AliPayController extends Controller
     public function return(Request $request)
     {
         $data = Pay::alipay($this->config)->verify(); // 是的，验签就这么简单！
-
         if($data) {
-            return view('auth.page.order_status', ['order' => $this->data, 'status' => 1]);
+            return view('auth.page.order_status', ['order' => $data, 'status' => 1]);
         }else{
-            return view('auth.page.order_status',['order' => $this->data,'status' => 0]);
+            return view('auth.page.order_status',['order' => $data,'status' => 0]);
         }
         // 订单号：$data->out_trade_no
         // 支付宝交易号：$data->trade_no
