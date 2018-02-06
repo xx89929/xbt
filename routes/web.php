@@ -44,7 +44,7 @@ Route::group(['namespace' => 'Auth'],function (){
     Route::post('login', 'LoginController@login')->name('login');
     Route::get('pays/alipay/post', 'AliPayController@alipay')->name('alipay.post');
     Route::post('pays/alipay/notify', 'AliPayController@notify')->name('alipay.notify');
-    Route::post('pays/alipay/return', 'AliPayController@return')->name('alipay.return');
+    Route::get('pays/alipay/return', 'AliPayController@return')->name('alipay.return');
 
     Route::group(['middleware' => 'auth','prefix' => 'member'],function (){
         Route::post('logout', 'LoginController@logout')->name('logout');
