@@ -22,8 +22,15 @@
                     </div>
                 </div>
                 <div class="order_show_row">
-                    <div class="order_tit">
-                        <h4>支付方式</h4>
+                    <div class="order_tit clearfix">
+                        <h4 class="pull-left">支付方式</h4>
+                        <ul class="list-inline pull-left">
+                            <li>
+                                <a href="{{route('alipay.post')}}">
+                                    支付宝支付
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
