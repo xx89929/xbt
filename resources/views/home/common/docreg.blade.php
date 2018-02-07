@@ -32,9 +32,6 @@
                             <input name="password_confirmation" type="password" class="form-control" placeholder="再次输入密码"  required>
                         </div>
                     </div>
-
-                    
-
                     <button type="submit" class="btn btn-primary">注册</button>
                 </form>
             </div>

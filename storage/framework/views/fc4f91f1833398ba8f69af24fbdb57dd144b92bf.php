@@ -4,6 +4,14 @@
     </div>
     <div class="case-nav-con">
         <ul class="list-unstyled">
+            <li >
+                <a>
+                    <div class="case-nav-row clearfix">
+                        <span class="pull-left">全部分类</span>
+                        <i class="fa fa-chevron-right pull-right"></i>
+                    </div>
+                </a>
+            </li>
             <?php $__currentLoopData = $caseNav; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cn): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($cn->parent_id == 0): ?>
             <li>
@@ -12,11 +20,11 @@
                         <span class="pull-left"><?php echo e($cn->title); ?></span>
                         <i class="fa fa-chevron-right pull-right"></i>
                     </div>
-                    <div class="case-nav-child">
+                    <div class="case-nav-child" >
                         <ul class="list-unstyled">
                             <?php $__currentLoopData = $caseNav; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($p->parent_id != 0 && $p->parent_id == $cn->id): ?>
-                            <li>
+                            <li <?php if($caseActive == $p->id): ?> class="active" <?php endif; ?>>
                                 <a href="<?php echo e(route('case',['id' => $p->id])); ?>">
                                     <div class="case-nav-row case-nav-child-f1 clearfix">
                                         <span class="pull-left"><?php echo e($p->title); ?></span>

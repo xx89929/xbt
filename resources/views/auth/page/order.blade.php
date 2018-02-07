@@ -3,8 +3,8 @@
     <div class="member-order">
         <div class="member-order-tag">
             <ul class="list-inline">
-                <li class="active"><a>全部有效订单</a></li>
-                <li><a>待付款（{{$noPayCount}}）</a>
+                <li @if($orderNav == 'orderList')class="active" @endif><a href="{{route('member.order')}}">全部有效订单</a></li>
+                <li @if($orderNav == 'noPayList')class="active" @endif><a href="{{route('member.order',['pay_status' => 0])}}">待付款（{{$noPayCount}}）</a>
                 </li>
             </ul>
         </div>
@@ -71,49 +71,11 @@
                     </div>
                 </li>
                 @endforeach
-            </ul>
-
-            <ul class="list-unstyled">
-                @foreach($order as $or)
-                    @if($or->pay_status == 0)
-                    <li>
-                        <div class="member_my_order_item">
-                            <div class="member_my_order_item_tit clearfix">
-                                <div class="member_my_order_item_tit_lef pull-left">
-                                    @if($or->pay_status == 0)
-                                        <h3>待付款</h3>
-                                    @else
-                                        <h3>已付款</h3>
-                                    @endif
-                                    <p>订单号 : {{$or->order_id}}  {{$or->created_at}}  在线支付</p>
-                                </div>
-                                <div class="member_my_order_item_tit_right pull-right">
-                                    <span>订单金额：<i>￥{{number_format($or->order_money,2)}}元</i></span>
-                                </div>
-                            </div>
-                            <div class="member_my_order_item_des clearfix">
-                                <div class="member_my_order_item_des_left col-xs-7  pull-left">
-                                    <div class="my_order_des_img pull-left">
-                                        <img src="{{asset('storage/'.$or->relevancy_order_pro->pics[0])}}">
-                                    </div>
-                                    <div class="my_order_des_body pull-left">
-                                        <h5>{{$or->relevancy_order_pro->name}}</h5>
-                                        <p>￥{{number_format($or->relevancy_order_pro->price,2)}}元 x {{$or->pro_nub}}</p>
-                                    </div>
-                                </div>
-                                <div class="member_my_order_item_des_right col-xs-5 pull-right clearfix">
-                                    <div class="my_order_pay_botton pull-right">
-                                        @if($or->pay_status == 0)
-                                            <button class="ra-pay">立即付款</button>
-                                        @endif
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    @endif
-                @endforeach
+                <li>
+                    <div class="lara_fenye text-center">
+                        {{ $order->links()}}
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

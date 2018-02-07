@@ -45,4 +45,16 @@ class Order extends Model
     public function scopeNonOrder($query){
         return $query->where('order_status',0);
     }
+
+    public function scopeOrderInfo($q){
+        return $q->with(['relevancy_order_pro' => function($query){
+            $query->select('id','name','pics','price');
+        },'relevancy_order_user' => function($query){
+            $query->select('id','username');
+        },'rele_order_doctor' => function($query){
+            $query->select('id','realname');
+        },'rele_order_store' => function($query){
+            $query->select('id','name');
+        }]);
+    }
 }

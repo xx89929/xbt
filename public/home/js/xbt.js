@@ -369,3 +369,12 @@ $('.member-order-tag > ul > li ').click(function () {
     $(this).addClass('active').siblings().removeClass('active');
     $('.member_my_order > ul').eq(index).show().siblings().hide();
 })
+
+
+$('.order_pay_way > ul li ').click(function () {
+    var $this = $(this),
+        values = $this.find('.pay_icon').attr('value');
+    $('#pay_form').find('input[name=pay_type]').val(values);
+    $this.addClass('active').siblings().removeClass('active');
+
+})

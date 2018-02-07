@@ -6,29 +6,41 @@ var markers = [];
 var pt = null;
 var i = 0;
 var Zoom = 0;
+var location_area = null;
 
 function loadJScript() {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "http://api.map.baidu.com/api?v=2.0&ak=XtBZlAmRRP5ATTj0LG95AhU8vDBSNiue&callback=init";
+    script.src = "http://api.map.baidu.com/api?v=2.0&ak=XtBZlAmRRP5ATTj0LG95AhU8vDBSNiue&callback=maPinit";
     document.body.appendChild(script);
 }
-function init() {
+
+function maPinit() {
 
     var EXAMPLE_URL = "http://api.map.baidu.com/library/MarkerClusterer/1.2/examples/";
-    map = new BMap.Map("facade-map");
+    map = new BMap.Map("facade-map",{minZoom:9});
     map.enableScrollWheelZoom();
     var point = new BMap.Point(109.733755, 19.180501);
-    map.centerAndZoom(point, 9);
+    if(location_area != null){
+        console.log(location_area)
+        map.centerAndZoom(location_area,17);      // 用城市名设置地图中心点
+        location_area = null;
+    }else{
+        map.centerAndZoom(point,9);
+    }
 
     var bs = map.getBounds();   //获取可视区域
     var bssw = bs.getSouthWest();   //可视区域左下角
     var bsne = bs.getNorthEast();   //可视区域右上角
+    console.log('bs',bs);
     postGetStore(bssw.lng,bssw.lat,bsne.lng,bsne.lat);
 
     map.addEventListener("moveend", function () {
-        // map.zoomTo(map.getZoom());
         removeMarkers();
+        console.log('moveend',map.getZoom());
+        if(map.getZoom() < 14){
+            map.clearOverlays();
+        }
         var bs = map.getBounds();   //获取可视区域
         var bssw = bs.getSouthWest();   //可视区域左下角
         var bsne = bs.getNorthEast();   //可视区域右上角
@@ -37,8 +49,9 @@ function init() {
 
     map.addEventListener("zoomend", function () {
         removeMarkers();
-        Zoom = map.getZoom();
-        if(Zoom < 14){
+        console.log('zoomend',map.getZoom());
+        if(map.getZoom() < 15){
+            removeMarkers();
             map.clearOverlays();
         }
         var bs = map.getBounds();   //获取可视区域
@@ -67,10 +80,9 @@ function init() {
                 'rtLat':rtLat,
             },
             success:function (data) {
-                console.log(markers);
                 getPoint(data);
                 //最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
-                markerClusterer = new BMapLib.MarkerClusterer(map, {markers:markers,minClusterSize:1});
+                markerClusterer = new BMapLib.MarkerClusterer(map, {markers:markers,minClusterSize:1,maxZoom:14});
             },
             error:function (data) {
                 console.log('失败',data);
@@ -79,10 +91,9 @@ function init() {
     }
 
     function getPoint(stores) {
-        console.log(stores);
         for(var i =0 ; i < stores.length ; i ++){
             pt = new BMap.Point(stores[i]['lng'],stores[i]['lat']);
-            if(Zoom > 13){
+            if(map.getZoom() > 14){
                 myCompOverlay = new ComplexCustomOverlay(pt, stores[i]['name']);
                 map.addOverlay(myCompOverlay);
             }else {
@@ -92,7 +103,7 @@ function init() {
     }
 
     function removeMarkers() {
-        markerClusterer.removeMarkers(markers);
+        markerClusterer.clearMarkers();
         markers = [];
     }
 
@@ -164,6 +175,14 @@ function init() {
         return div;
     }
 }
+
+function theLocation(loc){
+    if(loc != null){
+        location_area = loc // 用城市名设置地图中心点
+        loadJScript();
+    }
+}
+
 window.onload = loadJScript;  //异步加载地图
 
 

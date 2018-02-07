@@ -7,25 +7,24 @@ use App\Models\Doctor;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use PHPUnit\Runner\Exception;
 use Yansongda\Pay\Pay;
 
-class AliPayController extends Controller
+trait AliPay
 {
-    protected $config;
+    protected $alipayConfig;
 
-    protected $data;
+    protected $alipayData;
 
     public function __construct()
     {
-        $this->config = config('pay.alipay');
+        $this->alipayConfig = config('pay.alipay');
     }
 
-
-    public function alipay(Request $request)
+    protected function alipay(Request $request)
     {
         if(!$request->except('_token')){
             return back()->with('error','参数错误');
@@ -41,14 +40,14 @@ class AliPayController extends Controller
             'subject'      => $pro->name,
         ];
 
-        $pay = Pay::alipay($this->config)->web($config_biz);
+        $pay = Pay::alipay($this->alipayConfig)->web($config_biz);
 
         return $pay;
     }
 
-    public function return(Request $request)
+    public function alipayReturn(Request $request)
     {
-        $data = Pay::alipay($this->config)->verify(); // 是的，验签就这么简单！
+        $data = Pay::alipay($this->alipayConfig)->verify(); // 是的，验签就这么简单！
         if($data) {
             return view('auth.page.order_status', ['order' => $data, 'status' => 1]);
         }else{
@@ -59,29 +58,29 @@ class AliPayController extends Controller
         // 订单总金额：$data->total_amount
     }
 
-    public function notify(Request $request)
+    public function alipayNotify(Request $request)
     {
-        $alipay = Pay::alipay($this->config);
-        $this->data = $alipay->verify();
-        if($this->data->trade_status == 'TRADE_SUCCESS'){
+        $alipay = Pay::alipay($this->alipayConfig);
+        $this->alipayData = $alipay->verify();
+        if($this->alipayData->trade_status == 'TRADE_SUCCESS'){
             try{
                 DB::transaction(function () {
-                    $this->data->total_amount = $this->data->total_amount * 100; //需要删除
-                    $order = Order::where('order_id', $this->data->out_trade_no)->first();
+                    $this->alipayData->total_amount = $this->alipayData->total_amount * 100; //需要删除
+                    $order = Order::where('order_id', $this->alipayData->out_trade_no)->first();
                     $doctor = Doctor::with('doc_to_doc_group')->getId($order->doctor_id)->first();
 //                $pro = Product::proId($order->pro_id)->first();
-                    $doc_goods = number_format($this->data->total_amount, 2) * ($doctor->doc_to_doc_group->ratio / 100);
+                    $doc_goods = number_format($this->alipayData->total_amount, 2) * ($doctor->doc_to_doc_group->ratio / 100);
 
-                    Order::where('order_id', $this->data->out_trade_no)->update([
-                        'trade_id' => $this->data->trade_no,
-                        'pay_at' => $this->data->gmt_create,
+                    Order::where('order_id', $this->alipayData->out_trade_no)->update([
+                        'trade_id' => $this->alipayData->trade_no,
+                        'pay_at' => $this->alipayData->gmt_create,
                         'pay_status' => 1,
                     ]);
 
                     DocPay::create([
                         'doctor_id' => $order->doctor_id,
                         'goods' => $doc_goods,
-                        'remark' => $this->data->subject,
+                        'remark' => $this->alipayData->subject,
                         'operation' => 1,
                     ]);
                     $doctor->increment('goods', $doc_goods);
@@ -93,7 +92,7 @@ class AliPayController extends Controller
                 // 4、验证app_id是否为该商户本身。
                 // 5、其它业务逻辑情况
 
-                Log::emergency('Alipay notify', $this->data->all());
+                Log::emergency('Alipay notify', $this->alipayData->all());
             } catch (Exception $e) {
                 $e->getMessage();
             }

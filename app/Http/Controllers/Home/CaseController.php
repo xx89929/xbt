@@ -10,12 +10,14 @@ use App\Http\Controllers\Controller;
 class CaseController extends Controller
 {
     public function index(Request $request){
+        $caseActive = null;
         $caseNav = CaseCategory::orderBy('order')->get();
         if($request->get('id')){
             $case = CaseXb::select('name','id','describe','image')->caseCategory($request->get('id'))->paginate(12)->withPath('?id='.$request->get('id'));
+            $caseActive = $request->get('id');
         }else{
             $case = CaseXb::select('name','id','describe','image')->paginate(12);
         }
-        return view('home.page.case.index',['caseNav' => $caseNav,'case' => $case]);
+        return view('home.page.case.index',['caseNav' => $caseNav,'case' => $case,'caseActive' => $caseActive]);
     }
 }

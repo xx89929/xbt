@@ -35,10 +35,9 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('getAreaStore','AreaController@areaStore')->name('api.getAreaStore');
     Route::get('getAreaDoc','AreaController@getAreaDoc')->name('api.getAreaDoc');
 
-
-    Route::post('pays/alipay/post', 'AliPayController@alipay')->name('alipay.post');
-    Route::post('pays/alipay/notify', 'AliPayController@notify')->name('alipay.notify');
-    Route::get('pays/alipay/return', 'AliPayController@return')->name('alipay.return');
+    Route::post('pays/alipay/post', 'PayController@getPayWay')->name('alipay.post');
+    Route::post('pays/alipay/notify', 'PayController@alipayNotify')->name('alipay.notify');
+    Route::get('pays/alipay/return', 'PayController@alipayReturn')->name('alipay.return');
 
     Route::post('baidu/getmap','StoreController@getBdMap')->name('baidu.getmap');
 });

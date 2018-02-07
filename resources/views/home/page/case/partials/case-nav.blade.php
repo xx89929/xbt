@@ -4,6 +4,14 @@
     </div>
     <div class="case-nav-con">
         <ul class="list-unstyled">
+            <li >
+                <a>
+                    <div class="case-nav-row clearfix">
+                        <span class="pull-left">全部分类</span>
+                        <i class="fa fa-chevron-right pull-right"></i>
+                    </div>
+                </a>
+            </li>
             @foreach($caseNav as $cn)
             @if($cn->parent_id == 0)
             <li>
@@ -12,11 +20,11 @@
                         <span class="pull-left">{{$cn->title}}</span>
                         <i class="fa fa-chevron-right pull-right"></i>
                     </div>
-                    <div class="case-nav-child">
+                    <div class="case-nav-child" >
                         <ul class="list-unstyled">
                             @foreach($caseNav as $p)
                             @if($p->parent_id != 0 && $p->parent_id == $cn->id)
-                            <li>
+                            <li @if($caseActive == $p->id) class="active" @endif>
                                 <a href="{{route('case',['id' => $p->id])}}">
                                     <div class="case-nav-row case-nav-child-f1 clearfix">
                                         <span class="pull-left">{{$p->title}}</span>

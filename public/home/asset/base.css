@@ -1444,6 +1444,15 @@ input:focus {
     .order_show_submit button:hover {
       background-color: rgba(187, 5, 5, 0.86); }
 
+.pay_icon {
+  padding: 4px;
+  border: 1px solid transparent; }
+
+.order_pay_way {
+  margin-left: 20px; }
+  .order_pay_way > ul .active .pay_icon {
+    border: 1px solid #ff0042; }
+
 .order_status_box {
   background-color: white;
   border-radius: 5px;

@@ -16,18 +16,17 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
-    public function index(){
-        $order = Order::where('member_id',Auth::id())->with(['relevancy_order_pro' => function($query){
-            $query->select('id','name','pics','price');
-        },'relevancy_order_user' => function($query){
-            $query->select('id','username');
-        },'rele_order_doctor' => function($query){
-            $query->select('id','realname');
-        },'rele_order_store' => function($query){
-            $query->select('id','name');
-        }])->orderBy('created_at','desc')->get();
-        $noPayCount = $order->where('pay_status',0)->count();
-        return view('auth.page.order',['order' => $order,'noPayCount' =>$noPayCount]);
+    public function index(Request $request){
+        $orderNav = null;
+        $noPayCount = Order::where('pay_status',0)->where('member_id',Auth::id())->count();
+        if ($request->has('pay_status')){
+            $order = Order::where($request->only('pay_status'))->where('member_id',Auth::id())->orderInfo()->paginate(10)->withPath('?pay_status=0');
+            $orderNav = 'noPayList';
+        }else{
+            $order = Order::where('member_id',Auth::id())->orderInfo()->orderBy('created_at','desc')->paginate(10);
+            $orderNav = 'orderList';
+        }
+        return view('auth.page.order',['order' => $order,'noPayCount' =>$noPayCount,'orderNav' => $orderNav]);
     }
 
     public function PostOrder(Request $request){

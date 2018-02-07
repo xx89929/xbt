@@ -21,17 +21,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="order_show_row">
-                    <div class="order_tit clearfix">
-                        <h4 class="pull-left">支付方式</h4>
-                        <ul class="list-inline pull-left">
+                <div class="order_show_row clearfix">
+                    <div class="order_tit pull-left">
+                        <h4>支付方式</h4>
+                    </div>
+                    <div class="order_pay_way  pull-left">
+                        <ul class="list-inline">
                             <li>
-                                <a href="{{route('alipay.post')}}">
-                                    支付宝支付
+                                <a>
+                                    <div class="pay_icon" id="aliPay" value="1">
+                                        <img src="{{asset('home/images/icon/alipaypcnew.png')}}">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <div class="pay_icon"  id="wechatPay" value="2">
+                                        <img src="{{asset('home/images/icon/pc_wxqrpay.png')}}">
+                                    </div>
                                 </a>
                             </li>
                         </ul>
                     </div>
+
                 </div>
 
                 <div class="order_show_row">
@@ -69,9 +81,10 @@
                     </div>
                 </div>
 
-                <form method="post" action="{{route('alipay.post')}}">
+                <form id="pay_form" method="post" action="{{route('alipay.post')}}">
                     {{csrf_field()}}
                     <input name="order_id" type="hidden" value="{{$order['id']}}">
+                    <input name="pay_type" type="hidden" value="">
 
                     <div class="order_show_submit clearfix">
                         <button class="pull-right" type="submit">立即付款</button>
