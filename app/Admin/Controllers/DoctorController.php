@@ -75,7 +75,6 @@ class DoctorController extends Controller
     protected function grid()
     {
         return Admin::grid(Doctor::class, function (Grid $grid) {
-
             $grid->id('ID')->sortable();
             $grid->avatar('头像')->image('',50,50);
             $grid->account('账号');

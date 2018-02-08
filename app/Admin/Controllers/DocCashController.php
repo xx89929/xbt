@@ -83,10 +83,10 @@ class DocCashController extends Controller
             $grid->bank_code('银行卡号');
 
             $states = [
-                'on'  => ['value' => 1, 'text' => '已打款', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '未打款', 'color' => 'danger'],
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
             ];
-            $grid->is_cash('是否转账')->switch($states);
+            $grid->is_cash('是否完成转账')->switch($states);
 
             $grid->created_at('申请时间');
         });

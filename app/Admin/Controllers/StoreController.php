@@ -6,6 +6,8 @@ use App\Models\Area;
 use App\Models\Doctor;
 use App\Models\Store;
 
+use Encore\Admin\Auth\Database\Administrator;
+use Encore\Admin\Auth\Database\Role;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -76,9 +78,17 @@ class StoreController extends Controller
     protected function grid()
     {
         return Admin::grid(Store::class, function (Grid $grid) {
-
+            if(Admin::user()->isRole('agency')){
+                $grid->model()->where('agency',Admin::user()->id);
+            }
             $grid->id('ID')->sortable();
             $grid->name('店铺名称');
+            if (Admin::user()->isAdministrator()){
+                $grid->agency('代理商')->display(function ($agency){
+                    $an = Administrator::where('id',$agency)->first();
+                    return $an['name'] ? $an['name'] : '';
+                });
+            }
             $grid->store_pic('店铺图片')->image('',50,50);
             $grid->store_doctor('拥有医生')->pluck('realname')->map(function($name){
                 return "<span class='label label-success'>$name</span>";
@@ -112,9 +122,18 @@ class StoreController extends Controller
                 return Area::options($id);
             });
             $form->text('address','详细地址');
-
             $form->display('lng','经度');
             $form->display('lat','维度');
+
+            if(Admin::user()->isAdministrator()){
+                $form->select('agency','代理')->options(function(){
+                    return Administrator::pluck('name','id');
+                });
+            }
+
+            if (Admin::user()->isRole('agency')){
+                $form->hidden('agency','代理')->default(Admin::user()->id);
+            }
 
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
