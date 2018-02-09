@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class PartnerController extends Controller
 {
     public function index(){
-        return view('home.page.partner.index');
+        return view('home.page.partner.index',['headNav' => 'partner']);
     }
 
     public function CreateForm(Request $request){

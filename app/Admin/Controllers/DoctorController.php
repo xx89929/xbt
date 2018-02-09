@@ -140,7 +140,7 @@ class DoctorController extends Controller
 
             $form->ignore(['password_confirmation']);
             $form->saving(function (Form $form) {
-                if (bcrypt($form->password) != $form->model()->password && $form->password != null) {
+                if ($form->password != null) {
                     $form->password = bcrypt($form->password);
                 }else{
                     $form->password = $form->model()->password;

@@ -1,18 +1,18 @@
-<?php $__env->startSection('auth-page'); ?>
+@extends('auth.layout.authbase')
+@section('auth-page')
     <div class="member-info-box">
         <div class="member-c-tit">
             <h4>个人信息</h4>
         </div>
-        <form method="post" action="<?php echo e(route('memberInfo.save')); ?>" enctype ="multipart/form-data">
-            <?php echo e(csrf_field()); ?>
-
+        <form method="post" action="{{route('doc.save')}}" enctype ="multipart/form-data">
+            {{csrf_field()}}
         <div class="member-i-info clearfix">
             <div class="member-i-info-l pull-left">
                 <ul class="list-unstyled">
                     <li class="clearfix">
                         <div class="member-i-info-item">
                             <div class="member-i-info-tit pull-left">账号</div>
-                            <div class="member-i-info-des pull-left"><?php echo e(Auth::user()->username); ?></div>
+                            <div class="member-i-info-des pull-left">{{Auth::guard('doctor')->user()->account}}</div>
                         </div>
                     </li>
 
@@ -20,7 +20,7 @@
                         <div class="member-i-info-item">
                             <div class="member-i-info-tit pull-left">昵称</div>
                             <div class="member-i-info-des pull-left">
-                                <input name="nickname" type="text" value="<?php echo e(Auth::user()->member_info_one->nickname); ?>">
+                                <input name="realname" type="text" value="{{Auth::guard('doctor')->user()->realname}}">
                             </div>
                         </div>
                     </li>
@@ -28,15 +28,16 @@
                     <li class="clearfix">
                         <div class="member-i-info-item">
                             <div class="member-i-info-tit pull-left">会员类型</div>
-                            <div class="member-i-info-des pull-left">普通会员</div>
+                            <div class="member-i-info-des pull-left">医生</div>
                         </div>
                     </li>
 
 
+
                     <li class="clearfix">
                         <div class="member-i-info-item">
-                            <div class="member-i-info-tit pull-left">创建时间</div>
-                            <div class="member-i-info-des pull-left"><?php echo e(Auth::user()->created_at); ?></div>
+                            <div class="member-i-info-tit pull-left">注册时间</div>
+                            <div class="member-i-info-des pull-left">{{Auth::guard('doctor')->user()->created_at}}</div>
                         </div>
                     </li>
                     <li class="text-center">
@@ -47,7 +48,7 @@
 
             <div class="member-i-info-r pull-left">
                 <div class="member-i-info-r-img">
-                    <img src="<?php echo e(asset('storage/'.Auth::user()->member_info_one->head_pic)); ?>">
+                    <img src="{{asset('storage/'.Auth::guard('doctor')->user()->avatar)}}">
                 </div>
                 <div class="member-i-info-r-upheadpic">
                     <input type="file" name="head_pic">
@@ -57,5 +58,4 @@
         </div>
         </form>
     </div>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('auth.layout.authbase', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endsection

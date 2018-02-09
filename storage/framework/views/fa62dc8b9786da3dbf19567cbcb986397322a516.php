@@ -2,7 +2,7 @@
     <ul class="list-inline">
         <?php $__currentLoopData = $case; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ca): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <li class="col-xs-3">
-            <a href="#">
+            <a href="<?php echo e(route('case.info',['case_id' => $ca->id])); ?>">
                 <div class="case-con-img">
                     <img class="lazy" data-original="<?php echo e(asset('storage/'.$ca->image)); ?>">
                 </div>

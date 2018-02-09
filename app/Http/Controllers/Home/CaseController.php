@@ -18,6 +18,18 @@ class CaseController extends Controller
         }else{
             $case = CaseXb::select('name','id','describe','image')->paginate(12);
         }
-        return view('home.page.case.index',['caseNav' => $caseNav,'case' => $case,'caseActive' => $caseActive]);
+        return view('home.page.case.index',['caseNav' => $caseNav,'case' => $case,'caseActive' => $caseActive,'headNav' => 'case']);
+    }
+
+
+    public function caseInfo(Request $request){
+        if(!$request->get('case_id')){
+            return abort(404,'请输入正确地址');
+        };
+        $caseInfo = CaseXb::id($request->get('case_id'))->first();
+        $caseInfo_pre = CaseXb::where('id','<',$request->get('case_id'))->select('id','name')->orderBy('id','desc')->first();
+        $caseInfo_next = CaseXb::where('id','>',$request->get('case_id'))->select('id','name')->first();
+        $caseNever = CaseXb::orderBy('updated_at','desc')->take(5)->get();
+        return view('home.page.case_info.index',['caseInfo' => $caseInfo,'caseInfo_pre' => $caseInfo_pre,'caseInfo_next' => $caseInfo_next,'caseNever' => $caseNever,'headNav' => 'case']);
     }
 }

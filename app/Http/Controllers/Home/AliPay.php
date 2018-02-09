@@ -6,6 +6,7 @@ use App\Models\DocPay;
 use App\Models\Doctor;
 use App\Models\Order;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -74,6 +75,7 @@ trait AliPay
                     Order::where('order_id', $this->alipayData->out_trade_no)->update([
                         'trade_id' => $this->alipayData->trade_no,
                         'pay_at' => $this->alipayData->gmt_create,
+                        'exp_at' => Carbon::parse($this->alipayData->gmt_create)->addDays(7)->toDateTimeString(),
                         'pay_status' => 1,
                     ]);
 

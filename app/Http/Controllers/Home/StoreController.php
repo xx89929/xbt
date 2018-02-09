@@ -11,7 +11,7 @@ class StoreController extends Controller
     public function index(Request $request){
 
         $hotStore = Store::select('name','store_pic')->take(6)->get();
-        return view('home.page.facade.index',['hotStore' => $hotStore]);
+        return view('home.page.facade.index',['hotStore' => $hotStore,'headNav' => 'store']);
     }
 
     public function getBdMap(Request $request){

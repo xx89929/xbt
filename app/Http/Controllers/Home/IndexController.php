@@ -44,6 +44,6 @@ class IndexController extends Controller
         $banner = BannerSet::select('order','pic')->orderBy('order')->get();
 
 
-        return view('home.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'banner' => $banner]);
+        return view('home.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'banner' => $banner,'headNav' => 'index']);
     }
 }

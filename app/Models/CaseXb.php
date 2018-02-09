@@ -18,4 +18,8 @@ class CaseXb extends Model
     public function scopeCaseCategory($query,$Category){
         return $query->where('category',$Category);
     }
+
+    public function scopeId($query,$id){
+        return $query->where('id',$id);
+    }
 }

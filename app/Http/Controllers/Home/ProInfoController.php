@@ -17,6 +17,6 @@ class ProInfoController extends Controller
             abort(404);
         }
 
-        return view('home.page.pro-info.index',['proin' => $proin,'province' => $province]);
+        return view('home.page.pro-info.index',['proin' => $proin,'province' => $province,'headNav' => 'product']);
     }
 }

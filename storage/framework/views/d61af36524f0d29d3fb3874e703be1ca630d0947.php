@@ -52,10 +52,10 @@
                             </div>
                         </div>
                     </li>
-                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
-                    <?php echo e(csrf_field()); ?>
+                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                        <?php echo e(csrf_field()); ?>
 
-                </form>
+                    </form>
                 <?php endif; ?>
 
 
@@ -68,16 +68,13 @@
                             <div class="user-set-l-list">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="<?php echo e(route('member.info')); ?>"><i class="fa fa-user-circle"></i>个人中心</a>
+                                        <a href="<?php echo e(route('doc.info')); ?>"><i class="fa fa-user-circle"></i>个人中心</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo e(route('member.order')); ?>"><i class="fa fa-sticky-note"></i>我的订单</a>
+                                        <a href="<?php echo e(route('doc.safe')); ?>"><i class="fa fa-cog"></i>账号设置</a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo e(route('member.safe')); ?>"><i class="fa fa-cog"></i>账号设置</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo e(route('member.finace')); ?>"><i class="fa fa-cog"></i>我的账户</a>
+                                        <a href="<?php echo e(route('doc.cash')); ?>"><i class="fa fa-cog"></i>我的账户</a>
                                     </li>
                                     <li class="ind-user-logout">
                                         <a onclick="event.preventDefault();document.getElementById('doc-logout-form').submit();"><i class="fa fa-power-off"></i>退出</a>

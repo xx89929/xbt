@@ -2,7 +2,7 @@
     <ul class="list-inline">
         @foreach($case as $ca)
         <li class="col-xs-3">
-            <a href="#">
+            <a href="{{route('case.info',['case_id' => $ca->id])}}">
                 <div class="case-con-img">
                     <img class="lazy" data-original="{{asset('storage/'.$ca->image)}}">
                 </div>

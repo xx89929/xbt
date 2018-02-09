@@ -60,7 +60,7 @@ class DocLogController extends Controller
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt([$this->username() => $request->post($this->username()),
-            'password' =>$request->post('password'),'is_check' => 1], $request->filled('remember'));
+            'password' =>$request->post('password'),'is_check' => 1]);
     }
 
 

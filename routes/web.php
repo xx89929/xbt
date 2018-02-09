@@ -20,6 +20,7 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('/','IndexController@index')->name('/');
     Route::get('news','NewsController@index')->name('news');
     Route::get('case','CaseController@index')->name('case');
+    Route::get('case/info','CaseController@caseInfo')->name('case.info');
     Route::get('partner','PartnerController@index')->name('partner');
     Route::get('contact','ContactController@index')->name('contact');
     Route::get('product','ProductController@index')->name('product');
@@ -75,7 +76,12 @@ Route::group(['namespace' => 'Doctor'],function (){
 
     Route::group(['middleware' => 'auth:doctor','prefix' => 'doctor'],function (){
         Route::post('doc-login', 'DocLogController@logout')->name('doc.logout');
-        Route::get('home', 'HomeController@index')->name('doc.home');
+        Route::get('info','InfoController@index')->name('doc.info');
+        Route::post('info/save','InfoController@save')->name('doc.save');
+        Route::get('safe','SafeController@index')->name('doc.safe');
+        Route::get('cash','CashController@index')->name('doc.cash');
+        Route::get('password/reset', 'SafeController@showRePass')->name('doc_password.request');
+        Route::post('password/reset', 'SafeController@reset');
     });
 });
 
