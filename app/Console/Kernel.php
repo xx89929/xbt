@@ -45,7 +45,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () {
             $this->orderDoctorSettle();
-        })->dailyAt('03:05');
+        })->dailyAt('03:14');
     }
 
     /**
