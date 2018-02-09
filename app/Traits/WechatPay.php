@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Traits;
 
 use Illuminate\Http\Request;
 use Yansongda\Pay\Pay;

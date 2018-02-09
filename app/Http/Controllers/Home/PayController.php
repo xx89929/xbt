@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Home;
 
 
+use App\Traits\AliPay;
+use App\Traits\WechatPay;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

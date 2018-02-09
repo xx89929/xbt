@@ -13,7 +13,7 @@ class Order extends Model
     protected $table = 'xbt_order';
 
     protected $fillable = [
-        'pro_id','order_id','member_id','doctor_id','store_id','pro_nub','deal_status','order_status','order_money'
+        'pro_id','order_id','member_id','doctor_id','store_id','pro_nub','deal_status','order_status','order_money','is_lock'
     ];
 
 

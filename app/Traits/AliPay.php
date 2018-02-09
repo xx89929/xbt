@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Traits;
 
 use App\Models\DocPay;
 use App\Models\Doctor;
@@ -68,10 +68,8 @@ trait AliPay
                 DB::transaction(function () {
                     $this->alipayData->total_amount = $this->alipayData->total_amount * 100; //需要删除
                     $order = Order::where('order_id', $this->alipayData->out_trade_no)->first();
-                    $doctor = Doctor::with('doc_to_doc_group')->getId($order->doctor_id)->first();
-//                $pro = Product::proId($order->pro_id)->first();
-                    $doc_goods = number_format($this->alipayData->total_amount, 2) * ($doctor->doc_to_doc_group->ratio / 100);
-
+//                    $doctor = Doctor::with('doc_to_doc_group')->getId($order->doctor_id)->first();
+//                    $doc_goods = number_format($this->alipayData->total_amount, 2) * ($doctor->doc_to_doc_group->ratio / 100);
                     Order::where('order_id', $this->alipayData->out_trade_no)->update([
                         'trade_id' => $this->alipayData->trade_no,
                         'pay_at' => $this->alipayData->gmt_create,
@@ -79,13 +77,13 @@ trait AliPay
                         'pay_status' => 1,
                     ]);
 
-                    DocPay::create([
-                        'doctor_id' => $order->doctor_id,
-                        'goods' => $doc_goods,
-                        'remark' => $this->alipayData->subject,
-                        'operation' => 1,
-                    ]);
-                    $doctor->increment('goods', $doc_goods);
+//                    DocPay::create([
+//                        'doctor_id' => $order->doctor_id,
+//                        'goods' => $doc_goods,
+//                        'remark' => $this->alipayData->subject,
+//                        'operation' => 1,
+//                    ]);
+//                    $doctor->increment('goods', $doc_goods);
                 });
                 // 请自行对 trade_status 进行判断及其它逻辑进行判断，在支付宝的业务通知中，只有交易通知状态为 TRADE_SUCCESS 或 TRADE_FINISHED 时，支付宝才会认定为买家付款成功。
                 // 1、商户需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号；

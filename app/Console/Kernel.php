@@ -2,12 +2,14 @@
 
 namespace App\Console;
 
-use App\Models\Order;
+use App\Traits\Order;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+
+    use Order;
     /**
      * The Artisan commands provided by your application.
      *
@@ -23,17 +25,27 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+//    protected function schedule(Schedule $schedule)
+//    {
+//        // $schedule->command('inspire')
+//        //          ->hourly();
+//
+//        $schedule->call(function () {
+//        })->daily();
+//
+//        $schedule->command('inspire')->everyTenMinutes();
+//
+//        $schedule->command('route:list')->dailyAt('02:00');
+//    }
+
+
+
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
 
         $schedule->call(function () {
+            $this->orderDoctorSettle();
         })->daily();
-
-        $schedule->command('inspire')->everyTenMinutes();
-
-        $schedule->command('route:list')->dailyAt('02:00');
     }
 
     /**
