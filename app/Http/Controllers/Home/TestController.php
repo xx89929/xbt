@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 
-class testController extends Controller
+class TestController extends Controller
 {
     use Order;
     public function test(){
