@@ -49,7 +49,7 @@ class Kernel extends ConsoleKernel
 //        })->dailyAt('03:14');
         $schedule->call(function (){
             Doctor::where('id',2)->increment('goods',5);
-        });
+        })->everyMinute();
 //        $schedule->call(function () {
 //            $this->orderDoctorSettle();
 //        })->everyMinute();
