@@ -44,6 +44,10 @@ class Doctor extends Authenticatable
         return $this->hasMany(DocCash::class,'dortor_id','id');
     }
 
+    public function doc_bank(){
+        return $this->hasOne(Bank::class,'bank_id','bank_type');
+    }
+
     public function scopeGetId($query,$id){
         return $query->where('id',$id);
     }

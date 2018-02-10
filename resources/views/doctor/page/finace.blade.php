@@ -1,16 +1,22 @@
-@extends('auth.layout.authbase')
+@extends('doctor.layout.authbase')
 @section('auth-page')
     <div class="member-finace">
         <div class="member-finace-h text-center">
             <img class="img-circle center-block" src="{{url('home/images/headpic.jpg')}}">
-            <h4>{{Auth::guard('doctor')->user()->username}}</h4>
+            <h4>{{Auth::guard('doctor')->user()->realname}}</h4>
             <p>医师</p>
         </div>
         <div class="member-finace-c">
             <ul class="list-inline clearfix">
-                <li class="col-xs-4 text-center">
+                <li class="col-xs-6 text-center">
                     <h4>￥{{number_format(Auth::guard('doctor')->user()->goods,2)}}元</h4>
                     <p>账号余额</p>
+                </li>
+                <li class="col-xs-6 text-center">
+                    <button type="button" data-toggle="modal" data-target="#myModal" class="doctor_cash_apply">
+                        申请提现
+                    </button>
+                    <p><strong style="color: red;">注意：</strong>提现功能目前测试阶段！</p>
                 </li>
             </ul>
         </div>
@@ -37,9 +43,10 @@
                         </tr>
                     @endforeach
                     </tbody>
-
                 </table>
+                {{$payList->links()}}
             </div>
         </div>
     </div>
+    @include('doctor.page.apply_cash')
 @endsection

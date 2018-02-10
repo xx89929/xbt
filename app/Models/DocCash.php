@@ -11,8 +11,12 @@ class DocCash extends Model
 
     protected $table = 'doc_cash';
 
+    protected $fillable = [
+        'doctor_id','goods','bank_type','bank_branch','bank_code'
+    ];
+
     public function cash_doctor(){
-        return $this->belongsTo(Doctor::class,'dortor_id');
+        return $this->belongsTo(Doctor::class,'doctor_id');
     }
 
     public function cash_bank(){

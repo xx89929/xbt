@@ -82,6 +82,10 @@ Route::group(['namespace' => 'Doctor'],function (){
         Route::get('cash','CashController@index')->name('doc.cash');
         Route::get('password/reset', 'SafeController@showRePass')->name('doc_password.request');
         Route::post('password/reset', 'SafeController@reset');
+        Route::get('bind/bank', 'SafeController@bindBank')->name('doc.bind.bank');
+        Route::post('bind/bank', 'SafeController@bindBank');
+        Route::post('doc/apply/cash', 'CashController@setCash')->name('doc.applyCash');
+        Route::get('doc/cash/list', 'CashController@getCashList')->name('doc.cash.list');
     });
 });
 

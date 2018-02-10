@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use App\Models\Bank;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -30,6 +31,16 @@ class SafeController extends Controller
         }else{
             return redirect()->back()->with(['error' => '原密码不正确']);
         }
+    }
 
+    public function bindBank(Request $request){
+        if ($data = $request->only(['bank_type','bank_branch','bank_code'])){
+            $res  = Doctor::getId(Auth::guard('doctor')->id())->update($data);
+            return $res ? back()->with('success','银行绑定成功') : back()->with('error','银行绑定失败');
+        }
+        $doc = Doctor::select('bank_code','bank_type','bank_branch')->getID(Auth::guard('doctor')->id())->first();
+        $bankOp = Bank::all()->pluck('bank_name','bank_id');
+
+        return view('doctor.page.bank',['docInfo' => $doc,'bankOp' => $bankOp]);
     }
 }

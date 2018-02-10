@@ -1,4 +1,4 @@
-@extends('auth.layout.authbase')
+@extends('doctor.layout.authbase')
 @section('auth-page')
     <form class="form-horizontal" method="POST" action="{{ route('doc_password.request') }}">
         {{ csrf_field() }}

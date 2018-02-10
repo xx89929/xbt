@@ -6,6 +6,7 @@
         <li><a href="{{route('doc.info')}}">个人信息</a></li>
         <li><a href="{{route('doc.safe')}}">账号安全</a></li>
         <li><a href="{{route('doc.cash')}}">我的账户</a></li>
+        <li><a href="{{route('doc.cash.list')}}">提现记录</a></li>
     </ul>
 </div>
 

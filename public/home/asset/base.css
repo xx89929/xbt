@@ -1241,7 +1241,7 @@ input:focus {
   margin-right: 1%; }
   .member-safe-i-tag i {
     width: 65px;
-    font-size: 65px;
+    font-size: 40px;
     color: #00a0e9; }
 
 .member-safe-i-tit h4 span {
@@ -1365,6 +1365,19 @@ input:focus {
 .member-finace-detail-tit {
   padding: 10px 0px;
   border-bottom: 1px solid #ddd; }
+
+.doctor_cash_apply {
+  padding: 5px 10px;
+  border: 0px;
+  background-color: #00a0e9;
+  color: white;
+  transition: all 0.2s;
+  border-radius: 5px;
+  margin-bottom: 10px; }
+  .doctor_cash_apply:hover {
+    background-color: #007EC3; }
+  .doctor_cash_apply:hover {
+    color: white; }
 
 .member-addr-addbtn button {
   padding: 5px 20px;

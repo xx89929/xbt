@@ -2,7 +2,8 @@
 
 namespace App\Console;
 
-use App\Traits\Doctor;
+
+use App\Models\Doctor;
 use App\Traits\Order;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -44,12 +45,12 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
 
-//        $schedule->call(function () {
-//            $this->orderDoctorSettle();
-//        })->dailyAt('03:14');
-        $schedule->call(function (){
-            Doctor::where('id',2)->increment('goods',5);
-        })->everyMinute();
+        $schedule->call(function () {
+            $this->orderDoctorSettle();
+        })->daily();
+//        $schedule->call(function (){
+//            Doctor::where('id',2)->increment('goods',5);
+//        })->everyMinute();
 //        $schedule->call(function () {
 //            $this->orderDoctorSettle();
 //        })->everyMinute();

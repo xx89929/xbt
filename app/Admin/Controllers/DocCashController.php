@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Models\Bank;
 use App\Models\DocCash;
 
+use App\Models\DocPay;
 use App\Models\Doctor;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -12,6 +13,8 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Illuminate\Contracts\Logging\Log;
+use Illuminate\Support\Facades\DB;
 
 class DocCashController extends Controller
 {
@@ -82,11 +85,9 @@ class DocCashController extends Controller
             $grid->bank_branch('开户支行');
             $grid->bank_code('银行卡号');
 
-            $states = [
-                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
-            ];
-            $grid->is_cash('是否完成转账')->switch($states);
+            $grid->is_cash('是否打款')->display(function ($v){
+               return $v == 1 ? "<span class='label label-success'>已打款</span>" :"<span class='label label-danger'>未打款</span>";
+            });
 
             $grid->created_at('申请时间');
         });
@@ -102,7 +103,7 @@ class DocCashController extends Controller
         return Admin::form(DocCash::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->select('dortor_id', '医生')->options(function(){
+            $form->select('doctor_id', '医生')->options(function(){
                 return Doctor::all()->pluck('realname','id');
             });
             $form->select('bank_type','银行类型')->options(function(){
@@ -112,12 +113,25 @@ class DocCashController extends Controller
             $form->text('bank_code','银行卡号');
             $form->currency('goods','提现金额')->symbol('￥');
             $form->switch('is_cash','是否打款')->states([
-                'on'  => ['value' => 1, 'text' => '已打款', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '未打款', 'color' => 'danger'],
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
             ]);
-
             $form->display('created_at', '申请时间');
             $form->display('updated_at', '审核时间');
+
+            $form->saving(function (Form $form){
+                if ($form->is_cash == 'on' && $form->model()->is_cash != 1){
+                    $caseRes = Doctor::getId($form->model()->doctor_id)->decrement('lock_goods',$form->model()->goods);
+                    if ($caseRes != 1){
+                        $error = new MessageBag([
+                            'title'   => '提现ID'.$form->model()->id.'更新提现错误',
+                            'message' => '金额'.$form->model()->goods,
+                        ]);
+                        Log::info('后台提现DocCash !error',[$form->model()->id => $form->model()->goods]);
+                        return back()->with(compact('error'));
+                    }
+                }
+            });
         });
     }
 }

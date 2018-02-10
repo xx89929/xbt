@@ -1,4 +1,4 @@
-@extends('auth.layout.authbase')
+@extends('doctor.layout.authbase')
 @section('auth-page')
     <div class="member-info-box">
         <div class="member-c-tit">

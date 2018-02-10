@@ -19,7 +19,7 @@
 
             <li>
                 <div class="member-safe-item clearfix">
-                    <div class="member-safe-i-tag pull-left">
+                    <div class="member-safe-i-tag pull-left ">
                         <i class="fa fa-envelope-o"></i>
                     </div>
                     <div class="member-safe-i-tit pull-left">

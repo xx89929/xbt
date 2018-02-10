@@ -29,3 +29,13 @@
   padding:10px 0px;
   border-bottom: 1px solid #ddd;
 }
+
+.doctor_cash_apply{
+  padding:5px 10px;
+  @include blue-button;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  &:hover{
+    color: white;
+  }
+}
