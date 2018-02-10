@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Traits\Doctor;
 use App\Traits\Order;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -46,9 +47,12 @@ class Kernel extends ConsoleKernel
 //        $schedule->call(function () {
 //            $this->orderDoctorSettle();
 //        })->dailyAt('03:14');
-        $schedule->call(function () {
-            $this->orderDoctorSettle();
-        })->everyMinute();
+        $schedule->call(function (){
+            Doctor::where('id',2)->increment('goods',5);
+        });
+//        $schedule->call(function () {
+//            $this->orderDoctorSettle();
+//        })->everyMinute();
     }
 
     /**
