@@ -43,9 +43,12 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
 
+//        $schedule->call(function () {
+//            $this->orderDoctorSettle();
+//        })->dailyAt('03:14');
         $schedule->call(function () {
             $this->orderDoctorSettle();
-        })->dailyAt('03:14');
+        })->everyMinute();
     }
 
     /**
