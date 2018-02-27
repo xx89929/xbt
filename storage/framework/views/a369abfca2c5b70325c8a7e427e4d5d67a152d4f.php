@@ -7,7 +7,7 @@
         <ul class="list-inline clearfix">
             <?php $__currentLoopData = $case; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ca): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li class="col-xs-3">
-                    <a href="#" class="ind-case-item">
+                    <a href="<?php echo e(route('case.info',['case_id' => $ca->id])); ?>" class="ind-case-item">
                         <div class="ind-case-img">
                             <img class='lazy' data-original="<?php echo e(asset('storage/'.$ca->image)); ?>">
                         </div>
