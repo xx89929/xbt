@@ -212,16 +212,16 @@ input:focus {
       border-bottom: 2px solid #ff0042; }
 
 .search_input {
-  height: 40px; }
+  padding: 15px 0px; }
   .search_input input {
     width: 200px;
     border: 1px solid #ddd;
     border-right: 0px;
-    height: 40px;
-    padding: 10px; }
+    padding: 10px 5px;
+    height: 43px; }
 
 .search_button {
-  height: 40px; }
+  padding: 15px 0px; }
   .search_button button {
     border: 0px;
     background-color: #ff0042;
@@ -229,12 +229,13 @@ input:focus {
     transition: all 0.2s;
     padding: 0px 15px;
     line-height: 30px;
-    height: 40px; }
+    height: 43px;
+    border: 1px solid #ff0042; }
     .search_button button:hover {
       background-color: rgba(187, 5, 5, 0.86); }
 
 .nav_search {
-  height: 40px; }
+  margin-left: 63px; }
 
 .foot-con {
   margin-top: 20px; }
