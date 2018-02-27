@@ -13,7 +13,7 @@
                 </span>
                 <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php if($loop->first): ?>
-                        <a href="#" class="ind-news-l1 item active">
+                        <a href="<?php echo e(route('news.item',['id' => $new->id])); ?>" class="ind-news-l1 item active">
                             <img class="lazy" data-original="<?php echo e(asset('storage/'.$new->pic)); ?>">
                             <div class="ind-news-l1-des">
                                 <h4><?php echo e(str_limit($new->title,50)); ?></h4>
@@ -26,7 +26,7 @@
                             </div>
                         </a>
                     <?php elseif($loop->iteration): ?>
-                            <a href="#" class="ind-news-l1 item">
+                            <a href="<?php echo e(route('news.item',['id' => $new->id])); ?>" class="ind-news-l1 item">
                                 <img class="lazy" data-original="<?php echo e(asset('storage/'.$new->pic)); ?>">
                                 <div class="ind-news-l1-des">
                                     <h4><?php echo e(str_limit($new->title,50)); ?></h4>
@@ -46,7 +46,7 @@
         <div class="ind-news-r1 pull-left">
             <div class="ind-news-acd">
                 <?php $__currentLoopData = $salon; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <a href="#" class="ind-news-acd-f1 col-xs-6">
+                    <a href="<?php echo e(route('news.item',['id' => $sa->id])); ?>" class="ind-news-acd-f1 col-xs-6">
                         <img class="lazy" data-original="<?php echo e(asset('storage/'.$sa->pic)); ?>">
                         <div class="ind-news-acd-des">
                             <h4><?php echo e(str_limit($sa->title,15)); ?></h4>
@@ -74,7 +74,7 @@
                                 <?php $__currentLoopData = $dynamic; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if($loop->index < 3): ?>
                                     <li>
-                                        <a href="#" class="ind-news-r2-con">
+                                        <a href="<?php echo e(route('news.item',['id' => $dy->id])); ?>" class="ind-news-r2-con">
                                             <img class="lazy" data-original="<?php echo e(asset('storage/'.$dy->pic)); ?>">
                                             <div class="ind-news-r2-des">
                                                 <h4><?php echo e(str_limit($dy->title,10)); ?></h4>
@@ -91,7 +91,7 @@
                                 <?php $__currentLoopData = $dynamic; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if($loop->index < 6 && $loop->index >2 ): ?>
                                         <li>
-                                            <a href="#" class="ind-news-r2-con">
+                                            <a href="<?php echo e(route('news.item',['id' => $dy->id])); ?>" class="ind-news-r2-con">
                                                 <img class="lazy" data-original="<?php echo e(asset('storage/'.$dy->pic)); ?>">
                                                 <div class="ind-news-r2-des">
                                                     <h4><?php echo e(str_limit($dy->title,10)); ?></h4>

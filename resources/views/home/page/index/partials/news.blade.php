@@ -13,7 +13,7 @@
                 </span>
                 @foreach($news as $new)
                     @if($loop->first)
-                        <a href="#" class="ind-news-l1 item active">
+                        <a href="{{route('news.item',['id' => $new->id])}}" class="ind-news-l1 item active">
                             <img class="lazy" data-original="{{asset('storage/'.$new->pic)}}">
                             <div class="ind-news-l1-des">
                                 <h4>{{ str_limit($new->title,50)}}</h4>
@@ -25,7 +25,7 @@
                             </div>
                         </a>
                     @elseif($loop->iteration)
-                            <a href="#" class="ind-news-l1 item">
+                            <a href="{{route('news.item',['id' => $new->id])}}" class="ind-news-l1 item">
                                 <img class="lazy" data-original="{{asset('storage/'.$new->pic)}}">
                                 <div class="ind-news-l1-des">
                                     <h4>{{ str_limit($new->title,50)}}</h4>
@@ -44,7 +44,7 @@
         <div class="ind-news-r1 pull-left">
             <div class="ind-news-acd">
                 @foreach($salon as $sa)
-                    <a href="#" class="ind-news-acd-f1 col-xs-6">
+                    <a href="{{route('news.item',['id' => $sa->id])}}" class="ind-news-acd-f1 col-xs-6">
                         <img class="lazy" data-original="{{asset('storage/'.$sa->pic)}}">
                         <div class="ind-news-acd-des">
                             <h4>{{ str_limit($sa->title,15) }}</h4>
@@ -71,7 +71,7 @@
                                 @foreach($dynamic as $dy)
                                     @if($loop->index < 3)
                                     <li>
-                                        <a href="#" class="ind-news-r2-con">
+                                        <a href="{{route('news.item',['id' => $dy->id])}}" class="ind-news-r2-con">
                                             <img class="lazy" data-original="{{asset('storage/'.$dy->pic)}}">
                                             <div class="ind-news-r2-des">
                                                 <h4>{{ str_limit($dy->title,10)}}</h4>
@@ -88,7 +88,7 @@
                                 @foreach($dynamic as $dy)
                                     @if($loop->index < 6 && $loop->index >2 )
                                         <li>
-                                            <a href="#" class="ind-news-r2-con">
+                                            <a href="{{route('news.item',['id' => $dy->id])}}" class="ind-news-r2-con">
                                                 <img class="lazy" data-original="{{asset('storage/'.$dy->pic)}}">
                                                 <div class="ind-news-r2-des">
                                                     <h4>{{ str_limit($dy->title,10)}}</h4>
