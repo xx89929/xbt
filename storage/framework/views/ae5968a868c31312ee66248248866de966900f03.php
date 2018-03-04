@@ -12,7 +12,7 @@
                         <a href="<?php echo e(route('pro-info',['id' => $pro->id])); ?>" class="hot-pro-item text-center">
                             <img class="lazy" data-original="<?php echo e(asset('storage/'.$pro->pics[0])); ?>">
                             <h5><?php echo e($pro->name); ?></h5>
-                            <span title="<?php echo e($pro->description); ?>"><?php echo e(str_limit($pro->description,30)); ?></span>
+                            <span title="<?php echo e($pro->description); ?>"><?php echo e(str_limit($pro->description,20)); ?></span>
                             <p class="product-price">￥<i><?php echo e(number_format($pro->price,2)); ?></i>元</p>
                         </a>
                     </li>

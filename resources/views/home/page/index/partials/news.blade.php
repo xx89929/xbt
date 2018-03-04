@@ -14,7 +14,7 @@
                 @foreach($news as $new)
                     @if($loop->first)
                         <a href="{{route('news.item',['id' => $new->id])}}" class="ind-news-l1 item active">
-                            <img class="lazy" data-original="{{asset('storage/'.$new->pic)}}">
+                            <img  src="{{asset('storage/'.$new->pic)}}">
                             <div class="ind-news-l1-des">
                                 <h4>{{ str_limit($new->title,50)}}</h4>
                                 <span class="ind-news-l1-tag">
@@ -26,7 +26,7 @@
                         </a>
                     @elseif($loop->iteration)
                             <a href="{{route('news.item',['id' => $new->id])}}" class="ind-news-l1 item">
-                                <img class="lazy" data-original="{{asset('storage/'.$new->pic)}}">
+                                <img src="{{asset('storage/'.$new->pic)}}">
                                 <div class="ind-news-l1-des">
                                     <h4>{{ str_limit($new->title,50)}}</h4>
                                     <span class="ind-news-l1-tag">
@@ -72,7 +72,7 @@
                                     @if($loop->index < 3)
                                     <li>
                                         <a href="{{route('news.item',['id' => $dy->id])}}" class="ind-news-r2-con">
-                                            <img class="lazy" data-original="{{asset('storage/'.$dy->pic)}}">
+                                            <img src="{{asset('storage/'.$dy->pic)}}">
                                             <div class="ind-news-r2-des">
                                                 <h4>{{ str_limit($dy->title,10)}}</h4>
                                                 <p>{{  str_limit($dy->describes,50) }}</p>
@@ -89,7 +89,7 @@
                                     @if($loop->index < 6 && $loop->index >2 )
                                         <li>
                                             <a href="{{route('news.item',['id' => $dy->id])}}" class="ind-news-r2-con">
-                                                <img class="lazy" data-original="{{asset('storage/'.$dy->pic)}}">
+                                                <img src="{{asset('storage/'.$dy->pic)}}">
                                                 <div class="ind-news-r2-des">
                                                     <h4>{{ str_limit($dy->title,10)}}</h4>
                                                     <p>{{  str_limit($dy->describes,50) }}</p>

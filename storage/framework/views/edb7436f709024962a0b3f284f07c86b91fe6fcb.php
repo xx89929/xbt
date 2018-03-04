@@ -14,7 +14,7 @@
                 <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php if($loop->first): ?>
                         <a href="<?php echo e(route('news.item',['id' => $new->id])); ?>" class="ind-news-l1 item active">
-                            <img class="lazy" data-original="<?php echo e(asset('storage/'.$new->pic)); ?>">
+                            <img  src="<?php echo e(asset('storage/'.$new->pic)); ?>">
                             <div class="ind-news-l1-des">
                                 <h4><?php echo e(str_limit($new->title,50)); ?></h4>
                                 <span class="ind-news-l1-tag">
@@ -27,7 +27,7 @@
                         </a>
                     <?php elseif($loop->iteration): ?>
                             <a href="<?php echo e(route('news.item',['id' => $new->id])); ?>" class="ind-news-l1 item">
-                                <img class="lazy" data-original="<?php echo e(asset('storage/'.$new->pic)); ?>">
+                                <img src="<?php echo e(asset('storage/'.$new->pic)); ?>">
                                 <div class="ind-news-l1-des">
                                     <h4><?php echo e(str_limit($new->title,50)); ?></h4>
                                     <span class="ind-news-l1-tag">
@@ -75,7 +75,7 @@
                                     <?php if($loop->index < 3): ?>
                                     <li>
                                         <a href="<?php echo e(route('news.item',['id' => $dy->id])); ?>" class="ind-news-r2-con">
-                                            <img class="lazy" data-original="<?php echo e(asset('storage/'.$dy->pic)); ?>">
+                                            <img src="<?php echo e(asset('storage/'.$dy->pic)); ?>">
                                             <div class="ind-news-r2-des">
                                                 <h4><?php echo e(str_limit($dy->title,10)); ?></h4>
                                                 <p><?php echo e(str_limit($dy->describes,50)); ?></p>
@@ -92,7 +92,7 @@
                                     <?php if($loop->index < 6 && $loop->index >2 ): ?>
                                         <li>
                                             <a href="<?php echo e(route('news.item',['id' => $dy->id])); ?>" class="ind-news-r2-con">
-                                                <img class="lazy" data-original="<?php echo e(asset('storage/'.$dy->pic)); ?>">
+                                                <img src="<?php echo e(asset('storage/'.$dy->pic)); ?>">
                                                 <div class="ind-news-r2-des">
                                                     <h4><?php echo e(str_limit($dy->title,10)); ?></h4>
                                                     <p><?php echo e(str_limit($dy->describes,50)); ?></p>
