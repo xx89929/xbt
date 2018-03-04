@@ -64,7 +64,6 @@
                     <span class="ind-news-r2-next ind-news-r2-botton"  data-slide="next">
                         <i class="fa fa-chevron-right"></i>
                     </span>
-
                     <div class="ind-news-r2-lunbo">
                         <div class="carousel-inner">
                             <ul class="list-inline clearfix item active">
@@ -84,6 +83,7 @@
 
                             </ul>
 
+                            @if(count($dynamic) > 3)
                             <ul class="list-inline clearfix item">
                                 @foreach($dynamic as $dy)
                                     @if($loop->index < 6 && $loop->index >2 )
@@ -99,6 +99,7 @@
                                     @endif
                                 @endforeach
                             </ul>
+                            @endif
                         </div>
                     </div>
 

@@ -67,7 +67,6 @@
                     <span class="ind-news-r2-next ind-news-r2-botton"  data-slide="next">
                         <i class="fa fa-chevron-right"></i>
                     </span>
-
                     <div class="ind-news-r2-lunbo">
                         <div class="carousel-inner">
                             <ul class="list-inline clearfix item active">
@@ -87,6 +86,7 @@
 
                             </ul>
 
+                            <?php if(count($dynamic) > 3): ?>
                             <ul class="list-inline clearfix item">
                                 <?php $__currentLoopData = $dynamic; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if($loop->index < 6 && $loop->index >2 ): ?>
@@ -102,6 +102,7 @@
                                     <?php endif; ?>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
+                            <?php endif; ?>
                         </div>
                     </div>
 
