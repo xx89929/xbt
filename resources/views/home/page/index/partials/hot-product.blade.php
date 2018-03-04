@@ -12,7 +12,7 @@
                         <a href="{{route('pro-info',['id' => $pro->id])}}" class="hot-pro-item text-center">
                             <img class="lazy" data-original="{{asset('storage/'.$pro->pics[0])}}">
                             <h5>{{$pro->name}}</h5>
-                            <span>{{$pro->description}}</span>
+                            <span title="{{$pro->description}}">{{str_limit($pro->description,30)}}</span>
                             <p class="product-price">￥<i>{{number_format($pro->price,2)}}</i>元</p>
                         </a>
                     </li>

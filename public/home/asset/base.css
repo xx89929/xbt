@@ -340,6 +340,7 @@ input:focus {
 .hot-product_box {
   width: 100%; }
   .hot-product_box > ul > li {
+    width: 246px;
     position: relative;
     top: 0px;
     transition: all 0.5s; }
@@ -347,6 +348,9 @@ input:focus {
       padding-right: 0px; }
     .hot-product_box > ul > li:hover {
       top: -10px; }
+    .hot-product_box > ul > li a {
+      width: 100%;
+      height: 100%; }
 
 .xbt-li-pro > a {
   color: inherit;
