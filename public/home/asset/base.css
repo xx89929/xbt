@@ -269,6 +269,16 @@ input:focus {
       .foot-item > ul > li a:hover span {
         color: rgba(187, 5, 5, 0.86); }
 
+#weixin_code_foot {
+  position: relative; }
+  #weixin_code_foot img {
+    position: absolute;
+    display: none;
+    top: -100px;
+    left: -42px;
+    width: 100px;
+    height: 100px; }
+
 .i-banner {
   position: relative; }
 
@@ -301,7 +311,7 @@ input:focus {
 
 .cla_item_dis {
   display: none;
-  background-color: white;
+  background-color: #ffffff9e;
   position: absolute;
   top: 0px;
   left: 244px;

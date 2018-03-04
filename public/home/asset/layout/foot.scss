@@ -43,3 +43,15 @@
     }
   }
 }
+
+#weixin_code_foot {
+  position: relative;
+  img{
+    position: absolute;
+    display: none;
+    top: -100px;
+    left: -42px;
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -6,11 +6,11 @@
                 <li class="top-weixin-code-li">
                     <a><i class="fa fa-weixin"></i></a>
                     <div class="top-weixin-code">
-                        <img src="<?php echo e(url('home/images/icon/hyCode.jpg')); ?>">
+                        <img src="<?php echo e(url('home/images/icon/weixin_code.png')); ?>">
                     </div>
                 </li>
-                <li><a><i class="fa fa-qq"></i></a></li>
-                <li><a><i class="fa fa-weibo"></i></a></li>
+                <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2763445064&site=qq&menu=yes"><i class="fa fa-qq "></i></a></li>
+                <li><a href="https://weibo.com/5121219389/manage" target="_blank" ><i class="fa fa-weibo"></i></a></li>
             </ul>
         </div>
 

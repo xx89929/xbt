@@ -378,3 +378,9 @@ $('.order_pay_way > ul li ').click(function () {
     $this.addClass('active').siblings().removeClass('active');
 
 })
+
+$('#weixin_code_foot').hover(function () {
+    $(this).find('img').show();
+},function () {
+    $(this).find('img').hide();
+});

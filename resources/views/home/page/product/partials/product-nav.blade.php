@@ -2,7 +2,7 @@
     <ul class="list-inline clearfix">
         <li class="col-xs-1 active" ><a href="{{route('product')}}"><h4>全部产品</h4></a></li>
         @foreach($proNav as $pn)
-        <li class="col-xs-1" ><a href="{{route('product',['cate_id' => $pn->id])}}"><h4>{{$pn->title}}</h4></a></li>
+        <li class="col-xs-1" ><a title="{{$pn->title}}" href="{{route('product',['cate_id' => $pn->id])}}"><h4>{{str_limit($pn->title,8)}}</h4></a></li>
         @endforeach
         {{--<li class="col-xs-1" ><a href="#"><h4>新疤抗疤</h4></a></li>--}}
         {{--<li class="col-xs-1" ><a href="#"><h4>儿童疤痕</h4></a></li>--}}
