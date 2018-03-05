@@ -25,15 +25,19 @@
             <p>活动入口</p>
         </div>
         <div class="ind-acd-div-f1 text-center">
+            @foreach($salon as $sa)
+            @if($loop->first)
             <div class="ind-acd-des">
-                @foreach($salon as $sa)
-                    @if($loop->first)
-                    <h5>{{ str_limit($sa->title,15)}}</h5>
-                    <p>{{ str_limit($sa->describes,40) }}</p>
-                    @endif
-                @endforeach
+                <h5>{{ str_limit($sa->title,15)}}</h5>
+                <p>{{ str_limit($sa->describes,40) }}</p>
             </div>
-            <button>申请加入</button>
+
+            <div class="ind-acd-div-a">
+                <a href="{{route('news.item',['id' => $sa->id])}}">申请加入</a>
+            </div>
+
+            @endif
+            @endforeach
 
         </div>
     </div>

@@ -25,15 +25,19 @@
             <p>活动入口</p>
         </div>
         <div class="ind-acd-div-f1 text-center">
+            <?php $__currentLoopData = $salon; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($loop->first): ?>
             <div class="ind-acd-des">
-                <?php $__currentLoopData = $salon; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <?php if($loop->first): ?>
-                    <h5><?php echo e(str_limit($sa->title,15)); ?></h5>
-                    <p><?php echo e(str_limit($sa->describes,40)); ?></p>
-                    <?php endif; ?>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <h5><?php echo e(str_limit($sa->title,15)); ?></h5>
+                <p><?php echo e(str_limit($sa->describes,40)); ?></p>
             </div>
-            <button>申请加入</button>
+
+            <div class="ind-acd-div-a">
+                <a href="<?php echo e(route('news.item',['id' => $sa->id])); ?>">申请加入</a>
+            </div>
+
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </div>
     </div>

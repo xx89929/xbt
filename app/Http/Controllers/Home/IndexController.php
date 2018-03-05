@@ -18,7 +18,8 @@ class IndexController extends Controller
     public function index(){
         $proNav = ProCategory::select('id','title')->orderBy('order')->get();
 
-        $product = Product::select('id','name','price','pics','description','category_id')->take(5)->get();
+        $product = Product::select('id','name','price','pics','description','category_id')->get();
+        $hot_product = $product->take(5)->all();
         $doctors = Doctor::select('id','realname','avatar','doc_group')->with(['doc_to_doc_group' =>function($query){
             $query->select('id','title');
         }])->take(3)->get();
@@ -44,6 +45,6 @@ class IndexController extends Controller
         $banner = BannerSet::select('order','pic')->orderBy('order')->get();
 
 
-        return view('home.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'banner' => $banner,'headNav' => 'index']);
+        return view('home.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'hot_product' =>$hot_product,'banner' => $banner,'headNav' => 'index']);
     }
 }

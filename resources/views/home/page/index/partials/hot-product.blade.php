@@ -7,7 +7,7 @@
         <div class="hot-product_box">
             <ul class="list-inline">
 
-                @foreach ($product as $pro)
+                @foreach ($hot_product as $pro)
                     <li class="xbt-li-pro">
                         <a href="{{route('pro-info',['id' => $pro->id])}}" class="hot-pro-item text-center">
                             <img class="lazy" data-original="{{asset('storage/'.$pro->pics[0])}}">

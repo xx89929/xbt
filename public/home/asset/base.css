@@ -435,15 +435,16 @@ input:focus {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 20px; }
-  .ind-acd-div-f1 > button {
-    padding: 5px 20px;
-    margin-top: 20px;
-    border: 0px;
-    background-color: #ff0042;
-    color: white;
-    transition: all 0.2s; }
-    .ind-acd-div-f1 > button:hover {
-      background-color: rgba(187, 5, 5, 0.86); }
+  .ind-acd-div-f1 .ind-acd-div-a {
+    margin-top: 20px; }
+    .ind-acd-div-f1 .ind-acd-div-a a {
+      padding: 5px 20px;
+      border: 0px;
+      background-color: #ff0042;
+      color: white;
+      transition: all 0.2s; }
+      .ind-acd-div-f1 .ind-acd-div-a a:hover {
+        background-color: rgba(187, 5, 5, 0.86); }
 
 .ind-acd-des {
   border-bottom: 1px solid #ddd; }

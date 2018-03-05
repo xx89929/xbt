@@ -7,7 +7,7 @@
         <div class="hot-product_box">
             <ul class="list-inline">
 
-                <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $hot_product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <li class="xbt-li-pro">
                         <a href="<?php echo e(route('pro-info',['id' => $pro->id])); ?>" class="hot-pro-item text-center">
                             <img class="lazy" data-original="<?php echo e(asset('storage/'.$pro->pics[0])); ?>">
