@@ -16,7 +16,8 @@ class ProInfoController extends Controller
         }else{
             abort(404);
         }
+        $tui_pro = Product::all()->random(2);
 
-        return view('home.page.pro-info.index',['proin' => $proin,'province' => $province,'headNav' => 'product']);
+        return view('home.page.pro-info.index',['proin' => $proin,'province' => $province,'tui_pro' => $tui_pro,'headNav' => 'product']);
     }
 }
