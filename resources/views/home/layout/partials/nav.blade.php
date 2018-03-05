@@ -15,12 +15,15 @@
                 <li @if(isset($headNav) && $headNav == 'contact') class="active" @endif><a href="{{route('contact')}}">联系我们</a></li>
             </ul>
             <div class="clearfix nav_search pull-left">
-                <div class="search_input pull-left">
-                    <input type="text" placeholder="请输入想搜索产品">
-                </div>
-                <div class="search_button pull-left">
-                    <button type="submit" >搜索</button>
-                </div>
+                <form method="get" action="{{route('product')}}">
+                    {{csrf_field()}}
+                    <div class="search_input pull-left">
+                        <input name="pro_name" type="text" placeholder="请输入想搜索产品">
+                    </div>
+                    <div class="search_button pull-left">
+                        <button type="submit" >搜索</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

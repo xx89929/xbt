@@ -4,29 +4,19 @@
     </div>
     <div class="hot-product-box-b">
         <ul class="list-unstyled">
+            <?php $__currentLoopData = $tui_pro; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li>
                 <a href="#" class="hot-pro-b-item">
                     <div class="hot-pro-b-item-img">
-                        <img class="lazy" data-original="<?php echo e(url('home/images/hot-4.jpg')); ?>">
+                        <img class="lazy" data-original="<?php echo e(asset('storage/'.$tp->pics[0])); ?>">
                     </div>
                     <div class="hot-pro-b-con text-center">
-                        <p><span>￥2000元</span></p>
-                        <p>无痕修护菁华液</p>
+                        <p><span>￥<?php echo e(number_format($tp->price,2)); ?>元</span></p>
+                        <p><?php echo e($tp->name); ?></p>
                     </div>
                 </a>
             </li>
-
-            <li>
-                <a href="#" class="hot-pro-b-item">
-                    <div class="hot-pro-b-item-img">
-                        <img class="lazy" data-original="<?php echo e(url('home/images/hot-4.jpg')); ?>">
-                    </div>
-                    <div class="hot-pro-b-con text-center">
-                        <p><span>￥2000元</span></p>
-                        <p>无痕修护菁华液</p>
-                    </div>
-                </a>
-            </li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
     </div>
 </div>
