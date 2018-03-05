@@ -6,7 +6,7 @@
         <ul class="list-unstyled">
             @foreach($tui_pro as $tp)
             <li>
-                <a href="#" class="hot-pro-b-item">
+                <a href="{{route('pro-info',['id' => $tp->id])}}" class="hot-pro-b-item">
                     <div class="hot-pro-b-item-img">
                         <img class="lazy" data-original="{{asset('storage/'.$tp->pics[0])}}">
                     </div>

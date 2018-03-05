@@ -6,7 +6,7 @@
         <ul class="list-unstyled">
             <?php $__currentLoopData = $tui_pro; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li>
-                <a href="#" class="hot-pro-b-item">
+                <a href="<?php echo e(route('pro-info',['id' => $tp->id])); ?>" class="hot-pro-b-item">
                     <div class="hot-pro-b-item-img">
                         <img class="lazy" data-original="<?php echo e(asset('storage/'.$tp->pics[0])); ?>">
                     </div>
