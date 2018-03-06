@@ -28,7 +28,7 @@
 <body>
 
 <div class="container-fluid">
-    <div class="body-warp">
+    <div class="body-warp" style="background: url('<?php echo e(url("home/images/bg.jpg")); ?>')">
         <?php echo $__env->make('home.common.status', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <?php echo $__env->make('home.layout.partials.top-box', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <?php echo $__env->make('home.layout.partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

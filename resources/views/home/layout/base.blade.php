@@ -28,7 +28,7 @@
 <body>
 
 <div class="container-fluid">
-    <div class="body-warp">
+    <div class="body-warp" style="background: url('{{url("home/images/bg.jpg")}}')">
         @include('home.common.status')
         @include('home.layout.partials.top-box')
         @include('home.layout.partials.nav')
