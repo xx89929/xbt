@@ -2,7 +2,7 @@
     <div class="load-box"><i class="fa fa-spinner fa-pulse"></i></div>
     <?php echo $__env->make('home.page.index.partials.banner', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->make('home.page.index.partials.hot-product', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <div class="bg-gray">
+    <div >
         <div class="container">
             <?php echo $__env->make('home.page.index.partials.consult', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('home.page.index.partials.case', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

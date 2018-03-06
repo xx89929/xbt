@@ -3,7 +3,7 @@
     <div class="load-box"><i class="fa fa-spinner fa-pulse"></i></div>
     @include('home.page.index.partials.banner')
     @include('home.page.index.partials.hot-product')
-    <div class="bg-gray">
+    <div >
         <div class="container">
             @include('home.page.index.partials.consult')
             @include('home.page.index.partials.case')
