@@ -11,8 +11,9 @@
 </head>
 <body ontouchstart>
 @include('wap.layouts.head')
-@yield('content')
 @include('wap.layouts.foot')
+@yield('content')
+
 {{--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>--}}
 <script src="{{url('frozenui//lib/zepto.min.js')}}"></script>
 <script src="{{url('frozenui/js/frozen.js')}}"></script>
