@@ -4,7 +4,7 @@
         <section id="slider">
             <div class="demo-item">
                 <div class="demo-block">
-                    <div class="ui-slider">
+                    <div class="ui-slider index-slider-lunbo">
                         <ul class="ui-slider-content" style="width: 300%">
                             @foreach($banner as $bn)
                             <li><span style="background-image:url( {{ asset('storage/'.$bn->pic) }} )"></span></li>
