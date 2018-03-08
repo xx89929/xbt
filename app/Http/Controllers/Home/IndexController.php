@@ -20,7 +20,8 @@ class IndexController extends InitController
         $proNav = ProCategory::select('id','title')->orderBy('order')->get();
 
         $product = Product::select('id','name','price','pics','description','category_id')->get();
-        $hot_product = $product->take(5)->all();
+
+        $this->isMb ? $hot_product = $product->take(6)->all() : $hot_product = $product->take(5)->all();
         $doctors = Doctor::select('id','realname','avatar','doc_group')->with(['doc_to_doc_group' =>function($query){
             $query->select('id','title');
         }])->take(3)->get();

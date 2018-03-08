@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class InitController extends Controller
 {
-    protected $iView,$authView;
+    protected $iView,$authView,$isMb;
 
     public function __construct(Request $request)
     {
@@ -15,9 +15,11 @@ class InitController extends Controller
         if($this->isMobile() || $httpHost == 'wap.xbt.com.cn'){
             $this->iView = 'wap';
             $this->authView = 'wapauth';
+            $this->isMb = true;
         }else{
             $this->iView = 'home';
             $this->authView = 'auth';
+            $this->isMb = false;
         }
     }
 

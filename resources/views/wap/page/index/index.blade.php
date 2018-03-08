@@ -1,6 +1,6 @@
 @extends('wap.layouts.base')
 @section('content')
-    <section class="ui-container">
+    <section class="ui-container container-warp">
         <section id="slider">
             <div class="demo-item">
                 <div class="demo-block">
@@ -14,6 +14,27 @@
                 </div>
             </div>
         </section>
+
+        <section class="ui-panel">
+            <h2 class="ui-arrowlink">热门产品<span class="ui-panel-subtitle">更多</span></h2>
+            <ul class="ui-grid-trisect">
+                @foreach($hot_product as $hp)
+                <li>
+                    <div class="ui-border">
+                        <div class="ui-grid-trisect-img qz-grid-trisect-img">
+                            <span class="ui-tag-hot" style="background-image:url({{asset('storage/'.$hp->pics[0])}})"></span>
+                        </div>
+                        <div>
+                            <h5 class="ui-nowrap ui-whitespace ui-txt-warning ui-flex ui-flex-pack-center">￥{{number_format($hp->price,2)}}</h5>
+                            <h6 class="ui-nowrap ui-whitespace ui-flex ui-flex-pack-center">{{$hp->name}}</h6>
+                            <h6 class="ui-nowrap ui-whitespace ui-flex ui-flex-pack-center">小仙</h6>
+                        </div>
+                    </div>
+                </li>
+                @endforeach
+            </ul>
+        </section>
+
     </section>
 @endsection
 
