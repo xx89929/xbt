@@ -1,7 +1,9 @@
-<footer class="ui-footer ui-footer-stable ui-border-t">
-    <ul class="ui-tiled">
-        <li><div>菜单</div><i>1</i></li>
-        <li><div>菜单</div><i>2</i></li>
-        <li><div>菜单</div><i>3</i></li>
+<footer class="ui-footer ui-footer-btn">
+    <ul class="ui-tiled ui-border-t">
+        <li data-href="js.html" class="ui-border-r"><div>真实案例</div></li>
+        <li data-href="js.html" class="ui-border-r"><div>产品中心</div></li>
+        <li data-href="js.html" class="ui-border-r"><div>热点新闻</div></li>
+        <li data-href="js.html" class="ui-border-r"><div>加盟合作</div></li>
+        <li data-href="js.html" class="ui-border-r"><div>线下门店</div></li>
     </ul>
 </footer>
