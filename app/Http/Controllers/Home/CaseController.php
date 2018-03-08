@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\InitController;
 use App\Models\CaseCategory;
 use App\Models\CaseXb;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CaseController extends Controller
+class CaseController extends InitController
 {
     public function index(Request $request){
         $caseActive = null;
@@ -18,7 +19,7 @@ class CaseController extends Controller
         }else{
             $case = CaseXb::select('name','id','describe','image')->paginate(12);
         }
-        return view('home.page.case.index',['caseNav' => $caseNav,'case' => $case,'caseActive' => $caseActive,'headNav' => 'case']);
+        return view($this->iView.'.page.case.index',['caseNav' => $caseNav,'case' => $case,'caseActive' => $caseActive,'headNav' => 'case']);
     }
 
 
@@ -30,6 +31,6 @@ class CaseController extends Controller
         $caseInfo_pre = CaseXb::where('id','<',$request->get('case_id'))->select('id','name')->orderBy('id','desc')->first();
         $caseInfo_next = CaseXb::where('id','>',$request->get('case_id'))->select('id','name')->first();
         $caseNever = CaseXb::orderBy('updated_at','desc')->take(5)->get();
-        return view('home.page.case_info.index',['caseInfo' => $caseInfo,'caseInfo_pre' => $caseInfo_pre,'caseInfo_next' => $caseInfo_next,'caseNever' => $caseNever,'headNav' => 'case']);
+        return view($this->iView.'.page.case_info.index',['caseInfo' => $caseInfo,'caseInfo_pre' => $caseInfo_pre,'caseInfo_next' => $caseInfo_next,'caseNever' => $caseNever,'headNav' => 'case']);
     }
 }

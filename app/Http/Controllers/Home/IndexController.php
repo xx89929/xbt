@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\InitController;
 use App\Models\BannerSet;
 use App\Models\CaseXb;
 use App\Models\Doctor;
@@ -12,7 +13,7 @@ use App\Models\ServiceEnv;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class IndexController extends Controller
+class IndexController extends InitController
 {
 
     public function index(){
@@ -45,6 +46,6 @@ class IndexController extends Controller
         $banner = BannerSet::select('order','pic')->orderBy('order')->get();
 
 
-        return view('home.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'hot_product' =>$hot_product,'banner' => $banner,'headNav' => 'index']);
+        return view($this->iView.'.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'hot_product' =>$hot_product,'banner' => $banner,'headNav' => 'index']);
     }
 }

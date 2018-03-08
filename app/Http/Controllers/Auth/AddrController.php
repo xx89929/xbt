@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\InitController;
 use App\Models\Area;
 use App\Models\MemberOrAddr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class AddrController extends Controller
+class AddrController extends InitController
 {
     public function index(){
         $myAddr = MemberOrAddr::userID(Auth::id())->first();
@@ -18,7 +19,7 @@ class AddrController extends Controller
         $district = Area::district()->get();
 
         $myAddr ? $myAddr : $myAddr = 'null';
-        return view('auth.page.address',['myAddr' => $myAddr,'province' => $province,'city'=> $city,'district' => $district]);
+        return view($this->authView.'.page.address',['myAddr' => $myAddr,'province' => $province,'city'=> $city,'district' => $district]);
     }
 
 

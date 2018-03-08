@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\InitController;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class LoginController extends InitController
 {
     /*
     |--------------------------------------------------------------------------
@@ -47,7 +48,7 @@ class LoginController extends Controller
 
     public function index()
     {
-        return view('home.common.login-view');
+        return view($this->iView.'.common.login-view');
     }
 
 }

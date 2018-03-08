@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\InitController;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PartnerController extends Controller
+class PartnerController extends InitController
 {
     public function index(){
-        return view('home.page.partner.index',['headNav' => 'partner']);
+        return view($this->iView.'.page.partner.index',['headNav' => 'partner']);
     }
 
     public function CreateForm(Request $request){

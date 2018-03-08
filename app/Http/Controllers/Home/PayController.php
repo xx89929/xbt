@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Home;
 
 
+use App\Http\Controllers\InitController;
 use App\Traits\AliPay;
 use App\Traits\WechatPay;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PayController extends Controller
+class PayController extends InitController
 {
     Use AliPay,WechatPay;
 

@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 
+use App\Http\Controllers\InitController;
 use App\Models\MemberInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class InfoController extends Controller
+class InfoController extends InitController
 {
     public function index(){
-        return view('auth.page.info');
+        return view($this->authView.'.page.info');
     }
 
     public function save(Request $request){

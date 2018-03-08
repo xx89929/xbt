@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\InitController;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class StoreController extends Controller
+class StoreController extends InitController
 {
     public function index(Request $request){
 
         $hotStore = Store::select('name','store_pic')->take(6)->get();
-        return view('home.page.facade.index',['hotStore' => $hotStore,'headNav' => 'store']);
+        return view($this->iView.'.page.facade.index',['hotStore' => $hotStore,'headNav' => 'store']);
     }
 
     public function getBdMap(Request $request){

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\InitController;
 use App\Models\News;
 use App\Models\NewsTage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NewsController extends Controller
+class NewsController extends InitController
 {
     public function index(Request $request){
         $newTages = NewsTage::select('name','id')->get();
@@ -17,7 +18,7 @@ class NewsController extends Controller
             $news = News::select('id','pic','title','updated_at','describes')->isPush()->paginate(8);
         }
 
-        return view('home.page.news.index',['newTag' => $newTages,'news' => $news,'headNav' => 'news']);
+        return view($this->iView.'.page.news.index',['newTag' => $newTages,'news' => $news,'headNav' => 'news']);
     }
 
 
@@ -29,6 +30,6 @@ class NewsController extends Controller
             $news_next = News::where('id','>',$request->get('id'))->select('id','title')->first();
             $news_rem = News::select('id','title')->orderBy('id','desc')->take(6)->get();
         }
-        return view('home.page.news_item.index',['news' => $news,'news_pre' => $news_pre, 'news_next' => $news_next,'news_rem' => $news_rem,'headNav' => 'news']);
+        return view($this->iView.'.page.news_item.index',['news' => $news,'news_pre' => $news_pre, 'news_next' => $news_next,'news_rem' => $news_rem,'headNav' => 'news']);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\InitController;
 use App\Models\MemberInfo;
 use App\Models\MemberOrAddr;
 use App\User;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use phpDocumentor\Reflection\Types\Integer;
 
-class RegisterController extends Controller
+class RegisterController extends InitController
 {
     /*
     |--------------------------------------------------------------------------
@@ -95,6 +96,6 @@ class RegisterController extends Controller
 
     public function index()
     {
-        return view('home.common.reg-view');
+        return view($this->iView.'.common.reg-view');
     }
 }

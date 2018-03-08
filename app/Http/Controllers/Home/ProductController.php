@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\InitController;
 use App\Models\ProCategory;
 use App\Models\Product;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductController extends InitController
 {
     public function index(Request $request){
         $proNav = ProCategory::orderBy('order')->get();
@@ -22,6 +23,6 @@ class ProductController extends Controller
             $product = Product::select('name','price','pics','id','specification','description')->paginate(6);
         }
         $tui_pro = Product::all()->random(2);
-        return view('home.page.product.index',['product' => $product,'proNav' => $proNav,'headNav' => 'product','tui_pro' => $tui_pro]);
+        return view($this->iView.'.page.product.index',['product' => $product,'proNav' => $proNav,'headNav' => 'product','tui_pro' => $tui_pro]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\InitController;
 use App\Models\Area;
 use App\Models\Doctor;
 use App\Models\MemberOrAddr;
@@ -14,7 +15,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class OrderController extends Controller
+class OrderController extends InitController
 {
     public function index(Request $request){
         $orderNav = null;
@@ -26,7 +27,7 @@ class OrderController extends Controller
             $order = Order::where('member_id',Auth::id())->orderInfo()->orderBy('created_at','desc')->paginate(10);
             $orderNav = 'orderList';
         }
-        return view('auth.page.order',['order' => $order,'noPayCount' =>$noPayCount,'orderNav' => $orderNav]);
+        return view($this->authView.'.page.order',['order' => $order,'noPayCount' =>$noPayCount,'orderNav' => $orderNav]);
     }
 
     public function PostOrder(Request $request){
@@ -85,7 +86,7 @@ class OrderController extends Controller
             $res['order_money'] = $data['order_money'];
             $res['address'] = $res['member_addr_info']->address;
             $res['id'] = $data['id'];
-            return view('auth.page.pro_order_show',['order' => $res]);
+            return view($this->authView.'.page.pro_order_show',['order' => $res]);
         }else{
             abort(404);
         }

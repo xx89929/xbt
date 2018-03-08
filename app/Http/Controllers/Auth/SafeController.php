@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\InitController;
 use App\User;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class SafeController extends Controller
+class SafeController extends InitController
 {
 
 //    use ResetsPasswords;
 
     public function index(){
-        return view('auth.page.safe');
+        return view($this->authView.'.page.safe');
     }
 
     public function showRePass(Request $request, $token =null){
 
-        return view('auth.page.resetPass', ['token' => $token, 'username' => $request->username]);
+        return view($this->authView.'.page.resetPass', ['token' => $token, 'username' => $request->username]);
     }
 
     public function reset(Request $request){
