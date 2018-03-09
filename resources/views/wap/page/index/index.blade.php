@@ -10,26 +10,19 @@
 
 
     <div class="content-padded">
-        <div class="index-hot-pro row">
-            <h5 class="content-block-title">热门产品</h5>
+
+        <div class="index-hot-pro row no-gutter">
+            <div class="content-block-title index-title"><h3 >热门产品</h3></div>
+
             @foreach($hot_product as $hp)
                 <div class="col-33 index-hot-pro">
                     <a class="item-link item-content" href="#">
                         <img src="{{asset('storage/'.$hp->pics[0])}}">
-                        <p>{{number_format($hp->price,2)}}</p>
-                        <p>{{$hp->name}}</p>
-                        <p>{{str_limit($hp->description,10)}}</p>
+                        <p class="index-hot-price">{{number_format($hp->price,2)}}</p>
+                        <p class="index-hot-name">{{str_limit($hp->name,10)}}</p>
                     </a>
                 </div>
             @endforeach
-        </div>
-
-        <div class="list-block">
-            <ul class="row">
-                <li class="col-33"><a href="#" class="item-link list-button">List Button 1</a></li>
-                <li class="col-33"><a href="#" class="item-link list-button">List Button 2</a></li>
-                <li class="col-33"><a href="#" class="item-link list-button">List Button 3</a></li>
-            </ul>
         </div>
     </div>
 

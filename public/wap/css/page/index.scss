@@ -1,8 +1,3 @@
-.swiper-container{
-  img{
-    width: 100%;
-  }
-}
 
 .index-hot-pro{
   padding-bottom:1rem;
@@ -10,18 +5,35 @@
     color:inherit;
     background-color: white;
     img{
+      border: 1px solid rgba(221, 221, 221, 0.23);
       width: 100%;
     }
     p{
       font-size: .7rem;
       margin: 0px;
+      text-align: center;
     }
   }
 }
-.swiper-container{
-  padding-bottom: 0;
+
+
+
+
+.index-title{
+  padding-bottom: .5rem;
+  margin: .75rem 0rem;
+  border-bottom: .01rem solid #ddd;
+  h3{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
-.page{
-  background-color: white;
+.index-hot-price{
+  color: $href-color;
+  font-size: .9rem !important;
+}
+
+.index-hot-name{
+  color: #999;
 }
