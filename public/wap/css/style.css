@@ -3,7 +3,7 @@
   .swiper-container img {
     width: 100%; }
 
-.page {
+.bg-white {
   background-color: white; }
 
 .index-hot-pro {
@@ -12,10 +12,9 @@
     color: inherit;
     background-color: white; }
     .index-hot-pro a img {
-      border: 1px solid rgba(221, 221, 221, 0.23);
       width: 100%; }
     .index-hot-pro a p {
-      font-size: .7rem;
+      font-size: .4rem;
       margin: 0px;
       text-align: center; }
 
@@ -23,13 +22,14 @@
   padding-bottom: .5rem;
   margin: .75rem 0rem;
   border-bottom: .01rem solid #ddd; }
-  .index-title h3 {
+  .index-title h4 {
+    display: inline-block;
     margin-top: 0;
     margin-bottom: 0; }
 
 .index-hot-price {
   color: #ff0042;
-  font-size: .9rem !important; }
+  font-size: .6rem !important; }
 
 .index-hot-name {
   color: #999; }

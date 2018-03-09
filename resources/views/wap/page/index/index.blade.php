@@ -9,20 +9,26 @@
     </div>
 
 
-    <div class="content-padded">
+    <div class="bg-white">
+        <div class="content-padded">
+            <div class="index-hot-pro row no-gutter">
+                <a class="item-link item-content" href="#">
+                    <div class="content-block-title index-title">
+                        <h4 class="pull-left">热门产品</h4>
+                        <span class="icon icon-right pull-right"></span>
+                    </div>
+                </a>
 
-        <div class="index-hot-pro row no-gutter">
-            <div class="content-block-title index-title"><h3 >热门产品</h3></div>
-
-            @foreach($hot_product as $hp)
-                <div class="col-33 index-hot-pro">
-                    <a class="item-link item-content" href="#">
-                        <img src="{{asset('storage/'.$hp->pics[0])}}">
-                        <p class="index-hot-price">{{number_format($hp->price,2)}}</p>
-                        <p class="index-hot-name">{{str_limit($hp->name,10)}}</p>
-                    </a>
-                </div>
-            @endforeach
+                @foreach($hot_product as $hp)
+                    <div class="col-33 index-hot-pro">
+                        <a class="item-link item-content" href="#">
+                            <img src="{{asset('storage/'.$hp->pics[0])}}">
+                            <p class="index-hot-price">{{number_format($hp->price,2)}}</p>
+                            <p class="index-hot-name">{{str_limit($hp->name,20)}}</p>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 
