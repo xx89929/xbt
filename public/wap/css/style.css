@@ -1,21 +1,21 @@
-.header-wap {
-  background-color: #ff0042;
-  color: white; }
-  .header-wap button {
-    color: #ff0042; }
+.swiper-container img {
+  width: 100%; }
 
-.footer-warp {
-  background-color: #ff0042;
-  color: white;
-  background-image: none; }
+.index-hot-pro {
+  padding-bottom: 1rem; }
+  .index-hot-pro a {
+    color: inherit;
+    background-color: white; }
+    .index-hot-pro a img {
+      width: 100%; }
+    .index-hot-pro a p {
+      font-size: .7rem;
+      margin: 0px; }
 
-.qz-grid-trisect-img {
-  padding-top: 99.47%; }
+.swiper-container {
+  padding-bottom: 0; }
 
-.container-warp {
+.page {
   background-color: white; }
-
-.index-slider-lunbo {
-  padding-top: 40.25%; }
 
 /*# sourceMappingURL=style.css.map */

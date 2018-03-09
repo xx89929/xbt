@@ -1,25 +1,27 @@
-.header-wap{
-  background-color: $href-color;
-  color: white;
-  button{
-    color: $href-color;
+.swiper-container{
+  img{
+    width: 100%;
   }
 }
 
-.footer-warp{
-  background-color: $href-color;
-  color: white;
-  background-image: none;
+.index-hot-pro{
+  padding-bottom:1rem;
+  a{
+    color:inherit;
+    background-color: white;
+    img{
+      width: 100%;
+    }
+    p{
+      font-size: .7rem;
+      margin: 0px;
+    }
+  }
+}
+.swiper-container{
+  padding-bottom: 0;
 }
 
-.qz-grid-trisect-img{
-  padding-top:99.47%;
-}
-
-.container-warp{
+.page{
   background-color: white;
-}
-
-.index-slider-lunbo{
-  padding-top:40.25%;
 }
