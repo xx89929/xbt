@@ -9,7 +9,7 @@
     </div>
 
 
-
+    <div class="content-padded">
         <div class="index-hot-pro row">
             <h5 class="content-block-title">热门产品</h5>
             @foreach($hot_product as $hp)
@@ -31,7 +31,7 @@
                 <li class="col-33"><a href="#" class="item-link list-button">List Button 3</a></li>
             </ul>
         </div>
-    
+    </div>
 
 @endsection
 
