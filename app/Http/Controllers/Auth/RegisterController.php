@@ -6,13 +6,14 @@ use App\Http\Controllers\InitController;
 use App\Models\MemberInfo;
 use App\Models\MemberOrAddr;
 use App\User;
-use App\Http\Controllers\Controller;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use phpDocumentor\Reflection\Types\Integer;
 
 class RegisterController extends InitController
 {
+    protected $redirectTo = '/news';
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -31,16 +32,20 @@ class RegisterController extends InitController
      *
      * @var string
      */
-    protected $redirectTo = '/news';
+
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
+
+        parent::__construct($request);
+
         $this->middleware('guest:doctor');
+
     }
 
     /**

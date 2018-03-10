@@ -1,7 +1,9 @@
 
-.index-hot-pro{
+.index-hot-pro-item{
+
   padding-bottom:1rem;
   a{
+    display: inline-block;
     color:inherit;
     background-color: white;
     img{
@@ -37,4 +39,12 @@
 
 .index-hot-name{
   color: #999;
+}
+
+.index-doctors{
+  width: 70%;
+  img{
+    width: 100%;
+
+  }
 }

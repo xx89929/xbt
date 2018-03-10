@@ -6,14 +6,15 @@
 .bg-white {
   background-color: white; }
 
-.index-hot-pro {
+.index-hot-pro-item {
   padding-bottom: 1rem; }
-  .index-hot-pro a {
+  .index-hot-pro-item a {
+    display: inline-block;
     color: inherit;
     background-color: white; }
-    .index-hot-pro a img {
+    .index-hot-pro-item a img {
       width: 100%; }
-    .index-hot-pro a p {
+    .index-hot-pro-item a p {
       font-size: .4rem;
       margin: 0px;
       text-align: center; }
@@ -33,5 +34,10 @@
 
 .index-hot-name {
   color: #999; }
+
+.index-doctors {
+  width: 70%; }
+  .index-doctors img {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
