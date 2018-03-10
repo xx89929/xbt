@@ -30,17 +30,16 @@
                 @endforeach
             </div>
         </div>
-        <div class="row">
+        {{--<div class="row" style="background-image: url('{{url("wap/images/bg/banner_1.png")}}')">--}}
+        <div class="row index_banner_1" >
             <div class="col-77 index-doctors">
-                <div class="row">
+                <div class="row no-gutter">
                     @foreach($Doctor as $dc)
                         <div class="col-33">
                             <img src="{{asset('storage/'.$dc->avatar)}}">
                         </div>
-
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>
