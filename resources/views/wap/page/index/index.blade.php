@@ -108,12 +108,21 @@
                 </li>
             </ul>
         </div>
-        <div><a href="#" class="close-panel">关闭</a></div>
     </div>
 @endsection
 
 @section('jss')
     <script>
         $.init();
+    </script>
+    <script>
+        $('#member-panel-button').click(function () {
+            if($('#member-panel').css('display') === 'none'){
+                $(this).addClass('open-panel').removeClass('close-panel');
+            }
+            else {
+                $(this).addClass('close-panel').removeClass('open-panel');
+            }
+        })
     </script>
 @endsection
