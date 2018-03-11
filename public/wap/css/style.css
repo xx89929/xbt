@@ -15,7 +15,7 @@
     .index-hot-pro-item a img {
       width: 100%; }
     .index-hot-pro-item a p {
-      font-size: .4rem;
+      font-size: .5rem;
       margin: 0px;
       text-align: center; }
 
@@ -37,5 +37,8 @@
 
 .index-doctors-box .index-doctors-avatar {
   width: 2.5rem; }
+
+.index-case p {
+  font-size: .6rem; }
 
 /*# sourceMappingURL=style.css.map */

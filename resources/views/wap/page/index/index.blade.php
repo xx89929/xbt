@@ -47,7 +47,7 @@
             </div>
 
 
-            <div class="index-hot-pro row">
+            <div class="index-case row">
                 <a class="item-link item-content " href="#">
                     <div class="content-block-title index-title " style="margin-left: 4%" >
                         <h4 class="pull-left">真实案例</h4>
