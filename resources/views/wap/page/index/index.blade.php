@@ -58,8 +58,8 @@
                 @foreach($case as $cs)
                     <div class="col-50 index-hot-pro-item">
                         <a class="item-link item-content" href="#"><img src="{{asset('storage/'.$cs->image)}}">
-                            <p>{{str_limit($cs->name,20)}}</p>
-                            <p>{{str_limit($cs->describe,20)}}</p>
+                            <p>{{str_limit($cs->name,30)}}</p>
+                            <p>{{str_limit($cs->describe,30)}}</p>
                         </a>
                     </div>
                 @endforeach
@@ -69,9 +69,48 @@
         </div>
 
     </div>
-
 @endsection
 
+@section('panel')
+    <div class="panel panel-left panel-reveal theme-dark" id='member-panel'>
+        <div class="content-block-title">会员管理</div>
+        <div class="list-block">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">会员</div>
+                        <div class="item-after">注册</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">会员</div>
+                        <div class="item-after">登陆</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title">医师管理</div>
+        <div class="list-block">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">医师</div>
+                        <div class="item-after">注册</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">医师</div>
+                        <div class="item-after">登陆</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div><a href="#" class="close-panel">关闭</a></div>
+    </div>
+@endsection
 
 @section('jss')
     <script>

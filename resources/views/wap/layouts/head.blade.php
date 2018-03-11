@@ -1,6 +1,6 @@
 
 <header class="bar bar-nav">
-    <a class="icon icon-left pull-left"></a>
+    <a class="icon icon-left pull-left"><span class="icon icon-friends open-panel" data-panel='#member-panel'></span></a>
     <a class="icon icon-refresh pull-right"></a>
     <h1 class="title">修巴堂官网</h1>
 </header>
