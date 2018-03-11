@@ -29,19 +29,45 @@
                     </div>
                 @endforeach
             </div>
-        </div>
-        {{--<div class="row" style="background-image: url('{{url("wap/images/bg/banner_1.png")}}')">--}}
-        <div class="row index_banner_1" >
-            <div class="col-77 index-doctors">
-                <div class="row no-gutter">
-                    @foreach($Doctor as $dc)
-                        <div class="col-33">
-                            <img src="{{asset('storage/'.$dc->avatar)}}">
-                        </div>
-                    @endforeach
+
+            <div class="index-doctors-box">
+                <div class="list-block" style="margin: .2rem 0">
+                    <ul>
+                        @foreach($Doctor as $dc)
+                            <li class="item-content item-link">
+                                <div class="item-media index-doctors-avatar"><img style="width: 100%" src="{{asset('storage/'.$dc->avatar)}}"></div>
+                                <div class="item-inner">
+                                    <div class="item-title">{{$dc->doc_to_doc_group->title}}</div>
+                                    <div class="item-after">{{$dc->realname}}</div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
+
+
+            <div class="index-hot-pro row">
+                <a class="item-link item-content " href="#">
+                    <div class="content-block-title index-title " style="margin-left: 4%" >
+                        <h4 class="pull-left">真实案例</h4>
+                        <span class="icon icon-right pull-right"></span>
+                    </div>
+                </a>
+
+                @foreach($case as $cs)
+                    <div class="col-50 index-hot-pro-item">
+                        <a class="item-link item-content" href="#"><img src="{{asset('storage/'.$cs->image)}}">
+                            <p>{{str_limit($cs->name,20)}}</p>
+                            <p>{{str_limit($cs->describe,20)}}</p>
+                        </a>
+                    </div>
+                @endforeach
+
+            </div>
+
         </div>
+
     </div>
 
 @endsection

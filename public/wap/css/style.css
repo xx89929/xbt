@@ -35,15 +35,7 @@
 .index-hot-name {
   color: #999; }
 
-.index-doctors {
-  width: 70%; }
-  .index-doctors img {
-    width: 100%; }
-
-.index_banner_1 {
-  background: -webkit-linear-gradient(left, #f4275d, #fb8751);
-  background: -o-linear-gradient(right, #f4275d, #fb8751);
-  background: -moz-linear-gradient(right, #f4275d, #fb8751);
-  background: linear-gradient(to right, #f4275d, #fb8751); }
+.index-doctors-box .index-doctors-avatar {
+  width: 2.5rem; }
 
 /*# sourceMappingURL=style.css.map */
