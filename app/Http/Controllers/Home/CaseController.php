@@ -19,7 +19,8 @@ class CaseController extends InitController
         }else{
             $case = CaseXb::select('name','id','describe','image')->paginate(12);
         }
-        return view($this->iView.'.page.case.index',['caseNav' => $caseNav,'case' => $case,'caseActive' => $caseActive,'headNav' => 'case']);
+        $this->pageTitle = '修巴堂案例';
+        return view($this->iView.'.page.case.index',['caseNav' => $caseNav,'case' => $case,'caseActive' => $caseActive,'headNav' => 'case','pageTitle' => $this->pageTitle]);
     }
 
 

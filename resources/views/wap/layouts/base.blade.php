@@ -18,18 +18,64 @@
 <div class="page-group">
     <div class="page">
         @include('wap.layouts.head')
-        <div class="content">
-            @yield('content')
-        </div>
+        @yield('content')
     </div>
 </div>
 
-@yield('panel')
+<div class="panel panel-left panel-reveal theme-dark" id='member-panel'>
+    <div class="content-block-title">会员管理</div>
+    <div class="list-block">
+        <ul>
+            <li class="item-content">
+                <div class="item-inner">
+
+                    <div class="item-after">注册</div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-after">登陆</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-block-title">医师管理</div>
+    <div class="list-block">
+        <ul>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-after">审核</div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-after">登陆</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script type='text/javascript' src='{{url('light7/dist/js/light7.min.js')}}' charset='utf-8'></script>
 <script type='text/javascript' src='{{url('light7/dist/js/light7-swiper.min.js')}}' charset='utf-8'></script>
 {{--<script type='text/javascript' src='{{url('frozenui/lib/zepto.min.js')}}' charset='utf-8'></script>--}}
 {{--<script type='text/javascript' src='{{url('frozenui/js/frozen.js')}}' charset='utf-8'></script>--}}
+<script>
+    $('#member-panel-button').click(function () {
+        if($('#member-panel').css('display') === 'none'){
+            $(this).addClass('open-panel').removeClass('close-panel');
+        }
+        else {
+            $(this).addClass('close-panel').removeClass('open-panel');
+        }
+    })
+</script>
+<script>
+    $.config = {
+        router: 'false',
+    }
+</script>
 @yield('jss')
 </body>
 </html>

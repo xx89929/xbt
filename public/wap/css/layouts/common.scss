@@ -8,3 +8,28 @@
 .bg-white{
   background-color: white;
 }
+
+
+.laravel-pages{
+  padding: .5rem 0rem;
+  width: 100%;
+
+  ul{
+    border-top: 0;
+    margin: 0 auto;
+    background-color: inherit;
+    display: table;
+    clear: both;
+    li{
+      text-align: center;
+      padding: 0 .5rem;
+      border-left: .01rem solid #ddd;
+      border-top: .01rem solid #ddd ;
+      border-buttom: .01rem solid #ddd ;
+      float: left;
+      &:last-child{
+        border-right: 0.01rem solid #ddd;
+      }
+    }
+  }
+}

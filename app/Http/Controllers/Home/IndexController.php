@@ -46,7 +46,8 @@ class IndexController extends InitController
 
         $banner = BannerSet::select('order','pic')->orderBy('order')->get();
 
+        $this->pageTitle = '修巴堂官方';
 
-        return view($this->iView.'.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'hot_product' =>$hot_product,'banner' => $banner,'headNav' => 'index']);
+        return view($this->iView.'.page.index.index',['product' => $product,'Doctor' => $doctors,'news' => $news,'case' => $case,'salon' => $salon,'dynamic' => $dynamic,'proNav' => $proNav,'serviceEnv' => $serviceEnv,'hot_product' =>$hot_product,'banner' => $banner,'headNav' => 'index','pageTitle' => $this->pageTitle]);
     }
 }

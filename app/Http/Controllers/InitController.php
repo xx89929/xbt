@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class InitController extends Controller
 {
-    protected $iView,$authView,$isMb;
+    protected $iView,$authView,$isMb,$pageTitle;
 
     public function __construct(Request $request)
     {

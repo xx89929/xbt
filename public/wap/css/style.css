@@ -6,6 +6,25 @@
 .bg-white {
   background-color: white; }
 
+.laravel-pages {
+  padding: .5rem 0rem;
+  width: 100%; }
+  .laravel-pages ul {
+    border-top: 0;
+    margin: 0 auto;
+    background-color: inherit;
+    display: table;
+    clear: both; }
+    .laravel-pages ul li {
+      text-align: center;
+      padding: 0 .5rem;
+      border-left: .01rem solid #ddd;
+      border-top: 0.01rem solid #ddd;
+      border-buttom: 0.01rem solid #ddd;
+      float: left; }
+      .laravel-pages ul li:last-child {
+        border-right: 0.01rem solid #ddd; }
+
 .index-hot-pro-item {
   padding-bottom: 1rem; }
   .index-hot-pro-item a {
@@ -40,5 +59,20 @@
 
 .index-case p {
   font-size: .6rem; }
+
+.case-warp {
+  margin: 0;
+  background-color: white;
+  min-height: 100%; }
+
+.case-item img {
+  width: 3rem; }
+.case-item .item-title {
+  font-size: .5rem;
+  font-weight: bold; }
+.case-item .item-after {
+  font-size: .4rem;
+  color: #999;
+  white-space: pre-wrap; }
 
 /*# sourceMappingURL=style.css.map */

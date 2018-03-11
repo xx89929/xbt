@@ -1,0 +1,24 @@
+.case-warp{
+  margin: 0;
+  background-color: white;
+  min-height: 100%;
+}
+
+.case-warp-box{
+
+}
+
+.case-item{
+  img{
+    width: 3rem;
+  }
+  .item-title{
+    font-size: .5rem;
+    font-weight:bold;
+  }
+  .item-after{
+    font-size: .4rem;
+    color: #999;
+    white-space: pre-wrap;
+  }
+}
