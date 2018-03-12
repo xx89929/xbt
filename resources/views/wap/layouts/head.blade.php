@@ -1,6 +1,8 @@
 
 <header class="bar bar-nav">
-    <a class="icon icon-left pull-left"><span class="icon icon-friends open-panel" id="member-panel-button" data-panel='#member-panel'></span></a>
+
+    <a class="icon icon-left pull-left back"></a>
+    <span class="icon icon-friends open-panel pull-left " id="member-panel-button" data-panel='#member-panel'></span>
     <a class="icon icon-refresh pull-right"></a>
     <h1 class="title">{{$pageTitle}}</h1>
 </header>
