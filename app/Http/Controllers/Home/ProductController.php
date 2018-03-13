@@ -23,6 +23,8 @@ class ProductController extends InitController
             $product = Product::select('name','price','pics','id','specification','description')->paginate(6);
         }
         $tui_pro = Product::all()->random(2);
-        return view($this->iView.'.page.product.index',['product' => $product,'proNav' => $proNav,'headNav' => 'product','tui_pro' => $tui_pro]);
+
+        $this->pageTitle = '产品';
+        return view($this->iView.'.page.product.index',['product' => $product,'proNav' => $proNav,'headNav' => 'product','tui_pro' => $tui_pro,'pageTitle' => $this->pageTitle]);
     }
 }

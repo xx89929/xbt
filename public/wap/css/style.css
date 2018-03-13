@@ -75,4 +75,10 @@
   color: #999;
   white-space: pre-wrap; }
 
+.product-warp {
+  margin: 0 0; }
+
+.product-item-price {
+  color: #ff0042 !important; }
+
 /*# sourceMappingURL=style.css.map */

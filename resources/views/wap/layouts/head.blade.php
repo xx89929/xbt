@@ -5,7 +5,7 @@
 </header>
 <nav class="bar bar-tab">
     {{--<a class="tab-item @if($headNav == 'index') active @endif" href="{{route('/')}}">--}}
-    <a class="tab-item @if($headNav == 'index') active @endif replace" href="{{route('/')}}">
+    <a class="tab-item @if($headNav == 'index') active @endif " href="{{route('/')}}">
         <span class="icon icon-home"></span>
         <span class="tab-label">首页</span>
     </a>
@@ -13,11 +13,11 @@
         <span class="icon icon-browser"></span>
         <span class="tab-label">门店</span>
     </a>
-    <a class="tab-item @if($headNav == 'case') active @endif replace" href="{{route('case')}}">
+    <a class="tab-item @if($headNav == 'case') active @endif " href="{{route('case')}}">
         <span class="icon icon-emoji"></span>
         <span class="tab-label">案例</span>
     </a>
-    <a class="tab-item" href="#">
+    <a class="tab-item  @if($headNav == 'product') active @endif " href="{{route('product')}}">
         <span class="icon icon-gift"></span>
         <span class="tab-label">产品</span>
     </a>
