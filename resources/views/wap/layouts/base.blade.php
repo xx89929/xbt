@@ -15,54 +15,21 @@
     <link rel="stylesheet" href="{{url('wap/css/style.css')}}">
 </head>
 <body>
-<div class="page-group">
-    <div class="page">
-        @include('wap.layouts.head')
-        @yield('content')
-    </div>
-</div>
 
-<div class="panel panel-left panel-reveal theme-dark" id='member-panel'>
-    <div class="content-block-title">会员管理</div>
-    <div class="list-block">
-        <ul>
-            <li class="item-content">
-                <div class="item-inner">
-
-                    <div class="item-after">注册</div>
-                </div>
-            </li>
-            <li class="item-content">
-                <div class="item-inner">
-                    <div class="item-after">登陆</div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="content-block-title">医师管理</div>
-    <div class="list-block">
-        <ul>
-            <li class="item-content">
-                <div class="item-inner">
-                    <div class="item-after">审核</div>
-                </div>
-            </li>
-            <li class="item-content">
-                <div class="item-inner">
-                    <div class="item-after">登陆</div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+@yield('content')
+@yield('left-panel')
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $.config = {
+        router: false, //no recommend
+    }
+</script>
 <script type='text/javascript' src='{{url('light7/dist/js/light7.min.js')}}' charset='utf-8'></script>
 <script type='text/javascript' src='{{url('light7/dist/js/light7-swiper.min.js')}}' charset='utf-8'></script>
-{{--<script type='text/javascript' src='{{url('frozenui/lib/zepto.min.js')}}' charset='utf-8'></script>--}}
-{{--<script type='text/javascript' src='{{url('frozenui/js/frozen.js')}}' charset='utf-8'></script>--}}
+
 <script>
     $('#member-panel-button').click(function () {
+        console.log($('#member-panel').css('display'));
         if($('#member-panel').css('display') === 'none'){
             $(this).addClass('open-panel').removeClass('close-panel');
         }
@@ -71,11 +38,7 @@
         }
     })
 </script>
-<script>
-    $.config = {
-        router: 'false',
-    }
-</script>
 @yield('jss')
+<script type='text/javascript' src='{{url('wap/js/base.js')}}' charset='utf-8'></script>
 </body>
 </html>

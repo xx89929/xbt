@@ -1,13 +1,11 @@
 
 <header class="bar bar-nav">
-
-    <a class="icon icon-left pull-left back"></a>
-    <span class="icon icon-friends open-panel pull-left " id="member-panel-button" data-panel='#member-panel'></span>
-    <a class="icon icon-refresh pull-right"></a>
+    <span class="icon icon-menu open-panel pull-left " id="member-panel-button" data-panel='#left-panel-button'></span>
     <h1 class="title">{{$pageTitle}}</h1>
 </header>
 <nav class="bar bar-tab">
-    <a class="tab-item @if($headNav == 'index') active @endif" href="{{route('/')}}">
+    {{--<a class="tab-item @if($headNav == 'index') active @endif" href="{{route('/')}}">--}}
+    <a class="tab-item @if($headNav == 'index') active @endif replace" href="{{route('/')}}">
         <span class="icon icon-home"></span>
         <span class="tab-label">首页</span>
     </a>
@@ -15,7 +13,7 @@
         <span class="icon icon-browser"></span>
         <span class="tab-label">门店</span>
     </a>
-    <a class="tab-item @if($headNav == 'case') active @endif" href="{{route('case')}}">
+    <a class="tab-item @if($headNav == 'case') active @endif replace" href="{{route('case')}}">
         <span class="icon icon-emoji"></span>
         <span class="tab-label">案例</span>
     </a>
