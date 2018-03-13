@@ -21,7 +21,11 @@
                     </li>
                     @endforeach
                 </ul>
+                <div class="laravel-pages">
+                    {{ $product->links() }}
+                </div>
             </div>
+
         </div>
     </div>
 @endsection

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAU;EACR,gBAAgB,EAAE,KAAK",
+"sources": ["news.scss"],
+"names": [],
+"file": "news.css"
+}

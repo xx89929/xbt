@@ -10,12 +10,15 @@
   padding: .5rem 0rem;
   width: 100%; }
   .laravel-pages ul {
+    padding: 0rem;
     border-top: 0;
     margin: 0 auto;
     background-color: inherit;
     display: table;
-    clear: both; }
+    clear: both;
+    border-bottom: .01rem solid #ddd; }
     .laravel-pages ul li {
+      list-style: none;
       text-align: center;
       padding: 0 .5rem;
       border-left: .01rem solid #ddd;
@@ -76,9 +79,14 @@
   white-space: pre-wrap; }
 
 .product-warp {
-  margin: 0 0; }
+  margin: 0 0;
+  background-color: white; }
 
 .product-item-price {
   color: #ff0042 !important; }
+
+.news-warp {
+  background-color: white;
+  padding-top: .5rem; }
 
 /*# sourceMappingURL=style.css.map */
