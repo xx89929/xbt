@@ -49,7 +49,9 @@ class LoginController extends InitController
 
     public function index()
     {
-        return view($this->iView.'.common.login-view');
+        $this->pageTitle = '会员登陆';
+
+        return view($this->iView.'.common.login-view',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
 }

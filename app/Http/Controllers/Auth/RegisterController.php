@@ -101,6 +101,7 @@ class RegisterController extends InitController
 
     public function index()
     {
-        return view($this->iView.'.common.reg-view');
+        $this->pageTitle = '会员注册';
+        return view($this->iView.'.common.reg-view',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 }
