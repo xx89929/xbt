@@ -48,4 +48,11 @@ $('#member-login-button').click(function () {
     $('#member-login').submit();
 });
 
+$.showPreloader();
+window.onload=function (){
+    $.hidePreloader();
+};
+
+
+
 $.init();
