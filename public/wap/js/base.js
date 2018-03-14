@@ -44,4 +44,8 @@ $('#member-panel-button').click(function () {
     }
 });
 
+$('#member-login-button').click(function () {
+    $('#member-login').submit();
+});
+
 $.init();

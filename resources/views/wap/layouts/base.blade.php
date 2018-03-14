@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{url('wap/css/style.css')}}">
 </head>
 <body>
-
 @yield('content')
 @yield('left-panel')
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -40,5 +39,29 @@
 </script>
 @yield('jss')
 <script type='text/javascript' src='{{url('wap/js/base.js')}}' charset='utf-8'></script>
+
+
+@if(session('success'))
+    <script>
+        $(function() {
+            $.alert("{{session('success')}}");
+        });
+    </script>
+
+@elseif(session('error'))
+    <script>
+        $(function() {
+            $.alert("{{session('error')}}");
+        });
+    </script>
+@endif
+@if($errors->all())
+    <script>
+        $(function() {
+            $.alert("{{$errors->first()}}");
+        });
+    </script>
+@endif
+
 </body>
 </html>

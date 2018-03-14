@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class InfoController extends InitController
 {
     public function index(){
-        return view($this->authView.'.page.info');
+        $this->pageTitle = '会员信息';
+        return view($this->authView.'.page.info',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
     public function save(Request $request){

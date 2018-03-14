@@ -6,7 +6,7 @@
         <div class="content">
             <div class="page-login">
                 <div class="list-block inset text-center">
-                    <form method="post" action="{{ route('login') }}">
+                    <form id="member-login" method="post" action="{{ route('login') }}">
                     {{csrf_field()}}
                     <ul>
                         <!-- Text inputs -->
@@ -34,7 +34,7 @@
                     </form>
                 </div>
                 <div class="content-block">
-                    <p><button class="button button-big button-fill external" href='home' data-transition='fade'>Login</button></p>
+                    <p><a class="button button-big button-fill external" id="member-login-button"  data-transition='fade'>Login</a></p>
                     <p class='text-center signup'>
                         <a href="{{route('reg.show')}}" class='pull-left'>还没有账号？点击这里</a>
                     </p>
