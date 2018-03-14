@@ -27,7 +27,7 @@
     </a>
     <a class="tab-item @if($headNav == 'auth') active @endif"
        @if(Auth::id())
-               href="{{route('member.info')}}"
+            href="{{route('member.info')}}"
        @else
             href="{{route('login.show')}}
        @endif

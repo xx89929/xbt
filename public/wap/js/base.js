@@ -1,5 +1,4 @@
 $(document).on("pageInit", "#page-index", function(e, id, $page) {
-
     $(document).on('refresh', '.page-index',function(e) {
         setTimeout(function() {
             $($("#index-tpl").html()).insertBefore($(".list a").eq(0));
@@ -48,10 +47,7 @@ $('#member-login-button').click(function () {
     $('#member-login').submit();
 });
 
-$.showPreloader();
-window.onload=function (){
-    $.hidePreloader();
-};
+
 
 
 

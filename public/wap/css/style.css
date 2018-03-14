@@ -28,6 +28,9 @@
       .laravel-pages ul li:last-child {
         border-right: 0.01rem solid #ddd; }
 
+.bar-tab .tab-item.active, .bar-tab .tab-item:active {
+  color: #ff0042; }
+
 .index-hot-pro-item {
   padding-bottom: 1rem; }
   .index-hot-pro-item a {
@@ -91,5 +94,8 @@
 
 .member-login {
   margin: 0px; }
+
+.member-info-warp {
+  margin-top: 0rem; }
 
 /*# sourceMappingURL=style.css.map */
