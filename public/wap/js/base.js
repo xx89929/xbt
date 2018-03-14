@@ -47,6 +47,18 @@ $('#member-login-button').click(function () {
     $('#member-login').submit();
 });
 
+$('.item-link').click(function () {
+    window.location.href = $(this).attr('url');
+})
+
+
+$('#resetPwdButton').click(function () {
+    $('#resetPwdForm').submit();
+})
+
+$('.auth-sider').click(function () {
+    window.location.href = $(this).attr('url');
+})
 
 
 

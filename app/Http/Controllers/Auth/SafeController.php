@@ -15,7 +15,8 @@ class SafeController extends InitController
 //    use ResetsPasswords;
 
     public function index(){
-        return view($this->authView.'.page.safe');
+        $this->pageTitle = '账户安全';
+        return view($this->authView.'.page.safe',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
     public function showRePass(Request $request, $token =null){
