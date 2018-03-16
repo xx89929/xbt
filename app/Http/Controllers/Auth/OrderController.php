@@ -27,7 +27,8 @@ class OrderController extends InitController
             $order = Order::where('member_id',Auth::id())->orderInfo()->orderBy('created_at','desc')->paginate(10);
             $orderNav = 'orderList';
         }
-        return view($this->authView.'.page.order',['order' => $order,'noPayCount' =>$noPayCount,'orderNav' => $orderNav]);
+        $this->pageTitle = '订单管理';
+        return view($this->authView.'.page.order',['order' => $order,'noPayCount' =>$noPayCount,'orderNav' => $orderNav,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
     public function PostOrder(Request $request){

@@ -98,4 +98,17 @@
 .member-info-warp {
   margin-top: 0rem; }
 
+.order-count-price {
+  font-style: normal;
+  color: #ff0042; }
+
+.order-pay_status-ing {
+  color: #ff0042; }
+
+.order-pay_status-end {
+  color: #00a65a; }
+
+.finace-price {
+  color: #ff0042; }
+
 /*# sourceMappingURL=style.css.map */

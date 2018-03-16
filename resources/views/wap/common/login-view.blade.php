@@ -34,17 +34,14 @@
                     </form>
                 </div>
                 <div class="content-block">
-                    <p><a class="button button-big button-fill external" id="member-login-button"  data-transition='fade'>Login</a></p>
+                    <p><a class="button button-big button-fill external" id="member-login-button"  data-transition='fade'>登陆</a></p>
                     <p class='text-center signup'>
                         <a href="{{route('reg.show')}}" class='pull-left'>还没有账号？点击这里</a>
                     </p>
                 </div>
             </div>
-
         </div>
     </div>
-
-
 @endsection
 
 

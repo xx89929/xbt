@@ -19,7 +19,8 @@ class AddrController extends InitController
         $district = Area::district()->get();
 
         $myAddr ? $myAddr : $myAddr = 'null';
-        return view($this->authView.'.page.address',['myAddr' => $myAddr,'province' => $province,'city'=> $city,'district' => $district]);
+        $this->pageTitle = '编辑收货地址';
+        return view($this->authView.'.page.address',['myAddr' => $myAddr,'province' => $province,'city'=> $city,'district' => $district,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
 
