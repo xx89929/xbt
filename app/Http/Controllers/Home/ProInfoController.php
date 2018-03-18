@@ -18,7 +18,8 @@ class ProInfoController extends InitController
             abort(404);
         }
         $tui_pro = Product::all()->random(2);
+        $this->pageTitle = '产品详情';
 
-        return view($this->iView.'.page.pro-info.index',['proin' => $proin,'province' => $province,'tui_pro' => $tui_pro,'headNav' => 'product']);
+        return view($this->iView.'.page.pro-info.index',['proin' => $proin,'province' => $province,'tui_pro' => $tui_pro,'headNav' => 'product','pageTitle' => $this->pageTitle]);
     }
 }

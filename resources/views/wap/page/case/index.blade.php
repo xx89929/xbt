@@ -7,7 +7,7 @@
                 <ul class="case-warp-ul">
                     @foreach($case as $cs)
                         <li>
-                            <a href="#" class="item-link item-content">
+                            <a href="{{route('case.info',['case_id' => $cs->id])}}" class="item-link item-content">
                                 <div class="item-media"><img src="{{asset('storage/'.$cs->image)}}" style='width: 4rem;'></div>
                                 <div class="item-inner">
                                     <div class="item-title-row">

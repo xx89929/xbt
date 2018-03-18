@@ -32,6 +32,7 @@ class CaseController extends InitController
         $caseInfo_pre = CaseXb::where('id','<',$request->get('case_id'))->select('id','name')->orderBy('id','desc')->first();
         $caseInfo_next = CaseXb::where('id','>',$request->get('case_id'))->select('id','name')->first();
         $caseNever = CaseXb::orderBy('updated_at','desc')->take(5)->get();
-        return view($this->iView.'.page.case_info.index',['caseInfo' => $caseInfo,'caseInfo_pre' => $caseInfo_pre,'caseInfo_next' => $caseInfo_next,'caseNever' => $caseNever,'headNav' => 'case']);
+        $this->pageTitle = '案例详情';
+        return view($this->iView.'.page.case_info.index',['caseInfo' => $caseInfo,'caseInfo_pre' => $caseInfo_pre,'caseInfo_next' => $caseInfo_next,'caseNever' => $caseNever,'headNav' => 'case','pageTitle' => $this->pageTitle]);
     }
 }
