@@ -117,21 +117,21 @@ i {
 .pro-info-head {
   background-color: white; }
 
-.pro-info-title h5 {
+.pro-info-title h3 {
   margin-top: 0;
   margin-bottom: 0; }
 .pro-info-title p {
   margin: 0; }
 
 .pro-info-price {
-  font-size: .3rem;
+  font-size: .7rem;
   color: #ff0042; }
   .pro-info-price i {
     font-size: 1rem !important; }
 
 .pro-info-specification {
   color: #999;
-  font-size: .3rem; }
+  font-size: .8rem; }
 
 .pro-info-content {
   margin-left: 0;

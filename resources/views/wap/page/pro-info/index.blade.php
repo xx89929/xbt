@@ -15,7 +15,7 @@
                 </div>
                 <div class="row no-gutter pro-info-title">
                     <div class="content-padded">
-                        <h5>{{$proin->name}}</h5>
+                        <h3>{{$proin->name}}</h3>
                         <p class="pro-info-price">￥<i>{{$proin->price}}</i></p>
                         <p class="pro-info-specification">规格：{{$proin->specification}}</p>
                         <p class="pro-info-buyButton"><a href="#" id="pro-info-submit-button" class="button button-fill button-danger">立即购买</a></p>
