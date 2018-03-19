@@ -15,11 +15,11 @@
                 </div>
                 <div class="card-footer">
                     @if($caseInfo_pre)
-                    <a href="{{route('case.info',['case_id' => $caseInfo_pre->id ])}}" class="link">上一个案例：{{str_limit($caseInfo_pre->name,10)}}</a>
+                    <a href="{{route('case.info',['case_id' => $caseInfo_pre->id ])}}" class="link">上一个案例：{{str_limit($caseInfo_pre->name,8)}}</a>
                     @endif
 
                     @if($caseInfo_next)
-                    <a href="{{route('case.info',['case_id' => $caseInfo_next->id])}}" class="link">下一个案例：{{str_limit($caseInfo_next->name,10)}}</a>
+                    <a href="{{route('case.info',['case_id' => $caseInfo_next->id])}}" class="link">下一个案例：{{str_limit($caseInfo_next->name,8)}}</a>
                     @endif
                 </div>
             </div>
