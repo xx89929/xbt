@@ -31,6 +31,9 @@
 .bar-tab .tab-item.active, .bar-tab .tab-item:active {
   color: #ff0042; }
 
+i {
+  font-style: normal; }
+
 .index-hot-pro-item {
   padding-bottom: 1rem; }
   .index-hot-pro-item a {
@@ -110,5 +113,36 @@
 
 .finace-price {
   color: #ff0042; }
+
+.pro-info-head {
+  background-color: white; }
+
+.pro-info-title h5 {
+  margin-top: 0;
+  margin-bottom: 0; }
+.pro-info-title p {
+  margin: 0; }
+
+.pro-info-price {
+  font-size: .3rem;
+  color: #ff0042; }
+  .pro-info-price i {
+    font-size: 1rem !important; }
+
+.pro-info-specification {
+  color: #999;
+  font-size: .3rem; }
+
+.pro-info-content {
+  margin-left: 0;
+  margin-right: 0; }
+
+.pro-info-card-title {
+  font-size: .6rem;
+  border-left: 0.2rem solid #ff0042; }
+
+.pro-info-options {
+  margin-left: 0;
+  margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */

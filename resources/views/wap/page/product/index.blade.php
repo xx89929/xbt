@@ -7,7 +7,7 @@
                 <ul>
                     @foreach($product as $pr)
                     <li>
-                        <a href="#" class="item-link item-content">
+                        <a href="{{route('pro-info',['id' => $pr->id])}}" class="item-link item-content">
                             <div class="item-media"><img src="{{asset('storage/'.$pr->pics[0])}}" style='width: 4rem;'></div>
                             <div class="item-inner">
                                 <div class="item-title-row">
@@ -21,6 +21,7 @@
                     </li>
                     @endforeach
                 </ul>
+
                 <div class="laravel-pages">
                     {{ $product->links() }}
                 </div>

@@ -1,0 +1,41 @@
+.pro-info-head{
+  background-color: white;
+}
+
+.pro-info-title{
+  h5{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  p{
+    margin: 0;
+  }
+}
+
+.pro-info-price{
+  font-size: .3rem;
+  color: $href-color;
+  i{
+    font-size: 1rem !important;
+  }
+}
+
+.pro-info-specification{
+  color: #999;
+  font-size: .3rem;
+}
+
+.pro-info-content{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pro-info-card-title{
+  font-size: .6rem;
+  border-left: .2rem solid $href-color;
+}
+
+.pro-info-options{
+  margin-left: 0;
+  margin-right: 0;
+}
