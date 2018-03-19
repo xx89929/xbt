@@ -32,4 +32,35 @@ class AreaController extends Controller
         $Store = $request->get('q');
         return Doctor::where('be_store',$Store)->get(['id', DB::raw('realname as text')]);
     }
+
+    public function getWapStore(Request $request){
+        $area = $request->get('area');
+        $area[2] == null ? $areaOption = $area[1] : $areaOption = $area[2];
+        $areaOne = Area::where('area_name','like',"%$areaOption%")->first();
+        if(empty($areaOne)) {
+            return '';
+        }
+        $store = Store::where('district',$areaOne->id)->pluck('name');
+        if(empty($store)){
+            $store = Store::where('city',$areaOne->id)->pluck('name');
+        }
+        $stores = $store->toArray();
+
+
+        return $stores ? $stores : [];
+    }
+
+    public function getWapDoc(Request $request){
+        $store = $request->get('store');
+
+        $beStore = Store::where('name','like',"%$store[0]%")->first();
+        if(empty($beStore) || empty($store)) {
+            return '';
+        }
+        $docs = Doctor::where('be_store',$beStore->id)->pluck('realname');
+        $Docs = $docs->toArray();
+        return $Docs;
+    }
+
+
 }

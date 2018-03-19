@@ -41,6 +41,9 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('pays/alipay/return', 'PayController@alipayReturn')->name('alipay.return');
 
     Route::post('baidu/getmap','StoreController@getBdMap')->name('baidu.getmap');
+
+    Route::get('getWapDocOption','AreaController@getWapDoc')->name('getWapDocOption');
+    Route::get('getWapStoreOption','AreaController@getWapStore')->name('getWapStoreOption');
 });
 
 Route::group(['namespace' => 'Auth'],function (){

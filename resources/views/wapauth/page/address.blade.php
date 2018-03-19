@@ -68,7 +68,7 @@
 @endsection
 
 @section('jss')
-<script type="text/javascript" src="{{url('light7/dist/js/light7-city-picker.min.js')}}" charset="utf-8"></script>
+
 <script>
     $("#city-picker").cityPicker({
         toolbarTemplate: '<header class="bar bar-nav">\

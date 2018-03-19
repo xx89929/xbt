@@ -145,4 +145,16 @@ i {
   margin-left: 0;
   margin-right: 0; }
 
+.pro-info-picker-input input {
+  border: 0; }
+
+.pro-info-param {
+  padding-bottom: .7rem; }
+
+.pro-info-buyButton {
+  padding: 1rem 0; }
+  .pro-info-buyButton a {
+    height: 2rem;
+    line-height: 2rem !important; }
+
 /*# sourceMappingURL=style.css.map */
