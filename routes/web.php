@@ -61,6 +61,7 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('address','AddrController@index')->name('member.address');
         Route::get('order/show/form','OrderController@OrdershowForm')->name('order.showf');
         Route::post('order/create','OrderController@PostOrder')->name('order.create');
+        Route::post('order/pay/show','OrderController@orderPayShow')->name('order.payShow');
         Route::post('info/save','InfoController@save')->name('memberInfo.save');
         Route::post('addr/save','AddrController@save')->name('memberAddr.save');
         Route::get('password/reset', 'SafeController@showRePass')->name('password.request');

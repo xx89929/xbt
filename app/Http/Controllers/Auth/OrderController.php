@@ -31,13 +31,35 @@ class OrderController extends InitController
         return view($this->authView.'.page.order',['order' => $order,'noPayCount' =>$noPayCount,'orderNav' => $orderNav,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
+    public function orderPayShow(Request $request){
+        $data = $request->all();
+        $this->validatorPayShow($data)->validate();
+        $res['store'] = Store::where('name',$data['store_id'])->first();
+        $res['doctor'] = Doctor::where('realname',$data['doctor_id'])->with('doc_group_sns')->first();
+        $res['product'] = Product::ProId($data['pro_id'])->first();
+        $this->pageTitle = '购买商品';
+        return view($this->authView.'.page.payshow',['res' => $res,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
+    }
+
     public function PostOrder(Request $request){
         $data = $request->all();
-        $this->validator($data)->validate();
-        $proPrice = Product::select('id','price')->proId($data['pro_id'])->first();
-        $data['order_money'] = floatval($proPrice->price)*intval($data['pro_num']);
-        $data['price'] = floatval($proPrice->price);
-        $order = $this->CreateOrder($data);
+        if($data['drive_type'] == 'wap'){
+            $storeId = Store::where('name',$data['store_id'])->select('id')->first();
+            $docId = Doctor::where('realname',$data['doctor_id'])->select('id')->first();
+            $data['store_id'] = $storeId;
+            $data['doctor_id'] = $docId;
+            $this->validator($data)->validate();
+            $proPrice = Product::select('id','price')->proId($data['pro_id'])->first();
+            $data['order_money'] = floatval($proPrice->price)*intval($data['pro_num']);
+            $data['price'] = floatval($proPrice->price);
+            $order = $this->CreateOrder($data);
+        }else{
+            $this->validator($data)->validate();
+            $proPrice = Product::select('id','price')->proId($data['pro_id'])->first();
+            $data['order_money'] = floatval($proPrice->price)*intval($data['pro_num']);
+            $data['price'] = floatval($proPrice->price);
+            $order = $this->CreateOrder($data);
+        }
         return $order->id ? redirect()->route('order.showf',['order_id' => $order]) : back()->withErrors('status','异常!请联系官网客服');
     }
 
@@ -60,12 +82,30 @@ class OrderController extends InitController
             'doctor_id.required' => '医生必须选择',
             'pro_num.required' => '数量必须填写',
             'store_id.required' => '店铺必须选择',
+            'pro_id.required' => '参数错误',
         ];
         return Validator::make($data, [
             'pro_id' => 'required|integer',
             'store_id' => 'required|integer',
             'doctor_id' => 'required|integer',
             'pro_num' => 'required|integer',
+
+        ],$messages);
+    }
+
+    protected function validatorPayShow(array $data)
+    {
+        $messages = [
+            'doctor_id.required' => '医生必须选择',
+//            'pro_num.required' => '数量必须填写',
+            'store_id.required' => '店铺必须选择',
+            'pro_id.required' => '参数错误',
+        ];
+        return Validator::make($data, [
+            'pro_id' => 'required',
+            'store_id' => 'required',
+            'doctor_id' => 'required',
+//            'pro_num' => 'required|integer',
 
         ],$messages);
     }

@@ -114,6 +114,43 @@ i {
 .finace-price {
   color: #ff0042; }
 
+.ps-pro-price i {
+  color: #ff0042;
+  font-size: .8rem; }
+  .ps-pro-price i em {
+    font-style: normal;
+    font-size: .6rem; }
+
+.ps-num-controller {
+  text-align: center; }
+  .ps-num-controller button {
+    border: 0;
+    background-color: #ff0042;
+    color: white;
+    width: 1.5rem;
+    height: 1.35rem; }
+  .ps-num-controller input {
+    padding: 0 !important;
+    text-align: center;
+    width: 2rem;
+    height: 1.35rem !important;
+    line-height: 1rem; }
+
+.totals-cout {
+  color: #ff0042;
+  font-weight: 400; }
+  .totals-cout span:first-child {
+    font-size: .6rem; }
+  .totals-cout span:last-child {
+    font-size: 1rem; }
+
+.ps-submit-box {
+  padding-bottom: 1rem; }
+  .ps-submit-box a {
+    background-color: #ff0042;
+    color: white;
+    border: 0 !important; }
+
 .pro-info-head {
   background-color: white; }
 

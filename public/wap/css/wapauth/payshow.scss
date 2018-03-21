@@ -1,0 +1,49 @@
+.ps-pro-price{
+  i{
+    color:$href-color;
+    font-size: .8rem;
+    em{
+      font-style: normal;
+      font-size: .6rem;
+    }
+  }
+}
+
+.ps-num-controller{
+  text-align: center;
+  button{
+    border: 0;
+    background-color: $href-color;
+    color: white;
+    width: 1.5rem;
+    height: 1.35rem;
+  }
+  input{
+    padding:0 !important;
+    text-align: center;
+    width: 2rem;
+    height: 1.35rem !important;
+    line-height: 1rem;
+  }
+}
+
+.totals-cout{
+  color:$href-color;
+  font-weight: 400;
+  span:first-child{
+    font-size: .6rem;
+  }
+  span:last-child{
+    font-size: 1rem;
+  }
+}
+
+.ps-submit-box{
+  padding-bottom:1rem;
+  a{
+    background-color: $href-color;
+    color:white;
+    border: 0 !important;
+  }
+
+}

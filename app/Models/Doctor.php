@@ -48,6 +48,10 @@ class Doctor extends Authenticatable
         return $this->hasOne(Bank::class,'bank_id','bank_type');
     }
 
+    public function doc_group_sns(){
+        return $this->belongsTo(DocGroup::class,'doc_group');
+    }
+
     public function scopeGetId($query,$id){
         return $query->where('id',$id);
     }
