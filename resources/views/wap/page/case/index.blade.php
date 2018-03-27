@@ -11,11 +11,11 @@
                                 <div class="item-media"><img src="{{asset('storage/'.$cs->image)}}" style='width: 4rem;'></div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
-                                        <div class="item-title">{{str_limit($cs->name,25)}}</div>
+                                        <div class="item-title card-t-title">{{str_limit($cs->name,35)}}</div>
                                         <div class="item-after"></div>
                                     </div>
                                     <div class="item-subtitle"></div>
-                                    <div class="item-text">{{str_limit($cs->describe,30)}}</div>
+                                    <div class="item-text card-t-text">{{str_limit($cs->describe,30)}}</div>
                                 </div>
                             </a>
                         </li>

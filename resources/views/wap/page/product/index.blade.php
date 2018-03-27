@@ -11,10 +11,10 @@
                             <div class="item-media"><img src="{{asset('storage/'.$pr->pics[0])}}" style='width: 4rem;'></div>
                             <div class="item-inner">
                                 <div class="item-title-row">
-                                    <div class="item-title">{{str_limit($pr->name,16)}}</div>
+                                    <div class="item-title card-t-title">{{str_limit($pr->name,25)}}</div>
                                     <div class="item-after product-item-price">￥{{$pr->price}}</div>
                                 </div>
-                                <div class="item-subtitle">{{$pr->specification}}</div>
+                                <div class="item-subtitle product-item-specification">{{$pr->specification}}</div>
                                 <div class="item-text">{{$pr->description}}</div>
                             </div>
                         </a>

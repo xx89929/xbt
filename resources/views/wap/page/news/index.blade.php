@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-footer">
                             {{--<a href="#" class="link">赞</a>--}}
-                            <a href="#" class="link">更多</a>
+                            <a href="{{route('news.item',['id' => $nw->id])}}" class="link">更多</a>
                         </div>
                     </div>
                 @endforeach

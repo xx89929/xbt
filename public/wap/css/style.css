@@ -91,6 +91,16 @@ i {
 .product-item-price {
   color: #ff0042 !important; }
 
+.card-t-title {
+  white-space: normal !important;
+  word-wrap: break-word; }
+
+.card-t-text {
+  color: #737373 !important; }
+
+.product-item-specification {
+  color: #999; }
+
 .news-warp {
   background-color: white;
   padding-top: .5rem; }

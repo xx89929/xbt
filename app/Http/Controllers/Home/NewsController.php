@@ -34,6 +34,7 @@ class NewsController extends InitController
             $news_next = News::where('id','>',$request->get('id'))->select('id','title')->first();
             $news_rem = News::select('id','title')->orderBy('id','desc')->take(6)->get();
         }
-        return view($this->iView.'.page.news_item.index',['news' => $news,'news_pre' => $news_pre, 'news_next' => $news_next,'news_rem' => $news_rem,'headNav' => 'news']);
+        $this->pageTitle = '新闻详情';
+        return view($this->iView.'.page.news_item.index',['news' => $news,'news_pre' => $news_pre, 'news_next' => $news_next,'news_rem' => $news_rem,'headNav' => 'news','pageTitle' => $this->pageTitle]);
     }
 }
