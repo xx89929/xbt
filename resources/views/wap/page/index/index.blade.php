@@ -15,7 +15,7 @@
             <div class="bg-white">
                 <div class="content-padded">
                     <div class="index-hot-pro row no-gutter">
-                        <a class="item-link item-content" href="#">
+                        <a class="item-link item-content" href="{{route('product')}}">
                             <div class="content-block-title index-title">
                                 <h4 class="pull-left">热门产品</h4>
                                 <span class="icon icon-right pull-right"></span>
@@ -24,10 +24,10 @@
 
                         @foreach($hot_product as $hp)
                             <div class="col-33 index-hot-pro-item">
-                                <a class="item-link item-content" href="#"><img src="{{asset('storage/'.$hp->pics[0])}}">
+                                <a class="item-link item-content" href="{{route('pro-info',['id' => $hp->id])}}"><img src="{{asset('storage/'.$hp->pics[0])}}">
 
                                     <p class="index-hot-price">{{number_format($hp->price,2)}}</p>
-                                    <p class="index-hot-name">{{str_limit($hp->name,20)}}</p>
+                                    <p class="index-hot-name">{{str_limit($hp->name,10)}}</p>
                                 </a>
                             </div>
                         @endforeach
@@ -51,7 +51,7 @@
 
 
                     <div class="index-case row">
-                        <a class="item-link item-content " href="#">
+                        <a class="item-link item-content " href="{{route('case')}}">
                             <div class="content-block-title index-title " style="margin-left: 4%" >
                                 <h4 class="pull-left">真实案例</h4>
                                 <span class="icon icon-right pull-right"></span>
@@ -60,7 +60,7 @@
 
                         @foreach($case as $cs)
                             <div class="col-50 index-hot-pro-item">
-                                <a class="item-link item-content" href="#"><img src="{{asset('storage/'.$cs->image)}}">
+                                <a class="item-link item-content" href="{{route('case.info',['case_id' => $cs->id])}}"><img src="{{asset('storage/'.$cs->image)}}">
                                     <p>{{str_limit($cs->name,30)}}</p>
                                     <p>{{str_limit($cs->describe,30)}}</p>
                                 </a>

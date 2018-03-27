@@ -45,9 +45,10 @@ class OrderController extends InitController
     public function PostOrder(orderCreate $request){
         $data = $request->all();
         //$this->validatorBuyOrder($data)->validate();
-        $proPrice = Product::select('id','price')->proId($data['pro_id'])->first();
+        $proPrice = Product::select('id','price','name')->proId($data['pro_id'])->first();
         $data['order_money'] = floatval($proPrice->price)*intval($data['pro_num']);
         $data['price'] = floatval($proPrice->price);
+        $data['subject'] = $proPrice->name;
         $order = $this->CreateOrder($data);
         if(!$order->order_id){
             return back()->with('error','生成订单错误');
@@ -80,6 +81,7 @@ class OrderController extends InitController
             'take_phone' => $data['take_phone'],
             'take_address' => $data['take_address'],
             'pay_way'   => $data['pay_way'],
+            'subject'   => $data['subject'],
         ]);
     }
 
