@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
-                                        <div class="item-title">{{$oInfo->relevancy_order_pro->name}}</div>
+                                        <div class="item-title card-t-title">{{$oInfo->relevancy_order_pro->name}}</div>
                                     </div>
                                     <div class="item-subtitle ps-pro-price">
                                         <i><em>￥</em>{{number_format($oInfo->relevancy_order_pro->price,2)}}</i>
