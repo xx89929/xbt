@@ -52,14 +52,12 @@ class AreaController extends Controller
 
     public function getWapDoc(Request $request){
         $store = $request->get('store');
-        return $store;exit;
-        $beStore = Store::where('name','like',"%$store[0]%")->first();
+        $beStore = Store::where('name','like',"%$store%")->first();
+
         if(empty($beStore) || empty($store)) {
             return '';
         }
-
         $docs = Doctor::where('be_store',$beStore->id)->pluck('realname');
-        return $docs ;exit;
         $Docs = $docs->toArray();
         return $Docs;
     }

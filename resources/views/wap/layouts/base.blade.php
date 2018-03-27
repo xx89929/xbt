@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="{{url('light7/dist/css/light7.min.css')}}">
     <link rel="stylesheet" href="{{url('light7/dist/css/light7-swiper.min.css')}}">
+    <link href="{{url('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     {{--<link rel="stylesheet" href="{{url('frozenui/css/frozen.css')}}">--}}
     <link rel="stylesheet" href="{{url('wap/css/style.css')}}">
 </head>

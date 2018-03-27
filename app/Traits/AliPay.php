@@ -57,9 +57,9 @@ trait AliPay
         }else{
             $status = 0;
         }
-        dd($data);exit;
-        $this->pageTitle = '订单展示';
-        return view($this->authView.'.page.order_status', ['order' => $data, 'status' => $status,'headNav' => 'product','pageTitle' => $this->pageTitle]);
+
+        $this->pageTitle = '订单状态';
+        return view($this->authView.'.page.order_status', ['order' => $data, 'status' => $status,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
         // 订单号：$data->out_trade_no
         // 支付宝交易号：$data->trade_no
         // 订单总金额：$data->total_amount
