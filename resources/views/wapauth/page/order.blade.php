@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
-                                        <div class="item-title">{{$or->relevancy_order_pro->name}}</div>
+                                        <div class="item-title card-t-title">{{$or->relevancy_order_pro->name}}</div>
                                     </div>
                                     <div class="item-subtitle">￥{{number_format($or->relevancy_order_pro->price,2)}}元 x {{$or->pro_nub}} </div>
                                 </div>
