@@ -4,7 +4,7 @@
     <div class="page page-index page-current" id="page-home">
         @include('wap.layouts.head')
         <div class="content">
-            <form id="pro-info-order-form" method="post" action="{{route('order.payShow')}}">
+            <form id="pro-info-order-form" method="get" action="{{route('order.payShow')}}">
                 {{ csrf_field() }}
                 <div class="pro-info-head">
                     <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="5000">

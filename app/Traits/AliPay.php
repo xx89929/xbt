@@ -20,19 +20,22 @@ trait AliPay
 
     protected $alipayData;
 
-    public function __construct()
+    public function __construct(Request $request)
     {
+        parent::__construct($request);
         $this->alipayConfig = config('pay.alipay');
     }
 
-    protected function alipay(Request $request)
+    protected function alipay($orderObj)
     {
-        if(!$request->except('_token')){
-            return back()->with('error','参数错误');
-        }
+//        if(!$request->except('_token')){
+//            return back()->with('error','参数错误');
+//        }
 
-        $data = $request->except('_token');
-        $order = Order::getId($data['order_id'])->first();
+//        $data = $request->except('_token');
+        $data = $orderObj;
+        $order = Order::GetOrderId($data->order_id)->first();
+
         $pro = Product::proId($order->pro_id)->first();
         $config_biz = [
             'out_trade_no' => $order->order_id,
@@ -50,10 +53,13 @@ trait AliPay
     {
         $data = Pay::alipay($this->alipayConfig)->verify(); // 是的，验签就这么简单！
         if($data) {
-            return view('auth.page.order_status', ['order' => $data, 'status' => 1]);
+           $status = 1;
         }else{
-            return view('auth.page.order_status',['order' => $data,'status' => 0]);
+            $status = 0;
         }
+        dd($data);exit;
+        $this->pageTitle = '订单展示';
+        return view($this->authView.'.page.order_status', ['order' => $data, 'status' => $status,'headNav' => 'product','pageTitle' => $this->pageTitle]);
         // 订单号：$data->out_trade_no
         // 支付宝交易号：$data->trade_no
         // 订单总金额：$data->total_amount

@@ -145,7 +145,7 @@ class StoreController extends Controller
                 $district = Area::getId($form->district)->first();
                 $address = $form->address;
                 $client = new Client();
-                $response = $client->get("http://api.map.baidu.com/geocoder/v2/?address=".$province->area_name.$city->area_name.$district->area_name.$address."&output=json&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG");
+                $response = $client->get("http://api.map.baidu.com/geocoder/v2/?address=".$address."&output=json&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG");
                 $body = json_decode($response->getBody(),true);
                 if($body['status'] == 0 && $body['result']['precise'] > 0){
                     $form->lng = $body['result']['location']['lng'];

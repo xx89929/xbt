@@ -13,7 +13,7 @@ class Order extends Model
     protected $table = 'xbt_order';
 
     protected $fillable = [
-        'pro_id','order_id','member_id','doctor_id','store_id','pro_nub','deal_status','order_status','order_money','is_lock'
+        'pro_id','order_id','member_id','doctor_id','store_id','pro_nub','deal_status','order_status','order_money','is_lock','take_name','take_phone','take_address','pay_way'
     ];
 
 
@@ -35,6 +35,10 @@ class Order extends Model
 
     public function scopeGetId($query,$id){
         return $query->where('id',$id);
+    }
+
+    public function scopeGetOrderId($query,$orderId){
+        return $query->where('order_id',$orderId);
     }
 
 

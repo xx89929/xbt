@@ -36,7 +36,7 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('getAreaStore','AreaController@areaStore')->name('api.getAreaStore');
     Route::get('getAreaDoc','AreaController@getAreaDoc')->name('api.getAreaDoc');
 
-    Route::post('pays/alipay/post', 'PayController@getPayWay')->name('alipay.post');
+    Route::post('pays/alipay/post', 'PayController@getPayWay')->name('pay.post');
     Route::post('pays/alipay/notify', 'PayController@alipayNotify')->name('alipay.notify');
     Route::get('pays/alipay/return', 'PayController@alipayReturn')->name('alipay.return');
 
@@ -59,9 +59,9 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('order','OrderController@index')->name('member.order');
         Route::get('finace','FinaceController@index')->name('member.finace');
         Route::get('address','AddrController@index')->name('member.address');
-        Route::get('order/show/form','OrderController@OrdershowForm')->name('order.showf');
-        Route::post('order/create','OrderController@PostOrder')->name('order.create');
-        Route::post('order/pay/show','OrderController@orderPayShow')->name('order.payShow');
+//        Route::post('order/show/form','OrderController@OrdershowForm')->name('order.showf');
+        Route::post('order/post/create','OrderController@PostOrder')->name('order.create');
+        Route::match(['get','post'],'order/pay/show','OrderController@orderPayShow')->name('order.payShow');
         Route::post('info/save','InfoController@save')->name('memberInfo.save');
         Route::post('addr/save','AddrController@save')->name('memberAddr.save');
         Route::get('password/reset', 'SafeController@showRePass')->name('password.request');
