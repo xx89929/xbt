@@ -91,7 +91,8 @@ class OrderController extends InitController
      */
     public function searchOrderId(Request $request){
         $data = $request->only('order_id');
-        dd($data);exit;
+        $res = Order::where('order_id',$data['order_id'])->with('relevancy_order_pro')->first();
+        return view($this->authView.'.page.order_info',['oInfo' => $res,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
 
