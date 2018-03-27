@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="item-inner">
                                         <div class="item-title-row">
-                                            <div class="item-title">{{$res['product']->name}}</div>
+                                            <div class="item-title card-t-title">{{$res['product']->name}}</div>
                                         </div>
                                         <div class="item-subtitle ps-pro-price">
                                             <i><em>￥</em>{{number_format($res['product']->price,2)}}</i>
