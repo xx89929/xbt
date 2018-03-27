@@ -52,6 +52,7 @@ class AreaController extends Controller
 
     public function getWapDoc(Request $request){
         $store = $request->get('store');
+        return $store;exit;
         $beStore = Store::where('name','like',"%$store[0]%")->first();
         if(empty($beStore) || empty($store)) {
             return '';
