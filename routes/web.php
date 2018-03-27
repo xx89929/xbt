@@ -57,6 +57,7 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('info','InfoController@index')->name('member.info');
         Route::get('safe','SafeController@index')->name('member.safe');
         Route::get('order','OrderController@index')->name('member.order');
+        Route::get('order/search','OrderController@searchOrderId')->name('order.searOrderId');
         Route::get('finace','FinaceController@index')->name('member.finace');
         Route::get('address','AddrController@index')->name('member.address');
 //        Route::post('order/show/form','OrderController@OrdershowForm')->name('order.showf');

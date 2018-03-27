@@ -18,7 +18,7 @@
                     <div class="card-content-inner">
                         <div class="item-title">订单号：{{$order['out_trade_no']}}</div>
                         <div class="item-title">交易号：{{$order['trade_no']}}</div>
-                        <p><a href="#" class="button button-danger">点击查看订单详情</a></p>
+                        <p><a href="{{route('order.searOrderId',['order_id' => $order['out_trade_no']])}}" class="button button-danger">点击查看订单详情</a></p>
                     </div>
                 </div>
                 <div class="card-footer">订单时间：{{$order['timestamp']}}</div>

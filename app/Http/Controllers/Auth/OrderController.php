@@ -85,67 +85,14 @@ class OrderController extends InitController
         ]);
     }
 
-//    protected function validatorBuyOrder(array $data)
-//    {
-//        $messages = [
-//            'doctor_id.required' => '参数错误',
-//            'pro_num.required' => '数量不正确',
-//            'store_id.required' => '参数错误',
-//            'pro_id.required' => '参数错误',
-//            'take_name.required' => '收货人名称必填',
-//            'take_phone.required' => '收货人电话必填',
-//            'take_address.required' => '收货人地址必填',
-//        ];
-//        return Validator::make($data, [
-//            'pro_id' => 'required|integer',
-//            'store_id' => 'required|integer',
-//            'doctor_id' => 'required|integer',
-//            'pro_num' => 'required|integer',
-//            'take_name' => 'required',
-//            'take_phone' => 'required',
-//            'take_address' => 'required',
-//        ],$messages);
-//    }
 
-//    protected function validatorPayShow(array $data)
-//    {
-//        $messages = [
-//            'doctor_id.required' => '医生必须选择',
-////            'pro_num.required' => '数量必须填写',
-//            'store_id.required' => '店铺必须选择',
-//            'pro_id.required' => '参数错误',
-//        ];
-//        return Validator::make($data, [
-//            'pro_id' => 'required',
-//            'store_id' => 'required',
-//            'doctor_id' => 'required',
-////            'pro_num' => 'required|integer',
-//
-//        ],$messages);
-//    }
-
-//    public function OrdershowForm(Request $request){
-//        if(!$request->get('order_id')){
-//            return abort(404);
-//        }
-//        $orderItem = Order::getId($request->get('order_id'))->first();
-//        if($data = $orderItem){
-//            $res['member_addr_info'] = MemberOrAddr::userID($data['member_id'])->first();
-//            $res['pro'] = Product::proId($data['pro_id'])->select('id','name','pics','price','specification','description')->first();
-//            $res['province'] = Area::getId($res['member_addr_info']->province)->select('id','area_name')->first();
-//            $res['city'] = Area::getId($res['member_addr_info']->city)->select('id','area_name')->first();
-//            $res['district'] = Area::getId($res['member_addr_info']->district)->select('id','area_name')->first();
-//            $res['store'] = Store::getId($data['store_id'])->select('id','name','store_pic')->first();
-//            $res['doctor'] = Doctor::getId($data['doctor_id'])->select('id','realname')->first();
-//            $res['pro_num'] = $data['pro_nub'];
-//            $res['order_money'] = $data['order_money'];
-//            $res['address'] = $res['member_addr_info']->address;
-//            $res['id'] = $data['id'];
-//            return view($this->authView.'.page.pro_order_show',['order' => $res]);
-//        }else{
-//            abort(404);
-//        }
-//    }
+    /**
+     * 订单查询
+     */
+    public function searchOrderId(Request $request){
+        $data = $request->only('order_id');
+        dd($data);exit;
+    }
 
 
     public function orderStatus(Request $request){
