@@ -34,7 +34,7 @@ class IndexController extends InitController
             $query->select('id','name');
         }])->take(2)->get();
 
-        $dynamic = News::select('id','title','tag','describes','pic')->ispush()->isdynamic()->with(['news_tag_one' => function($query){
+        $dynamic = News::select('id','title','tag','describes','pic','updated_at')->ispush()->isdynamic()->with(['news_tag_one' => function($query){
             $query->select('id','name');
         }])->take(6)->get();
 
