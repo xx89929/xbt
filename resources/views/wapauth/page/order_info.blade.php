@@ -5,13 +5,7 @@
         @include('wap.layouts.head')
         <div class="content">
             <div class="card">
-                @if($oInfo->pay_status == 0)
-                    <div class="card-header"><span>订单号：{{$oInfo->order_id}}</span><span  class="order-pay_status-ing">未付款</span></div>
-                @else
-                    <div class="card-header"><span >订单号：{{$oInfo->order_id}}</span>
-                        <span class="order-pay_status-end">已付款</span></div>
-                @endif
-
+                <div class="card-header pro-info-card-title"><span>订单信息</span><span>订单号：{{$oInfo->order_id}}</span></div>
                 <div class="card-content">
                     <div class="list-block media-list">
                         <ul>
@@ -21,18 +15,65 @@
                                 </div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
-                                        <div class="item-title card-t-title">{{$oInfo->relevancy_order_pro->name}}</div>
+                                        <div class="item-title">{{$oInfo->relevancy_order_pro->name}}</div>
                                     </div>
-                                    <div class="item-subtitle">￥{{number_format($oInfo->relevancy_order_pro->price,2)}}元 x {{$oInfo->pro_nub}} </div>
+                                    <div class="item-subtitle ps-pro-price">
+                                        <i><em>￥</em>{{number_format($oInfo->relevancy_order_pro->price,2)}}</i>
+                                    </div>
                                 </div>
                             </li>
-
                         </ul>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span> {{$oInfo->created_at}}</span>
-                    <span><i class="order-count-price">共计：￥{{number_format($oInfo->order_money,2)}}元</i></span>
+                    @if($oInfo->status == 1)
+                    <span style="color:green;">已付款</span>
+                    @else
+                    <span style="color: red;">待付款</span>
+                    @endif
+                    <span>订单时间：{{$oInfo->created_at}}</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header pro-info-card-title">店铺信息</div>
+                <div class="card-content">
+                    <div class="list-block media-list">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <img src="{{asset('storage/'.$oInfo->rele_order_store->store_pic)}}" width="44">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">{{$oInfo->rele_order_store->name}}</div>
+                                    </div>
+                                    <div class="item-subtitle ps-subtitle">{{$oInfo->rele_order_store->address}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header pro-info-card-title">医生信息</div>
+                <div class="card-content">
+                    <div class="list-block media-list">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <img src="{{asset('storage/'.$oInfo->rele_order_doctor->avatar)}}" width="44">
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">{{$oInfo->rele_order_doctor->realname}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
