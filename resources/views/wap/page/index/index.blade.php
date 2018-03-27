@@ -61,11 +61,67 @@
                         @foreach($case as $cs)
                             <div class="col-50 index-hot-pro-item">
                                 <a class="item-link item-content" href="{{route('case.info',['case_id' => $cs->id])}}"><img src="{{asset('storage/'.$cs->image)}}">
-                                    <p>{{str_limit($cs->name,30)}}</p>
-                                    <p>{{str_limit($cs->describe,30)}}</p>
+                                    <p>{{str_limit($cs->name,20)}}</p>
+                                    <p>{{str_limit($cs->describe,20)}}</p>
                                 </a>
                             </div>
                         @endforeach
+                    </div>
+
+                    <div class="index-news row no-gutter index-news-warp">
+                        <div class="buttons-tab">
+                            <a href="#index-news" class="tab-link active button">热点新闻</a>
+                            <a href="#index-dynamic" class="tab-link button">业界动态</a>
+                        </div>
+
+                        <div class="tabs">
+                            <div id="index-news" class="tab active">
+                                <div class="card index-news-warp">
+                                    <div class="card-content">
+                                        <div class="list-block media-list">
+                                            <ul>
+                                                @foreach($news as $nw)
+                                                <li class="item-content">
+                                                    <div class="item-media index-news-img">
+                                                        <img src="{{asset('storage/'.$nw->pic)}}" width="100">
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title index-news-title">{{str_limit($nw->title,40)}}</div>
+                                                        </div>
+                                                        <div class="item-subtitle index-news-times">发布时间：{{$nw->updated_at}}</div>
+                                                    </div>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="index-dynamic" class="tab">
+                                <div class="card index-news-warp">
+                                    <div class="card-content">
+                                        <div class="list-block media-list">
+                                            <ul>
+                                                @foreach($dynamic as $dy)
+                                                    <li class="item-content">
+                                                        <div class="item-media index-news-img">
+                                                            <img src="{{asset('storage/'.$dy->pic)}}" width="100">
+                                                        </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title-row">
+                                                                <div class="item-title index-news-title">{{str_limit($dy->title,40)}}</div>
+                                                            </div>
+                                                            <div class="item-subtitle index-news-times">发布时间：{{$dy->updated_at}}</div>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
