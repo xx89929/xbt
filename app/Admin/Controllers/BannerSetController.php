@@ -97,7 +97,7 @@ class BannerSetController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '标题');
-            $form->image('pic', '图片')->uniqueName();
+            $form->image('pic', '图片')->uniqueName()->resize(1240,530);
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

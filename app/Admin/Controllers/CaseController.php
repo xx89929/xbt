@@ -96,7 +96,7 @@ class CaseController extends Controller
             $form->display('id', 'ID');
             $form->text('name','案例名称');
             $form->text('describe','案例描述');
-            $form->image('image','上传图片')->uniqueName();
+            $form->image('image','上传图片')->uniqueName()->resize(280,240);
             $form->select('category','案例分类')->options(CaseCategory::selectOptions());
             $form->editor('content','案例内容');
         });

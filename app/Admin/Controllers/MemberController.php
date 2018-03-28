@@ -121,7 +121,7 @@ class MemberController extends Controller
             $form->tab('基本信息',function (Form $form){
                 $form->display('id', 'ID');
                 $form->display('member_info_one.goods', '金额');
-                $form->image('member_info_one.head_pic','头像')->move('user/avatars')->uniqueName();
+                $form->image('member_info_one.head_pic','头像')->move('user/avatars')->uniqueName()->resize(200,200);
                 $form->text('username', '账号');
                 $form->text('member_info_one.nickname', '昵称');
                 $form->mobile('member_info_one.phone', '手机号');

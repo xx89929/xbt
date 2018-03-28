@@ -95,7 +95,7 @@ class ServiceEnvController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '环境名称');
-            $form->image('pic', '环境图片')->uniqueName();
+            $form->image('pic', '环境图片')->uniqueName()->resize(198,148);
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
