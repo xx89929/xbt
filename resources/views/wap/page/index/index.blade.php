@@ -125,17 +125,24 @@
                     </div>
 
                     <div class="index-ser">
+                        <a class="item-link item-content" href="{{route('product')}}">
+                            <div class="content-block-title index-title">
+                                <h4 class="pull-left">服务环境</h4>
+                                <span class="icon icon-right pull-right"></span>
+                            </div>
+                        </a>
+
                         <div class="swiper-container swiper-container-horizontal swiper-container-ios" data-slides-per-view="3" data-space-between="10">
                             <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
                                 @foreach($serviceEnv as $se)
                                 <div class="swiper-slide" style="width: 105px; margin-right: 30px;">
                                     <img src="{{asset('storage/'.$se->pic)}}">
-                                    <p>{{$se->title}}</p>
+                                    <p class="index-ser-subtitle">{{str_limit($se->title,20)}}</p>
                                 </div>
                                 @endforeach
                             </div>
-
-                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                        </div>
                     </div>
                 </div>
             </div>

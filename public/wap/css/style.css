@@ -93,6 +93,11 @@ i {
   color: #ff0042;
   border-color: #ff0042; }
 
+.index-ser-subtitle {
+  margin-top: .5rem;
+  margin-bottom: 0;
+  font-size: .5rem; }
+
 .case-warp {
   margin: 0;
   background-color: white;
