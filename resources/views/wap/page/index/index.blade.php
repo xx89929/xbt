@@ -3,7 +3,7 @@
 @section('content')
     <div class="page page-index page-current" id="page-home">
         @include('wap.layouts.head')
-        <div class="content">
+        <div class="content" style="background-color: white">
             <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="5000">
                 <div class="swiper-wrapper">
                     @foreach($banner as $bn)
@@ -125,7 +125,7 @@
                     </div>
 
                     <div class="index-ser">
-                        <a class="item-link item-content" href="{{route('product')}}">
+                        <a class="item-link item-content" href="">
                             <div class="content-block-title index-title">
                                 <h4 class="pull-left">服务环境</h4>
                                 <span class="icon icon-right pull-right"></span>
