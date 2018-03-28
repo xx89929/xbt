@@ -123,6 +123,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="index-ser">
+                        <div class="swiper-container swiper-container-horizontal swiper-container-ios" data-slides-per-view="3" data-space-between="10">
+                            <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+                                @foreach($serviceEnv as $se)
+                                <div class="swiper-slide" style="width: 105px; margin-right: 30px;">
+                                    <img src="{{asset('storage/'.$se->pic)}}">
+                                    <p>{{$se->title}}</p>
+                                </div>
+                                @endforeach
+                            </div>
+
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    </div>
                 </div>
             </div>
         </div>
