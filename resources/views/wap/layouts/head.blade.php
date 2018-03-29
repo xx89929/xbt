@@ -26,12 +26,16 @@
         <span class="tab-label">新闻</span>
     </a>
     <a class="tab-item @if($headNav == 'auth') active @endif"
-       @if(Auth::id())
-            href="{{route('member.info')}}"
-       @else
-            href="{{route('login.show')}}
-       @endif
-               ">
+
+           @auth('doctor')
+                href="{{route('doc.info')}}"
+            @endauth
+
+            @auth
+                href="{{route('member.info')}}"
+            @endauth
+                href="{{route('login.show')}}"
+    >
         <span class="icon icon-me"></span>
         <span class="tab-label">我</span>
     </a>

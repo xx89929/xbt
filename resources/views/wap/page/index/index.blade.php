@@ -156,10 +156,12 @@
         <div class="list-block">
             <ul>
                 @foreach($proNav as $pn)
-                <li class="item-content">
-                    <div class="item-inner">
-                        <div class="item-after">{{$pn->title}}</div>
-                    </div>
+                <li >
+                    <a class="item-content item-link" href="{{route('product',['cate_id' => $pn->id])}}">
+                        <div class="item-inner">
+                            <div class="item-after">{{$pn->title}}</div>
+                        </div>
+                    </a>
                 </li>
                 @endforeach
             </ul>

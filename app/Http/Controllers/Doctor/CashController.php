@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use App\Http\Controllers\InitController;
 use App\Models\DocCash;
 use App\Models\DocPay;
 use App\Traits\Doctor;
@@ -9,17 +10,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class CashController extends Controller
+class CashController extends InitController
 {
     use Doctor;
     public function index(){
+        $this->pageTitle = '我的账户';
         $pay = DocPay::with('docpay_payset')->where('doctor_id',Auth::guard('doctor')->id())->paginate(10);
-        return view('doctor.page.finace',['payList' => $pay]);
+        return view($this->docView.'.page.finace',['payList' => $pay,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
     public function getCashList(){
-        $CL = DocCash::where('doctor_id',Auth::guard('doctor')->id())->orderBy('created_at','desc')->paginate(10);
-        return view('doctor.page.cash_list',['cashList' => $CL]);
+        $this->pageTitle = '提现记录';
+        $CL = DocCash::where('doctor_id',Auth::guard('doctor')->id())->with('cash_bank')->orderBy('created_at','desc')->paginate(10);
+        return view($this->docView.'.page.cash_list',['cashList' => $CL,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
     public function setCash(Request $request){

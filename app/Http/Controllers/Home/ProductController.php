@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 class ProductController extends InitController
 {
     public function index(Request $request){
+        $this->pageTitle = '所有产品';
         $proNav = ProCategory::orderBy('order')->get();
         if($request->get('cate_id')){
             $product = Product::select('name','price','pics','id','specification','description')->where('category_id',$request->get('cate_id'))->paginate(6)->withPath('?cate_id='.$request->get('cate_id'));
@@ -24,7 +25,6 @@ class ProductController extends InitController
         }
         $tui_pro = Product::all()->random(2);
 
-        $this->pageTitle = '产品';
         return view($this->iView.'.page.product.index',['product' => $product,'proNav' => $proNav,'headNav' => 'product','tui_pro' => $tui_pro,'pageTitle' => $this->pageTitle]);
     }
 }

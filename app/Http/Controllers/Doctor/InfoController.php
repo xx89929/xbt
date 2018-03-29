@@ -3,15 +3,17 @@
 namespace App\Http\Controllers\Doctor;
 
 
+use App\Http\Controllers\InitController;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class InfoController extends Controller
+class InfoController extends InitController
 {
     public function index(){
-        return view('doctor.page.info');
+        $this->pageTitle = '医师信息';
+        return view($this->docView.'.page.info',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
     public function save(Request $request){

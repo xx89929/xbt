@@ -2,7 +2,7 @@
 @section('content')
     <div class="page page-case" id="page-case">
         @include('wap.layouts.head')
-        <div class="content">
+        <div class="content" style="background-color: white">
             <div class="list-block media-list product-warp">
                 <ul>
                     @foreach($product as $pr)
@@ -36,10 +36,12 @@
         <div class="list-block">
             <ul>
                 @foreach($proNav as $pn)
-                    <li class="item-content">
-                        <div class="item-inner">
-                            <div class="item-after">{{$pn->title}}</div>
-                        </div>
+                    <li >
+                        <a class="item-content item-link" href="{{route('product',['cate_id' => $pn->id])}}">
+                            <div class="item-inner">
+                                <div class="item-after">{{$pn->title}}</div>
+                            </div>
+                        </a>
                     </li>
                 @endforeach
             </ul>

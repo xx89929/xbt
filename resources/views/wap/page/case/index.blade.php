@@ -34,10 +34,12 @@
         <div class="list-block">
             <ul>
                 @foreach($caseNav as $cn)
-                <li class="item-content">
-                    <div class="item-inner">
-                        <div class="item-after">{{$cn->title}}</div>
-                    </div>
+                <li >
+                    <a class="item-content item-link" href="{{route('case',['id' => $cn->id])}}">
+                        <div class="item-inner">
+                            <div class="item-after">{{$cn->title}}</div>
+                        </div>
+                    </a>
                 </li>
                 @endforeach
             </ul>

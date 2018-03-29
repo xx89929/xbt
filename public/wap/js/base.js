@@ -47,6 +47,11 @@ $('#member-login-button').click(function () {
     $('#member-login').submit();
 });
 
+$('#doctor-login-button').click(function () {
+
+    $('#doctor-login').submit();
+});
+
 $('.item-link').click(function () {
     window.location.href = $(this).attr('url');
 })

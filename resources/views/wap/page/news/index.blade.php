@@ -35,10 +35,12 @@
         <div class="list-block">
             <ul>
                 @foreach($newTag as $nt)
-                    <li class="item-content">
-                        <div class="item-inner">
-                            <div class="item-after">{{$nt->name}}</div>
-                        </div>
+                    <li >
+                        <a class="item-content item-link" href="{{route('news',['tag_id' => $nt->id])}}">
+                            <div class="item-inner">
+                                <div class="item-after">{{$nt->name}}</div>
+                            </div>
+                        </a>
                     </li>
                 @endforeach
             </ul>

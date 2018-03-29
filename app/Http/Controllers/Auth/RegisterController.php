@@ -13,7 +13,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends InitController
 {
-    protected $redirectTo = '/news';
+    protected $redirectTo = '/';
     /*
     |--------------------------------------------------------------------------
     | Register Controller
