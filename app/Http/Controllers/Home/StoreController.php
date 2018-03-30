@@ -50,7 +50,7 @@ class StoreController extends InitController
 
     protected function getBaiduIp($ip){
         $client = new Client();
-        $response = $client->get("http://api.map.baidu.com/location/".$ip);
+        $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=	GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
         $body = json_decode($response->getBody(),true);
         dd($body);exit;
     }
