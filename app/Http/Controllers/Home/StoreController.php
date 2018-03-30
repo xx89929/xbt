@@ -39,19 +39,21 @@ class StoreController extends InitController
             return abort(404);
         }
         $ip = $request->getClientIp();
-        $this->getBaiduIp($ip);
+        $point = $this->getBaiduIp($ip);
+        $myPoint = $point['content']['point'];
         $store = Store::getid($request->get('id'))->first();
         $store->province = Area::getid($store->province)->select('area_name')->first();
         $store->city = Area::getid($store->city)->select('area_name')->first();
         $store->district = Area::getid($store->district)->select('area_name')->first();
         $this->pageTitle = $store->name;
-        return view($this->iView.'.page.store_info.index',['headNav' => 'store','store' => $store,'pageTitle' => $this->pageTitle]);
+
+        return view($this->iView.'.page.store_info.index',['headNav' => 'store','store' => $store,'pageTitle' => $this->pageTitle,'myPoint' => $myPoint]);
     }
 
     protected function getBaiduIp($ip){
         $client = new Client();
-        $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=	GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
+        $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
         $body = json_decode($response->getBody(),true);
-        dd($body);exit;
+        return $body;
     }
 }

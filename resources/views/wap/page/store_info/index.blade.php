@@ -54,7 +54,7 @@
 
 //        var myP1 = new BMap.Point(116.380967,39.913285);    //起点
 //        var myP2 = new BMap.Point(116.424374,39.914668);    //终点
-                var myP1 = new BMap.Point(116.380967,39.913285);    //起点
+                var myP1 = new BMap.Point("{{$myPoint['x']}}","{{$myPoint['y']}}");    //起点
                 var myP2 = new BMap.Point('{{$store->lng}}','{{$store->lat}}');    //终点
         var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/Mario.png", new BMap.Size(32, 70), {    //小车图片
             //offset: new BMap.Size(0, -5),    //相当于CSS精灵
