@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\InitController;
 use App\Models\Area;
 use App\Models\Store;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,12 +39,19 @@ class StoreController extends InitController
             return abort(404);
         }
         $ip = $request->getClientIp();
-        dd($ip);exit;
+        $this->getBaiduIp($ip);
         $store = Store::getid($request->get('id'))->first();
         $store->province = Area::getid($store->province)->select('area_name')->first();
         $store->city = Area::getid($store->city)->select('area_name')->first();
         $store->district = Area::getid($store->district)->select('area_name')->first();
         $this->pageTitle = $store->name;
         return view($this->iView.'.page.store_info.index',['headNav' => 'store','store' => $store,'pageTitle' => $this->pageTitle]);
+    }
+
+    protected function getBaiduIp($ip){
+        $client = new Client();
+        $response = $client->get("http://api.map.baidu.com/location/".$ip);
+        $body = json_decode($response->getBody(),true);
+        dd($body);exit;
     }
 }
