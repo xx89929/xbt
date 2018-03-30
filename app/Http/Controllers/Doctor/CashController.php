@@ -26,7 +26,7 @@ class CashController extends InitController
     }
 
     public function setCash(Request $request){
-        if ($request->filled('goods')){
+        if ($request->filled('goods') && doubleval($request->post('goods'))){
             $cashGoods = doubleval($request->post('goods'));
             $vBI = $this->valiDocBankInfo(Auth::guard('doctor')->id());
             if ($vBI == 0){
@@ -38,6 +38,8 @@ class CashController extends InitController
             }
             $applyRes = $this->applyCash(Auth::guard('doctor')->id(),$cashGoods);
             return $applyRes == 1 ? back()->with('success','提现申请成功，稍后请查收您的账户') : back()->with('error','提现申请失败，请联系官方客服！');
+        }else{
+            return back()->with('error','提交金额错误');
         }
     }
 }

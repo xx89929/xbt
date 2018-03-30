@@ -9,7 +9,7 @@
         <span class="icon icon-home"></span>
         <span class="tab-label">首页</span>
     </a>
-    <a class="tab-item" href="#">
+    <a class="tab-item @if($headNav == 'store') active @endif" href="{{route('store.list')}}">
         <span class="icon icon-browser"></span>
         <span class="tab-label">门店</span>
     </a>

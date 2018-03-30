@@ -26,6 +26,8 @@ Route::group(['namespace' => 'Home'],function (){
     Route::get('product','ProductController@index')->name('product');
     Route::get('pro/info','ProInfoController@index')->name('pro-info');
     Route::get('store','StoreController@index')->name('store');
+    Route::get('store/list','StoreController@storeList')->name('store.list');
+    Route::get('store/info','StoreController@storeInfo')->name('store.info');
     Route::post('WangImgUp','WangEditController@imgUp');
     Route::get('news/item','NewsController@item')->name('news.item');
     Route::post('partner/create','PartnerController@CreateForm')->name('partner.create');

@@ -51,11 +51,43 @@
                     </ul>
                 </div>
                 <div class="content-block">
+                    <a class="button button-big button-fill button-primary external open-popup" data-popup=".popup-apply-cash">申请提现</a>
+                </div>
+                <div class="content-block">
                     <a onclick="document.getElementById('doc-logout-form').submit();" class="button button-big button-fill button-danger external">退出</a>
                 </div>
             </div>
             <form id="doc-logout-form" method="post"  action="{{route('doc.logout')}}">
                 {{csrf_field()}}
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup-apply-cash">
+        <div class="content-block">
+            <form id="doc-apply-cash-form" method="post"  action="{{route('doc.applyCash')}}">
+                {{csrf_field()}}
+                <div class="list-block">
+                    <ul>
+                        <!-- Text inputs -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">提现金额</div>
+                                    <div class="item-input">
+                                        <input name="goods" placeholder="请填写金额（整数）">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <div class="row">
+                        <div class="col-50"><a href="#" class="button button-big button-fill button-danger close-popup">取消取消</a></div>
+                        <div class="col-50"><a id="doc-apply-cash-button" href="#" class="button button-big button-fill button-success">提交申请</a></div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -65,6 +97,10 @@
     @include('wapdoc.common.sider')
 @endsection
 @section('jss')
-
+<script>
+    $('#doc-apply-cash-button').click(function () {
+        $('#doc-apply-cash-form').submit();
+    })
+</script>
 
 @endsection
