@@ -21,7 +21,7 @@
                             <div class="item-title-row">
                                 <div class="item-title">{{$store->name}}</div>
                             </div>
-                            <div class="item-subtitle">地址：
+                            <div class="item-subtitle store-st-item-subtitle">地址：
                                 {{$store->province->area_name}}
                                 {{$store->city->area_name}}
                                 {{$store->district->area_name}}

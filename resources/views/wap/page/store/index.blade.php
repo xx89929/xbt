@@ -13,7 +13,7 @@
                                 <div class="item-title-row">
                                     <div class="item-title">{{$st->name}}</div>
                                 </div>
-                                <div class="item-subtitle store-st-item-subtitle">
+                                <div class="item-subtitle store-st-item-subtitle ">
                                     {{$st->province->area_name}}
                                     {{$st->city->area_name}}
                                     {{$st->district->area_name}}
