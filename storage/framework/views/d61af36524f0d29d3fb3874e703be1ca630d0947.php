@@ -18,7 +18,7 @@
             <ul class="list-inline">
                 <?php if(auth()->guard()->guest()): ?>
                 <li><a href="<?php echo e(route('login.show')); ?>">会员登陆</a></li>
-                <li><a href="<?php echo e(route('reg.show')); ?>">会员注册</a> </li>
+                <li><a href="<?php echo e(route('reg.show')); ?>">会员注册</a></li>
                 <?php endif; ?>
                 <?php if(auth()->guard('doctor')->guest()): ?>
                 <li><a href="<?php echo e(route('docreg.show')); ?>">医生审核</a> </li>
@@ -61,11 +61,11 @@
 
                 <?php if(auth()->guard('doctor')->check()): ?>
                     <li>
-                        <div class="user-set-f1-list">
+                        <div class="user-set-f2-list">
                             <a>
                                 <div class="user-account"><?php echo e(Auth::guard('doctor')->user()->realname); ?></div><i class="fa fa-angle-down"></i>
                             </a>
-                            <div class="user-set-l-list">
+                            <div class="user-set-l2-list">
                                 <ul class="list-unstyled">
                                     <li>
                                         <a href="<?php echo e(route('doc.info')); ?>"><i class="fa fa-user-circle"></i>个人中心</a>

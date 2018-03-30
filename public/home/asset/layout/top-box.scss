@@ -80,6 +80,14 @@
   }
 }
 
+.user-set-f2-list{
+  @extend .user-set-f1-list;
+}
+
+.user-set-l2-list{
+@extend .user-set-l-list;
+}
+
 .user-account{
   display: inline-block;
 }

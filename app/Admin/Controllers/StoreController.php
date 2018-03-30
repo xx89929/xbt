@@ -93,6 +93,11 @@ class StoreController extends Controller
             $grid->store_doctor('拥有医生')->pluck('realname')->map(function($name){
                 return "<span class='label label-success'>$name</span>";
             })->implode(' ');
+
+            $grid->filter(function($filter){
+                // 在这里添加字段过滤器
+                $filter->like('name', '店铺名称');
+            });
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
         });
@@ -124,7 +129,11 @@ class StoreController extends Controller
             $form->text('address','详细地址');
             $form->display('lng','经度');
             $form->display('lat','维度');
-
+            $index_display = [
+                'off' => ['value' => 0, 'text' => '隐藏', 'color' => 'danger'],
+                'on'  => ['value' => 1, 'text' => '显示', 'color' => 'success'],
+            ];
+            $form->switch('index_display','首页推荐')->states($index_display);
             if(Admin::user()->isAdministrator()){
                 $form->select('agency','代理')->options(function(){
                     return Administrator::pluck('name','id');

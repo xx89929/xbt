@@ -179,6 +179,16 @@ $('.user-set-f1-list').click(function () {
     }
 })
 
+$('.user-set-f2-list').click(function () {
+    if($('.user-set-l2-list').css('display') == 'none'){
+        $('.user-set-l2-list').show();
+        $('.user-set-f2-list > a > i').attr('class','fa fa-angle-up');
+    }else{
+        $('.user-set-l2-list').hide();
+        $('.user-set-f2-list > a > i').attr('class','fa fa-angle-down');
+    }
+})
+
 
 // $(function () {
 //     var tDiv = $('.nav-ul > ul'),

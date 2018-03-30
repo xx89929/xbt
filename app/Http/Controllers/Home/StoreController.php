@@ -40,7 +40,12 @@ class StoreController extends InitController
         }
         $ip = $request->getClientIp();
         $point = $this->getBaiduIp($ip);
-        $myPoint = $point['content']['point'];
+        if($point['status'] == 0 ){
+            $myPoint = $point['content']['point'];
+        } else{
+            $myPoint['x'] = '';
+            $myPoint['y'] = '';
+        }
         $store = Store::getid($request->get('id'))->first();
         $store->province = Area::getid($store->province)->select('area_name')->first();
         $store->city = Area::getid($store->city)->select('area_name')->first();

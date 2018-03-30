@@ -18,7 +18,7 @@
             <ul class="list-inline">
                 @guest
                 <li><a href="{{route('login.show')}}">会员登陆</a></li>
-                <li><a href="{{route('reg.show')}}">会员注册</a> </li>
+                <li><a href="{{route('reg.show')}}">会员注册</a></li>
                 @endguest
                 @guest('doctor')
                 <li><a href="{{route('docreg.show')}}">医生审核</a> </li>
@@ -60,11 +60,11 @@
 
                 @auth('doctor')
                     <li>
-                        <div class="user-set-f1-list">
+                        <div class="user-set-f2-list">
                             <a>
                                 <div class="user-account">{{ Auth::guard('doctor')->user()->realname }}</div><i class="fa fa-angle-down"></i>
                             </a>
-                            <div class="user-set-l-list">
+                            <div class="user-set-l2-list">
                                 <ul class="list-unstyled">
                                     <li>
                                         <a href="{{route('doc.info')}}"><i class="fa fa-user-circle"></i>个人中心</a>
