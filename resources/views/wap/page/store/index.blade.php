@@ -55,5 +55,6 @@
             },
         });  // 创建标注
         map.addOverlay(marker);               // 将标注添加到地图中
+        console.log("{{asset('home/image/my_point.jpg')}}");
     </script>
 @endsection
