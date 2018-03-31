@@ -53,7 +53,7 @@ class StoreController extends InitController
 
     protected function getBaiduPoint(Request $request){
         $ip = $request->getClientIp();
-       
+//        $ip = '223.198.86.87';
         $client = new Client();
         $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
         $body = json_decode($response->getBody(),true);

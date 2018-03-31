@@ -39,14 +39,11 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=XtBZlAmRRP5ATTj0LG95AhU8vDBSNiue"></script>
     <script type="text/javascript">
         // 百度地图API功能
-        var myPoint = new BMap.Point("{{$myPoint['x']}}","{{$myPoint['y']}}");
         var map = new BMap.Map("baiduMap");
-        map.centerAndZoom(myPoint,15);
+        var myPoint = new BMap.Point("{{$myPoint['x']}}","{{$myPoint['y']}}");
+        console.log(myPoint);
+        map.centerAndZoom(myPoint,12);
 
-        //获取地图边经纬度
-        var bs = map.getBounds();   //获取可视区域
-        var bssw = bs.getSouthWest();   //可视区域左下角
-        var bsne = bs.getNorthEast();   //可视区域右上角
         var myIcon = new BMap.Icon("{{asset('home/images/my_point.png')}}", new BMap.Size(20,30));
         //添加marker
         var myMarker = new BMap.Marker(myPoint,{icon:myIcon});  // 创建标注
@@ -55,8 +52,8 @@
             var storePoint =  new BMap.Point('{{$st->lng}}','{{$st->lat}}');
             var storeMarker = new BMap.Marker(storePoint);
             map.addOverlay(storeMarker);               // 将标注添加到地图中
-            var dist = map.getDistance(myPoint,storePoint).toFixed(2)+'m';
-            var distHtml = '<span>'+dist+'</span>';
+            var dist = map.getDistance(myPoint,storePoint)/1000;
+            var distHtml = '<span>'+dist.toFixed(2)+'km</span>';
             $('#distance_'+'{{$st->id}}').append(distHtml);
         @endforeach
 
