@@ -56,7 +56,7 @@ class StoreController extends InitController
 
     protected function getBaiduPoint(Request $request){
         $ip = $request->getClientIp();
-
+        $ip == '127.0.0.1' ?  $ip = '223.198.86.87' : $ip = $request->getClientIp();
         $client = new Client();
         $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
         $body = json_decode($response->getBody(),true);
@@ -70,31 +70,11 @@ class StoreController extends InitController
         return $myPoint;
     }
 
-//    protected function getBaiduDistance($a_lat,$a_lng,$b_lat,$b_lng){
-//            //由于php的pi() 与 js的Math.PI的差异，为保证和JS计算的值统一故直接使用近似值
-//            $a = 3.141592653589793 * $this->OD($a_lat, -180, 180) / 180;
-//            $b = 3.141592653589793 * $this->OD($b_lat, -180, 180) / 180;
-//            $c = 3.141592653589793 * $this->SD($a_lng, -74, 74) / 180;
-//            $d = 3.141592653589793 * $this->SD($b_lng, -74, 74) / 180;
-//            return 6370996.81 * acos(sin($c) * sin($d) + cos($c) * cos($d) * cos($b-$a));
-//    }
-//
-//    protected function OD($a, $b, $c) {
-//        while ($a > $c) $a -= $c - $b;
-//        while ($a < $b) $a += $c - $b;
-//        return $a;
-//    }
-//    protected function SD($a, $b, $c) {
-//        $b != null && ($a = max($a, $b));
-//        $c != null && ($a = min($a, $c));
-//        return $a;
-//    }
 
     //根据 经纬度 获取距离
     protected function getDistance($lat1=0,$lng1=0,$lat2=0,$lng2=0)
     {
         $ak = 'GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG';
-//        $url = 'http://api.map.baidu.com/routematrix/v2/driving?output=json&origins='.$lat1.','.$lng1.'&destinations='.$lat2.','.$lng2.'&ak='.$ak;
         $client = new Client();
         $response = $client->get("http://api.map.baidu.com/routematrix/v2/driving?output=json&origins=$lat1,$lng1&destinations=$lat2,$lng2&ak=$ak");
         $body = json_decode($response->getBody(),true);
