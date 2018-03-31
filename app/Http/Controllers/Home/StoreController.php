@@ -23,29 +23,26 @@ class StoreController extends InitController
     }
 
     public function storeList(Request $request){
-        $store = Store::all();
-        foreach ($store as $st){
-            $st->province = Area::getid($st->province)->select('area_name')->first();
-            $st->city = Area::getid($st->city)->select('area_name')->first();
-            $st->district = Area::getid($st->district)->select('area_name')->first();
-        }
+        $myPoint = $this->getBaiduPoint($request);
+
+//        $store = Store::all();
+//        foreach ($store as $st){
+//            $st->province = Area::getid($st->province)->select('area_name')->first();
+//            $st->city = Area::getid($st->city)->select('area_name')->first();
+//            $st->district = Area::getid($st->district)->select('area_name')->first();
+//        }
 //        dd($store);exit;
         $this->pageTitle = '修巴堂店铺';
-        return view($this->iView.'.page.store.index',['headNav' => 'store','store' => $store,'pageTitle' => $this->pageTitle]);
+        return view($this->iView.'.page.store.index',['headNav' => 'store','pageTitle' => $this->pageTitle,'myPoint' => $myPoint]);
     }
 
     public function storeInfo(Request $request){
         if(!$request->get('id')){
             return abort(404);
         }
-        $ip = $request->getClientIp();
-        $point = $this->getBaiduIp($ip);
-        if($point['status'] == 0 ){
-            $myPoint = $point['content']['point'];
-        } else{
-            $myPoint['x'] = '';
-            $myPoint['y'] = '';
-        }
+
+        $myPoint = $this->getBaiduPoint($request);
+
         $store = Store::getid($request->get('id'))->first();
         $store->province = Area::getid($store->province)->select('area_name')->first();
         $store->city = Area::getid($store->city)->select('area_name')->first();
@@ -55,10 +52,19 @@ class StoreController extends InitController
         return view($this->iView.'.page.store_info.index',['headNav' => 'store','store' => $store,'pageTitle' => $this->pageTitle,'myPoint' => $myPoint]);
     }
 
-    protected function getBaiduIp($ip){
+    protected function getBaiduPoint(Request $request){
+//        $ip = $request->getClientIp();
+        $ip = '223.198.86.87';
         $client = new Client();
         $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
         $body = json_decode($response->getBody(),true);
-        return $body;
+
+        if($body['status'] == 0 ){
+            $myPoint = $body['content']['point'];
+        } else{
+            $myPoint['x'] = '';
+            $myPoint['y'] = '';
+        }
+        return $myPoint;
     }
 }
