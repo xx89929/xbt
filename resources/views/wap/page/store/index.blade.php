@@ -15,7 +15,7 @@
                                 <div class="item-inner">
                                     <div class="item-title-row">
                                         <div class="item-title">{{$st->name}}</div>
-                                        <div class="item-after" id="distance_{{$st->id}}"></div>
+                                        <div class="item-after">{{$st->distance}}</div>
                                     </div>
                                     <div class="item-subtitle store-st-item-subtitle ">
                                         {{$st->province->area_name}}
@@ -41,13 +41,13 @@
         // 百度地图API功能
         var map = new BMap.Map("baiduMap");
         var myPoint = new BMap.Point("{{$myPoint['x']}}","{{$myPoint['y']}}");
-        console.log(myPoint);
         map.centerAndZoom(myPoint,12);
 
         var myIcon = new BMap.Icon("{{asset('home/images/my_point.png')}}", new BMap.Size(20,30));
         //添加marker
         var myMarker = new BMap.Marker(myPoint,{icon:myIcon});  // 创建标注
         map.addOverlay(myMarker);               // 将标注添加到地图中
+
         @foreach($store as $st)
             var storePoint =  new BMap.Point('{{$st->lng}}','{{$st->lat}}');
             var storeMarker = new BMap.Marker(storePoint);
@@ -55,7 +55,18 @@
             var dist = map.getDistance(myPoint,storePoint)/1000;
             var distHtml = '<span>'+dist.toFixed(2)+'km</span>';
             $('#distance_'+'{{$st->id}}').append(distHtml);
-        @endforeach
 
+
+        var storeDom = {
+            'id' : '{{$st->id}}',
+            'img' : '{{asset('storage/'.$st->store_pic)}}',
+            'name' : '{{$st->name}}',
+            'address' : '{{$st->province->area_name}}{{$st->city->area_name}}{{$st->district->area_name}}{{$st->address}}',
+            'dist' : dist.toFixed(2),
+        }
+
+        @endforeach
+        console.log(storeDom);
     </script>
+
 @endsection
