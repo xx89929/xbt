@@ -55,8 +55,8 @@ class StoreController extends InitController
     }
 
     protected function getBaiduPoint(Request $request){
-//        $ip = $request->getClientIp();
-        $ip = '223.198.86.87';
+        $ip = $request->getClientIp();
+
         $client = new Client();
         $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
         $body = json_decode($response->getBody(),true);
@@ -98,7 +98,7 @@ class StoreController extends InitController
         $client = new Client();
         $response = $client->get("http://api.map.baidu.com/routematrix/v2/driving?output=json&origins=$lat1,$lng1&destinations=$lat2,$lng2&ak=$ak");
         $body = json_decode($response->getBody(),true);
-        $result = $body['result'][0]['distance']['value'];
+        isset($body['result'][0]['distance']['value']) ? $result = $body['result'][0]['distance']['value'] : $result ='';
         return $result;
     }
 }
