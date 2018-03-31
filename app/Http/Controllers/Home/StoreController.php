@@ -25,15 +25,14 @@ class StoreController extends InitController
     public function storeList(Request $request){
         $myPoint = $this->getBaiduPoint($request);
 
-//        $store = Store::all();
-//        foreach ($store as $st){
-//            $st->province = Area::getid($st->province)->select('area_name')->first();
-//            $st->city = Area::getid($st->city)->select('area_name')->first();
-//            $st->district = Area::getid($st->district)->select('area_name')->first();
-//        }
-//        dd($store);exit;
+        $store = Store::all();
+        foreach ($store as $st){
+            $st->province = Area::getid($st->province)->select('area_name')->first();
+            $st->city = Area::getid($st->city)->select('area_name')->first();
+            $st->district = Area::getid($st->district)->select('area_name')->first();
+        }
         $this->pageTitle = '修巴堂店铺';
-        return view($this->iView.'.page.store.index',['headNav' => 'store','pageTitle' => $this->pageTitle,'myPoint' => $myPoint]);
+        return view($this->iView.'.page.store.index',['headNav' => 'store','pageTitle' => $this->pageTitle,'myPoint' => $myPoint,'store' => $store]);
     }
 
     public function storeInfo(Request $request){
@@ -53,8 +52,8 @@ class StoreController extends InitController
     }
 
     protected function getBaiduPoint(Request $request){
-//        $ip = $request->getClientIp();
-        $ip = '223.198.86.87';
+        $ip = $request->getClientIp();
+       
         $client = new Client();
         $response = $client->get("http://api.map.baidu.com/location/ip?ip=".$ip.'&ak=GoRUSig6Ieb9CNnShGAkrHnVo46HK6dG&coor=bd09ll');
         $body = json_decode($response->getBody(),true);
