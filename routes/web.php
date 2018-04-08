@@ -62,7 +62,7 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::get('order/search','OrderController@searchOrderId')->name('order.searOrderId');
         Route::get('finace','FinaceController@index')->name('member.finace');
         Route::get('address','AddrController@index')->name('member.address');
-//        Route::post('order/show/form','OrderController@OrdershowForm')->name('order.showf');
+        Route::post('order/show/form','OrderController@OrdershowForm')->name('order.showf');
         Route::post('order/post/create','OrderController@PostOrder')->name('order.create');
         Route::match(['get','post'],'order/pay/show','OrderController@orderPayShow')->name('order.payShow');
         Route::post('info/save','InfoController@save')->name('memberInfo.save');

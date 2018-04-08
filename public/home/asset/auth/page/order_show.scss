@@ -8,20 +8,9 @@
 }
 
 .order_addr_item{
-  position: relative;
-  height: 144px;
-  margin: 20px 0px;
-  padding:10px 20px;
-  border: 1px solid $href-color;
-  color: #76838f;
-  h4{
-    color: #333;
-  }
-  a{
-    position: absolute;
-    color: #76838f;
-    top:10px;
-    right:20px;
+  margin-left: 20px;
+  input{
+    height: 35px;
   }
 }
 

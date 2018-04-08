@@ -314,22 +314,29 @@ $('.v-member-tit > ul > li').click(function () {
 
 $('#pro-nub-dec').click(function () {
     var nubval = $('.pro-nub-val'),
-        val = nubval.val();
+        val = nubval.val(),
+        total = $('#payshow-total'),
+        price = $('#payshow-pro-price').text();
     val = parseInt(val,10);
     val -= 1
     val < 1 ? val = 1 : val;
+    var total_price = parseInt(val,10)*parseInt(price,10);
+    total.text(total_price);
     nubval.val(val);
 })
 
 $('#pro-nub-ins').click(function () {
     var nubval = $('.pro-nub-val'),
-        val = nubval.val();
-    var max_nub;
-    Number($('#pro_inventory > i').text()) ? max_nub = Number($('#pro_inventory > i').text()) : max_nub=val;
-
+        val = nubval.val(),
+        total = $('#payshow-total');
+    var max_nub = 99;
+    // Number($('#pro_inventory > i').text()) ? max_nub = Number($('#pro_inventory > i').text()) : max_nub=val;
+    var price = $('#payshow-pro-price').text();
     val = parseInt(val,10);
-    val += 1
+    val += 1;
     val > max_nub ? val = max_nub : val;
+    var total_price = parseInt(val,10)*parseInt(price,10);
+    total.text(total_price);
     nubval.val(val);
 });
 
@@ -358,7 +365,6 @@ function areaPost(that) {
 
 
 //会员地址页
-
 $('.pro-select').on('change select',function () {
     areaPost(this);
 });
@@ -384,7 +390,7 @@ $('.member-order-tag > ul > li ').click(function () {
 $('.order_pay_way > ul li ').click(function () {
     var $this = $(this),
         values = $this.find('.pay_icon').attr('value');
-    $('#pay_form').find('input[name=pay_type]').val(values);
+    $('#pay_form').find('input[name=pay_way]').val(values);
     $this.addClass('active').siblings().removeClass('active');
 
 })
@@ -395,3 +401,6 @@ $('#weixin_code_foot').hover(function () {
     $(this).find('img').hide();
 });
 
+$('.order_show_submit > button').click(function () {
+    $('#pay_form').submit();
+})

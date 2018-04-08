@@ -35,7 +35,7 @@
     </div>
 
 
-    <form action="{{route('order.create')}}" method="post">
+    <form action="{{route('order.payShow')}}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="pro_id" value="{{$proin->id}}">
 
@@ -79,15 +79,6 @@
                         </select>
                     </li>
                 </ul>
-            </div>
-            <div class="pro-i-con-nub">
-                <h5>数量</h5>
-                <div class="pro-i-con-nub-item clearfix text-center">
-                    <span id="pro-nub-dec" class="pro-nub-contr pull-left">-</span>
-                    <input name="pro_num" type="text" class="pro-nub-val pull-left" value="1">
-                    <span id="pro-nub-ins" class="pro-nub-contr pull-left">+</span>
-                </div>
-                <p id="pro_inventory">库存<i>{{$proin->inventory}}</i>件</p>
             </div>
 
             <div class="pro-i-con-sub clearfix text-center">

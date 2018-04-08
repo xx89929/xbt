@@ -1075,13 +1075,14 @@ input:focus {
   padding: 5px 15px;
   height: 34px;
   line-height: 22px;
-  cursor: pointer; }
+  cursor: pointer;
+  border: 0; }
   .pro-nub-contr:hover {
     background-color: #ff0042;
     color: white; }
 
 .pro-i-con-nub {
-  margin: 40px 0px; }
+  margin: 0; }
 
 .pro-nub-val {
   height: 34px;
@@ -1430,19 +1431,9 @@ input:focus {
   box-shadow: 0 0 5px #ddd; }
 
 .order_addr_item {
-  position: relative;
-  height: 144px;
-  margin: 20px 0px;
-  padding: 10px 20px;
-  border: 1px solid #ff0042;
-  color: #76838f; }
-  .order_addr_item h4 {
-    color: #333; }
-  .order_addr_item a {
-    position: absolute;
-    color: #76838f;
-    top: 10px;
-    right: 20px; }
+  margin-left: 20px; }
+  .order_addr_item input {
+    height: 35px; }
 
 .order_show_row {
   padding: 20px 0px;
@@ -1592,6 +1583,9 @@ body {
   min-height: 100%; }
 
 i {
+  font-style: normal; }
+
+em {
   font-style: normal; }
 
 .load-box {

@@ -35,8 +35,8 @@ class OrderController extends InitController
 
     public function orderPayShow(orderPayShow $request){
         $data = $request->all();
-        $res['store'] = Store::where('name',$data['store_id'])->first();
-        $res['doctor'] = Doctor::where('realname',$data['doctor_id'])->with('doc_group_sns')->first();
+        $res['store'] = Store::where('name',$data['store_id'])->orwhere('id',$data['store_id'])->first();
+        $res['doctor'] = Doctor::where('realname',$data['doctor_id'])->orwhere('id',$data['doctor_id'])->with('doc_group_sns')->first();
         $res['product'] = Product::ProId($data['pro_id'])->first();
         $this->pageTitle = '购买商品';
         return view($this->authView.'.page.payshow',['res' => $res,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
