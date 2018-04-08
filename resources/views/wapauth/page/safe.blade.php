@@ -54,8 +54,31 @@
                         </div>
                     </div>
                     <div id="tab2" class="tab">
-                        <div class="content-block">
-                            <p>This is tab 2 content</p>
+                        <div class="list-block">
+                            <form id="bindEmailForm" method="POST" action="{{ route('safe.bEmail') }}">
+                                {{ csrf_field() }}
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="text" name="email" placeholder="请输入邮箱"
+                                                    @if(isset($email->email) && $email->email)
+                                                        value="{{$email->email}}" disabled="true"
+                                                    @endif
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <input type="hidden" name="subject" value="绑定邮箱">
+                            </form>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-100" id="bindEmailButton"><a href="#" class="button button-big button-fill button-danger">绑定</a></div>
                         </div>
                     </div>
                 </div>

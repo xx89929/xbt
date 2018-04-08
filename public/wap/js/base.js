@@ -66,6 +66,8 @@ $('.auth-sider').click(function () {
 })
 
 
-
+$('#bindEmailButton').click(function () {
+    $('#bindEmailForm').submit();
+})
 
 $.init();

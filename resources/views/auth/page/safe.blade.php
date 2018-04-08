@@ -27,7 +27,7 @@
                         <p>邮箱绑定可以用于登录帐号，重置密码或其他安全验证</p>
                     </div>
                     <div class="member-safe-i-active pull-right">
-                        <a href="#">绑定</a>
+                        <a href="{{route('safe.showbindEmail')}}">绑定</a>
                     </div>
                 </div>
             </li>

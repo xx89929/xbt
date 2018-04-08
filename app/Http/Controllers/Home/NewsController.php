@@ -8,6 +8,7 @@ use App\Models\NewsTage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 class NewsController extends InitController
 {
     public function index(Request $request){
@@ -15,9 +16,7 @@ class NewsController extends InitController
         if($request->get('tag_id')){
             $news = News::select('id','pic','title','updated_at','describes')->newsTag($request->get('tag_id'))->isPush()->paginate(8)->withPath('?tag_id='.$request->get('tag_id'));
         }else{
-
             $news = News::select('id','pic','title','updated_at','describes')->isPush()->paginate(8);
-
         }
 
         $this->pageTitle = '热点新闻';

@@ -68,9 +68,15 @@ Route::group(['namespace' => 'Auth'],function (){
         Route::post('info/save','InfoController@save')->name('memberInfo.save');
         Route::post('addr/save','AddrController@save')->name('memberAddr.save');
         Route::get('password/reset', 'SafeController@showRePass')->name('password.request');
+
         Route::post('password/reset', 'SafeController@reset');
         Route::get('order/status', 'OrderController@orderStatus')->name('order.status');
         Route::post('order/refund', 'OrderController@orderRefund')->name('order.refund');
+
+
+        Route::get('safe/showbindEmail', 'SafeController@showBindEmail')->name('safe.showbindEmail');
+        Route::post('safe/bindemail', 'SafeController@bindEmail')->name('safe.bEmail');
+        Route::get('safe/vBEmail', 'SafeController@verifyBindEmail')->name('safe.vBEmail');
     });
 //    Route::post('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 });

@@ -394,3 +394,4 @@ $('#weixin_code_foot').hover(function () {
 },function () {
     $(this).find('img').hide();
 });
+
