@@ -15,6 +15,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Widgets\Table;
 
 class OrderController extends Controller
 {
@@ -77,28 +78,50 @@ class OrderController extends Controller
     protected function grid()
     {
         return Admin::grid(Order::class, function (Grid $grid) {
-
+            $grid->paginate(10);
+            $grid->model()->orderBy('id','desc');
             $grid->id('ID')->sortable();
             $grid->order_id('订单ID')->sortable();
             $grid->logist_id('物流ID')->sortable();
             $grid->relevancy_order_pro()->name('产品名称');
             $grid->relevancy_order_user()->username('购买会员');
-            $grid->member_id('收货信息')->display(function ($id){
-                $mem_addr = MemberOrAddr::userID($id)->first();
-                $province = Area::getId($mem_addr->province)->select('area_name')->first();
-                $city = Area::getId($mem_addr->city)->select('area_name')->first();
-                $district = Area::getId($mem_addr->district)->select('area_name')->first();
-                return "<span class='label label-primary'>$province->area_name</span>
-                        <span class='label label-primary'>$city->area_name</span>
-                        <span class='label label-primary'>$district->area_name</span>
-                        <span class='label label-primary'>$mem_addr->address</span>
-                        <span class='label label-primary'>$mem_addr->phone</span>
-                        ";
-            });
-            $grid->rele_order_store()->name('店铺');
-            $grid->rele_order_doctor()->realname('医生');
-            $grid->pro_nub('购买数量');
-            $grid->order_money('交易金额');
+
+            $grid->column('order_info','订单详情')->expand(function (){
+                switch ($this->pay_way){
+                    case 'aliPay':
+                        $this->pay_way = '支付宝';
+                        break;
+                    case 'wePay':
+                        $this->pay_way = '微信';
+                        break;
+                    default:
+                        $this->pay_way = '没有支付方式';
+                        break;
+                };
+                $headers = [
+                    '收货人姓名',
+                    '收货人电话',
+                    '收货人地址',
+                    '会员账号',
+                    '购买数量',
+                    '总金额',
+                    '付款方式',
+                ];
+                $order_info = [
+                    '会员账号' => $this->relevancy_order_user['username'],
+                    '付款方式' => $this->pay_way,
+                    '购买数量' => $this->pro_nub,
+                    '总金额' => $this->order_money,
+                    '医生姓名' => $this->rele_order_doctor['realname'],
+                    '店铺' => $this->rele_order_store['name'],
+                    '收货人姓名' => $this->take_name,
+                    '收货人电话' => $this->take_phone,
+                    '收货人地址' => $this->take_address,
+                    '付款时间' => $this->pay_at,
+                ];
+               $table =  new Table([],$order_info);
+               return $table->render();
+            },'订单详情');
             $grid->pay_status('是否支付')->switch([
                 'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
                 'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
