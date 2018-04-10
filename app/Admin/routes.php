@@ -24,7 +24,8 @@ Route::group([
     $router->resource('product','ProductController');
     $router->resource('pro_category','ProductCategoryController');
 
-    $router->resource('order','OrderController');
+    $router->resource('order/list','OrderController');
+    $router->resource('order/refund','RefundOrderController');
 
     $router->resource('news/list','NewsController');
     $router->resource('news/tag','NewsTageController');

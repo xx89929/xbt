@@ -105,7 +105,7 @@ class OrderController extends InitController
 
     public function orderRefund(Request $request){
         if($request->only('order_id')){
-            $order = Order::getId($request->only('order_id'))->update(['refund' => 1]);
+            $order = Order::getId($request->only('order_id'))->update(['refund' => 1,'refund_at' => date('y-m-d h:i:s',time())]);
             return $order ? back()->with('success','退款申请成功') : back()->with('error','退款申请失败');
         }
     }

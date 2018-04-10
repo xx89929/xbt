@@ -82,21 +82,10 @@ class OrderController extends Controller
             $grid->paginate(10);
             $grid->model()->orderBy('id','desc');
             $grid->id('ID')->sortable();
-            $grid->order_id('订单ID')->sortable();
-            $grid->logist_id('物流ID')->sortable();
+            $grid->order_id('订单号')->sortable();
+            $grid->trade_id('交易号')->sortable();
             $grid->relevancy_order_pro()->name('产品名称');
             $grid->relevancy_order_user()->username('购买会员');
-
-
-//            $states = [
-//                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
-//                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
-//            ];
-//            $grid->column('pay_status')->switchGroup([
-//                'pay_status' => '是否支付',
-//                'deal_status' => '交易状态',
-//                'order_status' => '订单状态',
-//            ],$states);
 
             $grid->column('order_info','订单详情')->expand(function (){
                 switch ($this->pay_way){
@@ -110,15 +99,6 @@ class OrderController extends Controller
                         $this->pay_way = '没有支付方式';
                         break;
                 };
-                $headers = [
-                    '收货人姓名',
-                    '收货人电话',
-                    '收货人地址',
-                    '会员账号',
-                    '购买数量',
-                    '总金额',
-                    '付款方式',
-                ];
                 $order_info = [
                     '会员账号' => $this->relevancy_order_user['username'],
                     '付款方式' => $this->pay_way,
@@ -130,6 +110,7 @@ class OrderController extends Controller
                     '收货人电话' => $this->take_phone,
                     '收货人地址' => $this->take_address,
                     '付款时间' => $this->pay_at,
+                    '物流号' => $this->logist_id,
                 ];
                $table =  new Table([],$order_info);
                return $table->render();
@@ -140,14 +121,15 @@ class OrderController extends Controller
                 return $pay_status ? "<span style='color:green'>已付款</span>" : "<span style='color:red'>待付款</span>";
             });
 
-            $grid->deal_status('交易状态')->switch([
+            $grid->order_status('订单状态')->display(function ($order_status){
+                return $order_status ? "<span style='color:green'>交易中</span>" : "<span style='color:red'>交易关闭</span>";
+            });
+
+            $grid->deal_status('物流状态')->switch([
                 'on'  => ['value' => 1, 'text' => '已经出货', 'color' => 'success'],
                 'off' => ['value' => 0, 'text' => '还未出货', 'color' => 'danger'],
             ]);
-            $grid->order_status('订单状态')->switch([
-                'on'  => ['value' => 1, 'text' => '交易成功', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '订单关闭', 'color' => 'danger'],
-            ]);
+
             $grid->created_at('下单时间');
 
             $grid->filter(function($filter){
