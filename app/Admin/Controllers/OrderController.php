@@ -15,6 +15,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Widgets\Collapse;
 use Encore\Admin\Widgets\Table;
 
 class OrderController extends Controller
@@ -86,6 +87,17 @@ class OrderController extends Controller
             $grid->relevancy_order_pro()->name('产品名称');
             $grid->relevancy_order_user()->username('购买会员');
 
+
+//            $states = [
+//                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+//                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
+//            ];
+//            $grid->column('pay_status')->switchGroup([
+//                'pay_status' => '是否支付',
+//                'deal_status' => '交易状态',
+//                'order_status' => '订单状态',
+//            ],$states);
+
             $grid->column('order_info','订单详情')->expand(function (){
                 switch ($this->pay_way){
                     case 'aliPay':
@@ -122,10 +134,12 @@ class OrderController extends Controller
                $table =  new Table([],$order_info);
                return $table->render();
             },'订单详情');
-            $grid->pay_status('是否支付')->switch([
-                'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
-                'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
-            ]);
+
+
+            $grid->pay_status('付款状态')->display(function ($pay_status){
+                return $pay_status ? "<span style='color:green'>已付款</span>" : "<span style='color:red'>待付款</span>";
+            });
+
             $grid->deal_status('交易状态')->switch([
                 'on'  => ['value' => 1, 'text' => '已经出货', 'color' => 'success'],
                 'off' => ['value' => 0, 'text' => '还未出货', 'color' => 'danger'],
