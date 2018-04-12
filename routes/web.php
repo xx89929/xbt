@@ -46,13 +46,17 @@ Route::group(['namespace' => 'Home'],function (){
 
     Route::get('getWapDocOption','AreaController@getWapDoc')->name('getWapDocOption');
     Route::get('getWapStoreOption','AreaController@getWapStore')->name('getWapStoreOption');
+
 });
 
 Route::group(['namespace' => 'Auth'],function (){
     Route::get('register', 'RegisterController@index')->name('reg.show');
     Route::post('register', 'RegisterController@register')->name('register');
+    Route::get('phoneregister', 'RegisterController@phoneReg')->name('phone.register');
+    Route::post('phoneregister', 'RegisterController@phoneRegUsr');
     Route::get('login', 'LoginController@index')->name('login.show');
     Route::post('login', 'LoginController@login')->name('login');
+    Route::get('reg/sendsms','RegisterController@sendRegUserSms')->name('reg.SendSms');
 
     Route::group(['middleware' => 'auth','prefix' => 'member'],function (){
         Route::post('logout', 'LoginController@logout')->name('logout');

@@ -403,4 +403,61 @@ $('#weixin_code_foot').hover(function () {
 
 $('.order_show_submit > button').click(function () {
     $('#pay_form').submit();
+});
+
+
+$(function () {
+    var after ='';
+    var InterValObj; //timer变量，控制时间
+    var count = 60; //间隔函数，1秒执行
+    var curCount = 60;//当前剩余秒数
+    var exp =new Date();
+    var time;
+    time = exp.getTime();
+
+
+    $('#sendSmsVerify').click(function () {
+        RegPhoneSms();
+        //设置button效果，开始计时
+        $(this).attr("disabled", "true");
+        $(this).val(curCount + "秒后重新获取");
+        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+    })
+
+//timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            $("#sendSmsVerify").removeAttr("disabled");//启用按钮
+            $("#sendSmsVerify").text("重新发送验证码");
+            curCount = 60;
+        } else {
+            curCount--;
+            $("#sendSmsVerify").text(curCount + "秒后重新获取");
+        }
+    }
+    
+    function RegPhoneSms() {
+        $.ajax({
+            url: $('#sendSmsVerify').data('url'),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: "get",
+            // dataType: "json",
+            data: {'phone' : $('#regPhone').val()},
+            success: function (data) {
+                if(data == 'OK'){
+                    alert('发送成功');
+                    console.log(data);
+                }else{
+                    alert('发送失败');
+                    console.log(data);
+                }
+            },
+            error: function (data) {
+                console.log('失败',data)
+            }
+        });
+    }
 })

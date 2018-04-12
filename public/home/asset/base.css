@@ -33,6 +33,10 @@ ul {
 .v-member-tit {
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd; }
+  .v-member-tit .phone-a-button {
+    line-height: 38px; }
+    .v-member-tit .phone-a-button a {
+      color: #ff0042; }
   .v-member-tit a {
     color: #333; }
   .v-member-tit .active a > h4 {
@@ -145,7 +149,7 @@ input:focus {
       height: 100px; }
 
 .user-set-f1-list, .user-set-f2-list {
-  width: 100px;
+  width: 125px;
   position: relative;
   z-index: 11; }
   .user-set-f1-list > a, .user-set-f2-list > a {

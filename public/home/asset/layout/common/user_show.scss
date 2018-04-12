@@ -20,6 +20,12 @@
 .v-member-tit{
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
+  .phone-a-button{
+    line-height: 38px;
+    a{
+      color: $href-color;
+    }
+  }
   a{
     color: #333;
   }
