@@ -6,7 +6,7 @@
             <div class="v-member-tit">
                 <ul class="list-inline">
                     <li class="active"><a><h4 >账号登陆</h4></a></li>
-                    <li><a><h4>微信登陆</h4></a></li>
+                    <li><a><h4>手机动态码登陆</h4></a></li>
                 </ul>
             </div>
             <div class="v-member-con">
@@ -42,9 +42,29 @@
                 </div>
 
                 <div class="v-member-log">
-                    <div class="v-mem-weixin-login">
-                        <img src="{{url('home/images/icon/hyCode.jpg')}}">
-                    </div>
+                    <form id="usr-reg" class="form-horizontal text-center" method="POST" action="{{route('phone.login')}}">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="input-group v-member-input">
+                                <div class="input-group-addon v-member-label"><i class="fa fa-user-plus"></i></div>
+                                <input id="userPhoneSend" name="username" type="text" class="form-control" placeholder="手机号" value="{{ old('username') }}" required autofocus>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-7">
+                                <div class="input-group v-member-input">
+                                    <div class="input-group-addon v-member-label"><i class="fa fa-lock"></i></div>
+                                    <input name="phone_code" type="text" class="form-control" placeholder="手机验证码">
+                                </div>
+                            </div>
+                            <div class="col-xs-5" style="padding-left:0px;">
+                                <button data-url="{{route('reg.SendSms')}}" id="sendSmsVerify" type="button" class="btn btn-default">发送验证码</button>
+                            </div>
+                        </div>
+
+                        <input name="reg_type" type="hidden" value="phone">
+                        <button type="submit" class="btn btn-primary">登陆</button>
+                    </form>
                 </div>
             </div>
         </div>

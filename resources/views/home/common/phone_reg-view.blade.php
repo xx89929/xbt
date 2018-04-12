@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <div class="input-group v-member-input">
                             <div class="input-group-addon v-member-label"><i class="fa fa-user-plus"></i></div>
-                            <input id="regPhone" name="username" type="text" class="form-control" placeholder="手机号" value="{{ old('username') }}" required autofocus>
+                            <input id="userPhoneSend" name="username" type="text" class="form-control" placeholder="手机号" value="{{ old('username') }}" required autofocus>
                         </div>
                     </div>
                     <div class="row">

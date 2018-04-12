@@ -445,7 +445,7 @@ $(function () {
             },
             type: "get",
             // dataType: "json",
-            data: {'phone' : $('#regPhone').val()},
+            data: {'phone' : $('#userPhoneSend').val()},
             success: function (data) {
                 if(data == 'OK'){
                     alert('发送成功');

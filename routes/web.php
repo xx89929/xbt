@@ -56,6 +56,7 @@ Route::group(['namespace' => 'Auth'],function (){
     Route::post('phoneregister', 'RegisterController@phoneRegUsr');
     Route::get('login', 'LoginController@index')->name('login.show');
     Route::post('login', 'LoginController@login')->name('login');
+    Route::post('phone/login', 'LoginController@phoneLogin')->name('phone.login');
     Route::get('reg/sendsms','RegisterController@sendRegUserSms')->name('reg.SendSms');
 
     Route::group(['middleware' => 'auth','prefix' => 'member'],function (){

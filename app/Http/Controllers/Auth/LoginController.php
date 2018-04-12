@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\InitController;
+use App\User;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -52,6 +53,51 @@ class LoginController extends InitController
         $this->pageTitle = '会员登陆';
 
         return view($this->iView.'.common.login-view',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
+    }
+
+    public function phoneLogin(Request $request){
+        $this->validateLoginPhone($request);
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+            return $this->sendLoginResponse($request);
+        }
+
+
+        if($request->session()->get('phoneSmsVerify') == $request->post('phone_code')){
+            $user = User::where($request->only($this->username()))->first();
+            $this->guard()->login($user);
+            $request->session()->forget('phoneSmsVerify');
+            return redirect()->route('/')->with('success','登陆成功');
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        $this->incrementLoginAttempts($request);
+        return $this->sendFailedLoginResponse($request);
+    }
+
+
+    protected function validateLoginPhone(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required|string',
+            'phone_code' => 'required|string',
+        ]);
+    }
+
+    protected function attemptLoginPhone(Request $request)
+    {
+
+        return $this->guard()->attempt(
+            $this->credentials($request)
+        );
+    }
+
+
+    protected function credentialsPhone(Request $request)
+    {
+        return $request->only($this->username());
     }
 
 }
