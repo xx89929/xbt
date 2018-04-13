@@ -188,7 +188,6 @@ class RegisterController extends InitController
 
 
     protected function redirectTo(){
-        return '';
     }
 
     /**
