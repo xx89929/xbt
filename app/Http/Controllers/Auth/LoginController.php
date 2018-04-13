@@ -68,7 +68,9 @@ class LoginController extends InitController
 
         if($request->session()->get('phoneSmsVerify') == $request->post('phone_code')){
             $user = User::where($request->only('phone'))->first();
-            dd($user);exit;
+            if(!$user){
+                return back()->with('error','账号不存在');
+            }
             $this->guard()->login($user);
             $request->session()->forget('phoneSmsVerify');
             return redirect()->route('/')->with('success','登陆成功');
