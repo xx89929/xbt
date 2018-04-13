@@ -57,7 +57,7 @@ class RegisterController extends InitController
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validatorUser(array $data)
+    protected function validator(array $data)
     {
         $messages = [
             'required' => ':attribute 必须填写',
@@ -73,6 +73,23 @@ class RegisterController extends InitController
             'phone_code' => 'required|string|max:4'
         ],$messages);
 
+    }
+
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        if(! $this->verifyPhoneCode($request)){
+            return back()->with('error','手机验证码不正确');
+        }
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 
 
