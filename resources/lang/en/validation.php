@@ -120,6 +120,7 @@ return [
         'username' => '用户名',
         'password' => '密码',
         'account' => '账号',
+        'phone' => '手机号',
     ],
 
 ];

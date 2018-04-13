@@ -62,9 +62,8 @@ class LoginController extends InitController
             return $this->sendLoginResponse($request);
         }
 
-
         if($request->session()->get('phoneSmsVerify') == $request->post('phone_code')){
-            $user = User::where($request->only($this->username()))->first();
+            $user = User::where($request->only('phone'))->first();
             $this->guard()->login($user);
             $request->session()->forget('phoneSmsVerify');
             return redirect()->route('/')->with('success','登陆成功');
@@ -81,7 +80,7 @@ class LoginController extends InitController
     protected function validateLoginPhone(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required|string',
+            'phone' => 'required|string',
             'phone_code' => 'required|string',
         ]);
     }
@@ -98,6 +97,10 @@ class LoginController extends InitController
     protected function credentialsPhone(Request $request)
     {
         return $request->only($this->username());
+    }
+
+    public function forgetPassword(Request $request){
+        
     }
 
 }

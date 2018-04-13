@@ -58,6 +58,26 @@ ul {
 .v-mem-weixin-login img {
   width: 100%; }
 
+.sendSmsButton {
+  padding-left: 0px; }
+  .sendSmsButton button {
+    width: 100%; }
+
+.member_submit_btn {
+  width: 100%; }
+
+.v-member-question {
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd; }
+
+.v-member-other-login {
+  margin-top: 5px; }
+  .v-member-other-login ul {
+    display: inline-block; }
+    .v-member-other-login ul li a i {
+      font-size: 18px; }
+
 .lara_fenye {
   width: 100%; }
 

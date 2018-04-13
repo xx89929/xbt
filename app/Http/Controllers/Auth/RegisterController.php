@@ -68,6 +68,8 @@ class RegisterController extends InitController
         return Validator::make($data, [
             'username' => 'required|string|max:30|min:6|unique:users',
             'password' => 'required|string|min:6|max:30|confirmed',
+            'phone' => 'required|string|max:30|min:6|unique:users',
+            'phone_code' => 'required|string|max:6'
         ],$messages);
 
     }
@@ -115,6 +117,16 @@ class RegisterController extends InitController
 
     }
 
+
+    protected function verifyPhoneCode(Request $request){
+        if($request->session()->get('phoneSmsVerify') != $request->post('phone_code')){
+            return false;
+        }else{
+            $request->session()->forget('phoneSmsVerify');
+            return true;
+        }
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -131,6 +143,7 @@ class RegisterController extends InitController
         $user = User::create([
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
+            'phone' => $data['phone'],
         ]);
 
         MemberInfo::create([
