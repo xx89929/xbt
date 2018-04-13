@@ -418,10 +418,6 @@ $(function () {
 
     $('#sendSmsVerify').click(function () {
         RegPhoneSms();
-        //设置button效果，开始计时
-        $(this).attr("disabled", "true");
-        $(this).val(curCount + "秒后重新获取");
-        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
     })
 
 //timer处理函数
@@ -449,7 +445,10 @@ $(function () {
             success: function (data) {
                 if(data == 'OK'){
                     alert('发送成功');
-                    console.log(data);
+                    //设置button效果，开始计时
+                    $("#sendSmsVerify").attr("disabled", "true");
+                    $("#sendSmsVerify").val(curCount + "秒后重新获取");
+                    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
                 }else{
                     alert('发送失败');
                     console.log(data);

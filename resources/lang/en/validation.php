@@ -121,6 +121,7 @@ return [
         'password' => '密码',
         'account' => '账号',
         'phone' => '手机号',
+        'phone_code' => '手机验证码',
     ],
 
 ];

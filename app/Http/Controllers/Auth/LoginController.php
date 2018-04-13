@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\InitController;
+use App\Traits\Sms\sendSms;
 use App\User;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends InitController
 {
@@ -22,7 +26,7 @@ class LoginController extends InitController
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers,sendSms;
 
     /**
      * Where to redirect users after login.
@@ -100,7 +104,65 @@ class LoginController extends InitController
     }
 
     public function forgetPassword(Request $request){
-        
+        if(!$request->post('phone')){
+            return view('home.common.forget_pwd');
+        }
+
+        $this->validatetorForgetPwd($request->all())->validate();
+        if($request->post('phone_code') == $request->session()->get('phoneSmsVerifyForgetPwd')){
+            $request->session()->forget('phoneSmsVerifyForgetPwd');
+            $user = User::where($request->only('phone'))->first();
+            $user->password = bcrypt($request->post('password'));
+            $res = $user->save();
+            return $res ?  redirect()->route('login.show')->with('success','重置密码成功') : back()->with('error','重置密码失败');
+        }
+
+        return back()->with('error','验证码不正确');
     }
 
+    protected function validatetorForgetPwd(Array $data){
+        $messages = [
+            'required' => ':attribute 必须填写',
+            'max' => ':attribute限制最大:max',
+            'min' => ':attribute限制最小:min',
+            'confirmed' => '确认:attribute不一致',
+            'unique' => '此:attribute已经被占用',
+        ];
+        return Validator::make($data, [
+            'phone' => 'required|string',
+            'password' => 'required|string|min:6|max:30|confirmed',
+            'phone_code' => 'required|string|max:4'
+        ],$messages);
+    }
+
+
+    public function sendForgetPwd(Request $request){
+        $phoneNum = $request->get('phone');
+
+        $param['code'] = random_int(1111,9999);
+        session(['phoneSmsVerifyForgetPwd' => $param['code']]);
+
+        $content = $this->sendSms($phoneNum,config('sms.SignName'),config('sms.user_forget_pwd_template'),$param);
+        return $content->Message;
+    }
+
+
+    public function broker()
+    {
+        return Password::broker();
+    }
+
+
+    protected function resetPassword($user, $password)
+    {
+        $user->password = Hash::make($password);
+
+        $user->setRememberToken(Str::random(60));
+
+        $user->save();
+
+        event(new PasswordReset($user));
+
+        $this->guard()->login($user);
+    }
 }

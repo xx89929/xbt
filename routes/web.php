@@ -58,6 +58,8 @@ Route::group(['namespace' => 'Auth'],function (){
     Route::post('login', 'LoginController@login')->name('login');
     Route::post('phone/login', 'LoginController@phoneLogin')->name('phone.login');
     Route::get('reg/sendsms','RegisterController@sendRegUserSms')->name('reg.SendSms');
+    Route::match(['get','post'],'forgetpwd','LoginController@forgetPassword')->name('forget.Pwd');
+    Route::get('send/forgetpwd','LoginController@sendForgetPwd')->name('send.forgetPwd');
 
     Route::group(['middleware' => 'auth','prefix' => 'member'],function (){
         Route::post('logout', 'LoginController@logout')->name('logout');

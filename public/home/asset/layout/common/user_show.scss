@@ -91,3 +91,19 @@
     }
   }
 }
+
+.forgetPwdView-box{
+  margin: 0 auto;
+  background-color: white;
+  width: 500px;
+  padding:40px;
+  .form-group{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+.forgetPwdView-title{
+  margin-top:0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+}

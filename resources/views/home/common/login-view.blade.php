@@ -61,7 +61,7 @@
                         @endif
                         @if ($errors->has('password'))
                             <span class="help-block bg-danger">
-                                    <strong>{{ $errors->first('password') }}</strong>
+                                    <strong>{{ $errors->first('password')}}</strong>
                             </span>
                         @endif
                         <button type="submit" class="btn btn-primary member_submit_btn">登陆</button>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="v-member-question">
-                    <p><a href="#">忘记密码?</a></p>
+                    <p><a href="{{route('forget.Pwd')}}">忘记密码?</a></p>
             </div>
             <div class="v-member-other-login">
                 <label>其他方式登陆：</label>
@@ -95,6 +95,5 @@
     </div>
 
 </div>
-
 
 @endsection

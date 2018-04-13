@@ -27,6 +27,7 @@ class RegisterController extends InitController
     |
     */
 
+
     use RegistersUsers,sendSms;
 
     /**
@@ -69,7 +70,7 @@ class RegisterController extends InitController
             'username' => 'required|string|max:30|min:6|unique:users',
             'password' => 'required|string|min:6|max:30|confirmed',
             'phone' => 'required|string|max:30|min:6|unique:users',
-            'phone_code' => 'required|string|max:6'
+            'phone_code' => 'required|string|max:4'
         ],$messages);
 
     }
@@ -186,6 +187,9 @@ class RegisterController extends InitController
     }
 
 
+    protected function redirectTo(){
+        return '';
+    }
 
     /**
      * The user has been registered.
@@ -196,6 +200,6 @@ class RegisterController extends InitController
      */
     protected function registered(Request $request, $user)
     {
-        return redirect()->route('/')->with('success',"$user->username 注册成功");
+        return redirect()->route('login.show')->with('success',"$user->username 注册成功");
     }
 }
