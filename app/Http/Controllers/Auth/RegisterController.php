@@ -15,7 +15,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends InitController
 {
-    protected $redirectTo = '/';
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -88,8 +87,7 @@ class RegisterController extends InitController
 
         $this->guard()->login($user);
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        return redirect()->route('login.show')->with('success','注册成功');
     }
 
 
@@ -203,9 +201,6 @@ class RegisterController extends InitController
         return view($this->iView.'.common.phone_reg-view',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
-
-    protected function redirectTo(){
-    }
 
     /**
      * The user has been registered.
