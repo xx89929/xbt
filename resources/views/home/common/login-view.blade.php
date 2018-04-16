@@ -5,7 +5,7 @@
         <div class="v-member-box">
             <div class="v-member-tit">
                 <ul class="list-inline">
-                    <li class="active"><a><h4>手机动态码登陆</h4></a></li>
+                    <li class="active"><a><h4>短信快捷登陆</h4></a></li>
                     <li ><a><h4 >账号登陆</h4></a></li>
                 </ul>
             </div>
@@ -43,7 +43,7 @@
                         <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="input-group v-member-input">
                                 <div class="input-group-addon v-member-label"><i class="fa fa-user"></i></div>
-                                <input name="username" type="text" class="form-control" placeholder="输入用户名或邮箱" value="{{ old('username') }}" required autofocus>
+                                <input name="username" type="text" class="form-control" placeholder="输入手机号/用户名/邮箱" value="{{ old('username') }}" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">

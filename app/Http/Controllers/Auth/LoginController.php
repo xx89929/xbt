@@ -168,4 +168,26 @@ class LoginController extends InitController
 
         $this->guard()->login($user);
     }
+
+
+    protected function attemptLogin(Request $request)
+    {
+        // 验证用户名登录方式
+        $usernameLogin = $this->guard()->attempt(
+            ['username' => $request->post('username'), 'password' => $request->post('password')], $request->has('remember')
+        );
+        if ($usernameLogin) {
+            return true;
+        }
+
+        // 验证手机号登录方式
+        $mobileLogin = $this->guard()->attempt(
+            ['phone' => $request->post('username'), 'password' =>  $request->post('password')], $request->has('remember')
+        );
+        if ($mobileLogin) {
+            return true;
+        }
+
+        return false;
+    }
 }
