@@ -50,7 +50,6 @@
                             <div class="input-group v-member-input">
                                 <div class="input-group-addon v-member-label"><i class="fa fa-lock"></i></div>
                                 <input name="password" type="password" class="form-control" placeholder="输入密码">
-
                             </div>
                         </div>
                         @if ($errors->has('username'))

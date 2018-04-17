@@ -18,11 +18,15 @@ $(function () {
                     notEmpty: {
                         message: '用户名不能为空'
                     },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: '长度要在 %s and %s 之间'
-                    }
+                    // stringLength: {
+                    //     min: 6,
+                    //     max: 30,
+                    //     message: '长度要在 %s and %s 之间'
+                    // },
+                    regexp: {
+                        regexp: '^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$',
+                        message: '手机号码格式不正确'
+                    },
                 },
             },
             password: {

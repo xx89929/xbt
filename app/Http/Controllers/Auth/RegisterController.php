@@ -67,9 +67,8 @@ class RegisterController extends InitController
         ];
         return Validator::make($data, [
             'username' => 'required|string|max:30|min:6|unique:users',
-            'password' => 'required|string|min:6|max:30|confirmed',
-            'phone' => 'required|string|max:30|min:6|unique:users',
-            'phone_code' => 'required|string|max:4'
+            'password' => 'required|string|min:6|max:30',
+            'phone_code' => 'required|string|max:4|min:4'
         ],$messages);
 
     }
@@ -159,7 +158,7 @@ class RegisterController extends InitController
         $user = User::create([
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
-            'phone' => $data['phone'],
+            'phone' => $data['username'],
         ]);
 
         MemberInfo::create([
