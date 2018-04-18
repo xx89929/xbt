@@ -58,6 +58,8 @@ $(function () {
             }
         }
     });
+
+
 });
 
 
@@ -122,6 +124,8 @@ $(function () {
         }
     });
 });
+
+
 
 
 function areaJajx(Url,param,next_par) {
@@ -406,6 +410,8 @@ $('#weixin_code_foot').hover(function () {
 });
 
 $('.order_show_submit > button').click(function () {
+    console.log($("#pay_form input[name='take_name']").text());
+    return false;
     $('#pay_form').submit();
 });
 

@@ -122,6 +122,9 @@ return [
         'account' => '账号',
         'phone' => '手机号',
         'phone_code' => '手机验证码',
+        'take_name' => '收货人姓名',
+        'take_phone' => '收货人电话',
+        'take_address' => '收货人地址',
     ],
 
 ];

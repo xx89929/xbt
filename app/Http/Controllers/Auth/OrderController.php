@@ -13,6 +13,7 @@ use App\Traits\AliPay;
 use App\Traits\WechatPay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends InitController
 {
@@ -42,8 +43,21 @@ class OrderController extends InitController
         return view($this->authView.'.page.payshow',['res' => $res,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
-    public function PostOrder(orderCreate $request){
+    public function PostOrder(Request $request){
         $data = $request->all();
+        //$this->validatorPayPostOrder($request->all())->validate();
+        $messages = [
+            'required' => ':attribute 必须填写',
+        ];
+        $validator = Validator::make($data, [
+            'take_name' => 'required',
+            'take_phone' => 'required',
+            'take_address' => 'required',
+        ],$messages);
+        if($validator->fails()){
+            return redirect()->route('pro-info',['id' => $data['pro_id']])->withErrors($validator)
+                ->withInput();
+        }
         //$this->validatorBuyOrder($data)->validate();
         $proPrice = Product::select('id','price','name')->proId($data['pro_id'])->first();
         $data['order_money'] = floatval($proPrice->price)*intval($data['pro_num']);
@@ -66,6 +80,7 @@ class OrderController extends InitController
         }
 
     }
+
 
     protected function CreateOrder(array $data){
         return Order::create([
