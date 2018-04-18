@@ -83,9 +83,9 @@
                                 <li class="col-xs-2">
                                     <div class="pro-i-con-nub">
                                         <div class="pro-i-con-nub-item clearfix text-center">
-                                            <button id="pro-nub-dec" class="pro-nub-contr pull-left">-</button>
+                                            <button id="pro-nub-dec" type="button" class="pro-nub-contr pull-left">-</button>
                                             <input name="pro_num" type="text" class="pro-nub-val pull-left" value="1">
-                                            <button id="pro-nub-ins" class="pro-nub-contr pull-left">+</button>
+                                            <button id="pro-nub-ins" type="button" class="pro-nub-contr pull-left">+</button>
                                         </div>
                                     </div>
                                 </li>

@@ -409,7 +409,7 @@ $('#weixin_code_foot').hover(function () {
     $(this).find('img').hide();
 });
 
-$('.order_show_submit > button').click(function () {
+$('.order_show_submit button').click(function () {
     $('#pay_form').submit();
 });
 
