@@ -34,13 +34,31 @@ class OrderController extends InitController
         return view($this->authView.'.page.order',['order' => $order,'noPayCount' =>$noPayCount,'orderNav' => $orderNav,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
-    public function orderPayShow(orderPayShow $request){
+    public function orderPayShow(Request $request){
         $data = $request->all();
+        if(isset($data['order_id'])){
+            $order = Order::where('id',$data['order_id'])->first();
+            $data['store_id'] = $order->store_id;
+            $data['pro_id'] = $order->pro_id;
+            $data['doctor_id'] = $order->doctor_id;
+        }
+        $this->virfyOrdershow($data)->validate();
         $res['store'] = Store::where('name',$data['store_id'])->orwhere('id',$data['store_id'])->first();
         $res['doctor'] = Doctor::where('realname',$data['doctor_id'])->orwhere('id',$data['doctor_id'])->with('doc_group_sns')->first();
         $res['product'] = Product::ProId($data['pro_id'])->first();
         $this->pageTitle = '购买商品';
         return view($this->authView.'.page.payshow',['res' => $res,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
+    }
+
+    protected function virfyOrdershow(Array $data){
+        $messages = [
+            'required' => ':attribute 必须填写',
+        ];
+        return Validator::make($data, [
+            'store_id' => 'required',
+            'pro_id' => 'required',
+            'doctor_id' => 'required',
+        ],$messages);
     }
 
     public function PostOrder(Request $request){

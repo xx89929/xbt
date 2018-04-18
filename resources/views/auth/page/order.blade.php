@@ -62,7 +62,7 @@
                                     <button class="ra-pay" onclick="event.preventDefault();document.getElementById('my_order_pay-{{$or->id}}').submit();">立即付款</button>
                                     @endif
                                 </div>
-                                <form id="my_order_pay-{{$or->id}}" action="{{route('order.showf')}}" method="get">
+                                <form id="my_order_pay-{{$or->id}}" action="{{route('order.payShow')}}" method="get">
                                     {{ csrf_field() }}
                                     <input name="order_id" type="hidden" value="{{$or->id}}">
                                 </form>
