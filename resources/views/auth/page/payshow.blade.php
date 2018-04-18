@@ -33,7 +33,7 @@
                         </div>
                         <div class="order_pay_way  pull-left">
                             <ul class="list-inline">
-                                <li>
+                                <li class="active">
                                     <a>
                                         <div class="pay_icon" id="aliPay" value="aliPay">
                                             <img src="{{asset('home/images/icon/alipaypcnew.png')}}">
