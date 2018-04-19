@@ -16,7 +16,7 @@
                     @else
                     <h2>付款失败！</h2>
                     @endif
-                    <p><span>订单号：</span><em>{{$order->out_trade_no}}</em> <a>订单详情&nbsp;<i class="fa fa-caret-down"></i></a></p>
+                    <p><span>订单号：</span><em>{{$order->out_trade_no}}</em> <a href="{{route('member.order')}}">前往我的订单进行查看&nbsp;<i class="fa fa-caret-down"></i></a></p>
                 </div>
             </div>
         </div>
