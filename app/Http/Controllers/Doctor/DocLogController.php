@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use App\Http\Controllers\InitController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
-class DocLogController extends Controller
+class DocLogController extends InitController
 {
     use AuthenticatesUsers;
 
     protected $redirectTo = '/';
 
     public function index(){
-        return view('home.common.doclog');
+        $this->pageTitle = '医师登陆';
+        return view($this->iView.'.common.doclog',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
 
@@ -26,8 +28,9 @@ class DocLogController extends Controller
 
 
 
-    public function __construct()
+    public function __construct(Request $request)
     {
+        parent::__construct($request);
         $this->middleware('guest:doctor')->except('logout');
     }
 

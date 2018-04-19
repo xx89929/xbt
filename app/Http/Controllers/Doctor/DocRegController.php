@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use App\Http\Controllers\InitController;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,17 +11,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class DocRegController extends Controller
+class DocRegController extends InitController
 {
-
     use RegistersUsers;
+
 
 
     /**
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('home.common.docreg');
+        $this->pageTitle = '医师注册';
+        return view($this->iView.'.common.docreg',['headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
     public function username()
@@ -29,8 +31,9 @@ class DocRegController extends Controller
     }
 
 
-    public function __construct()
+    public function __construct(Request $request)
     {
+        parent::__construct($request);
         $this->middleware('guest:doctor');
     }
 

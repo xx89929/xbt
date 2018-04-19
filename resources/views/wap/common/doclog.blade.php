@@ -4,64 +4,13 @@
     <div class="page page-index page-current" id="page-home">
         @include('wap.layouts.head')
         <div class="content">
-            <div class="buttons-tab">
-                <a href="#phone_login" class="tab-link active button">短信快捷登陆</a>
-                <a href="#account_login" class="tab-link button">账号密码登陆</a>
-            </div>
             <div class="content-block">
-                <div class="tabs">
-
-                    {{--手机登陆--}}
-                    <div id="phone_login" class="tab active">
-                        <div id="member_login" class="tab active">
-                            <div class="page-login">
-                                <div class="list-block inset text-center">
-                                    <form id="doctor-login" method="post" action="{{route('phone.login')}}">
-                                        {{csrf_field()}}
-                                        <ul>
-                                            <!-- Text inputs -->
-                                            <li>
-                                                <div class="item-content">
-                                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
-                                                    <div class="item-inner">
-                                                        <div class="item-input">
-                                                            <input id="userPhoneSend" type="text" name="phone" placeholder="请输入手机号">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item-content">
-                                                    <div class="item-media"><i class="icon icon-form-password"></i></div>
-                                                    <div class="item-inner">
-                                                        <div class="item-input">
-                                                            <input name="phone_code" type="password" placeholder="手机验证码">
-                                                        </div>
-                                                        <div class="item-input">
-                                                            <button data-url="{{route('reg.SendSms')}}" id="sendSmsVerify" type="button" class="button button-fill">发送验证码</button>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </form>
-                                </div>
-                                <div class="content-block">
-                                    <p><a class="button button-big button-fill external" id="doctor-login-button"  data-transition='fade'>登陆</a></p>
-                                    <p class='text-center signup'>
-                                        <a href="{{route('reg.show')}}" class='pull-left'>还没有账号？点击这里</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div id="account_login" class="tab ">
+                {{--医生登陆--}}
+                <div id="doctor_login" class="tab">
+                    <div id="member_login" class="tab active">
                         <div class="page-login">
                             <div class="list-block inset text-center">
-                                <form id="member-login" method="post" action="{{ route('login') }}">
+                                <form id="doctor-login" method="post" action="{{ route('doclog') }}">
                                     {{csrf_field()}}
                                     <ul>
                                         <!-- Text inputs -->
@@ -70,7 +19,7 @@
                                                 <div class="item-media"><i class="icon icon-form-name"></i></div>
                                                 <div class="item-inner">
                                                     <div class="item-input">
-                                                        <input type="text" name="username" placeholder="请输入账号">
+                                                        <input type="text" name="account" placeholder="请输入账号">
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,7 +38,7 @@
                                 </form>
                             </div>
                             <div class="content-block">
-                                <p><a class="button button-big button-fill external" id="member-login-button"  data-transition='fade'>登陆</a></p>
+                                <p><a class="button button-big button-fill external" id="doctor-login-button"  data-transition='fade'>医师登陆</a></p>
                                 <p class='text-center signup'>
                                     <a href="{{route('reg.show')}}" class='pull-left'>还没有账号？点击这里</a>
                                 </p>
