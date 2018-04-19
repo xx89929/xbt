@@ -108,7 +108,7 @@ $(function () {
                 if(data == 'OK'){
                     $.toast("发送成功");
                     //设置button效果，开始计时
-                    $("#sendSmsVerify").attr("disabled", "true");
+                    $("#sendSmsVerify").addClass('disabled');
                     $("#sendSmsVerify").val(curCount + "秒后重新获取");
                     InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
                 }else{
