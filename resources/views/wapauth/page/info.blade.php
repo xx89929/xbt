@@ -9,7 +9,7 @@
                     <ul>
                         <li>
                             <div href="#" class="item-content">
-                                <div class="item-media"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></div>
+                                <div class="item-media" onclick="javascript:getElementById('input-avatar').click()"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
                                         <div class="item-subtitle">账号：{{Auth::user()->username}}</div>
@@ -17,12 +17,16 @@
                                     <div class="item-subtitle">余额：￥{{number_format(Auth::user()->member_info_one->goods,2)}}</div>
                                     <div class="item-text">注册时间：<strong>{{Auth::user()->created_at}}</strong></div>
 
-                                    <input type="file" value="上传头像">
+
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
+
+                <form method="post" >
+                    <input id="input-avatar" style="position:absolute;clip:rect(0 0 0 0);" type="file" value="上传头像" accept="image/*" capture="camera">
+                </form>
                 <div class="list-block list">
                     <ul>
                         <li class="item-content item-link" url="{{route('member.safe')}}">
@@ -69,6 +73,10 @@
 @endsection
 
 @section('jss')
+<script>
+    $('#upload-avatar').click(function () {
 
+    })
+</script>
 
 @endsection
