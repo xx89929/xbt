@@ -6,7 +6,7 @@
             <div class="news-warp">
                 @foreach($news as $nw)
                     <div class="card demo-card-header-pic">
-                        <a style="display: inline-block" href="{{route('news.item',['id' => $nw->id])}}">
+                        <a href="{{route('news.item',['id' => $nw->id])}}">
                             <div valign="bottom" class="card-header color-white no-border no-padding">
                                 <img class='card-cover' src="{{asset('storage/'.$nw->pic)}}" alt="">
                             </div>
