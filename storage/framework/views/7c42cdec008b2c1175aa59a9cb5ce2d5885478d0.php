@@ -15,7 +15,7 @@
                     <h3>￥<?php echo e(number_format($pro->price,2)); ?>元</h3>
                     <ul class="list-unstyled">
                         <li><a href="<?php echo e(route('pro-info',['id' => $pro->id])); ?>" class="check-pro">查看详情</a></li>
-                        <li><a href="#" class="jion-buy">加入收藏</a></li>
+                        
                     </ul>
                 </div>
             </div>
