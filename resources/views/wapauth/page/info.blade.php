@@ -18,7 +18,7 @@
                                     <div class="item-text">注册时间：<strong>{{Auth::user()->created_at}}</strong></div>
 
 
-                                        <label class="upload-avatar-button button button-fill button-success " for="input-avatar">上传头像</label>
+                                        <label class="upload-avatar-button button button-fill button-primary " for="input-avatar">上传头像</label>
                                         <form id="form-avatar" style="display: none" method="post" action="{{route('memberAvatar.save')}}" enctype="multipart/form-data">
                                             {{csrf_field()}}
                                             <input type="file" name="avatar" id="input-avatar" style="position:absolute;clip:rect(0 0 0 0);"  accept="image/*"/>
