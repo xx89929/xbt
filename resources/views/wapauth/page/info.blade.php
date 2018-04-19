@@ -9,7 +9,7 @@
                     <ul>
                         <li>
                             <div href="#" class="item-content">
-                                <div class="item-media" onclick="javascript:getElementById('input-avatar').click()"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></div>
+                                <div class="item-media" onclick="javascript:getElementById('input-avatar').touchstart()"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
                                         <div class="item-subtitle">账号：{{Auth::user()->username}}</div>
