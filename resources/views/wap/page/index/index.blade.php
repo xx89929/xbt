@@ -81,16 +81,16 @@
                                         <div class="list-block media-list">
                                             <ul>
                                                 @foreach($news as $nw)
-                                                <li class="item-content">
-                                                    <div class="item-media index-news-img">
-                                                        <img src="{{asset('storage/'.$nw->pic)}}" width="100">
-                                                    </div>
-                                                    <div class="item-inner">
-                                                        <div class="item-title-row">
-                                                            <div class="item-title index-news-title">{{str_limit($nw->title,40)}}</div>
+                                                <li>
+                                                    <a style="padding-left: 0" href="{{route('news.item',['id' => $nw->id])}}" class="item-link item-content">
+                                                        <div class="item-media"><img src="{{asset('storage/'.$nw->pic)}}" width="100"></div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title-row">
+                                                                <div class="item-title index-news-title">{{str_limit($nw->title,40)}}</div>
+                                                            </div>
+                                                            <div class="item-subtitle index-news-times">发布时间：{{$nw->updated_at}}</div>
                                                         </div>
-                                                        <div class="item-subtitle index-news-times">发布时间：{{$nw->updated_at}}</div>
-                                                    </div>
+                                                    </a>
                                                 </li>
                                                 @endforeach
                                             </ul>
@@ -104,16 +104,18 @@
                                         <div class="list-block media-list">
                                             <ul>
                                                 @foreach($dynamic as $dy)
-                                                    <li class="item-content">
-                                                        <div class="item-media index-news-img">
-                                                            <img src="{{asset('storage/'.$dy->pic)}}" width="100">
-                                                        </div>
-                                                        <div class="item-inner">
-                                                            <div class="item-title-row">
-                                                                <div class="item-title index-news-title">{{str_limit($dy->title,40)}}</div>
+                                                    <li>
+                                                        <a style="padding-left: 0" href="{{route('news.item',['id' => $dy->id])}}" class="item-link item-content">
+                                                            <div class="item-media index-news-img">
+                                                                <img src="{{asset('storage/'.$dy->pic)}}" width="100">
                                                             </div>
-                                                            <div class="item-subtitle index-news-times">发布时间：{{$dy->updated_at}}</div>
-                                                        </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title index-news-title">{{str_limit($dy->title,40)}}</div>
+                                                                </div>
+                                                                <div class="item-subtitle index-news-times">发布时间：{{$dy->updated_at}}</div>
+                                                            </div>
+                                                        </a>
                                                     </li>
                                                 @endforeach
                                             </ul>

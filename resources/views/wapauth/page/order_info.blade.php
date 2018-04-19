@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    @if($oInfo->status == 1)
+                    @if($oInfo->pay_status == 1)
                     <span style="color:green;">已付款</span>
                     @else
                     <span style="color: red;">待付款</span>
@@ -76,9 +76,14 @@
                     </div>
                 </div>
             </div>
+            @if($oInfo->pay_status != 1)
+                <div style="margin: 0.5rem">
+                    <a href="{{route('order.payShow',['order_id' => $oInfo->id])}}" class="button button-big button-fill button-danger">立即付款</a>
+                </div>
+            @endif
+
         </div>
     </div>
-
 
 @endsection
 

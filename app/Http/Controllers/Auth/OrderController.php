@@ -47,6 +47,9 @@ class OrderController extends InitController
         $res['doctor'] = Doctor::where('realname',$data['doctor_id'])->orwhere('id',$data['doctor_id'])->with('doc_group_sns')->first();
         $res['product'] = Product::ProId($data['pro_id'])->first();
         $this->pageTitle = '购买商品';
+        if(isset($data['order_id'])){
+            return view($this->authView.'.page.payshow',['res' => $res,'headNav' => 'auth','pageTitle' => $this->pageTitle,'order_id' => $data['order_id']]);
+        }
         return view($this->authView.'.page.payshow',['res' => $res,'headNav' => 'auth','pageTitle' => $this->pageTitle]);
     }
 
@@ -63,7 +66,6 @@ class OrderController extends InitController
 
     public function PostOrder(Request $request){
         $data = $request->all();
-        //$this->validatorPayPostOrder($request->all())->validate();
         $messages = [
             'required' => ':attribute 必须填写',
         ];
@@ -76,12 +78,16 @@ class OrderController extends InitController
             return redirect()->route('pro-info',['id' => $data['pro_id']])->withErrors($validator)
                 ->withInput();
         }
-        //$this->validatorBuyOrder($data)->validate();
         $proPrice = Product::select('id','price','name')->proId($data['pro_id'])->first();
         $data['order_money'] = floatval($proPrice->price)*intval($data['pro_num']);
         $data['price'] = floatval($proPrice->price);
         $data['subject'] = $proPrice->name;
-        $order = $this->CreateOrder($data);
+        if(isset($data['order_id'])){
+            $order = Order::where('id',$data['order_id'])->first();
+        }else{
+            $order = $this->CreateOrder($data);
+        }
+
         if(!$order->order_id){
             return back()->with('error','生成订单错误');
         }

@@ -15,16 +15,19 @@
                 <div class="card-content">
                     <div class="list-block media-list">
                         <ul>
-                            <li class="item-content">
-                                <div class="item-media">
-                                    <img src="{{asset('storage/'.$or->relevancy_order_pro->pics[0])}}" width="44">
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title-row">
-                                        <div class="item-title card-t-title">{{$or->relevancy_order_pro->name}}</div>
+                            <li >
+                                <a class="item-content item-link" href="{{route('order.searOrderId',['order_id' => $or->order_id])}}">
+                                    <div class="item-media">
+                                        <img src="{{asset('storage/'.$or->relevancy_order_pro->pics[0])}}" width="44">
                                     </div>
-                                    <div class="item-subtitle">￥{{number_format($or->relevancy_order_pro->price,2)}}元 x {{$or->pro_nub}} </div>
-                                </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title card-t-title">{{$or->relevancy_order_pro->name}}</div>
+                                        </div>
+                                        <div class="item-subtitle">￥{{number_format($or->relevancy_order_pro->price,2)}}元 x {{$or->pro_nub}} </div>
+                                    </div>
+                                </a>
+
                             </li>
 
                         </ul>

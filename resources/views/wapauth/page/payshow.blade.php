@@ -8,6 +8,9 @@
                 <input name="pro_id" type="hidden" value="{{$res['product']->id}}">
                 <input name="store_id" type="hidden" value="{{$res['store']->id}}">
                 <input name="doctor_id" type="hidden" value="{{$res['doctor']->id}}">
+                @if(isset($order_id))
+                    <input name="order_id" type="hidden" value="{{$order_id}}">
+                @endif
 
                 <div class="card">
                     <div class="card-header pro-info-card-title">产品信息</div>

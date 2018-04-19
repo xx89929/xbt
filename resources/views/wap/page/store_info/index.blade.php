@@ -9,14 +9,13 @@
                 </div>
                 <div class="card-footer">
                     <span>{{$store->name}}</span>
-                    <span>关注</span>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-header">店铺信息</div>
                 <div class="card-content list-block  media-list">
-                    <a href="#" class="item-link item-content">
+                    <div  class=" item-content">
                         <div class="item-inner">
                             <div class="item-title-row">
                                 <div class="item-title">{{$store->name}}</div>
@@ -28,7 +27,7 @@
                                 {{$store->address}}
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
 

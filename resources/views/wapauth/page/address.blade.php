@@ -5,7 +5,7 @@
         <div class="content">
             <div class="page-login">
                 <div class="list-block inset text-center">
-                    <form id="member-login" method="post" action="{{ route('login') }}">
+                    <form id="member-login" method="post" action="{{route('memberAddr.save')}}">
                         {{csrf_field()}}
                         <ul>
                             <!-- Text inputs -->
@@ -14,7 +14,7 @@
                                     <div class="item-media"><i class="icon icon-card"></i></div>
                                     <div class="item-inner">
                                         <div class="item-input">
-                                            <input type="text" name="username" placeholder="收货人姓名">
+                                            <input type="text" name="consignee" placeholder="收货人姓名" value="{{@$myAddr->consignee}}">
                                         </div>
                                     </div>
                                 </div>
@@ -24,7 +24,7 @@
                                     <div class="item-media"><i class="icon icon-phone"></i></div>
                                     <div class="item-inner">
                                         <div class="item-input">
-                                            <input name="password" type="text" placeholder="手机号">
+                                            <input name="phone" type="text" placeholder="手机号" value="{{@$myAddr->phone}}">
                                         </div>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
                                     <div class="item-media"><i class="icon icon-home"></i></div>
                                     <div class="item-inner">
                                         <div class="item-input">
-                                            <input  type="text" id='city-picker' placeholder="选择城市"/>
+                                            <input name="location"  value="{{ @$myAddr->location }}" type="text" id='city-picker' placeholder="选择城市"/>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                     <div class="item-media"><i class="icon icon-browser"></i></div>
                                     <div class="item-inner">
                                         <div class="item-input">
-                                            <input name="password" type="text" placeholder="详细地址">
+                                            <input name="address" type="text" placeholder="详细地址" value="{{ @$myAddr->address }}">
                                         </div>
                                     </div>
                                 </div>

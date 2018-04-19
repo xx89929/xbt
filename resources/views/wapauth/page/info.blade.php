@@ -16,6 +16,8 @@
                                     </div>
                                     <div class="item-subtitle">余额：￥{{number_format(Auth::user()->member_info_one->goods,2)}}</div>
                                     <div class="item-text">注册时间：<strong>{{Auth::user()->created_at}}</strong></div>
+
+                                    <input type="file" value="上传头像">
                                 </div>
                             </div>
                         </li>
