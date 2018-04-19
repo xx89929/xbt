@@ -7,7 +7,7 @@
             <div class="card demo-card-header-pic">
 
                 <div class="card-content">
-                    <div class="card-content-inner" style="overflow: hidden;">
+                    <div class="card-content-inner">
                         <h3 class="card-title">{{$news->title}}</h3>
                         <p class="color-gray">发表于 {{$news->created_at}}</p>
                         <p class="card-title">{!! $news->content !!}</p>
