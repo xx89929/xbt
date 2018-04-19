@@ -9,13 +9,21 @@
                     <ul>
                         <li>
                             <div href="#" class="item-content">
-                                <label class="item-media" for="input-avatar"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></label>
-                                <div class="item-inner">
+                                <label class="item-media avatar-label" id="upload-avatar"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></label>
+                                <div class="item-inner" style="overflow: hidden;">
                                     <div class="item-title-row">
                                         <div class="item-subtitle">账号：{{Auth::user()->username}}</div>
                                     </div>
                                     <div class="item-subtitle">余额：￥{{number_format(Auth::user()->member_info_one->goods,2)}}</div>
                                     <div class="item-text">注册时间：<strong>{{Auth::user()->created_at}}</strong></div>
+
+
+                                        <label class="upload-avatar-button button button-fill button-success " for="input-avatar">上传头像</label>
+                                        <form id="form-avatar" style="display: none" method="post" action="{{route('memberAvatar.save')}}" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                            <input type="file" name="avatar" id="input-avatar" style="position:absolute;clip:rect(0 0 0 0);"  accept="image/*"/>
+                                        </form>
+
 
 
                                 </div>
@@ -24,9 +32,9 @@
                     </ul>
                 </div>
 
-                <form method="post" >
-                    <input id="input-avatar" name="avatar" style="position:absolute;clip:rect(0 0 0 0);" type="file">
-                </form>
+
+
+
                 <div class="list-block list">
                     <ul>
                         <li class="item-content item-link" url="{{route('member.safe')}}">
@@ -56,7 +64,8 @@
                     </ul>
                 </div>
                 <div class="content-block">
-                    <a onclick="document.getElementById('logout-form').submit();" class="button button-big button-fill button-danger external">退出</a>
+
+                    <a onclick="document.getElementById('logout-form').submit();" class="button button-big button-fill button-danger external ">退出</a>
                 </div>
             </div>
             <form id="logout-form" method="post"  action="{{route('logout')}}">
@@ -73,5 +82,10 @@
 @endsection
 
 @section('jss')
+    <script type="text/javascript">
+        $('#input-avatar').change(function () {
+            $('#form-avatar').submit();
+        })
+    </script>
 
 @endsection

@@ -25,4 +25,14 @@ class InfoController extends InitController
         $res = $info->update($data);
         return $res ?  back()->with('status','保存成功') : back()->with('status','保存失败');
     }
+
+    public function uploadAvatar(Request $request){
+        if($request->hasFile('avatar')){
+            $avatar_path = $request->file('avatar')->store('user/avatars','public');
+            $info = MemberInfo::where('member_id',Auth::id())->first();
+            $info->head_pic = $avatar_path;
+            $res = $info->save();
+            return $res ?  back()->with('success','保存成功') : back()->with('error','保存失败');
+        };
+    }
 }
