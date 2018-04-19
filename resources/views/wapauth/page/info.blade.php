@@ -9,7 +9,7 @@
                     <ul>
                         <li>
                             <div href="#" class="item-content">
-                                <div class="item-media" id="avatar-picker"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></div>
+                                <label class="item-media" for="input-avatar"><img src="{{asset('storage/'.Auth::user()->member_info_one->head_pic)}}" width="80"></label>
                                 <div class="item-inner">
                                     <div class="item-title-row">
                                         <div class="item-subtitle">账号：{{Auth::user()->username}}</div>
@@ -73,10 +73,5 @@
 @endsection
 
 @section('jss')
-<script>
-    $('#avatar-picker').click(function () {
-        $('#input-avatar').click();
-    })
-</script>
 
 @endsection
