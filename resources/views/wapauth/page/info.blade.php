@@ -25,7 +25,7 @@
                 </div>
 
                 <form method="post" >
-                    <input id="input-avatar" name="avatar" style="position:absolute;clip:rect(0 0 0 0);" type="file" value="上传头像" accept="image/*" capture="camera">
+                    <input id="input-avatar" name="avatar" style="position:absolute;clip:rect(0 0 0 0);" type="file" value="上传头像" accept="image/*">
                 </form>
                 <div class="list-block list">
                     <ul>
