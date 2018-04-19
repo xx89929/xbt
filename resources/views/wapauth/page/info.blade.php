@@ -75,7 +75,7 @@
 @section('jss')
 <script>
     $('#avatar-picker').click(function () {
-        alert(1);
+        $('#input-avatar').click();
     })
 </script>
 
