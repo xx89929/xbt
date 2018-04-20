@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>我的生活</title>
+    <title>修巴堂手机版官网</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,6 +14,7 @@
     <link href="{{url('font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     {{--<link rel="stylesheet" href="{{url('frozenui/css/frozen.css')}}">--}}
     <link rel="stylesheet" href="{{url('wap/css/style.css')}}">
+    <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?aa51036778dccfe404dc6d274aad42c5"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })(); </script>
 </head>
 <body>
 @yield('content')

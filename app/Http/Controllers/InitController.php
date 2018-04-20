@@ -12,7 +12,7 @@ class InitController extends Controller
     public function __construct(Request $request)
     {
         $httpHost = $request->server('HTTP_HOST');
-        if($this->isMobile() || $httpHost == 'wap.xbt.com.cn'){
+        if($this->isMobile() || $httpHost == 'wap.xbt.com.cn' || $httpHost == env('Mobile_URL')){
             $this->iView = 'wap';
             $this->authView = 'wapauth';
             $this->docView = 'wapdoc';

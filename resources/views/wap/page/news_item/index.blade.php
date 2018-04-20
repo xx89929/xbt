@@ -5,7 +5,6 @@
         @include('wap.layouts.head')
         <div class="content">
             <div class="card demo-card-header-pic">
-
                 <div class="card-content">
                     <div class="card-content-inner" style="word-wrap: break-word;">
                         <h3 class="card-title">{{$news->title}}</h3>
