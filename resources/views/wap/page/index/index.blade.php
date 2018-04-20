@@ -37,8 +37,8 @@
                         <div class="list-block" style="margin: .2rem 0">
                             <ul>
                                 @foreach($Doctor as $dc)
-                                    <li >
-                                        <a class="item-content item-link" href="http://p.qiao.baidu.com/cps/chat?siteId=11689720&userId=24928549" rel="external" target="_blank">
+                                    <li class="item-content item-link">
+                                        <a  href="http://p.qiao.baidu.com/cps/chat?siteId=11689720&userId=24928549" rel="external" target="_blank">
                                             <div class="item-media index-doctors-avatar"><img style="width: 100%" src="{{asset('storage/'.$dc->avatar)}}"></div>
                                             <div class="item-inner">
                                                 <div class="item-title">{{$dc->doc_to_doc_group->title}}</div>
