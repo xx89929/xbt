@@ -37,12 +37,14 @@
                         <div class="list-block" style="margin: .2rem 0">
                             <ul>
                                 @foreach($Doctor as $dc)
-                                    <li class="item-content item-link">
-                                        <div class="item-media index-doctors-avatar"><img style="width: 100%" src="{{asset('storage/'.$dc->avatar)}}"></div>
-                                        <div class="item-inner">
-                                            <div class="item-title">{{$dc->doc_to_doc_group->title}}</div>
-                                            <div class="item-after">{{$dc->realname}}</div>
-                                        </div>
+                                    <li >
+                                        <a href="http://p.qiao.baidu.com/cps/chat?siteId=11689720&userId=24928549" class="item-content item-link">
+                                            <div class="item-media index-doctors-avatar"><img style="width: 100%" src="{{asset('storage/'.$dc->avatar)}}"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title">{{$dc->doc_to_doc_group->title}}</div>
+                                                <div class="item-after">{{$dc->realname}}</div>
+                                            </div>
+                                        </a>
                                     </li>
                                 @endforeach
                             </ul>
