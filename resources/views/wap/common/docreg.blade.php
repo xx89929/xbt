@@ -60,7 +60,7 @@
                                 <div class="content-block">
                                     <p><a class="button button-big button-fill external" id="doctor-login-button"  data-transition='fade'>医师注册</a></p>
                                     <p class='text-center signup'>
-                                        <a href="{{route('login.show')}}" class='pull-left'>已经注册账号了？点击这里</a>
+                                        <a href="{{route('doclog.show')}}" class='pull-left'>已经注册账号了？点击这里</a>
                                     </p>
                                 </div>
                             </div>

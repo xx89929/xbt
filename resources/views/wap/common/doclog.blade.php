@@ -40,7 +40,7 @@
                             <div class="content-block">
                                 <p><a class="button button-big button-fill external" id="doctor-login-button"  data-transition='fade'>医师登陆</a></p>
                                 <p class='text-center signup'>
-                                    <a href="{{route('reg.show')}}" class='pull-left'>还没有账号？点击这里</a>
+                                    <a href="{{route('docreg.show')}}" class='pull-left'>还没有账号？点击这里</a>
                                 </p>
                             </div>
                         </div>
