@@ -125,6 +125,8 @@ return [
         'take_name' => '收货人姓名',
         'take_phone' => '收货人电话',
         'take_address' => '收货人地址',
+        'store_id' => '店铺',
+        'doctor_id' => '医生',
     ],
 
 ];
