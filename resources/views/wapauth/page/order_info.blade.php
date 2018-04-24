@@ -80,6 +80,25 @@
                 <div style="margin: 0.5rem">
                     <a href="{{route('order.payShow',['order_id' => $oInfo->id])}}" class="button button-big button-fill button-danger">立即付款</a>
                 </div>
+            @else
+                @if($oInfo->refund == 1)
+                    <div class="content-padded">
+                        <form id="my_order_refund_form-{{$oInfo->id}}" action="{{ route('order.refund') }}" method="POST">
+                            {{ csrf_field() }}
+                            <input name="order_id" type="hidden" value="{{$oInfo->id}}">
+                            <button type="submit" class="button button-big button-fill disabled" disabled="disabled" style="width: 100%">退款中</button>
+                        </form>
+                    </div>
+                @else
+                    <div class="content-padded">
+                    <form id="my_order_refund_form-{{$oInfo->id}}" action="{{ route('order.refund') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input name="order_id" type="hidden" value="{{$oInfo->id}}">
+                            <button type="submit" class="button button-big button-fill button-danger" style="width: 100%">退款</button>
+                    </form>
+                    </div>
+                @endif
+
             @endif
 
         </div>
