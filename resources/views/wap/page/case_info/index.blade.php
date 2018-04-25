@@ -10,7 +10,7 @@
                     <div class="card-content-inner">
                         <h3 class="card-title">{{$caseInfo->name}}</h3>
                         <p class="color-gray">发表于 {{$caseInfo->created_at}}</p>
-                        <p class="card-title">{!! $caseInfo->content !!}</p>
+                        <div>{!! $caseInfo->content !!}</div>
                     </div>
                 </div>
                 <div class="card-footer">
