@@ -139,7 +139,6 @@ class StoreController extends Controller
                     return Administrator::pluck('name','id');
                 });
             }
-            dd(Admin::user()->roles);
 
             if (Admin::user()->isRole('agency')){
                 $form->hidden('agency','代理')->default(Admin::user()->id);
