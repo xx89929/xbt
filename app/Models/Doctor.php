@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Encore\Admin\Auth\Database\Administrator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -55,4 +56,5 @@ class Doctor extends Authenticatable
     public function scopeGetId($query,$id){
         return $query->where('id',$id);
     }
+
 }

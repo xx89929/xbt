@@ -7,6 +7,7 @@ use App\Models\DocGroup;
 use App\Models\Doctor;
 
 use App\Models\Store;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -75,6 +76,14 @@ class DoctorController extends Controller
     protected function grid()
     {
         return Admin::grid(Doctor::class, function (Grid $grid) {
+            if (Admin::user()->isRole('agency')){
+                $doctorIds = array();
+                $doctor = Administrator::find(Admin::user()->id)->agencyStoreDoc;
+                foreach ($doctor as $k => $v){
+                    $doctorIds[$k] = $v->id;
+                }
+                $grid->model()->whereIn('id',$doctorIds);
+            }
             $grid->id('ID')->sortable();
             $grid->avatar('头像')->image('',50,50);
             $grid->account('账号');

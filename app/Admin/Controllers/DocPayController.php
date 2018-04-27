@@ -6,6 +6,7 @@ use App\Models\DocPay;
 
 use App\Models\Doctor;
 use App\Models\PayLogOptions;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -74,7 +75,15 @@ class DocPayController extends Controller
     protected function grid()
     {
         return Admin::grid(DocPay::class, function (Grid $grid) {
+            if (Admin::user()->isRole('agency')){
+                $doctorIds = array();
+                $doctor = Administrator::find(Admin::user()->id)->agencyStoreDoc;
+                foreach ($doctor as $k => $v){
+                    $doctorIds[$k] = $v->id;
+                }
 
+                $grid->model()->whereIn('doctor_id',$doctorIds);
+            }
             $grid->id('ID')->sortable();
             $grid->to_doctor()->realname('医生姓名');
             $grid->goods('交易金额');
