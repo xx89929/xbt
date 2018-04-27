@@ -48,14 +48,14 @@
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: '日期'
+                            labelString: "{{$list['conf']['xAxes']}}"
                         }
                     }],
                     yAxes: [{
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: '注册量'
+                            labelString: "{{$list['conf']['yAxes']}}"
                         }
                     }]
                 }

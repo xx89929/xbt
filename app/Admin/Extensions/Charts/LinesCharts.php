@@ -26,6 +26,8 @@ class  LinesCharts{
         $list['conf']['bGC'] = '#3c8dbc';
         $list['conf']['bC'] = '#106da3';
         $list['conf']['title'] = '30天内会员注册统计';
+        $list['conf']['xAxes'] = '日期';
+        $list['conf']['yAxes'] = '注册量';
 
         return view('admin.charts.lineCharts',['list' => $list]);
     }
@@ -47,6 +49,8 @@ class  LinesCharts{
         $list['conf']['bGC'] = '#bc3c89';
         $list['conf']['bC'] = '#bc3c89';
         $list['conf']['title'] = '30天内医生注册统计';
+        $list['conf']['xAxes'] = '日期';
+        $list['conf']['yAxes'] = '注册量';
 
         return view('admin.charts.lineCharts',['list' => $list]);
     }
@@ -68,6 +72,8 @@ class  LinesCharts{
         $list['conf']['bGC'] = '#a37229';
         $list['conf']['bC'] = '#a37229';
         $list['conf']['title'] = '30天内生成订单统计';
+        $list['conf']['xAxes'] = '日期';
+        $list['conf']['yAxes'] = '订单量';
 
         return view('admin.charts.lineCharts',['list' => $list]);
     }
@@ -92,6 +98,8 @@ class  LinesCharts{
         $list['conf']['bGC'] = 'green';
         $list['conf']['bC'] = 'green';
         $list['conf']['title'] = '30天内已付款订单统计';
+        $list['conf']['xAxes'] = '日期';
+        $list['conf']['yAxes'] = '订单量';
 
         return view('admin.charts.lineCharts',['list' => $list]);
     }
@@ -115,6 +123,8 @@ class  LinesCharts{
         $list['conf']['bGC'] = '#d6301f';
         $list['conf']['bC'] = '#d6301f';
         $list['conf']['title'] = '30天内退款订单统计';
+        $list['conf']['xAxes'] = '日期';
+        $list['conf']['yAxes'] = '订单量';
 
         return view('admin.charts.lineCharts',['list' => $list]);
     }
