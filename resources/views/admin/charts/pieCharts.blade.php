@@ -36,7 +36,7 @@
                     display: true,
                     text: "{{$list['conf']['title']}}",
                     fontSize:20,
-                },
+                }
             }
         };
         window.MemberRegCharts = new Chart(ctx, config);

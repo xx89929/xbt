@@ -5,6 +5,8 @@ namespace App\Admin\Controllers;
 use App\Admin\Extensions\Charts\LinesCharts;
 use App\Admin\Extensions\Charts\PieCharts;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\User;
 use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
@@ -26,6 +28,26 @@ class HomeController extends Controller
 
             $content->row(Dashboard::title());
 
+            $content->row(function (Row $row) {
+                $row->column(4, function (Column $column) {
+                    $userCount = User::count();
+                    $infoBox = new InfoBox('会员统计(位)', 'users', 'aqua', '/admin/member/manage', $userCount);
+                    $column->append($infoBox);
+                });
+
+                $row->column(4, function (Column $column) {
+                    $orderCount = Order::count();
+                    $infoBox = new InfoBox('订单统计(笔)', 'shopping-cart', 'green', '/admin/order/list', $orderCount);
+                    $column->append($infoBox);
+                });
+
+                $row->column(4, function (Column $column) {
+                    $moneyCount = Order::where('pay_status',1)->max('order_money');
+                    $infoBox = new InfoBox('交易金额(元)', 'shopping-cart', 'red', '/admin/order/list', number_format($moneyCount,2));
+                    $column->append($infoBox);
+                });
+
+            });
 
             $content->row(function (Row $row) {
                 $row->column(4, function (Column $column) {
@@ -50,20 +72,23 @@ class HomeController extends Controller
                 });
             });
 
-            $content->row(function (Row $row) {
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::environment());
-                });
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::extensions());
-                });
 
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::dependencies());
-                });
-            });
+//            $content->row(function (Row $row) {
+//
+//                $row->column(4, function (Column $column) {
+//                    $column->append(Dashboard::environment());
+//                });
+//
+//                $row->column(4, function (Column $column) {
+//                    $column->append(Dashboard::extensions());
+//                });
+//
+//                $row->column(4, function (Column $column) {
+//                    $column->append(Dashboard::dependencies());
+//                });
+//            });
         });
     }
 }
