@@ -5,5 +5,6 @@
         <strong>Version</strong>&nbsp;&nbsp; {!! config('admin.version') !!}
     </div>
     <!-- Default to the left -->
-    <strong>Powered by <a href="https://github.com/z-song/laravel-admin" target="_blank">laravel-admin</a></strong>
+    <strong>版权 <a href="http://www.qi-zhong.cn" target="_blank">海南企众实业有限公司</a></strong>
+    <strong>技术支持：0898-66766640</strong>
 </footer>

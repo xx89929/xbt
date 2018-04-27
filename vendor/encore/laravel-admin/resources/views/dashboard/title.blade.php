@@ -9,6 +9,10 @@
         margin: 20px 0 10px 0px;
     }
 
+    .title span{
+        font-size: 30px;
+    }
+
     .links {
         text-align: center;
         margin-bottom: 20px;
@@ -26,10 +30,9 @@
 </style>
 
 <div class="title">
-    Laravel-admin
+    修巴堂<span>后台管理系统</span>
 </div>
 <div class="links">
-    <a href="https://github.com/z-song/laravel-admin" target="_blank">Github</a>
-    <a href="http://laravel-admin.org/docs"  target="_blank">Documentation</a>
-    <a href="http://laravel-admin.org/demo"  target="_blank">Demo</a>
+    <a href="{{env('APP_URL')}}"  target="_blank">前台官网</a>
+    <a href="">客服电话：XXXXXXXXX</a>
 </div>
