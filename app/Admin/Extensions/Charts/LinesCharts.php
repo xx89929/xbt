@@ -94,12 +94,12 @@ class  LinesCharts{
                 DB::raw('COUNT(*) as value')
             ])->toArray();
         $list['conf']['id'] = 'OrderSuccessChartsId';
-        $list['conf']['subTitle'] = '订单量(笔)';
+        $list['conf']['subTitle'] = '付款量(笔)';
         $list['conf']['bGC'] = 'green';
         $list['conf']['bC'] = 'green';
         $list['conf']['title'] = '30天内已付款订单统计';
         $list['conf']['xAxes'] = '日期';
-        $list['conf']['yAxes'] = '订单量';
+        $list['conf']['yAxes'] = '付款量';
 
         return view('admin.charts.lineCharts',['list' => $list]);
     }
@@ -119,12 +119,12 @@ class  LinesCharts{
                 DB::raw('COUNT(*) as value')
             ])->toArray();
         $list['conf']['id'] = 'OrderRefundChartsId';
-        $list['conf']['subTitle'] = '订单量(笔)';
+        $list['conf']['subTitle'] = '退款量(笔)';
         $list['conf']['bGC'] = '#d6301f';
         $list['conf']['bC'] = '#d6301f';
         $list['conf']['title'] = '30天内退款订单统计';
         $list['conf']['xAxes'] = '日期';
-        $list['conf']['yAxes'] = '订单量';
+        $list['conf']['yAxes'] = '退款量';
 
         return view('admin.charts.lineCharts',['list' => $list]);
     }

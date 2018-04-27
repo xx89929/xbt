@@ -3,12 +3,15 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Extensions\Charts\LinesCharts;
+use App\Admin\Extensions\Charts\PieCharts;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
+use Encore\Admin\Widgets\Collapse;
+use Encore\Admin\Widgets\InfoBox;
 use Encore\Admin\Widgets\Tab;
 
 
@@ -38,6 +41,12 @@ class HomeController extends Controller
                     $tab->add('已付款订单统计', LinesCharts::OrderSuccessCharts());
                     $tab->add('退款订单统计', LinesCharts::OrderRefundCharts());
                     $column->append($tab);
+                });
+
+                $row->column(4, function (Column $column) {
+                    $collapse = new Collapse();
+                    $collapse->add('新闻发布统计', PieCharts::newsCharts());
+                    $column->append($collapse);
                 });
             });
 
