@@ -42,14 +42,17 @@ class HomeController extends Controller
                     $column->append($infoBox);
                 });
 
+
                 $row->column(4, function (Column $column) {
-                    $moneyCount = Order::where('pay_status',1)->sum('order_money');
+                    $moneyCount = Order::where('pay_status',1)->select(DB::raw('SUM(order_money) as total_sales'))->get();
                     dd($moneyCount);
-                    $infoBox = new InfoBox('交易金额(元)', 'rmb', 'red', '/admin/order/list', number_format($moneyCount,2));
+                    $infoBox = new InfoBox('交易金额(元)', 'rmb', 'red', '/admin/order/list','');
+
                     $column->append($infoBox);
                 });
 
             });
+
 
             $content->row(function (Row $row) {
                 $row->column(4, function (Column $column) {
