@@ -103,7 +103,7 @@ class  LinesCharts{
 
         $list['data'] = Order::where([
             ['created_at', '>=', $range],
-            ['pay_status', '=', 1],
+            ['refund', '=', 1],
         ])
             ->groupBy('date')
             ->get([
