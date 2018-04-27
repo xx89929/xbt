@@ -44,8 +44,8 @@ class HomeController extends Controller
 
 
                 $row->column(4, function (Column $column) {
-                    $moneyCount = Order::where('pay_status','=','1')->sum('order_money');
-                    $infoBox = new InfoBox('交易金额(元)', 'rmb', 'red', '/admin/order/list','');
+                    $moneyCount = Order::where('pay_status','=','1')->withTrashed()->sum('order_money');
+                    $infoBox = new InfoBox('交易金额(元)', 'rmb', 'red', '/admin/order/list',$moneyCount);
 
                     $column->append($infoBox);
                 });
