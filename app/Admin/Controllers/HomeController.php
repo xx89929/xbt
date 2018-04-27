@@ -2,12 +2,14 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\Charts\LinesCharts;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
+use Encore\Admin\Widgets\InfoBox;
 
 class HomeController extends Controller
 {
@@ -19,6 +21,13 @@ class HomeController extends Controller
             $content->description('Description...');
 
             $content->row(Dashboard::title());
+
+
+            $content->row(function (Row $row) {
+                $row->column(4, function (Column $column) {
+                    $column->append(LinesCharts::MemberRegCharts());
+                });
+            });
 
             $content->row(function (Row $row) {
 
