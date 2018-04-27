@@ -9,7 +9,8 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
-use Encore\Admin\Widgets\InfoBox;
+use Encore\Admin\Widgets\Tab;
+
 
 class HomeController extends Controller
 {
@@ -25,7 +26,18 @@ class HomeController extends Controller
 
             $content->row(function (Row $row) {
                 $row->column(4, function (Column $column) {
-                    $column->append(LinesCharts::MemberRegCharts());
+                    $tab = new Tab();
+                    $tab->add('会员注册统计', LinesCharts::MemberRegCharts());
+                    $tab->add('医生注册统计', LinesCharts::DocRegCharts());
+                    $column->append($tab);
+                });
+
+                $row->column(4, function (Column $column) {
+                    $tab = new Tab();
+                    $tab->add('生成订单统计', LinesCharts::OrderCharts());
+                    $tab->add('已付款订单统计', LinesCharts::OrderSuccessCharts());
+                    $tab->add('退款订单统计', LinesCharts::OrderRefundCharts());
+                    $column->append($tab);
                 });
             });
 
