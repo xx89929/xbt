@@ -34,5 +34,5 @@
 </div>
 <div class="links">
     <a href="{{env('APP_URL')}}"  target="_blank">前台官网</a>
-    <a href="">客服电话：XXXXXXXXX</a>
+    <a href="">客服电话：020-29826058</a>
 </div>
