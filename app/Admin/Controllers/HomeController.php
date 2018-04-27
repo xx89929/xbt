@@ -42,7 +42,8 @@ class HomeController extends Controller
                 });
 
                 $row->column(4, function (Column $column) {
-                    $moneyCount = Order::where('pay_status',1)->max('order_money');
+                    $moneyCount = Order::where('pay_status','=',1)->max('order_money');
+                    dd($moneyCount);
                     $infoBox = new InfoBox('交易金额(元)', 'rmb', 'red', '/admin/order/list', number_format($moneyCount,2));
                     $column->append($infoBox);
                 });

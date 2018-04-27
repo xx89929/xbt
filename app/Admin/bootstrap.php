@@ -30,3 +30,4 @@ Column::extend('expand', ExpandRow::class);
 Form::extend('editor', WangEditor::class);
 
 Admin::js('/js/Chart.min.js');
+
