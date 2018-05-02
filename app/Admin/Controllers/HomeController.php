@@ -32,20 +32,20 @@ class HomeController extends Controller
             $content->row(function (Row $row) {
                 $row->column(4, function (Column $column) {
                     $userCount = User::count();
-                    $infoBox = new InfoBox('会员统计(位)', 'users', 'aqua', '/admin/member/manage', $userCount);
+                    $infoBox = new InfoBox('总会员统计(位)', 'users', 'aqua', '/admin/member/manage', $userCount);
                     $column->append($infoBox);
                 });
 
                 $row->column(4, function (Column $column) {
                     $orderCount = Order::count();
-                    $infoBox = new InfoBox('订单统计(笔)', 'shopping-cart', 'green', '/admin/order/list', $orderCount);
+                    $infoBox = new InfoBox('总订单统计(笔)', 'shopping-cart', 'green', '/admin/order/list', $orderCount);
                     $column->append($infoBox);
                 });
 
 
                 $row->column(4, function (Column $column) {
                     $moneyCount = Order::where('pay_status','=','1')->withTrashed()->sum('order_money');
-                    $infoBox = new InfoBox('交易金额(元)', 'rmb', 'red', '/admin/order/list',$moneyCount);
+                    $infoBox = new InfoBox('总交易金额(元)', 'rmb', 'red', '/admin/order/list',$moneyCount);
 
                     $column->append($infoBox);
                 });
