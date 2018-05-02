@@ -9,6 +9,7 @@ use App\Models\Order;
 
 use App\Models\Product;
 use App\User;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -79,7 +80,14 @@ class OrderController extends Controller
     protected function grid()
     {
         return Admin::grid(Order::class, function (Grid $grid) {
-            $grid->paginate(10);
+            if (Admin::user()->isRole('agency')){
+                $doctorIds = array();
+                $doctor = Administrator::find(Admin::user()->id)->agencyStoreDoc;
+                foreach ($doctor as $k => $v){
+                    $doctorIds[$k] = $v->id;
+                }
+                $grid->model()->whereIn('doctor_id',$doctorIds);
+            }
             $grid->model()->orderBy('id','desc');
             $grid->id('ID')->sortable();
             $grid->order_id('订单号')->sortable();
