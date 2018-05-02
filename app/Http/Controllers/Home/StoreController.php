@@ -34,7 +34,6 @@ class StoreController extends InitController
         }
 
         $storeSort = $store->sortBy('distance')->values()->all();
-        dd($store);exit;
 
         $this->pageTitle = '修巴堂店铺';
         return view($this->iView.'.page.store.index',['headNav' => 'store','pageTitle' => $this->pageTitle,'myPoint' => $myPoint,'store' => $storeSort]);
