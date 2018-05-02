@@ -12,9 +12,9 @@ use App\Http\Controllers\Controller;
 class StoreController extends InitController
 {
     public function index(Request $request){
-
-        $hotStore = Store::select('name','store_pic')->take(6)->get();
-        return view($this->iView.'.page.facade.index',['hotStore' => $hotStore,'headNav' => 'store']);
+        $area = Area::all();
+        $hotStore = Store::take(6)->get();
+        return view($this->iView.'.page.facade.index',['hotStore' => $hotStore,'headNav' => 'store','area' => $area]);
     }
 
     public function getBdMap(Request $request){

@@ -7,7 +7,8 @@ var pt = null;
 var i = 0;
 var Zoom = 0;
 var location_area = null;
-
+var firstLat = $('.store-lat').eq(0).text();
+var firstLng = $('.store-lng').eq(0).text();
 function loadJScript() {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -16,11 +17,10 @@ function loadJScript() {
 }
 
 function maPinit() {
-
     var EXAMPLE_URL = "http://api.map.baidu.com/library/MarkerClusterer/1.2/examples/";
     map = new BMap.Map("facade-map",{minZoom:9});
     map.enableScrollWheelZoom();
-    var point = new BMap.Point(109.733755, 19.180501);
+    var point = new BMap.Point(firstLng,firstLat);
     if(location_area != null){
         console.log(location_area)
         map.centerAndZoom(location_area,17);      // 用城市名设置地图中心点

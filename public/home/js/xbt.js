@@ -128,36 +128,6 @@ $(function () {
 
 
 
-function areaJajx(Url,param,next_par) {
-    $.ajax({
-        async: true,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        type:'get',
-        url : Url,
-        data : param,
-        success:function (data) {
-            // console.log('成功',data);
-            if(Array.isArray(data)){
-                $(next_par).empty();
-                var i = 0;
-                for(i;i < data.length;i++){
-                    $(next_par).append(
-                        "<option value='"+data[i]['id']+"'>"+data[i]['text']+"</option>"
-                    );
-                };
-            }
-            if(next_par){
-                areaPost($(next_par));
-            }
-        },
-        error:function (data) {
-            console.log('失败',data);
-            res = data;
-        }
-    });
-}
 
 
 $(function () {
@@ -367,13 +337,45 @@ function areaPost(that) {
         param = {
             'q' : parent_id,
         };
+    console.log(param);
     areaJajx(url,param,next_par,that);
 };
+
+function areaJajx(Url,param,next_par) {
+    $.ajax({
+        async: true,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type:'get',
+        url : Url,
+        data : param,
+        success:function (data) {
+             //console.log('成功',data);
+            if(Array.isArray(data)){
+                $(next_par).empty();
+                var i = 0;
+                for(i;i < data.length;i++){
+                    $(next_par).append(
+                        "<option value='"+data[i]['id']+"'>"+data[i]['text']+"</option>"
+                    );
+                };
+            }
+            if(next_par){
+                areaPost($(next_par));
+            }
+        },
+        error:function (data) {
+            console.log('失败',data);
+            res = data;
+        }
+    });
+}
 
 
 
 //会员地址页
-$('.pro-select').on('change select',function () {
+$('.pro-select').on('change',function () {
     areaPost(this);
 });
 

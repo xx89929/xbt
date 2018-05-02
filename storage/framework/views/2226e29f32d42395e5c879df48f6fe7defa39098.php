@@ -5,25 +5,23 @@
     <div class="facade-map-search">
         <ul class="list-inline">
             <li class="col-xs-2">
-                <select name="province" id="map-province" class="facade-map-select">
-                    <option>省</option>
-                    <option>广东</option>
-                    <option>海南</option>
+                <select name="province" id="map-province" class="facade-map-select pro-select" data-url="<?php echo e(route('api.getCity')); ?>" data-next="#getCity">
+                    <option value="">省</option>
+                    <?php $__currentLoopData = $area; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($ar->area_type == 1): ?>
+                    <option value="<?php echo e($ar->id); ?>"><?php echo e($ar->area_name); ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </li>
             <li class="col-xs-2">
-                <select name="city" id="map-city" class="facade-map-select">
-                    <option>市</option>
-                    <option>深圳</option>
-                    <option>海口</option>
+                <select name="city" id="getCity" class="facade-map-select pro-select" data-url="<?php echo e(route('api.getDistrict')); ?>" data-next="#getDistrict">
+                    <option value="">市</option>
                 </select>
             </li>
             <li class="col-xs-2">
-                <select name="district" id="map-district" class="facade-map-select">
-                    <option>区</option>
-                    <option>南山区</option>
-                    <option>龙华区</option>
-                    <option>秀英区</option>
+                <select name="district" id="getDistrict" data-url="<?php echo e(route('api.getAreaStore')); ?>" class="facade-map-select">
+                    <option value="">区</option>
                 </select>
             </li>
             <li class="col-xs-6 clearfix">
@@ -41,8 +39,8 @@
     <script>
         $('#mapSearch').click(function () {
             var province = $('#map-province option:selected').text();
-            var city = $('#map-city option:selected').text();
-            var district = $('#map-district option:selected').text();
+            var city = $('#getCity option:selected').text();
+            var district = $('#getDistrict option:selected').text();
             theLocation(province+city+district);
         })
     </script>

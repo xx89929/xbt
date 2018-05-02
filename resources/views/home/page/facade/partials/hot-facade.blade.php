@@ -12,6 +12,8 @@
                     </div>
                     <div class="hot-facade-item-des text-center">
                         <h5>{{$hs->name}}</h5>
+                        <p style="display: none;" class="store-lat">{{$hs->lat}}</p>
+                        <p style="display: none;" class="store-lng">{{$hs->lng}}</p>
                     </div>
                 </div>
             </li>
