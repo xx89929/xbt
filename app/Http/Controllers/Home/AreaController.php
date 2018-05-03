@@ -40,13 +40,9 @@ class AreaController extends Controller
         if(empty($areaOne)) {
             return '';
         }
-        $store = Store::where('district',$areaOne->id)->pluck('name');
-        if(empty($store)){
-            $store = Store::where('city',$areaOne->id)->pluck('name');
-        }
+        $store = Store::where('district',$areaOne->id)->orWhere('city',$areaOne->id)->pluck('name');
+
         $stores = $store->toArray();
-
-
         return $stores ? $stores : null;
     }
 
