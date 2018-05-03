@@ -1,4 +1,9 @@
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=XtBZlAmRRP5ATTj0LG95AhU8vDBSNiue"></script>
+<style>
+    .citylist_popup_main .city_content_top{
+        height: 50px;
+    }
+</style>
 <div class="facade-map-box">
     <div id="facade-map"></div>
     <div id="getmap_url" url="<?php echo e(route('baidu.getmap')); ?>"></div>
