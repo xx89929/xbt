@@ -71,12 +71,8 @@
     });
 </script>
 
-
-
-
-
 <script>
-    constData = '';
+    var constData = '';
     $('#pro-info-store-picker').picker({
         toolbarTemplate: '<header class="bar bar-nav">\
   <button class="button button-link pull-right close-picker">确定</button>\
