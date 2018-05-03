@@ -61,6 +61,20 @@
 @endsection
 
 @section('jss')
+<script>
+    var ifrm = document.getElementsByTagName("iframe");
+    console.log('ifrm',ifrm);
+    if(ifrm){
+        var x;
+        for(x in ifrm){
+            resizeIframe(ifrm[x]);
+        }
+    }
+    function resizeIframe(ifrm) {
+        var bodyw=document.body.clientWidth;
+        ifrm.height = bodyw*9/16;//设定高度
+    }
+</script>
 
 <script>
     $("#pro-info-city-picker").cityPicker({
