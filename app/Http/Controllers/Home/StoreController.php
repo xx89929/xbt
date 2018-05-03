@@ -13,8 +13,9 @@ class StoreController extends InitController
 {
     public function index(Request $request){
         $area = Area::all();
-        $hotStore = Store::take(6)->get();
-        return view($this->iView.'.page.facade.index',['hotStore' => $hotStore,'headNav' => 'store','area' => $area]);
+        $sList = Store::all();
+        $hotStore = $sList->take(6);
+        return view($this->iView.'.page.facade.index',['hotStore' => $hotStore,'headNav' => 'store','sList' => $sList,'area' => $area]);
     }
 
     public function getBdMap(Request $request){
