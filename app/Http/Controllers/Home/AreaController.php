@@ -47,7 +47,7 @@ class AreaController extends Controller
         $stores = $store->toArray();
 
 
-        return $stores ? $stores : [];
+        return $stores ? $stores : null;
     }
 
     public function getWapDoc(Request $request){
@@ -59,7 +59,7 @@ class AreaController extends Controller
         }
         $docs = Doctor::where('be_store',$beStore->id)->pluck('realname');
         $Docs = $docs->toArray();
-        return $Docs;
+        return $Docs ? $Docs : null;
     }
 
 

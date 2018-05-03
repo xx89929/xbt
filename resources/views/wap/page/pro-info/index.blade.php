@@ -105,15 +105,11 @@
         }
     });
 
-
-
-
-
     $('#pro-info-doctor-picker').picker({
         toolbarTemplate: '<header class="bar bar-nav">\
-  <button class="button button-link pull-right close-picker">确定</button>\
-  <h1 class="title">请选择医生</h1>\
-  </header>',
+                          <button class="button button-link pull-right close-picker">确定</button>\
+                          <h1 class="title">请选择医生</h1>\
+                          </header>',
         cols: [{
             textAlign: 'center',
             values: ['']
@@ -133,13 +129,8 @@
                 picker.cols[0].replaceValues(['']);
                 picker.updateValue();
             };
-
-
         }
     });
-
-
-
     function areaJajxWap(Url,param) {
         $.ajax({
             async: false,
