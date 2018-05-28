@@ -4,6 +4,7 @@ namespace App\Http\Controllers\WeChat;
 
 use App\Models\BannerSet;
 use App\Models\CaseXb;
+use App\Models\Doctor;
 use App\Models\News;
 use App\Models\NewsTage;
 use App\Models\Product;
@@ -28,9 +29,18 @@ class IndexController extends BaseController
         });
         $index['case'] = CaseXb::all()->take(9)->each(function ($case){
             $case->image = env('APP_URL').'/storage/'.$case->image;
+            $case->name = str_limit($case->name,39);
         });
 
-        $index['serEnv'] = ServiceEnv::select('id','title','pic')->take(3)->get();
+        $index['doctors'] = Doctor::select('id','realname','avatar','doc_group')->with(['doc_to_doc_group' =>function($query){
+            $query->select('id','title');
+        }])->take(4)->get()->each(function ($d){
+            $d->avatar = env('APP_URL').'/storage/'.$d->avatar;
+        });
+
+        $index['serEnv'] = ServiceEnv::select('id','title','pic')->get()->each(function ($ser){
+            $ser->pic = env('APP_URL').'/storage/'.$ser->pic;
+        });
         return $index;
     }
 }
