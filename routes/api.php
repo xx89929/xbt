@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'WeChat'],function (){
     Route::get('index','IndexController@index');
+    Route::get('case/view','CaseController@index');
 });
