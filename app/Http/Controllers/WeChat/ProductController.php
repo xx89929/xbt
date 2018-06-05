@@ -17,4 +17,13 @@ class ProductController extends Controller
         });
         return $ProList;
     }
+
+    public function getProInfo(Request $request){
+        if($request->get('id')){
+            $ProInfo = Product::ProId($request->get('id'))->first();
+            $ProInfo->price = number_format($ProInfo->price,2);
+            return $ProInfo;
+        }
+
+    }
 }
