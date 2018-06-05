@@ -21,4 +21,5 @@ Route::group(['namespace' => 'WeChat'],function (){
     Route::get('index','IndexController@index');
     Route::get('case/view','CaseController@index');
     Route::get('caseinfo/view','CaseController@caseInfo');
+    Route::get('product/view','ProductController@index');
 });
