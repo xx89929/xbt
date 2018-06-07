@@ -22,9 +22,8 @@ class ProductController extends Controller
         if($request->get('id')){
             $ProInfo = Product::ProId($request->get('id'))->first();
             $ProInfo->price = number_format($ProInfo->price,2);
-            $ProInfo->pro_info = str_replace('iframe' , 'web-view',$ProInfo->pro_info);
+            $ProInfo->pro_info = preg_replace('/<iframe(.*)iframe>/' , '',$ProInfo->pro_info);
             return $ProInfo;
         }
-
     }
 }
