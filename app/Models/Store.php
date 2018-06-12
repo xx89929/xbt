@@ -29,6 +29,7 @@ class Store extends Model
         return $query->where('id',$id);
     }
 
+
     public function store_doctor(){
         return $this->hasMany(Doctor::class,'be_store','id');
     }
