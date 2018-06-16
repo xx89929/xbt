@@ -47,6 +47,7 @@ class LoginController extends Controller
         $saveUser = User::firstOrNew(['openId' => $request->get('openId')]);
         $saveUser->openId = $request->get('openId');
         $userSaveStat = $saveUser->save();
+        return $userSaveStat;exit;
         if($userSaveStat){
            $userInfo =  User::where('openId',$request->get('openId'))->first();
            return $userInfo->id;
