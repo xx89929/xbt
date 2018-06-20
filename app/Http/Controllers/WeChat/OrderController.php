@@ -16,7 +16,7 @@ class OrderController extends Controller
         }
         $order = Order::where('member_id',$id)->OrderInfo()->simplePaginate(15)->each(function ($o){
             $o->relevancy_order_pro->pic = env('APP_URL').'/storage/'.$o->relevancy_order_pro->pics[0];
-            $o->relevancy_order_pro->price = number_format($o->relevancy_order_pro->price,2);
+            $o->price = number_format($o->relevancy_order_pro->price,2);
             $o->order_money = number_format($o->order_money,2);
         });
         return $order;
