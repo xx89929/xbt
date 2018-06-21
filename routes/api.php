@@ -27,5 +27,7 @@ Route::group(['namespace' => 'WeChat'],function (){
     Route::get('account/login','LoginController@login');
     Route::get('account/saveWxUserInfo','LoginController@saveWxUserInfo');
     Route::get('user/order','OrderController@orderList');
+    Route::get('user/order-info','OrderController@searchOrder');
+    Route::get('user/finance','FinanceController@financeList');
 
 });

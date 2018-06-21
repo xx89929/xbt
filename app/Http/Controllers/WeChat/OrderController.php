@@ -20,6 +20,14 @@ class OrderController extends Controller
             $o->order_money = number_format($o->order_money,2);
         });
         return $order;
+    }
 
+    public function searchOrder(Request $request){
+
+        $oId = $request->get('id');
+        $res = Order::OrderInfo()->find($oId);
+        $res->pro_pic = env('APP_URL').'/storage/'.$res->relevancy_order_pro->pics[0];
+        $res->order_money = number_format($res->order_money,2);
+        return $res ? $res : null;
     }
 }
