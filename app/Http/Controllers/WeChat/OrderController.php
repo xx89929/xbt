@@ -14,12 +14,13 @@ class OrderController extends Controller
         if(!$id){
             return false;
         }
-        $order = Order::where('member_id',$id)->OrderInfo()->simplePaginate(15)->each(function ($o){
-            $o->relevancy_order_pro->pic = env('APP_URL').'/storage/'.$o->relevancy_order_pro->pics[0];
-            $o->price = number_format($o->relevancy_order_pro->price,2);
-            $o->order_money = number_format($o->order_money,2);
-        });
-        return $order;
+        $order = Order::where('member_id',$id)->OrderInfo()->paginate(15)->appends(['id' =>  $request->get('id')]);
+        foreach($order as $k => $l){
+            $l->relevancy_order_pro->pic = env('APP_URL').'/storage/'.$l->relevancy_order_pro->pics[0];
+            $l->price = number_format($l->relevancy_order_pro->price,2);
+            $l->order_money = number_format($l->order_money,2);
+        }
+        return $order ? $order :  0;
     }
 
     public function searchOrder(Request $request){
