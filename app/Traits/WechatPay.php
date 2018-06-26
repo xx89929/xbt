@@ -11,7 +11,7 @@ trait WechatPay
         'appid' => 'wxb3fxxxxxxxxxxx', // APP APPID
         'app_id' => 'wxb3fxxxxxxxxxxx', // 公众号 APPID
         'miniapp_id' => 'wxb3fxxxxxxxxxxx', // 小程序 APPID
-        'mch_id' => '14577xxxx',
+        'mch_id' => '1499477092',
         'key' => 'mF2suE9sU6Mk1Cxxxxxxxxxxx',
         'notify_url' => 'http://yanda.net.cn/notify.php',
         'cert_client' => './cert/apiclient_cert.pem', // optional，退款等情况时用到
@@ -53,6 +53,7 @@ trait WechatPay
             // $e->getMessage();
         }
 
-        return $pay->success()->send();// laravel 框架中请直接 `return $pay->success()`
+        //return $pay->success()->send();// laravel 框架中请直接 `return $pay->success()`
+        return $pay->success();// laravel 框架中请直接 `return $pay->success()`
     }
 }

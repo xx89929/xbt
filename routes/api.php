@@ -30,5 +30,7 @@ Route::group(['namespace' => 'WeChat'],function (){
     Route::get('user/order-info','OrderController@searchOrder');
     Route::get('user/finance','FinanceController@financeList');
     Route::get('new/info','NewsController@newsInfo');
+    Route::post('get/store','AreaController@regionGetStore');
+    Route::post('get/doctor','AreaController@storeGetDoc');
 
 });
