@@ -19,7 +19,8 @@ class WePayController extends Controller
             'openid' => $request->post('openId'),
             'nonce_str' => '',
         ];
-        return $result = Pay::wechat($this->config)->miniapp($order);
+//        return $result = Pay::wechat($this->config)->miniapp($order);
+        return Pay::wechat($this->config)->mp($order);
 
     }
 }
