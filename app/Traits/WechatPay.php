@@ -8,11 +8,11 @@ use Yansongda\Pay\Pay;
 trait WechatPay
 {
     protected $config = [
-        'appid' => 'wxb3fxxxxxxxxxxx', // APP APPID
-        'app_id' => 'wxb3fxxxxxxxxxxx', // 公众号 APPID
-        'miniapp_id' => 'wxb3fxxxxxxxxxxx', // 小程序 APPID
+        'appid' => '', // APP APPID
+        'app_id' => '', // 公众号 APPID
+        'miniapp_id' => 'wxe68abfc1d61db371', // 小程序 APPID
         'mch_id' => '1499477092',
-        'key' => 'mF2suE9sU6Mk1Cxxxxxxxxxxx',
+        'key' => 'BEySsZm2VlLPqcC2xUqdhvDibiRDsRNW',
         'notify_url' => 'http://yanda.net.cn/notify.php',
         'cert_client' => './cert/apiclient_cert.pem', // optional，退款等情况时用到
         'cert_key' => './cert/apiclient_key.pem',// optional，退款等情况时用到
@@ -21,7 +21,11 @@ trait WechatPay
             'level' => 'debug'
         ],
         'mode' => 'dev', // optional, dev/hk;当为 `hk` 时，为香港 gateway。
+        'sign' => '',
     ];
+
+
+
 
     protected function wechatPay(Request $request)
     {

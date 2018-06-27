@@ -16,8 +16,10 @@ class WePayController extends Controller
             'out_trade_no' => time(),
             'body' => 'subject-测试',
             'total_fee' => '1',
-            'openid' => $request->get('openId'),
+            'openid' => $request->post('openId'),
+            'nonce_str' => '',
         ];
         return $result = Pay::wechat($this->config)->miniapp($order);
+
     }
 }

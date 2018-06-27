@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\WeChat;
 
+use App\Models\MemberInfo;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,17 +18,20 @@ class LoginController extends Controller
         $this->wxxcx = $wxxcx;
     }
 
-    public function login(){
-        $userInfo = $this->getWxUserInfo();
-        Log::info('wxuserInfo:'.gettype($userInfo));
-        return $userInfo;
+    public function login(Request $request){
+        $EncodeuserInfo = $this->getWxUserInfo($request);
+        $userInfo = json_decode($EncodeuserInfo);
+        if($userInfo->openId){
+            return $this->saveWxUserInfo($userInfo) ? $EncodeuserInfo : false;
+        }
     }
 
 
-    public function getWxUserInfo()
+    public function getWxUserInfo(Request $request)
     {
         //code 在小程序端使用 wx.login 获取
-        $code = request('code', '');
+//        $code = request('code', '');
+        $code = $request->post('code');
 
         //encryptedData 和 iv 在小程序端使用 wx.getUserInfo 获取
         $encryptedData = request('encryptedData', '');
@@ -40,16 +44,24 @@ class LoginController extends Controller
         return $this->wxxcx->getUserInfo($encryptedData, $iv);
     }
 
-    public function saveWxUserInfo(Request $request){
-        if(!$request->get('openId')){
-            return trans('wechat.param_error');
-        }
-        $saveUser = User::firstOrNew(['openId' => $request->get('openId')]);
-        $saveUser->openId = $request->get('openId');
-        $userSaveStat = $saveUser->save();
+    public function saveWxUserInfo($UserInfo){
+
+        $saveUser = User::firstOrNew(['openId' => $UserInfo->openId]);
+        $saveUser->openId = $UserInfo->openId;
+        $userSaveStat =  $saveUser->save();
         if($userSaveStat){
-           $userInfo =  User::where('openId',$request->get('openId'))->first();
-           return $userInfo->id;
+            $memberInfo = MemberInfo::firstOrNew(['member_id' => $saveUser->id]);
+            $memberInfo->nickname = $UserInfo->nickName;
+            $Info = $memberInfo->save();
+            return $Info ? $Info : false;
         }
+//        $memberInfo = MemberInfo::firstOrNew(['member_id' => $saveUser->id]);
+//        return $memberInfo;
+//        $saveUser->openId = $request->get('openId');
+//        $userSaveStat = $saveUser->save();
+//        if($userSaveStat){
+//           $userInfo =  User::where('openId',$request->get('openId'))->first();
+//           return $userInfo->id;
+//        }
     }
 }
