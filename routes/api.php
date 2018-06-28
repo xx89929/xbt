@@ -34,5 +34,6 @@ Route::group(['namespace' => 'WeChat'],function (){
     Route::post('get/doctor','AreaController@storeGetDoc');
     Route::post('wepay/miniappPay','WePayController@miniappPay');
     Route::post('wepay/notify','WePayController@miniappPay');
+    Route::post('wepay/update/paystatus','WePayController@orderPayStatusUpdate');
 
 });
