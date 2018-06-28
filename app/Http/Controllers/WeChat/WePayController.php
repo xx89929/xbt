@@ -21,6 +21,6 @@ class WePayController extends Controller
         ];
 //        return $result = Pay::wechat($this->config)->miniapp($order);
         return Pay::wechat($this->config)->mp($order);
-
     }
+
 }

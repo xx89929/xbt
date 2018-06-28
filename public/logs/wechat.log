@@ -1,0 +1,74 @@
+2018-06-27 16:58:15 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"43C0CD44A9C13B4B094C80BE560D05F4","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530089895,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-27 16:58:15 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"43C0CD44A9C13B4B094C80BE560D05F4","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530089895,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 11:57:03 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"37625D56EFFE3BEEA632ADB9DD98A132","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530158223,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 11:57:03 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"37625D56EFFE3BEEA632ADB9DD98A132","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530158223,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 11:57:28 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"255F75859B014F7A548A0A6F649077C1","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530158248,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 11:57:28 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"255F75859B014F7A548A0A6F649077C1","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530158248,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:12:24 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"7DB9552C9637D7678545B2C4E297D90A","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530159144,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:12:24 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"7DB9552C9637D7678545B2C4E297D90A","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530159144,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:15:32 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"DC096F029D62F96A7112AB8901D3FA3E","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530159332,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:15:32 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"DC096F029D62F96A7112AB8901D3FA3E","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530159332,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:17:49 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"00314657E6749C96BD6C95C85703C318","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530159469,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:17:49 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"00314657E6749C96BD6C95C85703C318","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530159469,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:18:15 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"723D7705FB3E110EB2D002064A8367B6","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:18:15 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"723D7705FB3E110EB2D002064A8367B6","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:18:26 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"723D7705FB3E110EB2D002064A8367B6","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 12:18:26 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"723D7705FB3E110EB2D002064A8367B6","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:06:16 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"8983E5517DAD5849B3ED50924FECA7DE","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530165976,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:06:16 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"8983E5517DAD5849B3ED50924FECA7DE","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530165976,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:07:23 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"2E98A6F1FF36D8E9439867B5F4EED7B2","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166043,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:07:23 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"2E98A6F1FF36D8E9439867B5F4EED7B2","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166043,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:18:19 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"7A3CA4FC74C1E5113856739DF8CA4701","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166699,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:18:19 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"7A3CA4FC74C1E5113856739DF8CA4701","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166699,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:18:56 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"06D89D8BFBA7F6516939A212A4F96E18","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166736,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:18:56 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"06D89D8BFBA7F6516939A212A4F96E18","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166736,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:19:36 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"9470CADBF2CECF053DB68EB7E1082290","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166776,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:20:32 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"1BEE8900B39CFEC3A89C5314FEB4DD19","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166832,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:20:32 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"1BEE8900B39CFEC3A89C5314FEB4DD19","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530166832,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:29:33 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"B2803F98A82C2BE1F82D5442D6AFF089","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167373,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:29:33 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"B2803F98A82C2BE1F82D5442D6AFF089","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167373,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:31:38 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"FAB83F17EDFF54A353A107C65630CCDC","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167498,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:31:38 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"FAB83F17EDFF54A353A107C65630CCDC","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167498,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:33:05 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"6C6FFC52B56419BB59326F089BEFDD52","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167585,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:33:05 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"6C6FFC52B56419BB59326F089BEFDD52","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167585,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:34:52 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"68D548D633B0D04E16B12B219850FFED","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167692,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:34:52 > DEBUG > Request To Wechat Api ["https://apihk.mch.weixin.qq.com/pay/unifiedorder",{"appid":"wxe68abfc1d61db371","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"68D548D633B0D04E16B12B219850FFED","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167692,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:39:11 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"D1F490D511D87071D9ADF33797AC821B","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167951,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
+2018-06-28 14:39:11 > DEBUG > Request To Wechat Api ["https://apihk.mch.weixin.qq.com/pay/unifiedorder",{"appid":"wxbf5223518409c9cd","mch_id":"1499477092","nonce_str":"","notify_url":"http://yanda.net.cn/notify.php","sign":"D1F490D511D87071D9ADF33797AC821B","trade_type":"JSAPI","spbill_create_ip":"127.0.0.1","out_trade_no":1530167951,"body":"subject-测试","total_fee":"1","openid":"omdHl5RsGLoy-detiac57CffrrUI"}] []
+
