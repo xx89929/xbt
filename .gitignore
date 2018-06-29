@@ -1,7 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
-/public/logs
+/public/logs/*
+/public/uploads/*
 /storage/*.key
 /storage/framework/views/
 /storage/*
