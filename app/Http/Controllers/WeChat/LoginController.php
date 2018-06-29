@@ -21,8 +21,12 @@ class LoginController extends Controller
     public function login(Request $request){
         $EncodeuserInfo = $this->getWxUserInfo($request);
         $userInfo = json_decode($EncodeuserInfo);
+        $res['uinfo'] = $userInfo;
         if($userInfo->openId){
-            return $this->saveWxUserInfo($userInfo) ? $EncodeuserInfo : false;
+            $res['uid'] = $this->saveWxUserInfo($userInfo);
+            if($res['uid']){
+                return $res;
+            }
         }
     }
 
@@ -53,7 +57,7 @@ class LoginController extends Controller
             $memberInfo = MemberInfo::firstOrNew(['member_id' => $saveUser->id]);
             $memberInfo->nickname = $UserInfo->nickName;
             $Info = $memberInfo->save();
-            return $Info ? $Info : false;
+            return $Info ? $saveUser->id : false;
         }
 //        $memberInfo = MemberInfo::firstOrNew(['member_id' => $saveUser->id]);
 //        return $memberInfo;

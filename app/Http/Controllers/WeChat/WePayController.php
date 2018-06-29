@@ -17,24 +17,35 @@ class WePayController extends Controller
     use WechatPay;
 
     public function miniappPay(Request $request){
-        if(!$request->post('orderParam')){
-            return false;
+        if($request->post('orderParam')){
+            $orderParam = $request->post('orderParam');
+
+            $order = [
+                'out_trade_no' => time(),
+                'body' => 'subject-测试',
+                'total_fee' => '1',
+                'openid' => $orderParam['openId'],
+            ];
+
+            $orderParam['total'] = str_replace(',','',$orderParam['total']);
+
+
+            $orderCreate = $this->orderParam($orderParam,$order);
+
+            return $orderCreate ? Pay::wechat($this->config)->miniapp($order) : false;
+
+        }elseif($request->post('orderPay')){
+            $orderPay = $request->post('orderPay');
+            $orderInfo = Order::where('order_id',$orderPay['order_id'])->first();
+            $order = [
+                'out_trade_no' => $orderPay['order_id'],
+                'body' => $orderInfo['subject'],
+                'total_fee' => '1',
+                'openid' => $orderPay['openId'],
+            ];
+            return Pay::wechat($this->config)->miniapp($order);
         }
-        $orderParam = $request->post('orderParam');
 
-        $order = [
-            'out_trade_no' => time(),
-            'body' => 'subject-测试',
-            'total_fee' => '1',
-            'openid' => $orderParam['openId'],
-        ];
-
-        $orderParam['total'] = str_replace(',','',$orderParam['total']);
-
-
-        $orderCreate = $this->orderParam($orderParam,$order);
-
-        return $orderCreate ? Pay::wechat($this->config)->miniapp($order) : false;
     }
 
     protected function orderParam($orderParam,$orderPay){
@@ -63,7 +74,7 @@ class WePayController extends Controller
         $status = $request->post('status');
         $order_id = $request->post('order_id');
         if($status == 1 || $status == '1'){
-            Order::where('order_id',$order_id)->update(['pay_status' => 1,'pay_at' => Carbon::now()]);
+            return Order::where('order_id',$order_id)->update(['pay_status' => 1,'pay_at' => Carbon::now()]);
         }
     }
 
