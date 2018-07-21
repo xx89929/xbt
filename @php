@@ -1,0 +1,11 @@
+Discovered Package: fideloper/proxy
+Discovered Package: laravel/tinker
+Discovered Package: laravel-admin-ext/helpers
+Discovered Package: encore/laravel-admin
+Discovered Package: laravel-admin-ext/messages
+Discovered Package: laravel-admin-ext/log-viewer
+Discovered Package: laravel-admin-ext/api-tester
+Discovered Package: laravel-admin-ext/scheduling
+Discovered Package: spatie/laravel-backup
+Discovered Package: laravel-admin-ext/backup
+Package manifest generated successfully.
